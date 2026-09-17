@@ -1,0 +1,121 @@
+﻿/*  --------------
+    COLORS SETTING
+    -------------- */
+:root {
+    --menuText: #fff;
+    --menuTextHov: #eeb20e;
+    --menuBackground: rgba(68, 115, 197, 0.85);
+    --textBlack: #636e72;
+    --logoBlue: #4473c5;
+    --logoBlueHov: #2a5fb9;
+    --logoGreen: #00af50;
+    --logoGreenHov: #0d8f47;
+    --logoOrange: #ed7d31;
+    --logoOrangeHov: #ce6926;
+    --logoSilver: #c1c1c1;
+    --buttonRed: #e74c3c;
+    --cookieWarning: rgba(25, 42, 86,0.85);
+    --heroBackground: #1c1c1e;
+    --heroText: #fff;
+
+/*  -----------------
+    FONT SIZE SETTING
+    ----------------- */
+    --mainTitleSize: calc(36px + 100vw / 30);
+    --titleSize: calc(20px + 100vw / 75);
+    --textSize: 1.25rem;
+    --signatureSize: calc(25px + 100vw / 75);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/*  -------
+    TEXTBOX
+    ------- */
+
+.textbox {
+    border: none;
+    border-bottom: 1px solid #333;
+    background-color: transparent;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    height: 1.75rem;
+    width: 100%;
+    transition: 300ms;
+}
+
+.textbox:focus {
+    outline: none;
+}
+
+/*  ------
+    BUTTON
+    ------ */
+
+.button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    letter-spacing: 1px;
+    transition: 300ms;
+}
+
+.button__green {
+    border: 2px solid var(--logoGreen);
+    color: var(--logoGreen);
+}
+
+.button__green:hover {
+    color: var(--logoSilver);
+    background-color: var(--logoGreen);
+}
+
+.button__blue {
+    border: 2px solid var(--logoBlue);
+    color: var(--logoBlue);
+    margin-bottom: 0.5rem;
+}
+
+.button__blue:hover {
+    color: var(--logoSilver);
+    background-color: var(--logoBlue);
+}
+
+.button__orange {
+    border: 2px solid var(--logoOrange);
+    color: var(--logoOrange);
+}
+
+.button__orange:hover {
+    color: var(--menuText);
+    background-color: var(--logoOrange);
+}
+
+.button__red {
+    border: 2px solid var(--buttonRed);
+    color: var(--buttonRed);
+}
+
+.button__red:hover {
+    color: var(--menuText);
+    background-color: var(--buttonRed);
+}
+
+.button__sm {
+    width: 50%;
+}

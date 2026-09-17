@@ -1,0 +1,142 @@
+﻿/*  -----------------------
+    ADMIN SHARED PROPERTIES
+    ----------------------- */
+
+.admin__container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.admin__container .card {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    padding: 1rem;
+}
+
+.admin__container .card__content {
+    border: 1px solid var(--logoBlue);
+    padding: 1rem;
+    margin: 0 1rem 0.5rem 1rem;
+}
+
+.admin__container .card__title {
+    margin: 0;
+    padding-bottom: 1rem;
+    text-align: center;
+    color: var(--logoBlue);
+    font-size: 1.5rem;
+}
+
+.admin__container .card__enterdata {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+/*  -------------
+    ADMIN_CONTACT
+    ------------- */
+
+.admin__container .card__line {
+    display: block;
+}
+
+.admin__container .card__line-last {
+    margin-bottom: 1rem;
+}
+
+/*  ----------------
+    ADMIN_NEWSLETTER
+    ---------------- */
+
+.admin__container .card__choice,
+.admin__container .card__email {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid var(--logoBlue);
+    padding: 1rem;
+    margin: 0.5rem 0 0.25rem 0;
+}
+
+.admin__container .radio__choice {
+    padding: 0.25rem 0;
+}
+
+.admin__container .label__email {
+    font-size: 0.9rem;
+    color: var(--logoOrange);
+}
+
+.admin__container .textbox__multiline {
+    height: 10rem;
+}
+
+/*  -------------
+    ADMIN_OPENING
+    ------------- */
+
+.admin__container .card__opening {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin__container .label__opening {
+    display: inline-block;
+    width: 3rem;
+    margin: 0.5rem 0 0 1rem;
+}
+
+.admin__container .textbox__opening {
+    display: inline-block;
+    width: 3rem;
+    margin: 0.5rem 0 0 1rem;
+    text-align: center;
+}
+
+/*  ----------
+    ADMIN_USER
+    ---------- */
+
+.admin__container .card__dropdown {
+    display: grid;
+}
+
+.admin__container .card__enterdata {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+}
+
+.admin__container .label__data {
+    color: var(--logoOrange);
+    font-size: 0.9rem;
+}
+
+.admin__container .checkbox {
+    display: block;
+}
+
+.admin__container .card__button {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 1200px) {
+    .admin__container .card__button {
+        flex-direction: row;
+    }
+}
+
+/*  --------
+    ADMIN_SQL
+    -------- */
+
+.admin__container .label__sqlwarning {
+    display: block;
+    color: var(--buttonRed);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+}

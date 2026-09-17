@@ -1,0 +1,25 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet
+packages/
+*.nupkg
+
+# Publish profiles (may contain per-developer/deploy settings)
+*.pubxml.user
+
+# Secrets — never commit real connection strings or credentials
+netcreative.ca/App_Data/connectionStrings.config
+netcreative.ca/App_Data/appSettings.secrets.config
+
+# OS / editor junk
+Thumbs.db
+.DS_Store

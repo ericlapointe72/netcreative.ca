@@ -1,0 +1,935 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- Site1.Master -->
+  <data name="Master_Slogan" xml:space="preserve">
+    <value>Pour un site Web à la hauteur de votre entreprise!</value>
+  </data>
+  <data name="Master_Home" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="Master_Service" xml:space="preserve">
+    <value>Sites Web</value>
+  </data>
+  <data name="Master_Boutique" xml:space="preserve">
+    <value>Boutique Hors Taxes</value>
+  </data>
+  <data name="Master_DutyFreeOps" xml:space="preserve">
+    <value>DutyFreeOps</value>
+  </data>
+  <data name="Master_Portfolio" xml:space="preserve">
+    <value>Portfolio</value>
+  </data>
+  <data name="Master_Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Master_LanguageToggle" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Master_Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="Master_OpeningHours" xml:space="preserve">
+    <value>Heures d'ouverture</value>
+  </data>
+  <data name="Master_Newsletter" xml:space="preserve">
+    <value>Infolettre</value>
+  </data>
+  <data name="Master_SubscribeText" xml:space="preserve">
+    <value>Inscrivez-vous à notre liste d'envoi et soyez les premiers à connaître nos nouveautés, promotions et exclusivités.</value>
+  </data>
+  <data name="Master_SubscribeButton" xml:space="preserve">
+    <value>S'abonner</value>
+  </data>
+  <data name="Master_SubscribeErrorInvalid" xml:space="preserve">
+    <value>Vous devez d\'abord entrer votre adresse de courriel!</value>
+  </data>
+  <data name="Master_SubscribeErrorExists" xml:space="preserve">
+    <value>Vous êtes déjà abonné à notre infolettre!</value>
+  </data>
+  <data name="Master_SubscribeDone" xml:space="preserve">
+    <value>Merci de vous être abonné à notre infolettre!</value>
+  </data>
+  <data name="Master_SubscribePlaceholder" xml:space="preserve">
+    <value>Entrez votre courriel</value>
+  </data>
+  <data name="Master_FooterText" xml:space="preserve">
+    <value>Net.Créative {0} | Tous droits réservés | </value>
+  </data>
+  <data name="Master_PrivacyPolicy" xml:space="preserve">
+    <value>Politique de confidentialité</value>
+  </data>
+  <data name="Master_CookieWarningText" xml:space="preserve">
+    <value>Nous utilisons les témoins de navigation (cookies) afin d'opérer et d'améliorer nos services. Le respect de votre vie privée est important pour nous. En continuant votre navigation sur notre site, vous acceptez notre utilisation des témoins de navigation et notre politique de confidentialité.</value>
+  </data>
+  <data name="Master_CookieReadMore" xml:space="preserve">
+    <value>En savoir plus ...</value>
+  </data>
+  <data name="Master_CookieAccept" xml:space="preserve">
+    <value>Accepter et continuer</value>
+  </data>
+  <data name="Master_MailSubjectNewSubscriber" xml:space="preserve">
+    <value>Nouvel abonné</value>
+  </data>
+  <data name="Master_MailBodyNewSubscriber" xml:space="preserve">
+    <value>Un nouvel abonné a été ajouté à la liste d'envoi.</value>
+  </data>
+  <data name="Master_Monday" xml:space="preserve">
+    <value>Lundi</value>
+  </data>
+  <data name="Master_Tuesday" xml:space="preserve">
+    <value>Mardi</value>
+  </data>
+  <data name="Master_Wednesday" xml:space="preserve">
+    <value>Mercredi</value>
+  </data>
+  <data name="Master_Thursday" xml:space="preserve">
+    <value>Jeudi</value>
+  </data>
+  <data name="Master_Friday" xml:space="preserve">
+    <value>Vendredi</value>
+  </data>
+  <data name="Master_Saturday" xml:space="preserve">
+    <value>Samedi</value>
+  </data>
+  <data name="Master_Sunday" xml:space="preserve">
+    <value>Dimanche</value>
+  </data>
+  <data name="Master_Closed" xml:space="preserve">
+    <value>Fermé</value>
+  </data>
+  <data name="Master_TimeSeparator" xml:space="preserve">
+    <value>h</value>
+  </data>
+  <data name="Master_HourSeparator" xml:space="preserve">
+    <value> à </value>
+  </data>
+  <data name="Master_TimeAm" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Master_TimePm" xml:space="preserve">
+    <value></value>
+  </data>
+
+  <!-- default.aspx (Home) -->
+  <data name="Home_Title" xml:space="preserve">
+    <value>Éric Lapointe – Boutique Hors Taxes, DutyFreeOps et sites web</value>
+  </data>
+  <data name="Home_Welcome" xml:space="preserve">
+    <value>Trois expertises, une même rigueur.</value>
+  </data>
+  <data name="Home_HeroEyebrow" xml:space="preserve">
+    <value>Éric Lapointe</value>
+  </data>
+  <data name="Home_PillarsLabel" xml:space="preserve">
+    <value>Ce que je fais</value>
+  </data>
+  <data name="Home_Pillar1Title" xml:space="preserve">
+    <value>Boutique Hors Taxes</value>
+  </data>
+  <data name="Home_Pillar1Text" xml:space="preserve">
+    <value>Propriétaire d'un commerce hors taxes à la frontière canado-américaine, en Beauce.</value>
+  </data>
+  <data name="Home_Pillar2Title" xml:space="preserve">
+    <value>DutyFreeOps</value>
+  </data>
+  <data name="Home_Pillar2Text" xml:space="preserve">
+    <value>Le système de gestion que j'ai conçu pour faire fonctionner ma propre boutique.</value>
+  </data>
+  <data name="Home_Pillar3Title" xml:space="preserve">
+    <value>Sites Web</value>
+  </data>
+  <data name="Home_Pillar3Text" xml:space="preserve">
+    <value>Conception de sites web sur mesure sous la bannière Net.Créative.</value>
+  </data>
+  <data name="Home_SlideshowTitle" xml:space="preserve">
+    <value>Pourquoi je devrais confier mon projet à Net.Créative</value>
+  </data>
+  <data name="Home_Slide1Title" xml:space="preserve">
+    <value>Raison numéro 1</value>
+  </data>
+  <data name="Home_Slide1Text" xml:space="preserve">
+    <value>Mes prix sont compétitifs, car je travaille toujours à distance. Cette approche me permet de réaliser des économies substantielles que je vous transmets directement.</value>
+  </data>
+  <data name="Home_Slide2Title" xml:space="preserve">
+    <value>Raison numéro 2</value>
+  </data>
+  <data name="Home_Slide2Text" xml:space="preserve">
+    <value>Mes 30 années dans le commerce de détail, combinées à la conception de DutyFreeOps, m'ont donné une compréhension concrète des systèmes qui font vraiment fonctionner une entreprise — pas seulement en théorie.</value>
+  </data>
+  <data name="Home_Slide3Title" xml:space="preserve">
+    <value>Raison numéro 3</value>
+  </data>
+  <data name="Home_Slide3Text" xml:space="preserve">
+    <value>La réalisation complète de votre projet se fait chez moi, sans sous-traitance, ce qui permet de garder le prix de votre site le plus bas possible.</value>
+  </data>
+  <data name="Home_Slide4Title" xml:space="preserve">
+    <value>Raison numéro 4</value>
+  </data>
+  <data name="Home_Slide4Text" xml:space="preserve">
+    <value>Vous avez la tranquillité d'esprit de savoir que votre site web et votre base de données sont hébergés au Canada, chez Canadian Web Hosting.</value>
+  </data>
+  <data name="Home_Slide5Title" xml:space="preserve">
+    <value>Raison numéro 5</value>
+  </data>
+  <data name="Home_Slide5Text" xml:space="preserve">
+    <value>Mon support ne s'arrête pas à la livraison : vous pouvez me joindre par téléphone en tout temps, et vous parlerez directement à la personne qui a bâti votre site.</value>
+  </data>
+  <data name="Home_WhoIamTitle" xml:space="preserve">
+    <value>Une passion qui m'accompagne depuis toujours</value>
+  </data>
+  <data name="Home_WhoIamParagraph1" xml:space="preserve">
+    <value>C'est durant la pandémie de COVID-19, alors que j'occupais le poste de gérant à la Boutique Hors Taxes de la Beauce Inc., que j'ai commencé à développer mes compétences en programmation — d'abord pour répondre à mes propres besoins, puis par passion.</value>
+  </data>
+  <data name="Home_WhoIamParagraph2" xml:space="preserve">
+    <value>Aujourd'hui propriétaire de la boutique, j'ai depuis conçu DutyFreeOps, le système qui gère l'ensemble de mes opérations : produits, prix, promotions, fournisseurs, ressources humaines et rapports. Un projet né d'un besoin réel, avec plus de 30 ans d'expérience en commerce de détail comme point de départ.</value>
+  </data>
+  <data name="Home_WhoIamParagraph3" xml:space="preserve">
+    <value>Cette même passion m'amène aussi à concevoir des sites web sous la bannière Net.Créative, pour des entreprises qui, comme la mienne, cherchent une solution pensée pour leurs besoins réels plutôt qu'un gabarit générique.</value>
+  </data>
+  <data name="Home_WhoIamParagraph4" xml:space="preserve">
+    <value>Que ce soit pour un projet logiciel ou un site web, mon approche reste la même : écouter, comprendre, puis construire un outil qui sert vraiment. &lt;strong&gt;Je serais ravi d'en discuter avec vous&lt;/strong&gt;.</value>
+  </data>
+  <data name="Home_Facebook" xml:space="preserve">
+    <value>Suivez-nous sur notre page Facebook</value>
+  </data>
+  <data name="Home_WhoIamName" xml:space="preserve">
+    <value>Éric Lapointe</value>
+  </data>
+  <data name="Home_SlideshowPrevLabel" xml:space="preserve">
+    <value>Raison précédente</value>
+  </data>
+  <data name="Home_SlideshowNextLabel" xml:space="preserve">
+    <value>Raison suivante</value>
+  </data>
+  <data name="Home_SlideshowDotLabel" xml:space="preserve">
+    <value>Aller à la raison %d</value>
+  </data>
+  <data name="Home_CarouselRegionLabel" xml:space="preserve">
+    <value>Galerie de photos</value>
+  </data>
+  <data name="Home_CarouselPrevLabel" xml:space="preserve">
+    <value>Photo précédente</value>
+  </data>
+  <data name="Home_CarouselNextLabel" xml:space="preserve">
+    <value>Photo suivante</value>
+  </data>
+  <data name="Home_CarouselDotLabel" xml:space="preserve">
+    <value>Aller à la photo %d</value>
+  </data>
+
+  <!-- boutique.aspx -->
+  <data name="Boutique_Title" xml:space="preserve">
+    <value>Boutique Hors Taxes de la Beauce</value>
+  </data>
+  <data name="Boutique_HeroEyebrow" xml:space="preserve">
+    <value>Commerce de détail</value>
+  </data>
+  <data name="Boutique_HeroTitle" xml:space="preserve">
+    <value>Boutique Hors Taxes de la Beauce</value>
+  </data>
+  <data name="Boutique_HeroText" xml:space="preserve">
+    <value>Un commerce hors taxes à la frontière canado-américaine, en Beauce.</value>
+  </data>
+  <data name="Boutique_HeroCta" xml:space="preserve">
+    <value>Visiter beaucedutyfree.com</value>
+  </data>
+  <data name="Boutique_Intro" xml:space="preserve">
+    <value>Propriétaire de la Boutique Hors Taxes de la Beauce Inc., après plus de 30 ans dans le commerce de détail. Notre équipe offre un service personnalisé et une vaste sélection de vins, spiritueux, parfums, cosmétiques et essentiels de voyage, à des prix toujours inférieurs à ceux des détaillants américains. Réservez en ligne avant votre passage à la frontière et gagnez du temps.</value>
+  </data>
+  <data name="Boutique_CategoriesLabel" xml:space="preserve">
+    <value>Ce que vous y trouverez</value>
+  </data>
+  <data name="Boutique_Category1Title" xml:space="preserve">
+    <value>Vins &amp; spiritueux</value>
+  </data>
+  <data name="Boutique_Category1Text" xml:space="preserve">
+    <value>Une sélection soigneusement comparée pour le meilleur rapport qualité-prix, sans taxes.</value>
+  </data>
+  <data name="Boutique_Category2Title" xml:space="preserve">
+    <value>Parfums &amp; cosmétiques</value>
+  </data>
+  <data name="Boutique_Category2Text" xml:space="preserve">
+    <value>Les grandes marques à prix hors taxes, pour vous et pour vos proches.</value>
+  </data>
+  <data name="Boutique_Category3Title" xml:space="preserve">
+    <value>Essentiels de voyage</value>
+  </data>
+  <data name="Boutique_Category3Text" xml:space="preserve">
+    <value>Tout ce qu'il vous faut avant de traverser la frontière, sans détour ni attente inutile.</value>
+  </data>
+
+  <!-- dutyfreeops.aspx -->
+  <data name="DutyFreeOps_Title" xml:space="preserve">
+    <value>DutyFreeOps – Système de gestion pour boutique hors taxes</value>
+  </data>
+  <data name="DutyFreeOps_HeroEyebrow" xml:space="preserve">
+    <value>Logiciel</value>
+  </data>
+  <data name="DutyFreeOps_HeroTitle" xml:space="preserve">
+    <value>DutyFreeOps</value>
+  </data>
+  <data name="DutyFreeOps_HeroText" xml:space="preserve">
+    <value>Le système de gestion que j'ai conçu et développé pour faire fonctionner ma propre boutique hors taxes, au quotidien.</value>
+  </data>
+  <data name="DutyFreeOps_HeroCta" xml:space="preserve">
+    <value>Discuter d'un projet</value>
+  </data>
+  <data name="DutyFreeOps_Intro" xml:space="preserve">
+    <value>DutyFreeOps est né d'un besoin concret : remplacer les systèmes vieillissants qui géraient les opérations de la Boutique Hors Taxes de la Beauce. Plutôt que d'adapter un logiciel générique, j'ai choisi de concevoir et développer ma propre solution, pensée pour les besoins réels d'un commerce hors taxes — des produits jusqu'à la conformité douanière.</value>
+  </data>
+  <data name="DutyFreeOps_ModulesLabel" xml:space="preserve">
+    <value>Modules</value>
+  </data>
+  <data name="DutyFreeOps_Module1Title" xml:space="preserve">
+    <value>Produits &amp; inventaire</value>
+  </data>
+  <data name="DutyFreeOps_Module1Text" xml:space="preserve">
+    <value>Fiches produits, prix, promotions, codes-barres et suivi de l'inventaire en temps réel.</value>
+  </data>
+  <data name="DutyFreeOps_Module2Title" xml:space="preserve">
+    <value>Fournisseurs &amp; achats</value>
+  </data>
+  <data name="DutyFreeOps_Module2Text" xml:space="preserve">
+    <value>Gestion des fournisseurs, commandes d'achat et historique complet.</value>
+  </data>
+  <data name="DutyFreeOps_Module3Title" xml:space="preserve">
+    <value>Ressources humaines</value>
+  </data>
+  <data name="DutyFreeOps_Module3Text" xml:space="preserve">
+    <value>Horaires, calendrier, feuilles de temps et gestion des employés.</value>
+  </data>
+  <data name="DutyFreeOps_Module4Title" xml:space="preserve">
+    <value>Rapports &amp; analytique</value>
+  </data>
+  <data name="DutyFreeOps_Module4Text" xml:space="preserve">
+    <value>Tableau de bord, ventes, inventaire et parts de marché en un coup d'œil.</value>
+  </data>
+  <data name="DutyFreeOps_Module5Title" xml:space="preserve">
+    <value>Étiquettes &amp; impression</value>
+  </data>
+  <data name="DutyFreeOps_Module5Text" xml:space="preserve">
+    <value>Générateurs d'étiquettes pour chaque catégorie de produits, prêts à imprimer.</value>
+  </data>
+  <data name="DutyFreeOps_Module6Title" xml:space="preserve">
+    <value>Conformité douanière</value>
+  </data>
+  <data name="DutyFreeOps_Module6Text" xml:space="preserve">
+    <value>Formulaires et rapports requis pour les opérations à la frontière.</value>
+  </data>
+
+  <!-- portfolio.aspx -->
+  <data name="Portfolio_Title" xml:space="preserve">
+    <value>Nos réalisations</value>
+  </data>
+  <data name="Portfolio_Title1" xml:space="preserve">
+    <value>Boutique Hors Taxes de la Beauce Inc.</value>
+  </data>
+  <data name="Portfolio_Description1" xml:space="preserve">
+    <value>Le mandat était ici de moderniser le site web afin de faciliter la réservation de produits en ligne. Comme la clientèle s'exprime en plusieurs langues, le site web est trilingue soit rédigé en français, en anglais et en espagnol. Plus de 1100 produits sont accessible en ligne pour réservation avant votre voyage en plus d'avoir diverses informations pertinentes pour les voyageurs.</value>
+  </data>
+  <data name="Portfolio_Link1" xml:space="preserve">
+    <value>Visiter le site web</value>
+  </data>
+  <data name="Portfolio_Title2" xml:space="preserve">
+    <value>Maison Murry Baie</value>
+  </data>
+  <data name="Portfolio_Description2" xml:space="preserve">
+    <value>Le mandat était ici de créer le site web de cette nouvelle entreprise. En plus d'augmenter sa visibilité, de présenter chaque chambre et de répondre aux questions fréquentes, il fallait également pouvoir effectuer la réservation en ligne de la maison.</value>
+  </data>
+  <data name="Portfolio_Link2" xml:space="preserve">
+    <value>Visiter le site web</value>
+  </data>
+  <data name="Portfolio_Title3" xml:space="preserve">
+    <value>Tablo-Écolo</value>
+  </data>
+  <data name="Portfolio_Description3" xml:space="preserve">
+    <value>Le mandat était ici de créer une boutique en ligne pour la vente d'œuvres d'art de l'artiste Isabel Denommé. Comme tous nos site web sont bilingues, ce site n'en fait pas exception. Sur le site vous aurai l'opportunité de découvrir l'artiste, sa technique unique et vous procurer l'une ou plusieurs de ses magnifiques œuvres d'art.</value>
+  </data>
+  <data name="Portfolio_Link3" xml:space="preserve">
+    <value>Visiter le site web</value>
+  </data>
+
+  <!-- service.aspx -->
+  <data name="Service_Title" xml:space="preserve">
+    <value>Création de sites Internet responsive</value>
+  </data>
+  <data name="Service_H1Title1" xml:space="preserve">
+    <value>Ce que Net.Créative peut faire pour vous:</value>
+  </data>
+  <data name="Service_Item1" xml:space="preserve">
+    <value>Conception de sites web sur mesure;</value>
+  </data>
+  <data name="Service_Item2" xml:space="preserve">
+    <value>Hébergement de votre site web sur un serveur situé au Canada;</value>
+  </data>
+  <data name="Service_Item3" xml:space="preserve">
+    <value>Référencement SEO;</value>
+  </data>
+  <data name="Service_Item4" xml:space="preserve">
+    <value>Programmation Web;</value>
+  </data>
+  <data name="Service_Item5" xml:space="preserve">
+    <value>Tests de compatibilité;</value>
+  </data>
+  <data name="Service_Item6" xml:space="preserve">
+    <value>Création de vos icônes;</value>
+  </data>
+  <data name="Service_Item7" xml:space="preserve">
+    <value>Prise de photos pour votre boutique en ligne.</value>
+  </data>
+  <data name="Service_H1Title2" xml:space="preserve">
+    <value>Ce que vous pouvez faire avant de faire appel à Net.Créative:</value>
+  </data>
+  <data name="Service_Client1" xml:space="preserve">
+    <value>Ayez une copie de votre logo avec la meilleure résolution possible;</value>
+  </data>
+  <data name="Service_Client2" xml:space="preserve">
+    <value>Ayez des photos de votre commerce, de votre équipe, de vos réalisations, toujours avec la meilleure résolution possible;</value>
+  </data>
+  <data name="Service_Client3" xml:space="preserve">
+    <value>Écrivez des textes sur votre entreprise, vos produits, vos services, ce qui démarque votre entreprise des compétiteurs, des témoignages de clients, etc.;</value>
+  </data>
+  <data name="Service_Client4" xml:space="preserve">
+    <value>Consultez d'autres sites Web et décidez de ce qui vous plaît au niveau du design et des fonctionnalités;</value>
+  </data>
+  <data name="Service_Client5" xml:space="preserve">
+    <value>Écrivez uniquement de l'information pertinente et exprimez-vous clairement car les visiteurs fuient les sites Web remplis de titres et textes vagues. Mettez-vous à la place de votre client potentiel et créez du contenu que ce dernier aimerait voir sur un site Web;</value>
+  </data>
+  <data name="Service_Client6" xml:space="preserve">
+    <value>Plus votre objectif sera clairement défini, plus le résultat sera à la hauteur de vos attentes et meilleur sera le prix.</value>
+  </data>
+  <data name="Service_H1Title3" xml:space="preserve">
+    <value>Les technologies utilisées chez Net.Créative</value>
+  </data>
+  <data name="Service_TechTitle1" xml:space="preserve">
+    <value>HTML5</value>
+  </data>
+  <data name="Service_TechText1" xml:space="preserve">
+    <value>Le HTML (Hyper Text Markup Language) est un langage qui repose sur le principe de balises et sert à indiquer au navigateur comment afficher la page. HTML5 est la dernière version qui à été finalisée en 2014.</value>
+  </data>
+  <data name="Service_TechTitle2" xml:space="preserve">
+    <value>CSS3</value>
+  </data>
+  <data name="Service_TechText2" xml:space="preserve">
+    <value>Le CSS (Cascading Style Sheet) est un langage servant à insérer des styles. On l'utilise donc pour changer les couleurs, modifier les objets HTML, changer les polices de caractère, aligner le texte, les objets, etc. C'est aussi avec le CSS que l'on adapte l'affichage en fonction de la largeur de l'écran de l'utilisateur afin de rendre le site web « responsive ».</value>
+  </data>
+  <data name="Service_TechTitle3" xml:space="preserve">
+    <value>JavaScript</value>
+  </data>
+  <data name="Service_TechText3" xml:space="preserve">
+    <value>Le JavaScript est la troisième couche des technologies du web. Il sert à rendre les pages web interactives. Par exemple, dans ce site web, il est principalement utilisé pour le « slide show », le carrousel et comme déclencheur lorsque l'on fait défiler la page web.</value>
+  </data>
+  <data name="Service_TechTitle4" xml:space="preserve">
+    <value>Microsoft Visual Studio</value>
+  </data>
+  <data name="Service_TechText4" xml:space="preserve">
+    <value>Microsoft Visual Studio est un logiciel de développement très puissant qui nous permet de travailler avec toutes les technologies dans un seul environnement de travail. Il nous permet également d'écrire le code (c#) qui pour sa part est exécuté du côté serveur. Ce code est principalement utilisé pour lire et écrire les informations avec la base de données mais aussi pour modifier de manière dynamique le contenu HTML.</value>
+  </data>
+  <data name="Service_TechTitle5" xml:space="preserve">
+    <value>Microsoft SQL Server</value>
+  </data>
+  <data name="Service_TechText5" xml:space="preserve">
+    <value>Microsoft SQL Server est un système de gestion de base de données relationnelles en langage SQL. Il nous permet de stocker toute l'information nécessaire au bon fonctionnement d'une application Web.</value>
+  </data>
+
+  <!-- contact.aspx -->
+  <data name="Contact_Title" xml:space="preserve">
+    <value>Nous joindre</value>
+  </data>
+  <data name="Contact_H1Title" xml:space="preserve">
+    <value>Parlez-nous de votre projet:</value>
+  </data>
+  <data name="Contact_LastName" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="Contact_FirstName" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="Contact_Email" xml:space="preserve">
+    <value>Courriel</value>
+  </data>
+  <data name="Contact_Phone" xml:space="preserve">
+    <value>Téléphone</value>
+  </data>
+  <data name="Contact_Company" xml:space="preserve">
+    <value>Compagnie</value>
+  </data>
+  <data name="Contact_ProjectTypeLabel" xml:space="preserve">
+    <value>Quel est le type de projet ...</value>
+  </data>
+  <data name="Contact_ProjectType1" xml:space="preserve">
+    <value>Site vitrine</value>
+  </data>
+  <data name="Contact_ProjectType2" xml:space="preserve">
+    <value>Site catalogue</value>
+  </data>
+  <data name="Contact_ProjectType3" xml:space="preserve">
+    <value>Site marchand</value>
+  </data>
+  <data name="Contact_ProjectType4" xml:space="preserve">
+    <value>Site informatif</value>
+  </data>
+  <data name="Contact_ProjectType5" xml:space="preserve">
+    <value>Application web</value>
+  </data>
+  <data name="Contact_BudgetLabel" xml:space="preserve">
+    <value>Vous disposez d'un budjet de ...</value>
+  </data>
+  <data name="Contact_Budget1" xml:space="preserve">
+    <value>Entre 1 000 $ et 3 000 $</value>
+  </data>
+  <data name="Contact_Budget2" xml:space="preserve">
+    <value>Entre 3 000 $ et 5 000 $</value>
+  </data>
+  <data name="Contact_Budget3" xml:space="preserve">
+    <value>Entre 5 000 $ et 10 000 $</value>
+  </data>
+  <data name="Contact_Budget4" xml:space="preserve">
+    <value>Plus de 10 000 $</value>
+  </data>
+  <data name="Contact_DeadlineLabel" xml:space="preserve">
+    <value>Quelle est l'échéance du projet ...</value>
+  </data>
+  <data name="Contact_Deadline1" xml:space="preserve">
+    <value>Moins de 1 mois</value>
+  </data>
+  <data name="Contact_Deadline2" xml:space="preserve">
+    <value>Entre 1 mois et 6 mois</value>
+  </data>
+  <data name="Contact_Deadline3" xml:space="preserve">
+    <value>Entre 6 mois et 1 an</value>
+  </data>
+  <data name="Contact_DescriptionLabel" xml:space="preserve">
+    <value>Description du projet</value>
+  </data>
+  <data name="Contact_SendButton" xml:space="preserve">
+    <value>Envoyer</value>
+  </data>
+  <data name="Contact_SuccessMessage" xml:space="preserve">
+    <value>Votre message à été envoyé avec succès! Nous entrerons en contact avec vous dans peu de temps.</value>
+  </data>
+  <data name="Contact_ErrorMessage" xml:space="preserve">
+    <value>Vous devez d\'abord répondre correctement à la question!</value>
+  </data>
+  <data name="Contact_MailSubject" xml:space="preserve">
+    <value>Nouveau message</value>
+  </data>
+  <data name="Contact_MailBody" xml:space="preserve">
+    <value>Un nouveau message provenant de la page 'Contact'­ à été envoyé.</value>
+  </data>
+
+  <!-- unsubscribe.aspx -->
+  <data name="Unsubscribe_Title" xml:space="preserve">
+    <value>Se désabonner à notre infolettre</value>
+  </data>
+  <data name="Unsubscribe_H1Title" xml:space="preserve">
+    <value>Se désabonner à notre infolettre</value>
+  </data>
+  <data name="Unsubscribe_Label" xml:space="preserve">
+    <value>Entrez votre adresse de courriel pour vous désabonner à notre infolettre</value>
+  </data>
+  <data name="Unsubscribe_Button" xml:space="preserve">
+    <value>Me désabonner</value>
+  </data>
+  <data name="Unsubscribe_SuccessMessage" xml:space="preserve">
+    <value>Vous avez été retiré de notre liste d\'envoi.</value>
+  </data>
+  <data name="Unsubscribe_ErrorMessage" xml:space="preserve">
+    <value>L\'adresse de courriel entrée n'existe pas dans notre liste d\'abonnés!</value>
+  </data>
+
+  <!-- privacy.aspx -->
+  <data name="Privacy_Title" xml:space="preserve">
+    <value>Politique de confidentialité</value>
+  </data>
+  <data name="Privacy_H1Title1" xml:space="preserve">
+    <value>Politique de confidentialité</value>
+  </data>
+  <data name="Privacy_SubTitle1" xml:space="preserve">
+    <value>Introduction</value>
+  </data>
+  <data name="Privacy_Paragraph1" xml:space="preserve">
+    <value>Devant le développement des nouveaux systèmes de communication, il est indispensable de porter une attention particulière à la protection de la vie privée des utilisateurs de notre site. C'est pourquoi, nous nous engageons à respecter la confidentialité des renseignements personnels que nous recueillons.</value>
+  </data>
+  <data name="Privacy_SubTitle2" xml:space="preserve">
+    <value>Renseignements personnels</value>
+  </data>
+  <data name="Privacy_Paragraph2" xml:space="preserve">
+    <value>Nous recueillons les renseignements suivants:</value>
+  </data>
+  <data name="Privacy_Bullet1" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="Privacy_Bullet2" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="Privacy_Bullet3" xml:space="preserve">
+    <value>Adresse de courriel</value>
+  </data>
+  <data name="Privacy_Bullet4" xml:space="preserve">
+    <value>Téléphone</value>
+  </data>
+  <data name="Privacy_Bullet5" xml:space="preserve">
+    <value>Compagnie</value>
+  </data>
+  <data name="Privacy_Bullet6" xml:space="preserve">
+    <value>Adresse IP</value>
+  </data>
+  <data name="Privacy_Bullet7" xml:space="preserve">
+    <value>Contenu que l'utilisateur consulte sur notre site</value>
+  </data>
+  <data name="Privacy_Paragraph3" xml:space="preserve">
+    <value>Les renseignements personnels que nous recueillons se font à l'aide d'un formulaire et suite à l'interactivité du visiteur lors d'une demande de projet ou à l'inscription à notre Infolettre. Les données que nous recueillons automatiquement sont utilisées aux fins de statistique seulement.</value>
+  </data>
+  <data name="Privacy_SubTitle3" xml:space="preserve">
+    <value>Supprimer ou contester les données recueillis</value>
+  </data>
+  <data name="Privacy_Paragraph4" xml:space="preserve">
+    <value>Si vous souhaitez que vos renseignements soient supprimés ou modifiés, veuillez communiquer avec nous:</value>
+  </data>
+  <data name="Privacy_Bullet8" xml:space="preserve">
+    <value>Courriel: &lt;a class='card__bullet-hov' href='mailto:contact@netcreative.ca'&gt;contact@netcreative.ca&lt;/a&gt;</value>
+  </data>
+  <data name="Privacy_Bullet9" xml:space="preserve">
+    <value>Téléphone: &lt;a class='card__bullet-hov' href='tel:4182269087'&gt;418 226-9087&lt;/a&gt;</value>
+  </data>
+  <data name="Privacy_SubTitle4" xml:space="preserve">
+    <value>Sécurité</value>
+  </data>
+  <data name="Privacy_Paragraph5" xml:space="preserve">
+    <value>Les renseignements que nous recueillons sont conservés dans un environnement sécurisé. Pour assurer la sécurité de vos renseignement personnels, nous utilisons les moyens suivants:</value>
+  </data>
+  <data name="Privacy_Bullet10" xml:space="preserve">
+    <value>Protocole SSL (Secure Sockets Layer)</value>
+  </data>
+  <data name="Privacy_Bullet11" xml:space="preserve">
+    <value>Identifiant et mot de passe</value>
+  </data>
+  <data name="Privacy_Bullet12" xml:space="preserve">
+    <value>Sauvegarde (copie de sécurité)</value>
+  </data>
+  <data name="Privacy_Bullet13" xml:space="preserve">
+    <value>Pare-feu (Firewall)</value>
+  </data>
+  <data name="Privacy_Paragraph6" xml:space="preserve">
+    <value>Nous nous engageons à maintenir le plus haut degré de confidentialité possible en intégrant les dernières innovations technologiques permettant d'assurer la confidentialité de vos transactions. Toutefois, comme aucun mécanisme n'offre une sécurité maximale, il existe toujours une part de risque lorsque l'on utilise Internet pour transmettre des renseignements personnels.</value>
+  </data>
+  <data name="Privacy_SubTitle5" xml:space="preserve">
+    <value>Nous joindre</value>
+  </data>
+  <data name="Privacy_Paragraph7" xml:space="preserve">
+    <value>Si vous avez des questions, n'hésitez pas à communiquer par courriel: &lt;a class='card__bullet-hov' href='mailto:contact@netcreative.ca'&gt;contact@netcreative.ca&lt;/a&gt;</value>
+  </data>
+
+  <!-- login.aspx -->
+  <data name="Login_Title" xml:space="preserve">
+    <value>Connexion de l'utilisateur</value>
+  </data>
+  <data name="Login_Welcome" xml:space="preserve">
+    <value>Bienvenue</value>
+  </data>
+  <data name="Login_User" xml:space="preserve">
+    <value>Utilisateur</value>
+  </data>
+  <data name="Login_Password" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="Login_ConnectionButton" xml:space="preserve">
+    <value>Connexion</value>
+  </data>
+  <data name="Login_ErrorMessage" xml:space="preserve">
+    <value>Le nom d\'utilisateur ou le mot de passe est erroné!</value>
+  </data>
+  <data name="Login_Greeting" xml:space="preserve">
+    <value>Bonjour</value>
+  </data>
+
+  <!-- admin.aspx -->
+  <data name="Admin_Title" xml:space="preserve">
+    <value>Administration</value>
+  </data>
+  <data name="Admin_ContactButton" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Admin_ContactMenu" xml:space="preserve">
+    <value>Administration - Contact</value>
+  </data>
+  <data name="Admin_ContactDeleteLabel" xml:space="preserve">
+    <value>Entrez le numéro de demande d'information à supprimer:</value>
+  </data>
+  <data name="Admin_Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="Admin_ContactExistsError" xml:space="preserve">
+    <value>La demande d\'information numéro {0} n\'existe pas!</value>
+  </data>
+  <data name="Admin_ContactDeletedSuccess" xml:space="preserve">
+    <value>La demande d'information numéro {0} a été supprimé avec succès!</value>
+  </data>
+  <data name="Admin_LoginButton" xml:space="preserve">
+    <value>Connexion</value>
+  </data>
+  <data name="Admin_LoginMenu" xml:space="preserve">
+    <value>Administration - Connexion</value>
+  </data>
+  <data name="Admin_LoginDeleteLabel" xml:space="preserve">
+    <value>Entrez le numéro de connexion à supprimer:</value>
+  </data>
+  <data name="Admin_LoginExistsError" xml:space="preserve">
+    <value>La connexion numéro {0} n\'existe pas!</value>
+  </data>
+  <data name="Admin_LoginDeletedSuccess" xml:space="preserve">
+    <value>La connexion numéro {0} a été supprimé avec succès!</value>
+  </data>
+  <data name="Admin_NavigationButton" xml:space="preserve">
+    <value>Navigation</value>
+  </data>
+  <data name="Admin_NavigationMenu" xml:space="preserve">
+    <value>Administration - Navigation</value>
+  </data>
+  <data name="Admin_NavigationDeleteLabel" xml:space="preserve">
+    <value>Entrez la date du jour à supprimer:</value>
+  </data>
+  <data name="Admin_NavigationExistsError" xml:space="preserve">
+    <value>Le jour numéro {0} n\'existe pas!</value>
+  </data>
+  <data name="Admin_NavigationDeletedSuccess" xml:space="preserve">
+    <value>Le jour numéro {0} a été supprimé avec succès!</value>
+  </data>
+  <data name="Admin_NewsletterButton" xml:space="preserve">
+    <value>Infolettre</value>
+  </data>
+  <data name="Admin_NewsletterMenu" xml:space="preserve">
+    <value>Administration - Infolettre</value>
+  </data>
+  <data name="Admin_NewsletterTestRadio" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="Admin_NewsletterEmailLabel" xml:space="preserve">
+    <value>Adresse de courriel:</value>
+  </data>
+  <data name="Admin_NewsletterObjectLabel" xml:space="preserve">
+    <value>Objet:</value>
+  </data>
+  <data name="Admin_NewsletterIntroLabel" xml:space="preserve">
+    <value>Introduction:</value>
+  </data>
+  <data name="Admin_NewsletterBodyLabel" xml:space="preserve">
+    <value>Message:</value>
+  </data>
+  <data name="Admin_NewsletterGreetingLabel" xml:space="preserve">
+    <value>Formule de politesse:</value>
+  </data>
+  <data name="Admin_NewsletterSendTestButton" xml:space="preserve">
+    <value>Envoyer le test</value>
+  </data>
+  <data name="Admin_NewsletterSendNewsletterButton" xml:space="preserve">
+    <value>Envoyer l'infolettre</value>
+  </data>
+  <data name="Admin_NewsletterTestSentSuccess" xml:space="preserve">
+    <value>Le courriel test à été envoyé avec succès!</value>
+  </data>
+  <data name="Admin_NewsletterSentSuccess" xml:space="preserve">
+    <value>L\'infolettre à été envoyé avec succès!</value>
+  </data>
+  <data name="Admin_NewsletterUnsubscribe1" xml:space="preserve">
+    <value>Cliquez </value>
+  </data>
+  <data name="Admin_NewsletterUnsubscribe2" xml:space="preserve">
+    <value>ici</value>
+  </data>
+  <data name="Admin_NewsletterUnsubscribe3" xml:space="preserve">
+    <value> si vous désirez vous désabonner à notre infolettre</value>
+  </data>
+  <data name="Admin_OpeningButton" xml:space="preserve">
+    <value>Ouverture</value>
+  </data>
+  <data name="Admin_OpeningMenu" xml:space="preserve">
+    <value>Administrateur - Ouverture</value>
+  </data>
+  <data name="Admin_MondayAbbrev" xml:space="preserve">
+    <value>LUN</value>
+  </data>
+  <data name="Admin_TuesdayAbbrev" xml:space="preserve">
+    <value>MAR</value>
+  </data>
+  <data name="Admin_WednesdayAbbrev" xml:space="preserve">
+    <value>MER</value>
+  </data>
+  <data name="Admin_ThursdayAbbrev" xml:space="preserve">
+    <value>JEU</value>
+  </data>
+  <data name="Admin_FridayAbbrev" xml:space="preserve">
+    <value>VEN</value>
+  </data>
+  <data name="Admin_SaturdayAbbrev" xml:space="preserve">
+    <value>SAM</value>
+  </data>
+  <data name="Admin_SundayAbbrev" xml:space="preserve">
+    <value>DIM</value>
+  </data>
+  <data name="Admin_OpeningLabel" xml:space="preserve">
+    <value>Ouverture</value>
+  </data>
+  <data name="Admin_HourLabel" xml:space="preserve">
+    <value>Heure</value>
+  </data>
+  <data name="Admin_MinuteLabel" xml:space="preserve">
+    <value>Minute</value>
+  </data>
+  <data name="Admin_ClosingLabel" xml:space="preserve">
+    <value>Fermeture</value>
+  </data>
+  <data name="Admin_SaveButton" xml:space="preserve">
+    <value>Sauvegarder</value>
+  </data>
+  <data name="Admin_OpeningSavedSuccess" xml:space="preserve">
+    <value>Les heures d'ouverture ont été sauvegardées avec succès!</value>
+  </data>
+  <data name="Admin_SubscriberButton" xml:space="preserve">
+    <value>Abonnement</value>
+  </data>
+  <data name="Admin_SubscriberMenu" xml:space="preserve">
+    <value>Administrateur - Abonnement</value>
+  </data>
+  <data name="Admin_SubscriberDeleteLabel" xml:space="preserve">
+    <value>Entrer le numéro de l'abonné à supprimer:</value>
+  </data>
+  <data name="Admin_SubscriberExistsError" xml:space="preserve">
+    <value>Le commentaire numéro {0} n\'existe pas!</value>
+  </data>
+  <data name="Admin_SubscriberDeletedSuccess" xml:space="preserve">
+    <value>Le commentaire numéro {0} a été supprimé avec succès!</value>
+  </data>
+  <data name="Admin_UserButton" xml:space="preserve">
+    <value>Utilisateur</value>
+  </data>
+  <data name="Admin_UserMenu" xml:space="preserve">
+    <value>Administration - Utilisateur</value>
+  </data>
+  <data name="Admin_UserListLabel" xml:space="preserve">
+    <value>Liste des utilisateurs</value>
+  </data>
+  <data name="Admin_UserNameLabel" xml:space="preserve">
+    <value>Identifiant</value>
+  </data>
+  <data name="Admin_UserPasswordLabel" xml:space="preserve">
+    <value>Mot de passe (laisser vide pour ne pas le changer)</value>
+  </data>
+  <data name="Admin_UserFirstNameLabel" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="Admin_UserLastNameLabel" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="Admin_AddButton" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="Admin_UserAlreadyUsedError" xml:space="preserve">
+    <value>L\'utilisateur {0} est déjà utilisé, veuillez en choisir un autre!</value>
+  </data>
+  <data name="Admin_UserSavedSuccess" xml:space="preserve">
+    <value>L\'utilisateur {0} à été sauvegardé avec succès!</value>
+  </data>
+  <data name="Admin_UserDeletedSuccess" xml:space="preserve">
+    <value>L\'utilisateur {0} à été supprimé avec succès!</value>
+  </data>
+  <data name="Admin_VisitorButton" xml:space="preserve">
+    <value>Pages visitées</value>
+  </data>
+  <data name="Admin_VisitorMenu" xml:space="preserve">
+    <value>Administration - Pages visitées</value>
+  </data>
+  <data name="Admin_VisitorDeleteLabel" xml:space="preserve">
+    <value>Entrez la date à supprimer:</value>
+  </data>
+  <data name="Admin_VisitorExistsError" xml:space="preserve">
+    <value>La date {0} n\'existe pas!</value>
+  </data>
+  <data name="Admin_VisitorDeletedSuccess" xml:space="preserve">
+    <value>La date {0} a été supprimé avec succès!</value>
+  </data>
+  <data name="Admin_SqlButton" xml:space="preserve">
+    <value>SQL</value>
+  </data>
+  <data name="Admin_SqlMenu" xml:space="preserve">
+    <value>Administration - Commandes SQL</value>
+  </data>
+  <data name="Admin_SqlWarning" xml:space="preserve">
+    <value>Attention : ces commandes s'exécutent directement sur la base de données. Une commande mal formulée peut modifier ou supprimer des données de façon irréversible.</value>
+  </data>
+  <data name="Admin_SqlPlaceholder" xml:space="preserve">
+    <value>Entrez votre commande SQL ici...</value>
+  </data>
+  <data name="Admin_SqlExecuteButton" xml:space="preserve">
+    <value>Exécuter</value>
+  </data>
+  <data name="Admin_SqlConfirmMessage" xml:space="preserve">
+    <value>Êtes-vous certain de vouloir exécuter cette commande SQL? Cette action est irréversible.</value>
+  </data>
+  <data name="Admin_SqlRowsReturned" xml:space="preserve">
+    <value>{0} ligne(s) retournée(s).</value>
+  </data>
+  <data name="Admin_SqlRowsAffected" xml:space="preserve">
+    <value>{0} ligne(s) affectée(s).</value>
+  </data>
+</root>
