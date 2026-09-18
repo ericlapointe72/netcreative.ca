@@ -6,8 +6,6 @@
 .default__container,
 .login__container,
 .privacy__container,
-.portfolio__container,
-.service__container,
 .unsubscribe__container {
     width: 100vw;
     max-width: 1200px;
@@ -83,19 +81,25 @@
 
 .hero__cta {
     display: inline-block;
-    background-color: var(--heroText);
-    color: #111;
+    color: var(--menuText);
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-size: 0.85rem;
     font-weight: 600;
     padding: 0.9rem 2rem;
-    transition: 250ms ease-in-out;
+    cursor: pointer;
+    /* same gradient treatment as .button (e.g. contact.aspx's ENVOYER) so hero CTAs
+       read as clearly clickable instead of a flat, easy-to-miss pill */
+    background-image: linear-gradient(135deg, var(--logoOrange) 0%, var(--logoBlue) 100%);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    transition: transform 150ms ease, box-shadow 250ms ease, filter 250ms ease;
 }
 
 .hero__cta:hover {
-    background-color: var(--logoSilver);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+    filter: brightness(1.08) saturate(1.1);
 }
 
 /*  -------------
@@ -257,11 +261,6 @@
     height: auto;
     justify-content: center;
     align-items: center;
-    background-image: url('../Imgs_Carousel/carousel5.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .contact__container .card {
@@ -269,31 +268,11 @@
     padding: 2rem;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    grid-template-areas: "sec1" "sec2" "sec3" "sec4" "sec5" "sec6";
+    grid-template-areas: "sec2" "sec3" "sec4" "sec5" "sec6";
     height: auto;
     margin: 3rem;
     background-color: var(--menuText);
     box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.3);
-}
-
-.contact__container .card__contact {
-    width: 80%;
-    max-width: 30rem;
-}
-
-.contact__container .card__title {
-    color: var(--logoOrange);
-    font-size: var(--titleSize);
-    display: block;
-    text-align: center;
-}
-
-.contact__container .section1 {
-    grid-area: sec1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .contact__container .section2 {
@@ -358,10 +337,11 @@
     position: absolute;
     pointer-events: none;
     font-size: 1.1rem;
+    font-weight: 300;
     top: 0.35rem;
     left: 0.15rem;
     color: var(--logoBlue);
-    transition: 200ms ease all;
+    transition: 220ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact__container .tb__lastName:focus ~ .lbl__lastName,
@@ -376,9 +356,11 @@
 .contact__container .tb__company:valid ~ .lbl__company,
 .contact__container .tb__description:focus ~ .lbl__description,
 .contact__container .tb__description:valid ~ .lbl__description {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
     color: var(--logoOrange);
-    top: -0.6rem;
+    top: -0.7rem;
     left: 0.15rem;
 }
 
@@ -848,17 +830,20 @@
     position: absolute;
     pointer-events: none;
     font-size: 1.1rem;
+    font-weight: 300;
     top: 1.5rem;
     left: 2.1rem;
     color: var(--logoBlue);
-    transition: 200ms ease all;
+    transition: 220ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .login__container .tb__user:focus ~ .lbl__user,
 .login__container .tb__user:valid ~ .lbl__user,
 .login__container .tb__pass:focus ~ .lbl__pass,
 .login__container .tb__pass:valid ~ .lbl__pass {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
     color: var(--logoOrange);
     top: 0.5rem;
     left: 2.1rem;
@@ -927,177 +912,6 @@
     font-size: calc(3px + 100vw / 70);
 }
 
-/*  ---------
-    PORTFOLIO
-    --------- */
-
-.portfolio__container {
-    position: relative;
-    padding: 1rem;
-    background-image: url('../Imgs_Carousel/carousel2.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.portfolio__container .card {
-    margin-bottom: 2rem;
-}
-
-.portfolio__container .card__title {
-    margin: 0;
-    text-align: center;
-    font-size: calc(24px + 100vw / 70);
-    font-weight: 600;
-    color: var(--logoOrange);
-    background-color: var(--menuText);
-    padding: 0.5rem;
-}
-
-.portfolio__container .card__description {
-    text-align: justify;
-    padding: 1rem;
-    font-size: var(--textSize);
-    color: var(--logoBlue);
-    background-color: #fff;
-}
-
-.portfolio__container img {
-    width: 100%;
-    border: 5px solid var(--logoSilver);
-    border-radius: 10px;
-    margin-bottom: 1rem;
-}
-
-.portfolio__container .card__img {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto;
-    grid-gap: 1rem;
-    grid-template-areas: 
-        "dev-lg dev-lg" "dev-md dev-sm";
-}
-
-.portfolio__container .card__img_large {
-    grid-area: dev-lg;
-    transition: 300ms ease-in-out;
-}
-
-.portfolio__container .card__img_medium {
-    grid-area: dev-md;
-    margin-right: 1rem;
-    transition: 300ms ease-in-out;
-}
-
-.portfolio__container .card__img_small {
-    grid-area: dev-sm;
-    transition: 300ms ease-in-out;
-}
-
-.portfolio__container .card__link {
-    display: block;
-    margin-top: 0.5rem;
-    text-align: center;
-    text-decoration: none;
-    background-color: var(--logoGreen);
-    color: var(--menuText);
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-    transition: 300ms ease-in-out;
-}
-
-.portfolio__container .card__link:hover {
-    background-color: var(--logoGreenHov);
-}
-
-/*  -------
-    SERVICE
-    ------- */
-
-.service__container {
-    position: relative;
-    padding: 2rem;
-    background-image: url('../Imgs_Site/default.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.service__container .card__title {
-    display: block;
-    text-align: center;
-    font-size: calc(24px + 100vw / 70);
-    font-weight: 600;
-    color: var(--logoOrange);
-    margin-top: 1.5rem;
-    opacity: 0;
-    transform: translateY(1rem);
-    transition: 300ms ease-in-out;
-}
-
-.service__container .card__title.appear {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.service__container .card__text {
-    font-size: calc(12px + 100vw / 70);
-    font-weight: 600;
-    color: var(--logoBlue);
-    margin: 0.75rem 0 0 1rem;
-    text-align: justify;
-}
-
-.service__container .card__ctn {
-    display: grid;
-    grid-template-columns: 1fr 10fr;
-    opacity: 0;
-    transform: translateX(-1rem);
-    transition: 300ms ease-in-out;
-}
-
-.service__container .card__ctn1 {
-    transition-delay: 50ms;
-}
-
-.service__container .card__ctn2 {
-    transition-delay: 100ms;
-}
-
-.service__container .card__ctn3 {
-    transition-delay: 150ms;
-}
-
-.service__container .card__ctn4 {
-    transition-delay: 200ms;
-}
-
-.service__container .card__ctn5 {
-    transition-delay: 250ms;
-}
-
-.service__container .card__ctn6 {
-    transition-delay: 300ms;
-}
-
-.service__container .card__ctn7 {
-    transition-delay: 350ms;
-}
-
-.service__container .card__ctn.appear {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.service__container .fa-square {
-    margin: 1.25rem 0 0 1rem;
-    color: var(--logoBlue);
-    font-size: calc(3px + 100vw / 70);
-}
-
 /*  -----------
     UNSUBSCRIBE
     ----------- */
@@ -1121,14 +935,18 @@
     ------------------ */
 
 .chevron__up {
+    display: inline-block;
     color: var(--menuText);
     padding: 1rem;
-    background-color: var(--logoBlue);
-    transition: all 300ms ease-in-out;
+    background-image: linear-gradient(135deg, var(--logoOrange) 0%, var(--logoBlue) 100%);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    transition: transform 150ms ease, box-shadow 250ms ease, filter 250ms ease;
 }
 
 .chevron__up:hover {
-    background-color: var(--logoBlueHov);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+    filter: brightness(1.08) saturate(1.1);
 }
 
 .button__top {

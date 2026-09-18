@@ -34,32 +34,7 @@ namespace netcreative.ca
         private void Load_Languages()
         {
             Page.Title = Global.Service_Title;
-            H1title1.InnerText = Global.Service_H1Title1;
-            Label_Service1.Text = Global.Service_Item1;
-            Label_Service2.Text = Global.Service_Item2;
-            Label_Service3.Text = Global.Service_Item3;
-            Label_Service4.Text = Global.Service_Item4;
-            Label_Service5.Text = Global.Service_Item5;
-            Label_Service6.Text = Global.Service_Item6;
-            Label_Service7.Text = Global.Service_Item7;
-            H1title2.InnerText = Global.Service_H1Title2;
-            Label_Client1.Text = Global.Service_Client1;
-            Label_Client2.Text = Global.Service_Client2;
-            Label_Client3.Text = Global.Service_Client3;
-            Label_Client4.Text = Global.Service_Client4;
-            Label_Client5.Text = Global.Service_Client5;
-            Label_Client6.Text = Global.Service_Client6;
-            H1title3.InnerText = Global.Service_H1Title3;
-            h2title1.InnerText = Global.Service_TechTitle1;
-            Label_Techno1.Text = Global.Service_TechText1;
-            h2title2.InnerText = Global.Service_TechTitle2;
-            Label_Techno2.Text = Global.Service_TechText2;
-            h2title3.InnerText = Global.Service_TechTitle3;
-            Label_Techno3.Text = Global.Service_TechText3;
-            h2title4.InnerText = Global.Service_TechTitle4;
-            Label_Techno4.Text = Global.Service_TechText4;
-            h2title5.InnerText = Global.Service_TechTitle5;
-            Label_Techno5.Text = Global.Service_TechText5;
+            Master.SetPageHero("Imgs_Site/hero-service.jpg", Global.Service_HeroEyebrow, Global.Service_HeroTitle, Global.Service_HeroText, Global.Service_HeroCta, "contact.aspx");
         }
 
         private void VerifyIfDayExist()

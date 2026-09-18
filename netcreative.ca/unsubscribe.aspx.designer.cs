@@ -15,24 +15,6 @@ namespace netcreative.ca
     {
 
         /// <summary>
-        /// H1title control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl H1title;
-
-        /// <summary>
-        /// Label_Unsubscribe control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Unsubscribe;
-
-        /// <summary>
         /// TextBox_Unsubscribe control.
         /// </summary>
         /// <remarks>

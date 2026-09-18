@@ -34,32 +34,7 @@ namespace netcreative.ca
         private void Load_Languages()
         {
             Page.Title = Global.Home_Title;
-            Master.SetPageHero("Imgs_Site/hero-home.jpg", Global.Home_HeroEyebrow, Global.Home_Welcome);
-            Label_PillarsLabel.Text = Global.Home_PillarsLabel;
-            Label_Pillar1Title.Text = Global.Home_Pillar1Title;
-            Label_Pillar1Text.Text = Global.Home_Pillar1Text;
-            Label_Pillar2Title.Text = Global.Home_Pillar2Title;
-            Label_Pillar2Text.Text = Global.Home_Pillar2Text;
-            Label_Pillar3Title.Text = Global.Home_Pillar3Title;
-            Label_Pillar3Text.Text = Global.Home_Pillar3Text;
-            H2slideshowtitle.InnerText = Global.Home_SlideshowTitle;
-            Label_Slide1_Title.Text = Global.Home_Slide1Title;
-            Label_Slide1_Text.Text = Global.Home_Slide1Text;
-            Label_Slide2_Title.Text = Global.Home_Slide2Title;
-            Label_Slide2_Text.Text = Global.Home_Slide2Text;
-            Label_Slide3_Title.Text = Global.Home_Slide3Title;
-            Label_Slide3_Text.Text = Global.Home_Slide3Text;
-            Label_Slide4_Title.Text = Global.Home_Slide4Title;
-            Label_Slide4_Text.Text = Global.Home_Slide4Text;
-            Label_Slide5_Title.Text = Global.Home_Slide5Title;
-            Label_Slide5_Text.Text = Global.Home_Slide5Text;
-            H2whoiamtitle.InnerText = Global.Home_WhoIamTitle;
-            Label_WhoIamParagraphe1.Text = Global.Home_WhoIamParagraph1;
-            Label_WhoIamParagraphe2.Text = Global.Home_WhoIamParagraph2;
-            Label_WhoIamParagraphe3.Text = Global.Home_WhoIamParagraph3;
-            Label_WhoIamParagraphe4.Text = Global.Home_WhoIamParagraph4;
-            Label_Facebook.Text = Global.Home_Facebook;
-            Label_WhoIamName.Text = Global.Home_WhoIamName;
+            Master.SetPageHero("Imgs_Site/hero-accueil.jpg", Global.Home_HeroEyebrow, Global.Home_Welcome);
         }
 
         private void VerifyIfDayExist()

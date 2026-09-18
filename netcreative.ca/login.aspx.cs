@@ -36,9 +36,6 @@ namespace netcreative.ca
         private void Load_Languages()
         {
             Page.Title = Global.Login_Title;
-            Label_Title.Text = Global.Login_Welcome;
-            Label_User.Text = Global.Login_User;
-            Label_Password.Text = Global.Login_Password;
             Button_Connection.Text = Global.Login_ConnectionButton;
             message_error = Global.Login_ErrorMessage;
             message_greeting = Global.Login_Greeting;

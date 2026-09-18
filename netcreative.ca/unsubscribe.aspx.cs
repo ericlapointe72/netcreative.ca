@@ -28,8 +28,6 @@ namespace netcreative.ca
         private void Load_Languages()
         {
             Page.Title = Global.Unsubscribe_Title;
-            H1title.InnerText = Global.Unsubscribe_H1Title;
-            Label_Unsubscribe.Text = Global.Unsubscribe_Label;
             Button_Unsubscribe.Text = Global.Unsubscribe_Button;
             message_success = Global.Unsubscribe_SuccessMessage;
             message_error = Global.Unsubscribe_ErrorMessage;

@@ -1,33 +1,40 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="boutique.aspx.cs" Inherits="netcreative.ca.boutique" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Site.Master" AutoEventWireup="true" CodeBehind="boutique.aspx.cs" Inherits="netcreative.ca.boutique" %>
+<%@ MasterType VirtualPath="~/MasterPages/Site.Master" %>
+<%@ Import Namespace="netcreative.ca.Resources" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="hero hero--orange observer">
-        <span class="hero__eyebrow"><asp:Label ID="Label_HeroEyebrow" runat="server"></asp:Label></span>
-        <h1 runat="server" class="hero__title" id="H1title"></h1>
-        <asp:Label class="hero__text" ID="Label_HeroText" runat="server"></asp:Label>
-        <a class="hero__cta" href="https://www.beaucedutyfree.com" target="_blank"><asp:Label ID="Label_HeroCta" runat="server"></asp:Label></a>
-    </div>
-
     <div class="content-section">
-        <asp:Label class="content-section__text" ID="Label_Intro" runat="server"></asp:Label>
+        <span class="content-section__text"><%: Global.Boutique_Intro %></span>
     </div>
 
-    <span class="section-label"><asp:Label ID="Label_CategoriesLabel" runat="server"></asp:Label></span>
+    <span class="section-label"><%: Global.Boutique_InfoLabel %></span>
 
     <div class="feature-grid">
         <div class="feature-card">
-            <span class="feature-card__title"><asp:Label ID="Label_Category1Title" runat="server"></asp:Label></span>
-            <span class="feature-card__text"><asp:Label ID="Label_Category1Text" runat="server"></asp:Label></span>
+            <span class="feature-card__title"><%: Global.Boutique_Category1Title %></span>
+            <span class="feature-card__text"><%: Global.Boutique_Category1Text %></span>
         </div>
         <div class="feature-card">
-            <span class="feature-card__title"><asp:Label ID="Label_Category2Title" runat="server"></asp:Label></span>
-            <span class="feature-card__text"><asp:Label ID="Label_Category2Text" runat="server"></asp:Label></span>
+            <span class="feature-card__title"><%: Global.Boutique_Category2Title %></span>
+            <span class="feature-card__text"><%: Global.Boutique_Category2Text %></span>
         </div>
         <div class="feature-card">
-            <span class="feature-card__title"><asp:Label ID="Label_Category3Title" runat="server"></asp:Label></span>
-            <span class="feature-card__text"><asp:Label ID="Label_Category3Text" runat="server"></asp:Label></span>
+            <span class="feature-card__title"><%: Global.Boutique_Info1Title %></span>
+            <span class="feature-card__text"><%: Global.Boutique_Info1Text %></span>
+        </div>
+        <div class="feature-card">
+            <span class="feature-card__title"><%: Global.Boutique_Info2Title %></span>
+            <span class="feature-card__text"><%: Global.Boutique_Info2Text %></span>
+        </div>
+        <div class="feature-card">
+            <span class="feature-card__title"><%: Global.Boutique_Info3Title %></span>
+            <span class="feature-card__text"><%: Global.Boutique_Info3Text %></span>
+        </div>
+        <div class="feature-card">
+            <span class="feature-card__title"><%: Global.Boutique_Info4Title %></span>
+            <span class="feature-card__text"><%: Global.Boutique_Info4Text %></span>
         </div>
     </div>
 

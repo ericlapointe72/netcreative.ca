@@ -21,18 +21,7 @@ namespace netcreative.ca
         private void Load_Languages()
         {
             Page.Title = Global.Boutique_Title;
-            Label_HeroEyebrow.Text = Global.Boutique_HeroEyebrow;
-            H1title.InnerText = Global.Boutique_HeroTitle;
-            Label_HeroText.Text = Global.Boutique_HeroText;
-            Label_HeroCta.Text = Global.Boutique_HeroCta;
-            Label_Intro.Text = Global.Boutique_Intro;
-            Label_CategoriesLabel.Text = Global.Boutique_CategoriesLabel;
-            Label_Category1Title.Text = Global.Boutique_Category1Title;
-            Label_Category1Text.Text = Global.Boutique_Category1Text;
-            Label_Category2Title.Text = Global.Boutique_Category2Title;
-            Label_Category2Text.Text = Global.Boutique_Category2Text;
-            Label_Category3Title.Text = Global.Boutique_Category3Title;
-            Label_Category3Text.Text = Global.Boutique_Category3Text;
+            Master.SetPageHero("Imgs_Site/hero-boutique.jpg", Global.Boutique_HeroEyebrow, Global.Boutique_HeroTitle, Global.Boutique_HeroText, Global.Boutique_HeroCta, "https://www.beaucedutyfree.com", "_blank");
         }
     }
 }

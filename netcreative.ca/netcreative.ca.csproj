@@ -68,7 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Global.resx" />
-    <EmbeddedResource Include="Resources\Global.fr-CA.resx" />
+    <EmbeddedResource Include="Resources\Global.fr-CA.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin.aspx" />
@@ -89,6 +91,7 @@
     <Content Include="Imgs_Site\question_fr.png" />
     <Content Include="Imgs_Site\signature.png" />
     <Content Include="js\cookie.js" />
+    <Content Include="js\phone-mask.js" />
     <Content Include="css\animation.css" />
     <Content Include="css\common.css" />
     <Content Include="Imgs_Site\facebook-logo.png" />
@@ -112,7 +115,11 @@
     <Content Include="Imgs_Site\logout-anime.png" />
     <Content Include="Imgs_Site\login-smile.png" />
     <Content Include="Imgs_Site\default.jpg" />
-    <Content Include="Imgs_Site\hero-home.jpg" />
+    <Content Include="Imgs_Site\hero-dutyfreeops.jpg" />
+    <Content Include="Imgs_Site\hero-service.jpg" />
+    <Content Include="Imgs_Site\hero-boutique.jpg" />
+    <Content Include="Imgs_Site\hero-accueil.jpg" />
+    <Content Include="Imgs_Site\hero-contact.jpg" />
     <Content Include="Imgs_Site\logout.png" />
     <Content Include="Imgs_Site\mobile.png" />
     <Content Include="contact.aspx" />
@@ -121,12 +128,11 @@
     <Content Include="login.aspx" />
     <Content Include="js\observer.js" />
     <Content Include="js\onscroll.js" />
-    <Content Include="portfolio.aspx" />
     <Content Include="css\public.css" />
     <Content Include="privacy.aspx" />
     <Content Include="service.aspx" />
     <Content Include="js\slideshow.js" />
-    <Content Include="css\Site1.css" />
+    <Content Include="css\Site.css" />
     <Content Include="unsubscribe.aspx" />
     <Content Include="Web.config" />
     <Content Include="App_Data\connectionStrings.config" />
@@ -180,13 +186,6 @@
     </Compile>
     <Compile Include="class\Navigation.cs" />
     <Compile Include="class\Login.cs" />
-    <Compile Include="portfolio.aspx.cs">
-      <DependentUpon>portfolio.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="portfolio.aspx.designer.cs">
-      <DependentUpon>portfolio.aspx</DependentUpon>
-    </Compile>
     <Compile Include="privacy.aspx.cs">
       <DependentUpon>privacy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -202,12 +201,12 @@
     <Compile Include="service.aspx.designer.cs">
       <DependentUpon>service.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Site1.Master.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
+    <Compile Include="MasterPages\Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site1.Master.designer.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
+    <Compile Include="MasterPages\Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
     </Compile>
     <Compile Include="class\Subscribe.cs" />
     <Compile Include="class\User_IP.cs" />
@@ -222,7 +221,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Site1.Master" />
+    <Content Include="MasterPages\Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

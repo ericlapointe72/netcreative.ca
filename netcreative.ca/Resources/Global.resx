@@ -132,9 +132,6 @@
   <data name="Master_DutyFreeOps" xml:space="preserve">
     <value>DutyFreeOps</value>
   </data>
-  <data name="Master_Portfolio" xml:space="preserve">
-    <value>Portfolio</value>
-  </data>
   <data name="Master_Contact" xml:space="preserve">
     <value>Contact</value>
   </data>
@@ -348,9 +345,6 @@
   <data name="Boutique_Intro" xml:space="preserve">
     <value>Owner of Boutique Hors Taxes de la Beauce Inc., after more than 30 years in retail. Our team offers personalized service and a wide selection of wines, spirits, perfumes, cosmetics and travel essentials, always priced below American retailers. Reserve online before crossing the border and save time.</value>
   </data>
-  <data name="Boutique_CategoriesLabel" xml:space="preserve">
-    <value>What you'll find</value>
-  </data>
   <data name="Boutique_Category1Title" xml:space="preserve">
     <value>Wine &amp; Spirits</value>
   </data>
@@ -363,11 +357,32 @@
   <data name="Boutique_Category2Text" xml:space="preserve">
     <value>Major brands at duty-free prices, for you and your loved ones.</value>
   </data>
-  <data name="Boutique_Category3Title" xml:space="preserve">
-    <value>Travel Essentials</value>
+  <data name="Boutique_InfoLabel" xml:space="preserve">
+    <value>What to know</value>
   </data>
-  <data name="Boutique_Category3Text" xml:space="preserve">
-    <value>Everything you need before crossing the border, no detour or unnecessary wait.</value>
+  <data name="Boutique_Info1Title" xml:space="preserve">
+    <value>Exemptions</value>
+  </data>
+  <data name="Boutique_Info1Text" xml:space="preserve">
+    <value>Know your personal exemption limits before you cross, so you get the most out of your visit.</value>
+  </data>
+  <data name="Boutique_Info2Title" xml:space="preserve">
+    <value>FAQ</value>
+  </data>
+  <data name="Boutique_Info2Text" xml:space="preserve">
+    <value>Answers to the questions we hear most often, about customs, payment and in-store pickup.</value>
+  </data>
+  <data name="Boutique_Info3Title" xml:space="preserve">
+    <value>Online reservations</value>
+  </data>
+  <data name="Boutique_Info3Text" xml:space="preserve">
+    <value>Reserve your products ahead of time on beaucedutyfree.com and pick them up on your way through, no waiting.</value>
+  </data>
+  <data name="Boutique_Info4Title" xml:space="preserve">
+    <value>Opening hours</value>
+  </data>
+  <data name="Boutique_Info4Text" xml:space="preserve">
+    <value>Check our hours before you go, so your stop at the shop fits your trip.</value>
   </data>
   <data name="DutyFreeOps_Title" xml:space="preserve">
     <value>DutyFreeOps – Duty-Free Shop Management System</value>
@@ -426,122 +441,119 @@
   <data name="DutyFreeOps_Module6Text" xml:space="preserve">
     <value>Forms and reports required for border operations.</value>
   </data>
-  <data name="Portfolio_Title" xml:space="preserve">
-    <value>Our achievements</value>
-  </data>
-  <data name="Portfolio_Title1" xml:space="preserve">
-    <value>Beauce Duty Free Shop Inc.</value>
-  </data>
-  <data name="Portfolio_Description1" xml:space="preserve">
-    <value>The mandate here was to modernize the website in order to facilitate online product reservations. As the clientele speaks several languages, the website is trilingual, in French, English and Spanish. More than 1100 products are available online for booking before your trip in addition to having various relevant information for travelers.</value>
-  </data>
-  <data name="Portfolio_Link1" xml:space="preserve">
-    <value>Visit the website</value>
-  </data>
-  <data name="Portfolio_Title2" xml:space="preserve">
-    <value>Murry Baie house</value>
-  </data>
-  <data name="Portfolio_Description2" xml:space="preserve">
-    <value>The mandate here was to create the website of this new company. In addition to increasing its visibility, to present each room and answering frequently asked questions, it was also necessary to be able to make online reservations for the house.</value>
-  </data>
-  <data name="Portfolio_Link2" xml:space="preserve">
-    <value>Visit the website</value>
-  </data>
-  <data name="Portfolio_Title3" xml:space="preserve">
-    <value>Tablo-Ecolo</value>
-  </data>
-  <data name="Portfolio_Description3" xml:space="preserve">
-    <value>The mandate here was to create an online store for the sale of artworks by the artist Isabel Denommé. As all our websites are bilingual, this site is no exception. On the site you will have the opportunity to discover the artist, her unique technique and purchase one or more of her magnificent artworks.</value>
-  </data>
-  <data name="Portfolio_Link3" xml:space="preserve">
-    <value>Visit the website</value>
-  </data>
   <data name="Service_Title" xml:space="preserve">
     <value>Design of responsive websites</value>
   </data>
-  <data name="Service_H1Title1" xml:space="preserve">
-    <value>What Net.Créative can do for you:</value>
+  <data name="Service_HeroEyebrow" xml:space="preserve">
+    <value>Web design</value>
+  </data>
+  <data name="Service_HeroTitle" xml:space="preserve">
+    <value>Websites built around your business</value>
+  </data>
+  <data name="Service_HeroText" xml:space="preserve">
+    <value>Design, hosting and SEO — a website built to turn visitors into customers.</value>
+  </data>
+  <data name="Service_HeroCta" xml:space="preserve">
+    <value>Contact us</value>
+  </data>
+  <data name="Service_Intro" xml:space="preserve">
+    <value>Every project starts with understanding your business, to deliver a site that's simple, fast and easy to keep up to date.</value>
+  </data>
+  <data name="Service_ServicesLabel" xml:space="preserve">
+    <value>Our services</value>
+  </data>
+  <data name="Service_Item1Title" xml:space="preserve">
+    <value>Custom design</value>
   </data>
   <data name="Service_Item1" xml:space="preserve">
-    <value>Custom website design;</value>
+    <value>Custom website design.</value>
+  </data>
+  <data name="Service_Item2Title" xml:space="preserve">
+    <value>Canadian hosting</value>
   </data>
   <data name="Service_Item2" xml:space="preserve">
-    <value>Hosting your website on a server located in Canada;</value>
+    <value>Hosting your website on a server located in Canada.</value>
+  </data>
+  <data name="Service_Item3Title" xml:space="preserve">
+    <value>SEO</value>
   </data>
   <data name="Service_Item3" xml:space="preserve">
-    <value>SEO referencing;</value>
+    <value>SEO referencing.</value>
+  </data>
+  <data name="Service_Item4Title" xml:space="preserve">
+    <value>Web programming</value>
   </data>
   <data name="Service_Item4" xml:space="preserve">
-    <value>Web programming;</value>
+    <value>Web programming.</value>
+  </data>
+  <data name="Service_Item5Title" xml:space="preserve">
+    <value>Compatibility testing</value>
   </data>
   <data name="Service_Item5" xml:space="preserve">
-    <value>Compatibility tests;</value>
+    <value>Compatibility tests.</value>
+  </data>
+  <data name="Service_Item6Title" xml:space="preserve">
+    <value>Icon design</value>
   </data>
   <data name="Service_Item6" xml:space="preserve">
-    <value>Creation of your icons;</value>
+    <value>Creation of your icons.</value>
+  </data>
+  <data name="Service_Item7Title" xml:space="preserve">
+    <value>Product photography</value>
   </data>
   <data name="Service_Item7" xml:space="preserve">
     <value>Taking pictures for your online store.</value>
   </data>
-  <data name="Service_H1Title2" xml:space="preserve">
-    <value>What you can do before calling Net.Créative:</value>
+  <data name="Service_PrepLabel" xml:space="preserve">
+    <value>Before we start</value>
+  </data>
+  <data name="Service_Client1Title" xml:space="preserve">
+    <value>Your logo</value>
   </data>
   <data name="Service_Client1" xml:space="preserve">
-    <value>Have a copy of your logo in the best possible resolution;</value>
+    <value>Have a copy of your logo in the best possible resolution.</value>
+  </data>
+  <data name="Service_Client2Title" xml:space="preserve">
+    <value>Your photos</value>
   </data>
   <data name="Service_Client2" xml:space="preserve">
-    <value>Have photos of your business, your team, your achievements, always with the best possible resolution;</value>
+    <value>Have photos of your business, your team, your achievements, always with the best possible resolution.</value>
+  </data>
+  <data name="Service_Client3Title" xml:space="preserve">
+    <value>Your copy</value>
   </data>
   <data name="Service_Client3" xml:space="preserve">
-    <value>Write texts about your company, your products, your services, what sets your company apart from competitors, customer testimonials, etc.;</value>
+    <value>Write texts about your company, your products, your services, what sets your company apart from competitors, customer testimonials, etc.</value>
+  </data>
+  <data name="Service_Client4Title" xml:space="preserve">
+    <value>Your inspiration</value>
   </data>
   <data name="Service_Client4" xml:space="preserve">
-    <value>Check out other websites and decide what you like about the design and functionality;</value>
+    <value>Check out other websites and decide what you like about the design and functionality.</value>
+  </data>
+  <data name="Service_Client5Title" xml:space="preserve">
+    <value>A clear message</value>
   </data>
   <data name="Service_Client5" xml:space="preserve">
-    <value>Write only relevant information and express yourself clearly, because visitors avoid websites filled with vague titles and text. Put yourself in your potential customer's shoes and create content that they would want to see on a website;</value>
+    <value>Write only relevant information and express yourself clearly, because visitors avoid websites filled with vague titles and text. Put yourself in your potential customer's shoes and create content that they would want to see on a website.</value>
+  </data>
+  <data name="Service_Client6Title" xml:space="preserve">
+    <value>A clear goal</value>
   </data>
   <data name="Service_Client6" xml:space="preserve">
     <value>The more clearly you define your objective, the better the result will be and the lower the price will be.</value>
   </data>
-  <data name="Service_H1Title3" xml:space="preserve">
-    <value>The technologies used at Net.Créative</value>
-  </data>
-  <data name="Service_TechTitle1" xml:space="preserve">
-    <value>HTML5</value>
-  </data>
-  <data name="Service_TechText1" xml:space="preserve">
-    <value>HTML (Hyper Text Markup Language) is a language based on the principle of tags and is used to tell the browser how to display the page. HTML5 is the latest version which was finalised in 2014.</value>
-  </data>
-  <data name="Service_TechTitle2" xml:space="preserve">
-    <value>CSS3</value>
-  </data>
-  <data name="Service_TechText2" xml:space="preserve">
-    <value>CSS (Cascading Style Sheet) is a language used to insert styles. It is used to change colours, modify HTML objects, change fonts, align text, objects, etc. CSS is also used to adapt the display to the width of the user's screen in order to make the website 'responsive'.</value>
-  </data>
-  <data name="Service_TechTitle3" xml:space="preserve">
-    <value>JavaScript</value>
-  </data>
-  <data name="Service_TechText3" xml:space="preserve">
-    <value>JavaScript is the third layer of web technologies. It is used to make web pages interactive. For example in this website, it is mainly used for the slide show, the carousel and as a trigger when scrolling the web page.</value>
-  </data>
-  <data name="Service_TechTitle4" xml:space="preserve">
-    <value>Microsoft Visual Studio</value>
-  </data>
-  <data name="Service_TechText4" xml:space="preserve">
-    <value>Microsoft Visual Studio is a very powerful development software that allows us to work with all technologies in one working environment. It also allows us to write code (C#) which is executed on the server side. This code is mainly used to read and write information with the database but also to dynamically modify the HTML content.</value>
-  </data>
-  <data name="Service_TechTitle5" xml:space="preserve">
-    <value>Microsoft SQL Server</value>
-  </data>
-  <data name="Service_TechText5" xml:space="preserve">
-    <value>Microsoft SQL Server is a relational database management system in SQL language. It allows us to store all the information necessary for the proper functioning of a Web application.</value>
-  </data>
   <data name="Contact_Title" xml:space="preserve">
     <value>Join us</value>
   </data>
+  <data name="Contact_HeroEyebrow" xml:space="preserve">
+    <value>Contact</value>
+  </data>
   <data name="Contact_H1Title" xml:space="preserve">
-    <value>Tell us about your project:</value>
+    <value>Tell us about your project</value>
+  </data>
+  <data name="Contact_HeroText" xml:space="preserve">
+    <value>Describe your project and we'll get back to you quickly.</value>
   </data>
   <data name="Contact_LastName" xml:space="preserve">
     <value>Last name</value>
@@ -568,12 +580,9 @@
     <value>Catalog site</value>
   </data>
   <data name="Contact_ProjectType3" xml:space="preserve">
-    <value>E-commerce site</value>
-  </data>
-  <data name="Contact_ProjectType4" xml:space="preserve">
     <value>Informative site</value>
   </data>
-  <data name="Contact_ProjectType5" xml:space="preserve">
+  <data name="Contact_ProjectType4" xml:space="preserve">
     <value>Web application</value>
   </data>
   <data name="Contact_BudgetLabel" xml:space="preserve">

@@ -1,4 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="netcreative.ca.Site1" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="netcreative.ca.MasterPages.Site" %>
+<%@ Import Namespace="netcreative.ca.Resources" %>
 
 <!DOCTYPE html>
 
@@ -10,19 +11,19 @@
         <meta name="description" content="Création et hébergement de site web sur mesure pour votre entreprise" />
         <meta name="author" content="Net.Créative">
         <!-- Style -->
-        <link href="css/admin.css" rel="stylesheet" />
-        <link href="css/animation.css" rel="stylesheet" />
-        <link href="css/common.css" rel="stylesheet" />
-        <link href="css/public.css" rel="stylesheet" />
-        <link href="css/Site1.css" rel="stylesheet" />
+        <link href="../css/admin.css" rel="stylesheet" />
+        <link href="../css/animation.css" rel="stylesheet" />
+        <link href="../css/common.css" rel="stylesheet" />
+        <link href="../css/public.css" rel="stylesheet" />
+        <link href="../css/Site.css" rel="stylesheet" />
         <!-- fontawesome -->
         <script src="https://kit.fontawesome.com/7fd34f5741.js"></script>
         <!-- google font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&family=Calistoga&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Calistoga&display=swap" rel="stylesheet">
         <!-- favicon -->
-        <link rel="shortcut icon" href="Imgs_Site/favicon.ico" />
+        <link rel="shortcut icon" href="../Imgs_Site/favicon.ico" />
         
         <asp:ContentPlaceHolder ID="head" runat="server">
         </asp:ContentPlaceHolder>
@@ -69,26 +70,26 @@
                 <div class="nav__bar">
                     <div class="nav__header">
                         <div class="nav__logo-ctn">
-                            <asp:LinkButton ID="LinkButton_Logo" runat="server" OnClick="LinkButton_Logo_Click"><img class="nav__logo" src="Imgs_Site/logo.png"></asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton_Logo" runat="server" OnClick="LinkButton_Logo_Click"><img class="nav__logo" src="../Imgs_Site/logo.png"></asp:LinkButton>
                         </div>
                         <div class="nav__button-ctn">
                             <asp:LinkButton class="admin__hello" ID="LinkButton_Hello" runat="server" OnClick="LinkButton_Hello_Click"></asp:LinkButton>
                             <span class="icon-stack">
-                                <img class="nav__mail-closed" src="Imgs_Site/mail-closed.png" alt="mail closed"/>
-                                <a href="mailto:contact@netcreative.ca"><img class="nav__mail-open" src="Imgs_Site/mail-open.png" alt="mail open"/></a>
+                                <img class="nav__mail-closed" src="../Imgs_Site/mail-closed.png" alt="mail closed"/>
+                                <a href="mailto:contact@netcreative.ca"><img class="nav__mail-open" src="../Imgs_Site/mail-open.png" alt="mail open"/></a>
                             </span>
-                            <a href="Tel:+14182269087"><img class="nav__mobile" src="Imgs_Site/mobile.png" alt="mobile phone" /></a>
+                            <a href="Tel:+14182269087"><img class="nav__mobile" src="../Imgs_Site/mobile.png" alt="mobile phone" /></a>
                             <span class="icon-stack">
-                                <asp:Image class="admin__button" ID="Image_Login" src="Imgs_Site/login.png" alt="login" runat="server" />
-                                <a id="HyperLink_Login" runat="server" href="login.aspx"><img class="admin__login" src="Imgs_Site/login-smile.png" alt="login smile" /></a>
+                                <asp:Image class="admin__button" ID="Image_Login" src="../Imgs_Site/login.png" alt="login" runat="server" />
+                                <a id="HyperLink_Login" runat="server" href="login.aspx"><img class="admin__login" src="../Imgs_Site/login-smile.png" alt="login smile" /></a>
                             </span>
                             <span class="icon-stack">
-                                <asp:Image class="admin__button" ID="Image_Logout" src="Imgs_Site/logout.png" alt="logout" runat="server" />
-                                <asp:LinkButton ID="LinkButton_Logout" runat="server" OnClick="LinkButton_Logout_Click"><img class="admin__logout" src="Imgs_Site/logout-anime.png" alt="logout anime" /></asp:LinkButton>
+                                <asp:Image class="admin__button" ID="Image_Logout" src="../Imgs_Site/logout.png" alt="logout" runat="server" />
+                                <asp:LinkButton ID="LinkButton_Logout" runat="server" OnClick="LinkButton_Logout_Click"><img class="admin__logout" src="../Imgs_Site/logout-anime.png" alt="logout anime" /></asp:LinkButton>
                             </span>
                         </div>
                         <div class="nav__slogan-ctn">
-                            <asp:Label class="nav__slogan" ID="Label_Slogan" runat="server" Text="Label"></asp:Label>
+                            <span class="nav__slogan"><%: Global.Master_Slogan %></span>
                         </div>
                     </div>
                                                                         
@@ -96,14 +97,13 @@
                     <label for="nav__toggle" class="nav__toggle"><span class="nav__icon"></span></label>
                 
                     <div class=nav__menu>
-                        <img class="nav__logo" src="Imgs_Site/logo.png" alt="logo">
-                        <a class="nav__links nav__links1 observer" href="default.aspx"><asp:Label ID="Label_Home1" runat="server"></asp:Label></a>
-                        <a class="nav__links nav__links2 observer" href="boutique.aspx"><asp:Label ID="Label_Boutique1" runat="server"></asp:Label></a>
-                        <a class="nav__links nav__links3 observer" href="dutyfreeops.aspx"><asp:Label ID="Label_DutyFreeOps1" runat="server"></asp:Label></a>
-                        <a class="nav__links nav__links4 observer" href="service.aspx"><asp:Label ID="Label_Service1" runat="server"></asp:Label></a>
-                        <a class="nav__links nav__links5 observer" href="portfolio.aspx"><asp:Label ID="Label_Portfolio1" runat="server"></asp:Label></a>
-                        <a class="nav__links nav__links6 observer" href="contact.aspx"><asp:Label ID="Label_Contact1" runat="server"></asp:Label></a>
-                        <a class="nav__links nav__links7 observer" ID="HyperLink_Language" runat="server"></a>
+                        <img class="nav__logo" src="../Imgs_Site/logo.png" alt="logo">
+                        <a class="nav__links nav__links1 observer" href="default.aspx"><%: Global.Master_Home %></a>
+                        <a class="nav__links nav__links2 observer" href="boutique.aspx"><%: Global.Master_Boutique %></a>
+                        <a class="nav__links nav__links3 observer" href="dutyfreeops.aspx"><%: Global.Master_DutyFreeOps %></a>
+                        <a class="nav__links nav__links4 observer" href="service.aspx"><%: Global.Master_Service %></a>
+                        <a class="nav__links nav__links6 observer" href="contact.aspx"><%: Global.Master_Contact %></a>
+                        <a class="nav__links nav__links7 observer" ID="HyperLink_Language" runat="server"><%: Global.Master_LanguageToggle %></a>
                     </div>
                 </div>
             </header>
@@ -111,6 +111,8 @@
                 <div class="page-hero__content">
                     <span class="hero__eyebrow" id="Span_PageHeroEyebrow" runat="server" visible="false"></span>
                     <h1 class="hero__title" id="H1_PageHero" runat="server" visible="false"></h1>
+                    <span class="hero__text" id="Span_PageHeroText" runat="server" visible="false"></span>
+                    <a class="hero__cta" id="HyperLink_PageHeroCta" runat="server" visible="false"></a>
                 </div>
             </div>
 
@@ -120,19 +122,18 @@
             <footer>
                 <div class="foot__container">
                     <div class="foot__nav">
-                        <h3 class="foot__title"><asp:Label ID="Label_Menu" runat="server"></asp:Label></h3>
+                        <h3 class="foot__title"><%: Global.Master_Menu %></h3>
                         <div class=foot__menu>
-                            <a class="foot__links" href="default.aspx"><asp:Label ID="Label_Home2" runat="server"></asp:Label></a>
-                            <a class="foot__links" href="boutique.aspx"><asp:Label ID="Label_Boutique2" runat="server"></asp:Label></a>
-                            <a class="foot__links" href="dutyfreeops.aspx"><asp:Label ID="Label_DutyFreeOps2" runat="server"></asp:Label></a>
-                            <a class="foot__links" href="service.aspx"><asp:Label ID="Label_Service2" runat="server"></asp:Label></a>
-                            <a class="foot__links" href="portfolio.aspx"><asp:Label ID="Label_Portfolio2" runat="server"></asp:Label></a>
-                            <a class="foot__links" href="contact.aspx"><asp:Label ID="Label_Contact2" runat="server"></asp:Label></a>
+                            <a class="foot__links" href="default.aspx"><%: Global.Master_Home %></a>
+                            <a class="foot__links" href="boutique.aspx"><%: Global.Master_Boutique %></a>
+                            <a class="foot__links" href="dutyfreeops.aspx"><%: Global.Master_DutyFreeOps %></a>
+                            <a class="foot__links" href="service.aspx"><%: Global.Master_Service %></a>
+                            <a class="foot__links" href="contact.aspx"><%: Global.Master_Contact %></a>
                         </div>
                     </div>
 
                     <div class="foot__opening">
-                        <h3 class="foot__title"><asp:Label ID="Label_Opening" runat="server"></asp:Label></h3>
+                        <h3 class="foot__title"><%: Global.Master_OpeningHours %></h3>
                         <div class="foot__opening-hours">
                             <asp:Label ID="Label_Monday" runat="server"></asp:Label>
                             <asp:Label ID="Label_Tuesday" runat="server"></asp:Label>
@@ -145,8 +146,8 @@
                     </div>
 
                     <div class="foot__subscribe">
-                        <h3 class="foot__title"><asp:Label ID="Label_Newsletter" runat="server"></asp:Label></h3>
-                        <label class="foot__subscribe-text"><asp:Label ID="Label_Subscribe" runat="server"></asp:Label></label>
+                        <h3 class="foot__title"><%: Global.Master_Newsletter %></h3>
+                        <label class="foot__subscribe-text"><%: Global.Master_SubscribeText %></label>
                         <div class="foot__subscribe-input">
                             <asp:TextBox ID="TextBox_Subscribe" runat="server"></asp:TextBox>
                             <asp:Button class="button button__orange" ID="Button_Subscribe" runat="server" OnClick="Button_Subscribe_Click" />
@@ -155,26 +156,26 @@
                     </div>
 
                     <div class="foot__map">
-                        <h3 class="foot__title"><asp:Label ID="Label_Contact" runat="server"></asp:Label></h3>
+                        <h3 class="foot__title"><%: Global.Master_Contact %></h3>
                         <iframe class="foot__map-img" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2766.9242957962583!2d-70.60156668423464!3d46.09248639932049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb9eb33245c96cd%3A0x8601cb36dba73455!2s2845%20208e%20Rue%2C%20Saint-Georges%2C%20QC%20G5Y%205B8!5e0!3m2!1sfr!2sca!4v1627955655628!5m2!1sfr!2sca" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </footer>
 
             <div class="foot__bottom">
-                <asp:Label ID="Label_Footer" runat="server"></asp:Label>
-                <asp:LinkButton class="foot__links" ID="LinkButton_Privacy" runat="server" OnClick="LinkButton_Privacy_Click"></asp:LinkButton>
+                <%: Global.Format(Global.Master_FooterText, DateTime.Now.Year) %>
+                <asp:LinkButton class="foot__links" ID="LinkButton_Privacy" runat="server" OnClick="LinkButton_Privacy_Click"><%: Global.Master_PrivacyPolicy %></asp:LinkButton>
             </div>
 
             <asp:Panel class="cookie__panel" ID="Panel_CookieWarning" runat="server">
-                <asp:Label class="cookie__label" ID="Label_CookieWarning" runat="server"></asp:Label>
-                <a class="cookie__ReadMore" ID="HyperLink_CookieReadMore" runat="server" href="privacy.aspx"></a>
-                <button type="button" class="cookie__button" ID="Button_CookieAccept" runat="server"></button>
+                <span class="cookie__label"><%: Global.Master_CookieWarningText %></span>
+                <a class="cookie__ReadMore" href="privacy.aspx"><%: Global.Master_CookieReadMore %></a>
+                <button type="button" class="cookie__button"><%: Global.Master_CookieAccept %></button>
             </asp:Panel>
 
-            <script src="js/animation.js"></script>
-            <script src="js/observer.js"></script>
-            <script src="js/cookie.js"></script>
+            <script src="../js/animation.js"></script>
+            <script src="../js/observer.js"></script>
+            <script src="../js/cookie.js"></script>
         </form>
     </body>
 </html>

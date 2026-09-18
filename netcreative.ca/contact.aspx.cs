@@ -59,28 +59,18 @@ namespace netcreative.ca
         private void Load_Languages()
         {
             Page.Title = Global.Contact_Title;
-            H1title.InnerText = Global.Contact_H1Title;
-            Label_LastName.Text = Global.Contact_LastName;
-            Label_FirstName.Text = Global.Contact_FirstName;
-            Label_EMail.Text = Global.Contact_Email;
-            Label_Phone.Text = Global.Contact_Phone;
-            Label_Company.Text = Global.Contact_Company;
-            Label_Project_type.Text = Global.Contact_ProjectTypeLabel;
+            Master.SetPageHero("Imgs_Site/hero-contact.jpg", Global.Contact_HeroEyebrow, Global.Contact_H1Title, Global.Contact_HeroText);
             DropDownList_Type.Items.Add(Global.Contact_ProjectType1);
             DropDownList_Type.Items.Add(Global.Contact_ProjectType2);
             DropDownList_Type.Items.Add(Global.Contact_ProjectType3);
             DropDownList_Type.Items.Add(Global.Contact_ProjectType4);
-            DropDownList_Type.Items.Add(Global.Contact_ProjectType5);
-            Label_Project_budjet.Text = Global.Contact_BudgetLabel;
             DropDownList_Budjet.Items.Add(Global.Contact_Budget1);
             DropDownList_Budjet.Items.Add(Global.Contact_Budget2);
             DropDownList_Budjet.Items.Add(Global.Contact_Budget3);
             DropDownList_Budjet.Items.Add(Global.Contact_Budget4);
-            Label_Project_deadline.Text = Global.Contact_DeadlineLabel;
             DropDownList_Deadline.Items.Add(Global.Contact_Deadline1);
             DropDownList_Deadline.Items.Add(Global.Contact_Deadline2);
             DropDownList_Deadline.Items.Add(Global.Contact_Deadline3);
-            Label_Description.Text = Global.Contact_DescriptionLabel;
             Button_Send.Text = Global.Contact_SendButton;
             message_succes = Global.Contact_SuccessMessage;
             message_error = Global.Contact_ErrorMessage;

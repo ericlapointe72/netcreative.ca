@@ -6,9 +6,9 @@ using System.Text.RegularExpressions;
 using System.Web;
 using netcreative.ca.Resources;
 
-namespace netcreative.ca
+namespace netcreative.ca.MasterPages
 {
-    public partial class Site1 : System.Web.UI.MasterPage
+    public partial class Site : System.Web.UI.MasterPage
     {
         private string connectionString = string.Empty;
         private string mail_subject = string.Empty;
@@ -19,8 +19,14 @@ namespace netcreative.ca
         
         private bool subscriber = true;
         
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Init(object sender, EventArgs e)
         {
+            // Master.Page_Load fires *after* the content page's own Page_Load, but content
+            // pages call Master.SetPageHero(...) from their Page_Load, which bakes Global.X
+            // resource strings into control properties immediately (unlike the <%: %> markup
+            // elsewhere, which is only evaluated at render time). So the ?lang= switch has to
+            // be resolved here, in Init, which always completes before any Load runs — otherwise
+            // the hero text keeps showing the culture from before the switch, one click behind.
             string queryLanguage = Request.QueryString["lang"];
 
             if (queryLanguage == "fr" || queryLanguage == "en")
@@ -33,7 +39,10 @@ namespace netcreative.ca
             }
 
             Global.SetCulture(Session["language"].ToString());
+        }
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
             connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
 
             Load_Languages();
@@ -64,7 +73,7 @@ namespace netcreative.ca
             }
         }
 
-        public void SetPageHero(string imageUrl, string eyebrow, string title)
+        public void SetPageHero(string imageUrl, string eyebrow, string title, string text = null, string ctaText = null, string ctaUrl = null, string ctaTarget = null)
         {
             PageHero.Attributes["class"] = "page-hero page-hero--photo";
             PageHero.Attributes["style"] = "background-image:url('" + imageUrl + "')";
@@ -74,6 +83,23 @@ namespace netcreative.ca
 
             H1_PageHero.InnerText = title;
             H1_PageHero.Visible = true;
+
+            if (!string.IsNullOrEmpty(text))
+            {
+                Span_PageHeroText.InnerText = text;
+                Span_PageHeroText.Visible = true;
+            }
+
+            if (!string.IsNullOrEmpty(ctaText) && !string.IsNullOrEmpty(ctaUrl))
+            {
+                HyperLink_PageHeroCta.InnerText = ctaText;
+                HyperLink_PageHeroCta.HRef = ctaUrl;
+                if (!string.IsNullOrEmpty(ctaTarget))
+                {
+                    HyperLink_PageHeroCta.Attributes["target"] = ctaTarget;
+                }
+                HyperLink_PageHeroCta.Visible = true;
+            }
         }
 
         private void HideShow_Animation()
@@ -171,36 +197,12 @@ namespace netcreative.ca
                 string closed = Global.Master_Closed;
                 int timeMod = Session["language"].ToString() == "fr" ? 0 : 12;
 
-                Label_Slogan.Text = Global.Master_Slogan;
-                Label_Home1.Text = Global.Master_Home;
-                Label_Boutique1.Text = Global.Master_Boutique;
-                Label_DutyFreeOps1.Text = Global.Master_DutyFreeOps;
-                Label_Service1.Text = Global.Master_Service;
-                Label_Portfolio1.Text = Global.Master_Portfolio;
-                Label_Contact1.Text = Global.Master_Contact;
-                HyperLink_Language.InnerText = Global.Master_LanguageToggle;
                 HyperLink_Language.HRef = Request.Url.AbsolutePath + "?lang=" + (Session["language"].ToString() == "fr" ? "en" : "fr");
-                Label_Home2.Text = Global.Master_Home;
-                Label_Boutique2.Text = Global.Master_Boutique;
-                Label_DutyFreeOps2.Text = Global.Master_DutyFreeOps;
-                Label_Service2.Text = Global.Master_Service;
-                Label_Portfolio2.Text = Global.Master_Portfolio;
-                Label_Contact2.Text = Global.Master_Contact;
-                Label_Menu.Text = Global.Master_Menu;
-                Label_Opening.Text = Global.Master_OpeningHours;
-                Label_Newsletter.Text = Global.Master_Newsletter;
-                Label_Subscribe.Text = Global.Master_SubscribeText;
                 Button_Subscribe.Text = Global.Master_SubscribeButton;
                 message_subscriber_error = Global.Master_SubscribeErrorInvalid;
                 message_subscriber_exist = Global.Master_SubscribeErrorExists;
                 message_subscriber_done = Global.Master_SubscribeDone;
-                Label_Contact.Text = Global.Master_Contact;
-                Label_Footer.Text = Global.Format(Global.Master_FooterText, DateTime.Now.Year);
-                LinkButton_Privacy.Text = Global.Master_PrivacyPolicy;
                 TextBox_Subscribe.Attributes.Add("placeholder", Global.Master_SubscribePlaceholder);
-                Label_CookieWarning.Text = Global.Master_CookieWarningText;
-                HyperLink_CookieReadMore.InnerText = Global.Master_CookieReadMore;
-                Button_CookieAccept.InnerText = Global.Master_CookieAccept;
                 mail_subject = Global.Master_MailSubjectNewSubscriber;
                 mail_body = Global.Master_MailBodyNewSubscriber;
 

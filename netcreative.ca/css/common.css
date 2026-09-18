@@ -4,7 +4,10 @@
 :root {
     --menuText: #fff;
     --menuTextHov: #eeb20e;
-    --menuBackground: rgba(68, 115, 197, 0.85);
+    /* fully opaque — the mobile menu is a full-screen overlay, and any transparency here
+       lets whatever sits behind it (hero title, footer text) show through and clash with
+       the nav links on top of it */
+    --menuBackground: #4473c5;
     --textBlack: #636e72;
     --logoBlue: #4473c5;
     --logoBlueHov: #2a5fb9;
@@ -38,7 +41,8 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
 }
 
 /*  -------
@@ -58,6 +62,7 @@ body {
 
 .textbox:focus {
     outline: none;
+    border-bottom-color: var(--logoOrange);
 }
 
 /*  ------
@@ -65,55 +70,39 @@ body {
     ------ */
 
 .button {
+    display: inline-block;
     width: 100%;
-    font-size: 1rem;
-    padding: 0.5rem;
-    background-color: transparent;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.85rem 1.5rem;
+    border: none;
+    color: var(--menuText);
     cursor: pointer;
     outline: none;
-    letter-spacing: 1px;
-    transition: 300ms;
+    /* diagonal sweep through the two dominant logo colors, same 135deg language already
+       used on the pillar cards */
+    background-image: linear-gradient(135deg, var(--logoOrange) 0%, var(--logoBlue) 100%);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    transition: transform 150ms ease, box-shadow 250ms ease, filter 250ms ease;
 }
 
-.button__green {
-    border: 2px solid var(--logoGreen);
-    color: var(--logoGreen);
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+    filter: brightness(1.08) saturate(1.1);
 }
 
-.button__green:hover {
-    color: var(--logoSilver);
-    background-color: var(--logoGreen);
+.button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
 }
 
-.button__blue {
-    border: 2px solid var(--logoBlue);
-    color: var(--logoBlue);
-    margin-bottom: 0.5rem;
-}
-
-.button__blue:hover {
-    color: var(--logoSilver);
-    background-color: var(--logoBlue);
-}
-
-.button__orange {
-    border: 2px solid var(--logoOrange);
-    color: var(--logoOrange);
-}
-
-.button__orange:hover {
-    color: var(--menuText);
-    background-color: var(--logoOrange);
-}
-
+/* destructive actions keep their own red gradient so delete/execute buttons in admin
+   stay visually distinct from the brand gradient used everywhere else */
 .button__red {
-    border: 2px solid var(--buttonRed);
-    color: var(--buttonRed);
-}
-
-.button__red:hover {
-    color: var(--menuText);
-    background-color: var(--buttonRed);
+    background-image: linear-gradient(135deg, var(--buttonRed) 0%, #a83226 100%);
 }
 
 .button__sm {

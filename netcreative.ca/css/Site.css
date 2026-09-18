@@ -1,5 +1,5 @@
 ﻿/* ------------------------
-    SITE1.MASTER - PAGE HERO
+    SITE.MASTER - PAGE HERO
     ------------------------ */
 
 .page-hero {
@@ -27,6 +27,15 @@
     z-index: 1;
 }
 
+/* header's z-index:1 above normally creates its own stacking context, which traps
+   .nav__menu's z-index:9996 inside it — that trapped value can never outrank the
+   sibling .page-hero__content (also z-index:1, later in DOM order so it wins ties).
+   Lift header above it while the mobile menu is open so the nav overlay isn't painted
+   under the hero title/eyebrow text. */
+.page-hero--photo:has(#nav__toggle:checked) header {
+    z-index: 9998;
+}
+
 .page-hero--photo .nav__bar::after {
     display: none;
 }
@@ -48,7 +57,7 @@
 }
 
 /* --------------------
-    SITE1.MASTER - MENU
+    SITE.MASTER - MENU
     ------------------- */
 
 header {
@@ -97,7 +106,7 @@ header {
 }
 
 .nav__slogan-ctn {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -125,13 +134,13 @@ header {
 
 .nav__button-ctn {
     grid-area: header_right;
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 1rem;
-    z-index: 9997;
+    /* leaves room so the icons sit to the left of the hamburger (below) instead of
+       being covered by it — both used to sit fixed at the exact same top-right corner */
+    padding-right: 3.25rem;
 }
 
 .icon-stack {
@@ -216,10 +225,20 @@ header {
     width: 100vw;
     background-color: var(--menuBackground);
     margin: 0;
-    padding: 0;
+    padding: 2rem 0;
+    /* safety net if the link list ever gets taller than the screen (e.g. a small phone
+       in landscape) — the menu itself scrolls instead of the page underneath */
+    overflow-y: auto;
     transition: all 500ms ease-in-out;
     transform: translateX(-100%);
     z-index: 9996;
+}
+
+/* the menu is a full-screen overlay, so the page behind it shouldn't scroll while it's
+   open — otherwise its own content (hero title, footer) shows through and the page
+   scrollbar fights with the menu, both of which happened before this rule existed */
+body:has(#nav__toggle:checked) {
+    overflow: hidden;
 }
 
 .nav__links {
@@ -285,12 +304,14 @@ header {
 }
 
 .nav__toggle {
-    position: fixed;
+    /* anchored to .nav__bar (which is position:relative) instead of the viewport, so it
+       scrolls away with the rest of the header instead of floating over the page forever */
+    position: absolute;
     top: 1rem;
     right: 1rem;
-    padding: 1rem 0.5rem;
+    padding: 0.65rem 0.5rem;
     cursor: pointer;
-    background-color: var(--logoOrange);
+    background-color: transparent;
     z-index: 9997;
 }
 
@@ -299,10 +320,18 @@ header {
 .nav__icon::after {
     content: '';
     display: block;
-    background-color: var(--menuText);
+    /* dark lines by default so the icon reads against the plain light header on regular
+       pages; the photo-hero header is transparent and needs the light variant instead */
+    background-color: var(--heroBackground);
     height: 1px;
     width: 1.5rem;
     position: relative;
+}
+
+.page-hero--photo .nav__icon,
+.page-hero--photo .nav__icon::before,
+.page-hero--photo .nav__icon::after {
+    background-color: var(--menuText);
 }
 
 .nav__icon::before,
@@ -433,10 +462,6 @@ header {
         width: 10rem;
     }
 
-    .nav__slogan-ctn {
-        display: none;
-    }
-
     .nav__button-ctn {
         position: relative;
         top: auto;
@@ -488,7 +513,7 @@ header {
         height: 1px;
         background: var(--logoOrange);
         position: absolute;
-        top: 0.5rem;
+        top: 0.15rem;
         left: 0.65rem;
         right: 0.65rem;
         transform: scaleX(0);
@@ -503,7 +528,7 @@ header {
 }
 
 /* ----------------------
-    SITE1.MASTER - FOOTER
+    SITE.MASTER - FOOTER
     --------------------- */
 
 footer {
@@ -725,12 +750,17 @@ footer {
     text-transform: uppercase;
     text-align: center;
     padding: 0.5rem 1rem;
-    background-color: var(--logoOrange);
+    /* same gradient treatment as the site's primary .button (e.g. ENVOYER, Discuter
+       d'un projet) so every button on the site reads as one consistent family */
+    background-image: linear-gradient(135deg, var(--logoOrange) 0%, var(--logoBlue) 100%);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
     color: var(--menuText);
     font-weight: 600;
-    transition: 300ms ease-in-out;
+    transition: transform 150ms ease, box-shadow 250ms ease, filter 250ms ease;
 }
 
 .cookie__button:hover {
-    background-color: var(--logoOrangeHov);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+    filter: brightness(1.08) saturate(1.1);
 }

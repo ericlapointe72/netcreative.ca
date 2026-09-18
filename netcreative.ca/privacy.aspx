@@ -1,75 +1,76 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="privacy.aspx.cs" Inherits="netcreative.ca.privacy" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Site.Master" AutoEventWireup="true" CodeBehind="privacy.aspx.cs" Inherits="netcreative.ca.privacy" %>
+<%@ Import Namespace="netcreative.ca.Resources" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="privacy__container">
         <div class="card">
-            <h1 runat="server" class="card__title" id="H1title1"></h1>
-            <h3 runat="server" class="card__subTitle" id="H3subTitle1"></h3>
-            <asp:Label ID="Label_Paragraphe1" class="card__paragraphe" runat="server"></asp:Label>
-            <h3 runat="server" class="card__subTitle" id="H3subTitle2"></h3>
-            <asp:Label ID="Label_Paragraphe2" class="card__paragraphe" runat="server"></asp:Label>
+            <h1 class="card__title"><%: Global.Privacy_H1Title1 %></h1>
+            <h3 class="card__subTitle"><%: Global.Privacy_SubTitle1 %></h3>
+            <span class="card__paragraphe"><%: Global.Privacy_Paragraph1 %></span>
+            <h3 class="card__subTitle"><%: Global.Privacy_SubTitle2 %></h3>
+            <span class="card__paragraphe"><%: Global.Privacy_Paragraph2 %></span>
             <div class="card__ctn">
                 <i class="fas fa-square"></i>
-                <asp:Label ID="Label_Bullet1" class="card__bullet" runat="server"></asp:Label>
+                <span class="card__bullet"><%: Global.Privacy_Bullet1 %></span>
             </div>
             <div class="card__ctn">
                 <i class="fas fa-square"></i>
-                <asp:Label ID="Label_Bullet2" class="card__bullet" runat="server"></asp:Label>
+                <span class="card__bullet"><%: Global.Privacy_Bullet2 %></span>
             </div>
             <div class="card__ctn">
                 <i class="fas fa-square"></i>
-                <asp:Label ID="Label_Bullet3" class="card__bullet" runat="server"></asp:Label>
+                <span class="card__bullet"><%: Global.Privacy_Bullet3 %></span>
             </div>
             <div class="card__ctn">
                 <i class="fas fa-square"></i>
-                <asp:Label ID="Label_Bullet4" class="card__bullet" runat="server"></asp:Label>
+                <span class="card__bullet"><%: Global.Privacy_Bullet4 %></span>
             </div>
             <div class="card__ctn">
                 <i class="fas fa-square"></i>
-                <asp:Label ID="Label_Bullet5" class="card__bullet" runat="server"></asp:Label>
+                <span class="card__bullet"><%: Global.Privacy_Bullet5 %></span>
             </div>
             <div class="card__ctn">
                 <i class="fas fa-square"></i>
-                <asp:Label ID="Label_Bullet6" class="card__bullet" runat="server"></asp:Label>
+                <span class="card__bullet"><%: Global.Privacy_Bullet6 %></span>
             </div>
             <div class="card__ctn">
                 <i class="fas fa-square"></i>
-                <asp:Label ID="Label_Bullet7" class="card__bullet" runat="server"></asp:Label>
+                <span class="card__bullet"><%: Global.Privacy_Bullet7 %></span>
             </div>
-            <asp:Label ID="Label_Paragraphe3" class="card__paragraphe" runat="server"></asp:Label>
-            <h3 runat="server" class="card__subTitle" id="H3subTitle3"></h3>
-            <asp:Label ID="Label_Paragraphe4" class="card__paragraphe" runat="server"></asp:Label>
+            <span class="card__paragraphe"><%: Global.Privacy_Paragraph3 %></span>
+            <h3 class="card__subTitle"><%: Global.Privacy_SubTitle3 %></h3>
+            <span class="card__paragraphe"><%: Global.Privacy_Paragraph4 %></span>
             <div class="card__ctn">
                 <i class="fas fa-square"></i>
-                <asp:Label ID="Label_Bullet8" class="card__bullet" runat="server"></asp:Label>
-            </div>
-            <div class="card__ctn">
-                <i class="fas fa-square"></i>
-                <asp:Label ID="Label_Bullet9" class="card__bullet" runat="server"></asp:Label>
-            </div>
-            <h3 runat="server" class="card__subTitle" id="H3subTitle4"></h3>
-            <asp:Label ID="Label_Paragraphe5" class="card__paragraphe" runat="server"></asp:Label>
-            <div class="card__ctn">
-                <i class="fas fa-square"></i>
-                <asp:Label ID="Label_Bullet10" class="card__bullet" runat="server"></asp:Label>
+                <span class="card__bullet"><%: Global.Privacy_Bullet8 %></span>
             </div>
             <div class="card__ctn">
                 <i class="fas fa-square"></i>
-                <asp:Label ID="Label_Bullet11" class="card__bullet" runat="server"></asp:Label>
+                <span class="card__bullet"><%: Global.Privacy_Bullet9 %></span>
+            </div>
+            <h3 class="card__subTitle"><%: Global.Privacy_SubTitle4 %></h3>
+            <span class="card__paragraphe"><%: Global.Privacy_Paragraph5 %></span>
+            <div class="card__ctn">
+                <i class="fas fa-square"></i>
+                <span class="card__bullet"><%: Global.Privacy_Bullet10 %></span>
             </div>
             <div class="card__ctn">
                 <i class="fas fa-square"></i>
-                <asp:Label ID="Label_Bullet12" class="card__bullet" runat="server"></asp:Label>
+                <span class="card__bullet"><%: Global.Privacy_Bullet11 %></span>
             </div>
             <div class="card__ctn">
                 <i class="fas fa-square"></i>
-                <asp:Label ID="Label_Bullet13" class="card__bullet" runat="server"></asp:Label>
+                <span class="card__bullet"><%: Global.Privacy_Bullet12 %></span>
             </div>
-            <asp:Label ID="Label_Paragraphe6" class="card__paragraphe" runat="server"></asp:Label>
-            <h3 runat="server" class="card__subTitle" id="H3subTitle5"></h3>
-            <asp:Label ID="Label_Paragraphe7" class="card__paragraphe" runat="server"></asp:Label>
+            <div class="card__ctn">
+                <i class="fas fa-square"></i>
+                <span class="card__bullet"><%: Global.Privacy_Bullet13 %></span>
+            </div>
+            <span class="card__paragraphe"><%: Global.Privacy_Paragraph6 %></span>
+            <h3 class="card__subTitle"><%: Global.Privacy_SubTitle5 %></h3>
+            <span class="card__paragraphe"><%: Global.Privacy_Paragraph7 %></span>
         </div>
     </div>
 

@@ -1,24 +1,24 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="netcreative.ca.Default" %>
-<%@ MasterType VirtualPath="~/Site1.Master" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Site.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="netcreative.ca.Default" %>
+<%@ MasterType VirtualPath="~/MasterPages/Site.Master" %>
 <%@ Import Namespace="netcreative.ca.Resources" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <span class="section-label"><asp:Label ID="Label_PillarsLabel" runat="server"></asp:Label></span>
+    <span class="section-label"><%: Global.Home_PillarsLabel %></span>
 
     <div class="pillar-grid">
         <a class="pillar-card pillar-card--orange" href="boutique.aspx">
-            <span class="pillar-card__title"><asp:Label ID="Label_Pillar1Title" runat="server"></asp:Label></span>
-            <span class="pillar-card__text"><asp:Label ID="Label_Pillar1Text" runat="server"></asp:Label></span>
+            <span class="pillar-card__title"><%: Global.Home_Pillar1Title %></span>
+            <span class="pillar-card__text"><%: Global.Home_Pillar1Text %></span>
         </a>
         <a class="pillar-card pillar-card--blue" href="dutyfreeops.aspx">
-            <span class="pillar-card__title"><asp:Label ID="Label_Pillar2Title" runat="server"></asp:Label></span>
-            <span class="pillar-card__text"><asp:Label ID="Label_Pillar2Text" runat="server"></asp:Label></span>
+            <span class="pillar-card__title"><%: Global.Home_Pillar2Title %></span>
+            <span class="pillar-card__text"><%: Global.Home_Pillar2Text %></span>
         </a>
         <a class="pillar-card" href="service.aspx">
-            <span class="pillar-card__title"><asp:Label ID="Label_Pillar3Title" runat="server"></asp:Label></span>
-            <span class="pillar-card__text"><asp:Label ID="Label_Pillar3Text" runat="server"></asp:Label></span>
+            <span class="pillar-card__title"><%: Global.Home_Pillar3Title %></span>
+            <span class="pillar-card__text"><%: Global.Home_Pillar3Text %></span>
         </a>
     </div>
 
@@ -26,28 +26,28 @@
         <div class="card">
             <img class="card__icon-large" src="Imgs_Site/problem-solving.png" alt="problem solving" />
             <img class="card__icon-popup observer" src="Imgs_Site/problem-solving.png" alt="problem solving" />
-            <h2 runat="server" class="section-label" id="H2slideshowtitle"></h2>
-            
+            <h2 class="section-label"><%: Global.Home_SlideshowTitle %></h2>
+
             <div class="slideshow__container" role="region" aria-roledescription="carousel" aria-label="<%= System.Web.HttpUtility.HtmlAttributeEncode(Global.Home_SlideshowTitle) %>">
                 <div class="slide">
-                    <asp:Label class="slide__title" ID="Label_Slide1_Title" runat="server"></asp:Label>
-                    <asp:Label class="slide__text" ID="Label_Slide1_Text" runat="server"></asp:Label>
+                    <span class="slide__title"><%: Global.Home_Slide1Title %></span>
+                    <span class="slide__text"><%: Global.Home_Slide1Text %></span>
                 </div>
                 <div class="slide">
-                    <asp:Label class="slide__title" ID="Label_Slide2_Title" runat="server"></asp:Label>
-                    <asp:Label class="slide__text" ID="Label_Slide2_Text" runat="server"></asp:Label>
+                    <span class="slide__title"><%: Global.Home_Slide2Title %></span>
+                    <span class="slide__text"><%: Global.Home_Slide2Text %></span>
                 </div>
                 <div class="slide">
-                    <asp:Label class="slide__title" ID="Label_Slide3_Title" runat="server"></asp:Label>
-                    <asp:Label class="slide__text" ID="Label_Slide3_Text" runat="server"></asp:Label>
+                    <span class="slide__title"><%: Global.Home_Slide3Title %></span>
+                    <span class="slide__text"><%: Global.Home_Slide3Text %></span>
                 </div>
                 <div class="slide">
-                    <asp:Label class="slide__title" ID="Label_Slide4_Title" runat="server"></asp:Label>
-                    <asp:Label class="slide__text" ID="Label_Slide4_Text" runat="server"></asp:Label>
+                    <span class="slide__title"><%: Global.Home_Slide4Title %></span>
+                    <span class="slide__text"><%: Global.Home_Slide4Text %></span>
                 </div>
                 <div class="slide">
-                    <asp:Label class="slide__title" ID="Label_Slide5_Title" runat="server"></asp:Label>
-                    <asp:Label class="slide__text" ID="Label_Slide5_Text" runat="server"></asp:Label>
+                    <span class="slide__title"><%: Global.Home_Slide5Title %></span>
+                    <span class="slide__text"><%: Global.Home_Slide5Text %></span>
                 </div>
                 <button type="button" class="prev"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
                 <button type="button" class="next"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
@@ -61,42 +61,42 @@
                 <button type="button" class="dot"></button>
             </div>
 
-            <h2 runat="server" class="card__title observer" id="H2whoiamtitle"></h2>
+            <h2 class="card__title observer"><%: Global.Home_WhoIamTitle %></h2>
 
             <div class="bottom__container">
                 <div class="section5">
                     <div class="card__paragraphe-ctn observer">
                         <div class="card__number">01</div>
-                        <asp:Label class="card__paragraphe" ID="Label_WhoIamParagraphe1" runat="server"></asp:Label>
+                        <span class="card__paragraphe"><%: Global.Home_WhoIamParagraph1 %></span>
                     </div>
                 </div>
                 <div class="section6">
                     <div class="card__paragraphe-ctn observer">
                         <div class="card__number">02</div>
-                        <asp:Label class="card__paragraphe" ID="Label_WhoIamParagraphe2" runat="server"></asp:Label>
+                        <span class="card__paragraphe"><%: Global.Home_WhoIamParagraph2 %></span>
                     </div>
                 </div>
                 <div class="section7">
                     <div class="card__paragraphe-ctn observer">
                         <div class="card__number">03</div>
-                        <asp:Label class="card__paragraphe" ID="Label_WhoIamParagraphe3" runat="server"></asp:Label>
+                        <span class="card__paragraphe"><%: Global.Home_WhoIamParagraph3 %></span>
                     </div>
                 </div>
                 <div class="section8">
                     <div class="card__paragraphe-ctn observer">
                         <div class="card__number">04</div>
-                        <asp:Label class="card__paragraphe" ID="Label_WhoIamParagraphe4" runat="server"></asp:Label>
+                        <span class="card__paragraphe"><%: Global.Home_WhoIamParagraph4 %></span>
                     </div>
                 </div>
             </div>
 
             <div class="card__facebook">
                 <img class="card__icon-popup_fb observer" src="Imgs_Site/trust.png" alt="hand shake"/>
-                <asp:Label class="card__facebook-text observer" ID="Label_Facebook" runat="server"></asp:Label>
+                <span class="card__facebook-text observer"><%: Global.Home_Facebook %></span>
                 <a href="https://www.facebook.com/NetCr%C3%A9ative-101923751954399" target="_blank"><img class="facebook__logo observer" src="Imgs_Site/facebook-logo.png" /></a>
             </div>
-            
-            <asp:Label class="card__Signature observer" ID="Label_WhoIamName" runat="server"></asp:Label>
+
+            <span class="card__Signature observer"><%: Global.Home_WhoIamName %></span>
 
             <div class="carousel__container observer" role="region" aria-roledescription="carousel" aria-label="<%= System.Web.HttpUtility.HtmlAttributeEncode(Global.Home_CarouselRegionLabel) %>">
                 <div class="carousel__slide" tabindex="0">

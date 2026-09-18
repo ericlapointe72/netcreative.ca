@@ -150,15 +150,6 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.Repeater Repeater;
 
         /// <summary>
-        /// Label_Contact_Delete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Contact_Delete;
-
-        /// <summary>
         /// TextBox_Contact_Delete control.
         /// </summary>
         /// <remarks>
@@ -204,15 +195,6 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.GridView GridView_Login;
 
         /// <summary>
-        /// Label_Login_Delete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Login_Delete;
-
-        /// <summary>
         /// TextBox_Login_Delete control.
         /// </summary>
         /// <remarks>
@@ -256,15 +238,6 @@ namespace netcreative.ca
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView_Navigation;
-
-        /// <summary>
-        /// Label_Navigation_Delete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Navigation_Delete;
 
         /// <summary>
         /// TextBox_Navigation_Delete control.
@@ -339,15 +312,6 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.RadioButton RadioButton_Newsletter;
 
         /// <summary>
-        /// Label_Newsletter_Object control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Newsletter_Object;
-
-        /// <summary>
         /// TextBox_Newsletter_Object control.
         /// </summary>
         /// <remarks>
@@ -355,15 +319,6 @@ namespace netcreative.ca
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox_Newsletter_Object;
-
-        /// <summary>
-        /// Label_Newsletter_Intro control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Newsletter_Intro;
 
         /// <summary>
         /// TextBox_Newsletter_Intro control.
@@ -375,15 +330,6 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.TextBox TextBox_Newsletter_Intro;
 
         /// <summary>
-        /// Label_Newsletter_Body control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Newsletter_Body;
-
-        /// <summary>
         /// TextBox_Newsletter_Body control.
         /// </summary>
         /// <remarks>
@@ -391,15 +337,6 @@ namespace netcreative.ca
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox_Newsletter_Body;
-
-        /// <summary>
-        /// Label_Newsletter_Greeting control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Newsletter_Greeting;
 
         /// <summary>
         /// TextBox_Newsletter_Greeting control.
@@ -436,96 +373,6 @@ namespace netcreative.ca
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl H1_Opening;
-
-        /// <summary>
-        /// Label_Empty control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Empty;
-
-        /// <summary>
-        /// Label_Monday control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Monday;
-
-        /// <summary>
-        /// Label_Tuesday control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Tuesday;
-
-        /// <summary>
-        /// Label_Wednesday control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Wednesday;
-
-        /// <summary>
-        /// Label_Thursday control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Thursday;
-
-        /// <summary>
-        /// Label_Friday control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Friday;
-
-        /// <summary>
-        /// Label_Saturday control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Saturday;
-
-        /// <summary>
-        /// Label_Sunday control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Sunday;
-
-        /// <summary>
-        /// Label_Opening control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Opening;
-
-        /// <summary>
-        /// Label_Hour1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Hour1;
 
         /// <summary>
         /// mon_oh control.
@@ -591,15 +438,6 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.TextBox sun_oh;
 
         /// <summary>
-        /// Label_Minute1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Minute1;
-
-        /// <summary>
         /// mon_om control.
         /// </summary>
         /// <remarks>
@@ -663,24 +501,6 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.TextBox sun_om;
 
         /// <summary>
-        /// Label_Closing control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Closing;
-
-        /// <summary>
-        /// Label_Hour2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Hour2;
-
-        /// <summary>
         /// mon_ch control.
         /// </summary>
         /// <remarks>
@@ -742,15 +562,6 @@ namespace netcreative.ca
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox sun_ch;
-
-        /// <summary>
-        /// Label_Minute2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Minute2;
 
         /// <summary>
         /// mon_cm control.
@@ -852,15 +663,6 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.GridView GridView_Subscribe;
 
         /// <summary>
-        /// Label_Subscriber_Delete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Subscriber_Delete;
-
-        /// <summary>
         /// TextBox_Subscriber_Delete control.
         /// </summary>
         /// <remarks>
@@ -897,15 +699,6 @@ namespace netcreative.ca
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl H1_User;
 
         /// <summary>
-        /// Label_User_List control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_User_List;
-
-        /// <summary>
         /// DropDown_User control.
         /// </summary>
         /// <remarks>
@@ -913,15 +706,6 @@ namespace netcreative.ca
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDown_User;
-
-        /// <summary>
-        /// Label_User_Name control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_User_Name;
 
         /// <summary>
         /// TextBox_User_Name control.
@@ -933,15 +717,6 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.TextBox TextBox_User_Name;
 
         /// <summary>
-        /// Label_User_Password control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_User_Password;
-
-        /// <summary>
         /// TextBox_User_Password control.
         /// </summary>
         /// <remarks>
@@ -951,15 +726,6 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.TextBox TextBox_User_Password;
 
         /// <summary>
-        /// Label_User_FirstName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_User_FirstName;
-
-        /// <summary>
         /// TextBox_User_FirstName control.
         /// </summary>
         /// <remarks>
@@ -967,15 +733,6 @@ namespace netcreative.ca
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox_User_FirstName;
-
-        /// <summary>
-        /// Label_User_LastName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_User_LastName;
 
         /// <summary>
         /// TextBox_User_LastName control.
@@ -1122,15 +879,6 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.GridView GridView_Visitor;
 
         /// <summary>
-        /// Label_Visitor_Delete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Visitor_Delete;
-
-        /// <summary>
         /// TextBox_Visitor_Delete control.
         /// </summary>
         /// <remarks>
@@ -1165,15 +913,6 @@ namespace netcreative.ca
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl H1_Sql;
-
-        /// <summary>
-        /// Label_Sql_Warning control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Sql_Warning;
 
         /// <summary>
         /// TextBox_Sql_Query control.

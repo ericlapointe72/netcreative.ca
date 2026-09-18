@@ -15,13 +15,15 @@ namespace netcreative.ca
     {
 
         /// <summary>
-        /// H1title control.
+        /// Propriété Master fortement typée, générée par la directive MasterType.
         /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl H1title;
+        public new netcreative.ca.MasterPages.Site Master
+        {
+            get
+            {
+                return ((netcreative.ca.MasterPages.Site)(base.Master));
+            }
+        }
 
         /// <summary>
         /// TextBox_LastName control.
@@ -33,15 +35,6 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.TextBox TextBox_LastName;
 
         /// <summary>
-        /// Label_LastName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_LastName;
-
-        /// <summary>
         /// TextBox_FirstName control.
         /// </summary>
         /// <remarks>
@@ -49,15 +42,6 @@ namespace netcreative.ca
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox_FirstName;
-
-        /// <summary>
-        /// Label_FirstName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_FirstName;
 
         /// <summary>
         /// TextBox_EMail control.
@@ -69,15 +53,6 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.TextBox TextBox_EMail;
 
         /// <summary>
-        /// Label_EMail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_EMail;
-
-        /// <summary>
         /// TextBox_Phone control.
         /// </summary>
         /// <remarks>
@@ -85,15 +60,6 @@ namespace netcreative.ca
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox_Phone;
-
-        /// <summary>
-        /// Label_Phone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Phone;
 
         /// <summary>
         /// TextBox_Company control.
@@ -105,24 +71,6 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.TextBox TextBox_Company;
 
         /// <summary>
-        /// Label_Company control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Company;
-
-        /// <summary>
-        /// Label_Project_type control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Project_type;
-
-        /// <summary>
         /// DropDownList_Type control.
         /// </summary>
         /// <remarks>
@@ -132,15 +80,6 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.DropDownList DropDownList_Type;
 
         /// <summary>
-        /// Label_Project_budjet control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Project_budjet;
-
-        /// <summary>
         /// DropDownList_Budjet control.
         /// </summary>
         /// <remarks>
@@ -148,15 +87,6 @@ namespace netcreative.ca
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownList_Budjet;
-
-        /// <summary>
-        /// Label_Project_deadline control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Project_deadline;
 
         /// <summary>
         /// DropDownList_Deadline control.
@@ -175,15 +105,6 @@ namespace netcreative.ca
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox_Description;
-
-        /// <summary>
-        /// Label_Description control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Description;
 
         /// <summary>
         /// Image_QuestionFR control.

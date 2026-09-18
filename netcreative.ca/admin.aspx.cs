@@ -87,21 +87,18 @@ namespace netcreative.ca
             //CONTACT
             Button_Contact.Text = Global.Admin_ContactButton;
             contact_menu = Global.Admin_ContactMenu;
-            Label_Contact_Delete.Text = Global.Admin_ContactDeleteLabel;
             Button_Contact_Delete.Text = Global.Admin_Delete;
             contact_message_exist = Global.Format(Global.Admin_ContactExistsError, TextBox_Contact_Delete.Text);
             contact_message_delete = Global.Format(Global.Admin_ContactDeletedSuccess, TextBox_Contact_Delete.Text);
             //LOGIN
             Button_Login.Text = Global.Admin_LoginButton;
             login_menu = Global.Admin_LoginMenu;
-            Label_Login_Delete.Text = Global.Admin_LoginDeleteLabel;
             Button_Login_Delete.Text = Global.Admin_Delete;
             login_message_exist = Global.Format(Global.Admin_LoginExistsError, TextBox_Login_Delete.Text);
             login_message_delete = Global.Format(Global.Admin_LoginDeletedSuccess, TextBox_Login_Delete.Text);
             //NAVIGATION
             Button_Navigation.Text = Global.Admin_NavigationButton;
             navigation_menu = Global.Admin_NavigationMenu;
-            Label_Navigation_Delete.Text = Global.Admin_NavigationDeleteLabel;
             Button_Navigation_Delete.Text = Global.Admin_Delete;
             navigation_message_exist = Global.Format(Global.Admin_NavigationExistsError, TextBox_Navigation_Delete.Text);
             navigation_message_delete = Global.Format(Global.Admin_NavigationDeletedSuccess, TextBox_Navigation_Delete.Text);
@@ -111,10 +108,6 @@ namespace netcreative.ca
             RadioButton_Newsletter_Test.Text = Global.Admin_NewsletterTestRadio;
             RadioButton_Newsletter.Text = Global.Admin_NewsletterButton;
             Label_Newsletter_Email.Text = Global.Admin_NewsletterEmailLabel;
-            Label_Newsletter_Object.Text = Global.Admin_NewsletterObjectLabel;
-            Label_Newsletter_Intro.Text = Global.Admin_NewsletterIntroLabel;
-            Label_Newsletter_Body.Text = Global.Admin_NewsletterBodyLabel;
-            Label_Newsletter_Greeting.Text = Global.Admin_NewsletterGreetingLabel;
             Button_Newsletter_Send.Text = Global.Admin_NewsletterSendTestButton;
             newsletter_message_test = Global.Admin_NewsletterTestSentSuccess;
             newsletter_message_newsletter = Global.Admin_NewsletterSentSuccess;
@@ -124,37 +117,17 @@ namespace netcreative.ca
             //OPENING
             Button_Opening.Text = Global.Admin_OpeningButton;
             opening_menu = Global.Admin_OpeningMenu;
-            Label_Empty.Text = " ";
-            Label_Monday.Text = Global.Admin_MondayAbbrev;
-            Label_Tuesday.Text = Global.Admin_TuesdayAbbrev;
-            Label_Wednesday.Text = Global.Admin_WednesdayAbbrev;
-            Label_Thursday.Text = Global.Admin_ThursdayAbbrev;
-            Label_Friday.Text = Global.Admin_FridayAbbrev;
-            Label_Saturday.Text = Global.Admin_SaturdayAbbrev;
-            Label_Sunday.Text = Global.Admin_SundayAbbrev;
-            Label_Opening.Text = Global.Admin_OpeningLabel;
-            Label_Hour1.Text = Global.Admin_HourLabel;
-            Label_Minute1.Text = Global.Admin_MinuteLabel;
-            Label_Closing.Text = Global.Admin_ClosingLabel;
-            Label_Hour2.Text = Global.Admin_HourLabel;
-            Label_Minute2.Text = Global.Admin_MinuteLabel;
             Button_Opening_Save.Text = Global.Admin_SaveButton;
             opening_message_save = Global.Admin_OpeningSavedSuccess;
             //SUBSCRIBER
             Button_Subscriber.Text = Global.Admin_SubscriberButton;
             subscriber_menu = Global.Admin_SubscriberMenu;
-            Label_Subscriber_Delete.Text = Global.Admin_SubscriberDeleteLabel;
             Button_Subscriber_Delete.Text = Global.Admin_Delete;
             subscriber_message_exist = Global.Format(Global.Admin_SubscriberExistsError, TextBox_Subscriber_Delete.Text);
             subscriber_message_delete = Global.Format(Global.Admin_SubscriberDeletedSuccess, TextBox_Subscriber_Delete.Text);
             //USER
             Button_User.Text = Global.Admin_UserButton;
             user_menu = Global.Admin_UserMenu;
-            Label_User_List.Text = Global.Admin_UserListLabel;
-            Label_User_Name.Text = Global.Admin_UserNameLabel;
-            Label_User_Password.Text = Global.Admin_UserPasswordLabel;
-            Label_User_FirstName.Text = Global.Admin_UserFirstNameLabel;
-            Label_User_LastName.Text = Global.Admin_UserLastNameLabel;
             CheckBox_User_Contact.Text = Global.Admin_ContactButton;
             CheckBox_User_Login.Text = Global.Admin_LoginButton;
             CheckBox_User_Navigation.Text = Global.Admin_NavigationButton;
@@ -173,14 +146,12 @@ namespace netcreative.ca
             //VISITOR
             Button_Visitor.Text = Global.Admin_VisitorButton;
             visitor_menu = Global.Admin_VisitorMenu;
-            Label_Visitor_Delete.Text = Global.Admin_VisitorDeleteLabel;
             Button_Visitor_Delete.Text = Global.Admin_Delete;
             visitor_message_exist = Global.Format(Global.Admin_VisitorExistsError, TextBox_Visitor_Delete.Text);
             visitor_message_delete = Global.Format(Global.Admin_VisitorDeletedSuccess, TextBox_Visitor_Delete.Text);
             //SQL
             Button_Sql.Text = Global.Admin_SqlButton;
             sql_menu = Global.Admin_SqlMenu;
-            Label_Sql_Warning.Text = Global.Admin_SqlWarning;
             TextBox_Sql_Query.Attributes["placeholder"] = Global.Admin_SqlPlaceholder;
             Button_Sql_Execute.Text = Global.Admin_SqlExecuteButton;
             Button_Sql_Execute.OnClientClick = "return confirm('" + Global.Admin_SqlConfirmMessage.Replace("'", "\\'") + "');";

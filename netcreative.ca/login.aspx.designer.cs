@@ -15,15 +15,6 @@ namespace netcreative.ca
     {
 
         /// <summary>
-        /// Label_Title control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Title;
-
-        /// <summary>
         /// TextBox_User control.
         /// </summary>
         /// <remarks>
@@ -33,15 +24,6 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.TextBox TextBox_User;
 
         /// <summary>
-        /// Label_User control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_User;
-
-        /// <summary>
         /// TextBox_Password control.
         /// </summary>
         /// <remarks>
@@ -49,15 +31,6 @@ namespace netcreative.ca
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox_Password;
-
-        /// <summary>
-        /// Label_Password control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Password;
 
         /// <summary>
         /// Button_Connection control.

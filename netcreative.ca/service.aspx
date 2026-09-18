@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="service.aspx.cs" Inherits="netcreative.ca.service" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Site.Master" AutoEventWireup="true" CodeBehind="service.aspx.cs" Inherits="netcreative.ca.service" %>
+<%@ MasterType VirtualPath="~/MasterPages/Site.Master" %>
+<%@ Import Namespace="netcreative.ca.Resources" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <div id="topPage"></div>
@@ -31,111 +33,69 @@
         page_id="101923751954399">
     </div>
 
-    <div class="service__container">
-        <h1 runat="server" class="card__title observer" id="H1title1"></h1>
-                
-        <div class="card__ctn card__ctn1 observer">
-            <i class="fas fa-square"></i>
-            <asp:Label class="card__text" ID="Label_Service1" runat="server"></asp:Label>
+    <div class="content-section">
+        <span class="content-section__text"><%: Global.Service_Intro %></span>
+    </div>
+
+    <span class="section-label"><%: Global.Service_ServicesLabel %></span>
+
+    <div class="feature-grid">
+        <div class="feature-card">
+            <span class="feature-card__title"><%: Global.Service_Item1Title %></span>
+            <span class="feature-card__text"><%: Global.Service_Item1 %></span>
         </div>
-
-        <div class="card__ctn card__ctn2 observer">
-            <i class="fas fa-square"></i>
-            <asp:Label class="card__text" ID="Label_Service2" runat="server"></asp:Label>
+        <div class="feature-card">
+            <span class="feature-card__title"><%: Global.Service_Item2Title %></span>
+            <span class="feature-card__text"><%: Global.Service_Item2 %></span>
         </div>
-
-        <div class="card__ctn card__ctn3 observer">
-            <i class="fas fa-square"></i>
-            <asp:Label class="card__text" ID="Label_Service3" runat="server"></asp:Label>
+        <div class="feature-card">
+            <span class="feature-card__title"><%: Global.Service_Item3Title %></span>
+            <span class="feature-card__text"><%: Global.Service_Item3 %></span>
         </div>
-        
-        <div class="card__ctn card__ctn4 observer">
-            <i class="fas fa-square"></i>
-            <asp:Label class="card__text" ID="Label_Service4" runat="server"></asp:Label>
+        <div class="feature-card">
+            <span class="feature-card__title"><%: Global.Service_Item4Title %></span>
+            <span class="feature-card__text"><%: Global.Service_Item4 %></span>
         </div>
-
-        <div class="card__ctn card__ctn5 observer">
-            <i class="fas fa-square"></i>
-            <asp:Label class="card__text" ID="Label_Service5" runat="server"></asp:Label>
+        <div class="feature-card">
+            <span class="feature-card__title"><%: Global.Service_Item5Title %></span>
+            <span class="feature-card__text"><%: Global.Service_Item5 %></span>
         </div>
-
-        <div class="card__ctn card__ctn6 observer">
-            <i class="fas fa-square"></i>
-            <asp:Label class="card__text" ID="Label_Service6" runat="server"></asp:Label>
+        <div class="feature-card">
+            <span class="feature-card__title"><%: Global.Service_Item6Title %></span>
+            <span class="feature-card__text"><%: Global.Service_Item6 %></span>
         </div>
-
-        <div class="card__ctn card__ctn7 observer">
-            <i class="fas fa-square"></i>
-            <asp:Label class="card__text" ID="Label_Service7" runat="server"></asp:Label>
+        <div class="feature-card">
+            <span class="feature-card__title"><%: Global.Service_Item7Title %></span>
+            <span class="feature-card__text"><%: Global.Service_Item7 %></span>
         </div>
+    </div>
 
-        <h1 runat="server" class="card__title observer" id="H1title2"></h1>
+    <span class="section-label"><%: Global.Service_PrepLabel %></span>
 
-        <div class="card__ctn observer">
-            <i class="fas fa-square"></i>
-            <asp:Label class="card__text" ID="Label_Client1" runat="server"></asp:Label>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <span class="feature-card__title"><%: Global.Service_Client1Title %></span>
+            <span class="feature-card__text"><%: Global.Service_Client1 %></span>
         </div>
-
-        <div class="card__ctn observer">
-            <i class="fas fa-square"></i>
-            <asp:Label class="card__text" ID="Label_Client2" runat="server"></asp:Label>
+        <div class="feature-card">
+            <span class="feature-card__title"><%: Global.Service_Client2Title %></span>
+            <span class="feature-card__text"><%: Global.Service_Client2 %></span>
         </div>
-
-        <div class="card__ctn observer">
-            <i class="fas fa-square"></i>
-            <asp:Label class="card__text" ID="Label_Client3" runat="server"></asp:Label>
+        <div class="feature-card">
+            <span class="feature-card__title"><%: Global.Service_Client3Title %></span>
+            <span class="feature-card__text"><%: Global.Service_Client3 %></span>
         </div>
-
-        <div class="card__ctn observer">
-            <i class="fas fa-square"></i>
-            <asp:Label class="card__text" ID="Label_Client4" runat="server"></asp:Label>
+        <div class="feature-card">
+            <span class="feature-card__title"><%: Global.Service_Client4Title %></span>
+            <span class="feature-card__text"><%: Global.Service_Client4 %></span>
         </div>
-
-        <div class="card__ctn observer">
-            <i class="fas fa-square"></i>
-            <asp:Label class="card__text" ID="Label_Client5" runat="server"></asp:Label>
+        <div class="feature-card">
+            <span class="feature-card__title"><%: Global.Service_Client5Title %></span>
+            <span class="feature-card__text"><%: Global.Service_Client5 %></span>
         </div>
-
-        <div class="card__ctn observer">
-            <i class="fas fa-square"></i>
-            <asp:Label class="card__text" ID="Label_Client6" runat="server"></asp:Label>
-        </div>
-
-        <h1 runat="server" class="card__title observer" id="H1title3"></h1>
-
-        <h2 runat="server" class="card__title observer" id="h2title1"></h2>
-
-        <div class="card__ctn observer">
-            <i class="fas fa-square"></i>
-            <asp:Label class="card__text" ID="Label_Techno1" runat="server"></asp:Label>
-        </div>
-
-        <h2 runat="server" class="card__title observer" id="h2title2"></h2>
-
-        <div class="card__ctn observer">
-            <i class="fas fa-square"></i>
-            <asp:Label class="card__text" ID="Label_Techno2" runat="server"></asp:Label>
-        </div>
-
-        <h2 runat="server" class="card__title observer" id="h2title3"></h2>
-
-        <div class="card__ctn observer">
-            <i class="fas fa-square"></i>
-            <asp:Label class="card__text" ID="Label_Techno3" runat="server"></asp:Label>
-        </div>
-
-        <h2 runat="server" class="card__title observer" id="h2title4"></h2>
-
-        <div class="card__ctn observer">
-            <i class="fas fa-square"></i>
-            <asp:Label class="card__text" ID="Label_Techno4" runat="server"></asp:Label>
-        </div>
-
-        <h2 runat="server" class="card__title observer" id="h2title5"></h2>
-
-        <div class="card__ctn observer">
-            <i class="fas fa-square"></i>
-            <asp:Label class="card__text" ID="Label_Techno5" runat="server"></asp:Label>
+        <div class="feature-card">
+            <span class="feature-card__title"><%: Global.Service_Client6Title %></span>
+            <span class="feature-card__text"><%: Global.Service_Client6 %></span>
         </div>
     </div>
 
@@ -145,7 +105,6 @@
         </asp:LinkButton>
     </div>
 
-    <script src="js/observer.js"></script>
     <script src="js/onscroll.js"></script>
 
 </asp:Content>
