@@ -15,6 +15,17 @@ namespace netcreative.ca
     {
 
         /// <summary>
+        /// Propriété Master fortement typée, générée par la directive MasterType.
+        /// </summary>
+        public new netcreative.ca.MasterPages.Site Master
+        {
+            get
+            {
+                return ((netcreative.ca.MasterPages.Site)(base.Master));
+            }
+        }
+
+        /// <summary>
         /// TextBox_Unsubscribe control.
         /// </summary>
         /// <remarks>
@@ -22,14 +33,5 @@ namespace netcreative.ca
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox_Unsubscribe;
-
-        /// <summary>
-        /// Button_Unsubscribe control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_Unsubscribe;
     }
 }

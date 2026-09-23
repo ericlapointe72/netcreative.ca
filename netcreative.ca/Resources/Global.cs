@@ -199,11 +199,14 @@ namespace netcreative.ca.Resources
         public static string Confirmation_Text => resourceManager.GetString("Confirmation_Text", Thread.CurrentThread.CurrentUICulture);
         public static string Confirmation_BackButton => resourceManager.GetString("Confirmation_BackButton", Thread.CurrentThread.CurrentUICulture);
         public static string Unsubscribe_Title => resourceManager.GetString("Unsubscribe_Title", Thread.CurrentThread.CurrentUICulture);
+        public static string Unsubscribe_HeroEyebrow => resourceManager.GetString("Unsubscribe_HeroEyebrow", Thread.CurrentThread.CurrentUICulture);
         public static string Unsubscribe_H1Title => resourceManager.GetString("Unsubscribe_H1Title", Thread.CurrentThread.CurrentUICulture);
+        public static string Unsubscribe_HeroText => resourceManager.GetString("Unsubscribe_HeroText", Thread.CurrentThread.CurrentUICulture);
         public static string Unsubscribe_Label => resourceManager.GetString("Unsubscribe_Label", Thread.CurrentThread.CurrentUICulture);
         public static string Unsubscribe_Button => resourceManager.GetString("Unsubscribe_Button", Thread.CurrentThread.CurrentUICulture);
         public static string Unsubscribe_SuccessMessage => resourceManager.GetString("Unsubscribe_SuccessMessage", Thread.CurrentThread.CurrentUICulture);
         public static string Unsubscribe_ErrorMessage => resourceManager.GetString("Unsubscribe_ErrorMessage", Thread.CurrentThread.CurrentUICulture);
+        public static string Unsubscribe_NetworkError => resourceManager.GetString("Unsubscribe_NetworkError", Thread.CurrentThread.CurrentUICulture);
         public static string Privacy_Title => resourceManager.GetString("Privacy_Title", Thread.CurrentThread.CurrentUICulture);
         public static string Privacy_HeroEyebrow => resourceManager.GetString("Privacy_HeroEyebrow", Thread.CurrentThread.CurrentUICulture);
         public static string Privacy_HeroText => resourceManager.GetString("Privacy_HeroText", Thread.CurrentThread.CurrentUICulture);

@@ -611,8 +611,14 @@
   <data name="Unsubscribe_Title" xml:space="preserve">
     <value>Se désabonner à notre infolettre</value>
   </data>
+  <data name="Unsubscribe_HeroEyebrow" xml:space="preserve">
+    <value>Infolettre</value>
+  </data>
   <data name="Unsubscribe_H1Title" xml:space="preserve">
     <value>Se désabonner à notre infolettre</value>
+  </data>
+  <data name="Unsubscribe_HeroText" xml:space="preserve">
+    <value>Désolés de vous voir partir. Entrez votre courriel ci-dessous et on vous retire tout de suite.</value>
   </data>
   <data name="Unsubscribe_Label" xml:space="preserve">
     <value>Entrez votre adresse de courriel pour vous désabonner à notre infolettre</value>
@@ -625,6 +631,9 @@
   </data>
   <data name="Unsubscribe_ErrorMessage" xml:space="preserve">
     <value>L'adresse de courriel entrée n'existe pas dans notre liste d'abonnés!</value>
+  </data>
+  <data name="Unsubscribe_NetworkError" xml:space="preserve">
+    <value>Une erreur est survenue, veuillez réessayer.</value>
   </data>
 
   <!-- privacy.aspx -->

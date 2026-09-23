@@ -654,8 +654,14 @@
   <data name="Unsubscribe_Title" xml:space="preserve">
     <value>Unsubscribe to our newsletter</value>
   </data>
+  <data name="Unsubscribe_HeroEyebrow" xml:space="preserve">
+    <value>Newsletter</value>
+  </data>
   <data name="Unsubscribe_H1Title" xml:space="preserve">
     <value>Unsubscribe to our newsletter</value>
+  </data>
+  <data name="Unsubscribe_HeroText" xml:space="preserve">
+    <value>Sorry to see you go. Enter your email below and we'll remove you right away.</value>
   </data>
   <data name="Unsubscribe_Label" xml:space="preserve">
     <value>Enter your email address to unsubscribe to our newsletter</value>
@@ -668,6 +674,9 @@
   </data>
   <data name="Unsubscribe_ErrorMessage" xml:space="preserve">
     <value>The email address entered does not exist in our subscription list!</value>
+  </data>
+  <data name="Unsubscribe_NetworkError" xml:space="preserve">
+    <value>An error occurred, please try again.</value>
   </data>
   <data name="Privacy_Title" xml:space="preserve">
     <value>Privacy Policy</value>

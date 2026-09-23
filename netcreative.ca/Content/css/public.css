@@ -1022,11 +1022,6 @@
     padding: 2rem;
 }
 
-.unsubscribe__container h1 {
-    color: var(--logoOrange);
-    font-size: var(--titleSize);
-}
-
 .unsubscribe__container .label__unsubscribe {
     color: var(--logoOrange);
     font-size: 0.9rem;

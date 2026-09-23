@@ -97,6 +97,7 @@
     <Content Include="Content\js\phone-mask.js" />
     <Content Include="Content\js\login.js" />
     <Content Include="Content\js\subscribe.js" />
+    <Content Include="Content\js\unsubscribe.js" />
     <Content Include="Content\css\animation.css" />
     <Content Include="Content\css\common.css" />
     <Content Include="Content\images\site\facebook-logo.png" />
@@ -135,6 +136,7 @@
     <Content Include="Content\js\slideshow.js" />
     <Content Include="Content\css\Site.css" />
     <Content Include="unsubscribe.aspx" />
+    <Content Include="UnsubscribeHandler.ashx" />
     <Content Include="Web.config" />
     <Content Include="App_Data\connectionStrings.config" />
     <Content Include="App_Data\appSettings.secrets.config" />
@@ -285,6 +287,9 @@
     </Compile>
     <Compile Include="unsubscribe.aspx.designer.cs">
       <DependentUpon>unsubscribe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UnsubscribeHandler.ashx.cs">
+      <DependentUpon>UnsubscribeHandler.ashx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
