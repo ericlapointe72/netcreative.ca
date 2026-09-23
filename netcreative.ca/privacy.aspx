@@ -48,11 +48,11 @@
             <span class="card__paragraphe"><%: Global.Privacy_Paragraph4 %></span>
             <div class="card__ctn">
                 <i class="fas fa-square"></i>
-                <span class="card__bullet"><%: Global.Privacy_Bullet8 %></span>
+                <span class="card__bullet"><%= Global.Privacy_Bullet8 %></span>
             </div>
             <div class="card__ctn">
                 <i class="fas fa-square"></i>
-                <span class="card__bullet"><%: Global.Privacy_Bullet9 %></span>
+                <span class="card__bullet"><%= Global.Privacy_Bullet9 %></span>
             </div>
             <h2 class="card__subTitle"><%: Global.Privacy_SubTitle4 %></h2>
             <span class="card__paragraphe"><%: Global.Privacy_Paragraph5 %></span>
@@ -74,7 +74,7 @@
             </div>
             <span class="card__paragraphe"><%: Global.Privacy_Paragraph6 %></span>
             <h2 class="card__subTitle"><%: Global.Privacy_SubTitle5 %></h2>
-            <span class="card__paragraphe"><%: Global.Privacy_Paragraph7 %></span>
+            <span class="card__paragraphe"><%= Global.Privacy_Paragraph7 %></span>
         </div>
     </div>
 
