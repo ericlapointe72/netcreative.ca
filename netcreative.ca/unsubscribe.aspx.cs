@@ -14,11 +14,6 @@ namespace netcreative.ca
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty((string)Session["language"]))
-            {
-                Session["language"] = ConfigurationManager.AppSettings["app_language"].ToString();
-            }
-
             Global.SetCulture(Session["language"].ToString());
 
             connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
@@ -43,7 +38,7 @@ namespace netcreative.ca
             }
             else
             {
-                Response.Write("<script>alert('" + message_error + "');</script>");
+                Response.Write("<script>showToast('" + message_error + "', 'error');</script>");
             }
         }
 
@@ -77,7 +72,7 @@ namespace netcreative.ca
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -97,14 +92,14 @@ namespace netcreative.ca
                         cmd.ExecuteNonQuery();
                         connection.Close();
 
-                        Response.Write("<script>alert('" + message_success + "');</script>");
+                        Response.Write("<script>showToast('" + message_success + "', 'success');</script>");
                         TextBox_Unsubscribe.Text = string.Empty;
                     }
                 }
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
     }
