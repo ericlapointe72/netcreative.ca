@@ -4,7 +4,6 @@
 
 .contact__container,
 .default__container,
-.login__container,
 .privacy__container,
 .unsubscribe__container {
     width: 100vw;
@@ -49,7 +48,7 @@
 }
 
 .hero--photo {
-    background-image: linear-gradient(rgba(10, 10, 12, 0.55), rgba(10, 10, 12, 0.55)), url('../Imgs_Site/hero-home.jpg');
+    background-image: linear-gradient(rgba(10, 10, 12, 0.55), rgba(10, 10, 12, 0.55)), url('../images/site/hero-home.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -251,66 +250,115 @@
     color: var(--logoBlue);
 }
 
+/*  --------------------------------
+    CHECKLIST GRID (numbered items —
+    visually distinct from feature
+    cards so "what to prepare" reads
+    apart from "what's offered")
+    -------------------------------- */
+
+.checklist-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    max-width: 1000px;
+    margin: 0 auto 3rem auto;
+    padding: 0 1.5rem;
+}
+
+@media screen and (min-width: 700px) {
+    .checklist-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .checklist-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.checklist-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.checklist-card__number {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background-image: linear-gradient(135deg, var(--logoOrange) 0%, var(--logoBlue) 100%);
+    color: var(--menuText);
+    font-family: 'Calistoga', cursive;
+    font-size: 1rem;
+}
+
+.checklist-card__title {
+    display: block;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--logoOrange);
+    margin-bottom: 0.35rem;
+}
+
+.checklist-card__text {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--logoBlue);
+}
+
 /*  -------
     CONTACT
     ------- */
 
 .contact__container {
     display: flex;
-    flex-direction: column;
-    height: auto;
     justify-content: center;
-    align-items: center;
+    padding: 3rem 1.5rem;
 }
 
 .contact__container .card {
-    display: grid;
-    padding: 2rem;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: "sec2" "sec3" "sec4" "sec5" "sec6";
-    height: auto;
-    margin: 3rem;
-    background-color: var(--menuText);
-    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.3);
-}
-
-.contact__container .section2 {
-    grid-area: sec2;
-}
-
-.contact__container .section3 {
-    grid-area: sec3;
-}
-
-.contact__container .section4 {
-    grid-area: sec4;
-}
-
-.contact__container .section5 {
-    grid-area: sec5;
     display: flex;
-    justify-content: center;
-}
-
-.contact__container .section6 {
-    grid-area: sec6;
-}
-
-.contact__container .card__question {
-    display: grid;
-    grid-template-columns: 6fr 1fr;
-    max-width: 30rem;
-    align-items: center;
-}
-
-.contact__container .image__question {
+    flex-direction: column;
     width: 100%;
+    max-width: 46rem;
+    padding: 2.5rem;
+    background-color: var(--menuText);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
 }
 
-.contact__container .textbox__question {
-    min-height: 2rem;
-    max-width: 3rem;
+.contact__container .contact__label {
+    text-align: left;
+    margin: 2rem 0 1rem 0;
+}
+
+.contact__container .contact__label:first-child {
+    margin-top: 0;
+}
+
+.contact__container .contact__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem 1.5rem;
+}
+
+@media screen and (min-width: 600px) {
+    .contact__container .contact__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contact__container .contact__grid--project {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.contact__container .contact__full {
+    grid-column: 1 / -1;
 }
 
 .contact__container .card__lastName,
@@ -322,6 +370,23 @@
     display: grid;
     position: relative;
     min-height: 2.5rem;
+}
+
+.contact__container .card__dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.contact__container .lbl__dropdown {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--logoOrange);
+}
+
+.contact__container .card__description {
+    margin-top: 0.5rem;
 }
 
 .contact__container .tb__description {
@@ -364,25 +429,41 @@
     left: 0.15rem;
 }
 
-@media screen and (min-width: 700px) {
-    .contact__container .card {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas: "sec1 sec1" "sec2 sec3" "sec4 sec4" "sec5 sec5" "sec6 sec6";
-        grid-gap: 1rem;
-    }
-
+.contact__container .card__verify {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--logoSilver);
 }
 
-@media screen and (min-width: 1200px) {
-    .contact__container .card {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas: "sec1 sec1 sec1" "sec2 sec3 sec4" "sec5 sec5 sec5" "sec6 sec6 sec6";
-        grid-gap: 2rem;
-    }
+.contact__container .card__verify-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--logoBlue);
+    margin-bottom: 0.75rem;
+}
 
-    .contact__container .tb__description {
-        height: 11.5rem;
-    }
+.contact__container .card__question {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact__container .image__question {
+    max-width: 14rem;
+    width: 100%;
+    height: auto;
+}
+
+.contact__container .textbox__question {
+    width: 4rem;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.contact__container .button {
+    margin-top: 2rem;
 }
 
 /*  -------
@@ -441,6 +522,10 @@
     opacity: 0;
     transform: translateY(1rem);
     transition: 300ms ease-in-out;
+    /* .default__container has no side padding of its own (it's 100vw up to the 1200px
+       cap), so on mobile the "01"-"04" numbers and their text sit flush against the
+       screen edges; give this row its own gutter below the desktop breakpoint. */
+    padding: 0 1.25rem;
 }
 
 .default__container .card__number {
@@ -546,6 +631,7 @@
 @media screen and (min-width: 740px) {
     .default__container .card__paragraphe-ctn {
         grid-template-columns: 2.5rem auto;
+        padding: 0;
     }
 
     .default__container .bottom__container {
@@ -777,76 +863,101 @@
     background-color: var(--logoOrange);
 }
 
+/*  ------------
+    CONFIRMATION
+    (reuses .contact__container .card — same shell as the contact form,
+    only the content inside changes)
+    ------------ */
+
+.contact__container .card.confirmation__card {
+    align-items: center;
+    text-align: center;
+}
+
+.confirmation__icon {
+    font-size: 3rem;
+    color: var(--logoGreen);
+    margin-bottom: 1.5rem;
+}
+
+.confirmation__title {
+    margin: 0 0 1rem 0;
+    font-family: 'Calistoga', cursive;
+    font-weight: 400;
+    font-size: var(--titleSize);
+    color: var(--textBlack);
+}
+
+.confirmation__text {
+    display: block;
+    margin-bottom: 2rem;
+    color: var(--textBlack);
+    font-size: var(--textSize);
+}
+
+.contact__container .card.confirmation__card .button {
+    width: auto;
+    text-decoration: none;
+    padding: 0.85rem 2.5rem;
+}
+
 /*  -----
     LOGIN
+    (reuses .contact__container .card — same shell as the contact form,
+    narrowed down for a two-field login form)
     ----- */
 
-.login__container {
+.contact__container .card.login__card {
+    max-width: 24rem;
+}
+
+.contact__container .card.login__card .card__user,
+.contact__container .card.login__card .card__password {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-image: url('../Imgs_Carousel/carousel6.jpg');
-    background-size: cover;
-    min-height: 40rem;
-}
-
-.login__container .card {
-    display: grid;
-    grid-template-rows: 7fr 3fr 3fr 3fr 2fr;
-    width: 20rem;
-    height: 30rem;
-    background-color: var(--menuText);
-    padding: 1rem;
-    margin: 1rem auto;
-    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.3);
-}
-
-.login__container .card__avatar {
-    margin: auto;
-    width: 10rem;
-}
-
-.login__container .card__title {
-    margin: auto;
-    font-size: 2.25em;
-    font-weight: bold;
-}
-
-.login__container .card__icon {
-    width: 1rem;
-}
-
-.login__container .card__user,
-.login__container .card__password {
-    display: grid;
-    grid-template-columns: 1fr 7fr 1fr;
-    align-items: center;
-    justify-items: center;
+    gap: 0.6rem;
     position: relative;
+    min-height: 2.5rem;
+    margin-bottom: 0.5rem;
 }
 
-.login__container .lbl__user,
-.login__container .lbl__pass {
+.contact__container .card.login__card .card__icon {
+    width: 1rem;
+    flex-shrink: 0;
+    opacity: 0.6;
+}
+
+.contact__container .card.login__card .tb__user,
+.contact__container .card.login__card .tb__pass {
+    flex: 1;
+}
+
+.contact__container .card.login__card .lbl__user,
+.contact__container .card.login__card .lbl__pass {
     position: absolute;
     pointer-events: none;
     font-size: 1.1rem;
     font-weight: 300;
-    top: 1.5rem;
-    left: 2.1rem;
+    top: 0.35rem;
+    left: 1.6rem;
     color: var(--logoBlue);
     transition: 220ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.login__container .tb__user:focus ~ .lbl__user,
-.login__container .tb__user:valid ~ .lbl__user,
-.login__container .tb__pass:focus ~ .lbl__pass,
-.login__container .tb__pass:valid ~ .lbl__pass {
-    font-size: 0.7rem;
+.contact__container .card.login__card .tb__user:focus ~ .lbl__user,
+.contact__container .card.login__card .tb__user:valid ~ .lbl__user,
+.contact__container .card.login__card .tb__pass:focus ~ .lbl__pass,
+.contact__container .card.login__card .tb__pass:valid ~ .lbl__pass {
+    font-size: 0.8rem;
     font-weight: 500;
     letter-spacing: 0.02em;
     color: var(--logoOrange);
-    top: 0.5rem;
-    left: 2.1rem;
+    top: -0.7rem;
+    left: 1.6rem;
+}
+
+.contact__container .card.login__card .button {
+    margin-top: 1.5rem;
 }
 
 /*  -------
@@ -952,7 +1063,9 @@
 .button__top {
     position: fixed;
     right: 1rem;
-    bottom: 25%;
+    /* was bottom:25%, which floats it mid-screen on tall pages — a "back to top" button
+       reads correctly anchored near the bottom-right corner instead */
+    bottom: 1.5rem;
     transition: 500ms ease;
     transform: translateX(100%);
     opacity: 0;

@@ -22,6 +22,15 @@
     pointer-events: none;
 }
 
+/* the cookie banner sits on top of everything (z-index:9999, see .cookie__panel) so it's
+   never hidden behind the hero — but on a hero with enough content to reach the bottom of
+   the viewport (eyebrow + title + text + CTA, e.g. dutyfreeops.aspx), that put the banner
+   right over the CTA button and swallowed its clicks. Reserve space matching the banner's
+   height while it's still showing so hero content never renders underneath it. */
+body:has(.cookie__panel:not(.cookie__panel-hide)) .page-hero--photo {
+    padding-bottom: 15rem;
+}
+
 .page-hero--photo header {
     position: relative;
     z-index: 1;
@@ -141,6 +150,11 @@ header {
     /* leaves room so the icons sit to the left of the hamburger (below) instead of
        being covered by it — both used to sit fixed at the exact same top-right corner */
     padding-right: 3.25rem;
+    /* on mobile this row sits alone at the top of its own grid row (unlike desktop,
+       where it's vertically centered against the logo in a single flex row), so it
+       needs its own top spacing to match the logo's margin instead of hugging the
+       very top edge of the header */
+    padding-top: 1rem;
 }
 
 .icon-stack {
@@ -197,21 +211,6 @@ header {
 
 .admin__logout:hover {
     transform: scale(1.1);
-}
-
-.admin__hello {
-    text-decoration: none;
-    color:var(--textBlack);
-    border: 1px solid var(--textBlack);
-    background-color: var(--menuText);
-    padding: 0.45rem;
-    transition: all 300ms ease-in-out;
-    flex-shrink: 0;
-}
-
-.admin__hello:hover {
-    color: var(--menuText);
-    background-color: var(--textBlack);
 }
 
 .nav__menu {
@@ -307,12 +306,28 @@ body:has(#nav__toggle:checked) {
     /* anchored to .nav__bar (which is position:relative) instead of the viewport, so it
        scrolls away with the rest of the header instead of floating over the page forever */
     position: absolute;
-    top: 1rem;
+    top: 1.125rem;
     right: 1rem;
-    padding: 0.65rem 0.5rem;
+    /* fixed equal width/height (instead of padding sized off the icon) so the button is
+       always a true square regardless of the icon's own box — matches .icon-stack's
+       2.1rem so it lines up with the mail/mobile/login icons beside it */
+    width: 2.1rem;
+    height: 2.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    background-color: transparent;
+    /* same black-fill / orange-border language as the mail/mobile/login icons next to it,
+       so the button reads as one family instead of a bare, contextually-recolored icon */
+    background-color: var(--heroBackground);
+    border: 1px solid var(--logoOrange);
+    border-radius: 0.5rem;
     z-index: 9997;
+    transition: border-color 300ms ease;
+}
+
+.nav__toggle:hover {
+    border-color: var(--logoOrangeHov);
 }
 
 .nav__icon,
@@ -320,18 +335,12 @@ body:has(#nav__toggle:checked) {
 .nav__icon::after {
     content: '';
     display: block;
-    /* dark lines by default so the icon reads against the plain light header on regular
-       pages; the photo-hero header is transparent and needs the light variant instead */
-    background-color: var(--heroBackground);
+    /* same orange as the icon strokes beside it; the button now carries its own dark
+       background, so the bars no longer need to change with the page behind them */
+    background-color: var(--logoOrange);
     height: 1px;
     width: 1.5rem;
     position: relative;
-}
-
-.page-hero--photo .nav__icon,
-.page-hero--photo .nav__icon::before,
-.page-hero--photo .nav__icon::after {
-    background-color: var(--menuText);
 }
 
 .nav__icon::before,
@@ -353,7 +362,6 @@ body:has(#nav__toggle:checked) {
 
 .nav__toggle:checked ~ .nav__toggle {
     transition-delay: 300ms;
-    background-color: transparent;
 }
 
 .nav__toggle:checked ~ .nav__toggle .nav__icon {
@@ -362,7 +370,7 @@ body:has(#nav__toggle:checked) {
 
 .nav__toggle:checked ~ .nav__toggle .nav__icon::before,
 .nav__toggle:checked ~ .nav__toggle .nav__icon::after {
-    height: 1.25px;
+    height: 1px;
     width: 1.65rem;
 }
 
@@ -469,6 +477,7 @@ body:has(#nav__toggle:checked) {
         display: flex;
         align-items: center;
         gap: 1.25rem;
+        padding-top: 0;
     }
 
     .nav__menu {
@@ -709,6 +718,12 @@ footer {
     display: flex;
     justify-content: center;
     transition: 250ms ease;
+    /* on a photo-hero page, .page-hero__content (z-index:1) spans the full viewport
+       height and otherwise paints — and captures clicks — above this panel, since a
+       sticky element with no z-index of its own still only stacks at level 0. Sit
+       above everything, including an open mobile menu, so the panel is never covered
+       and its button always receives clicks. */
+    z-index: 9999;
 }
 
 .cookie__panel-hide {

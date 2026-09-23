@@ -417,43 +417,37 @@
     <value>Conception sur mesure</value>
   </data>
   <data name="Service_Item1" xml:space="preserve">
-    <value>Conception de sites web sur mesure.</value>
+    <value>Chaque site est conçu sur mesure pour votre entreprise, à partir de zéro — jamais un gabarit générique. Le design reflète votre image de marque et l'expérience est pensée pour convertir vos visiteurs en clients.</value>
   </data>
   <data name="Service_Item2Title" xml:space="preserve">
     <value>Hébergement canadien</value>
   </data>
   <data name="Service_Item2" xml:space="preserve">
-    <value>Hébergement de votre site web sur un serveur situé au Canada.</value>
+    <value>Votre site et votre base de données sont hébergés chez Canadian Web Hosting, sur des serveurs situés au Canada. Vos données restent soumises aux lois canadiennes, avec un support technique disponible au besoin.</value>
   </data>
   <data name="Service_Item3Title" xml:space="preserve">
     <value>Référencement SEO</value>
   </data>
   <data name="Service_Item3" xml:space="preserve">
-    <value>Référencement SEO.</value>
+    <value>Chaque page est structurée pour bien se positionner sur Google : balises, vitesse de chargement et contenu optimisé. Votre site est pensé pour être trouvé facilement, pas seulement pour être joli.</value>
   </data>
   <data name="Service_Item4Title" xml:space="preserve">
     <value>Programmation web</value>
   </data>
   <data name="Service_Item4" xml:space="preserve">
-    <value>Programmation Web.</value>
+    <value>En 2026, le codage de votre site n'est plus rédigé à la main par un programmeur, mais généré avec l'aide de l'IA — résultat : beaucoup moins d'erreurs, un développement plus rapide et plus économique pour vous. Je travaille avec ASP.NET pour la sécurité et la robustesse du langage.</value>
   </data>
   <data name="Service_Item5Title" xml:space="preserve">
     <value>Tests de compatibilité</value>
   </data>
   <data name="Service_Item5" xml:space="preserve">
-    <value>Tests de compatibilité.</value>
+    <value>Votre site est testé sur les principaux navigateurs (Chrome, Firefox, Safari, Edge) ainsi que sur mobile, tablette et ordinateur, pour qu'il s'affiche et fonctionne correctement peu importe l'appareil de vos visiteurs.</value>
   </data>
   <data name="Service_Item6Title" xml:space="preserve">
     <value>Création d'icônes</value>
   </data>
   <data name="Service_Item6" xml:space="preserve">
-    <value>Création de vos icônes.</value>
-  </data>
-  <data name="Service_Item7Title" xml:space="preserve">
-    <value>Photographie de produits</value>
-  </data>
-  <data name="Service_Item7" xml:space="preserve">
-    <value>Prise de photos pour votre boutique en ligne.</value>
+    <value>Je conçois des icônes personnalisées reprenant les couleurs et le style de votre marque, plutôt que des icônes génériques trouvées en ligne — un détail qui donne un look professionnel et cohérent à votre site.</value>
   </data>
   <data name="Service_PrepLabel" xml:space="preserve">
     <value>Avant de commencer</value>
@@ -474,7 +468,7 @@
     <value>Vos textes</value>
   </data>
   <data name="Service_Client3" xml:space="preserve">
-    <value>Écrivez des textes sur votre entreprise, vos produits, vos services, ce qui démarque votre entreprise des compétiteurs, des témoignages de clients, etc.</value>
+    <value>Écrivez des textes sur votre entreprise, vos produits et services, ainsi que ce qui vous distingue de la compétition.</value>
   </data>
   <data name="Service_Client4Title" xml:space="preserve">
     <value>Votre inspiration</value>
@@ -486,7 +480,7 @@
     <value>Un message clair</value>
   </data>
   <data name="Service_Client5" xml:space="preserve">
-    <value>Écrivez uniquement de l'information pertinente et exprimez-vous clairement car les visiteurs fuient les sites Web remplis de titres et textes vagues. Mettez-vous à la place de votre client potentiel et créez du contenu que ce dernier aimerait voir sur un site Web.</value>
+    <value>Restez pertinent et clair — les visiteurs fuient les sites remplis de textes vagues. Mettez-vous à la place de votre client potentiel.</value>
   </data>
   <data name="Service_Client6Title" xml:space="preserve">
     <value>Un objectif clair</value>
@@ -568,20 +562,43 @@
   <data name="Contact_DescriptionLabel" xml:space="preserve">
     <value>Description du projet</value>
   </data>
+  <data name="Contact_CoordinatesLabel" xml:space="preserve">
+    <value>Vos coordonnées</value>
+  </data>
+  <data name="Contact_ProjectLabel" xml:space="preserve">
+    <value>Votre projet</value>
+  </data>
+  <data name="Contact_VerifyLabel" xml:space="preserve">
+    <value>Question de vérification</value>
+  </data>
   <data name="Contact_SendButton" xml:space="preserve">
     <value>Envoyer</value>
   </data>
-  <data name="Contact_SuccessMessage" xml:space="preserve">
-    <value>Votre message à été envoyé avec succès! Nous entrerons en contact avec vous dans peu de temps.</value>
-  </data>
   <data name="Contact_ErrorMessage" xml:space="preserve">
     <value>Vous devez d\'abord répondre correctement à la question!</value>
+  </data>
+  <data name="Contact_EmailError" xml:space="preserve">
+    <value>Veuillez entrer une adresse courriel valide.</value>
   </data>
   <data name="Contact_MailSubject" xml:space="preserve">
     <value>Nouveau message</value>
   </data>
   <data name="Contact_MailBody" xml:space="preserve">
     <value>Un nouveau message provenant de la page 'Contact'­ à été envoyé.</value>
+  </data>
+
+  <!-- confirmation.aspx -->
+  <data name="Confirmation_Title" xml:space="preserve">
+    <value>Message envoyé</value>
+  </data>
+  <data name="Confirmation_Heading" xml:space="preserve">
+    <value>Message envoyé!</value>
+  </data>
+  <data name="Confirmation_Text" xml:space="preserve">
+    <value>Merci pour votre message. Je vous répondrai dans les plus brefs délais.</value>
+  </data>
+  <data name="Confirmation_BackButton" xml:space="preserve">
+    <value>Retour à l'accueil</value>
   </data>
 
   <!-- unsubscribe.aspx -->
@@ -691,6 +708,12 @@
   <data name="Login_Title" xml:space="preserve">
     <value>Connexion de l'utilisateur</value>
   </data>
+  <data name="Login_HeroEyebrow" xml:space="preserve">
+    <value>Administration</value>
+  </data>
+  <data name="Login_HeroText" xml:space="preserve">
+    <value>Accès réservé à l'administration du site.</value>
+  </data>
   <data name="Login_Welcome" xml:space="preserve">
     <value>Bienvenue</value>
   </data>
@@ -706,13 +729,13 @@
   <data name="Login_ErrorMessage" xml:space="preserve">
     <value>Le nom d\'utilisateur ou le mot de passe est erroné!</value>
   </data>
-  <data name="Login_Greeting" xml:space="preserve">
-    <value>Bonjour</value>
-  </data>
 
   <!-- admin.aspx -->
   <data name="Admin_Title" xml:space="preserve">
     <value>Administration</value>
+  </data>
+  <data name="Admin_HeroEyebrow" xml:space="preserve">
+    <value>Tableau de bord</value>
   </data>
   <data name="Admin_ContactButton" xml:space="preserve">
     <value>Contact</value>
@@ -746,21 +769,6 @@
   </data>
   <data name="Admin_LoginDeletedSuccess" xml:space="preserve">
     <value>La connexion numéro {0} a été supprimé avec succès!</value>
-  </data>
-  <data name="Admin_NavigationButton" xml:space="preserve">
-    <value>Navigation</value>
-  </data>
-  <data name="Admin_NavigationMenu" xml:space="preserve">
-    <value>Administration - Navigation</value>
-  </data>
-  <data name="Admin_NavigationDeleteLabel" xml:space="preserve">
-    <value>Entrez la date du jour à supprimer:</value>
-  </data>
-  <data name="Admin_NavigationExistsError" xml:space="preserve">
-    <value>Le jour numéro {0} n\'existe pas!</value>
-  </data>
-  <data name="Admin_NavigationDeletedSuccess" xml:space="preserve">
-    <value>Le jour numéro {0} a été supprimé avec succès!</value>
   </data>
   <data name="Admin_NewsletterButton" xml:space="preserve">
     <value>Infolettre</value>
@@ -899,21 +907,6 @@
   </data>
   <data name="Admin_UserDeletedSuccess" xml:space="preserve">
     <value>L\'utilisateur {0} à été supprimé avec succès!</value>
-  </data>
-  <data name="Admin_VisitorButton" xml:space="preserve">
-    <value>Pages visitées</value>
-  </data>
-  <data name="Admin_VisitorMenu" xml:space="preserve">
-    <value>Administration - Pages visitées</value>
-  </data>
-  <data name="Admin_VisitorDeleteLabel" xml:space="preserve">
-    <value>Entrez la date à supprimer:</value>
-  </data>
-  <data name="Admin_VisitorExistsError" xml:space="preserve">
-    <value>La date {0} n\'existe pas!</value>
-  </data>
-  <data name="Admin_VisitorDeletedSuccess" xml:space="preserve">
-    <value>La date {0} a été supprimé avec succès!</value>
   </data>
   <data name="Admin_SqlButton" xml:space="preserve">
     <value>SQL</value>

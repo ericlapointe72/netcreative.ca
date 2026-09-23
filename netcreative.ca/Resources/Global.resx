@@ -466,43 +466,37 @@
     <value>Custom design</value>
   </data>
   <data name="Service_Item1" xml:space="preserve">
-    <value>Custom website design.</value>
+    <value>Every site is custom-built for your business from scratch — never a generic template. The design reflects your brand, and the experience is built to turn visitors into customers.</value>
   </data>
   <data name="Service_Item2Title" xml:space="preserve">
     <value>Canadian hosting</value>
   </data>
   <data name="Service_Item2" xml:space="preserve">
-    <value>Hosting your website on a server located in Canada.</value>
+    <value>Your website and database are hosted with Canadian Web Hosting, on servers located in Canada. Your data stays under Canadian law, with technical support available when you need it.</value>
   </data>
   <data name="Service_Item3Title" xml:space="preserve">
     <value>SEO</value>
   </data>
   <data name="Service_Item3" xml:space="preserve">
-    <value>SEO referencing.</value>
+    <value>Every page is structured to rank well on Google: proper tags, fast load times, and optimized content. Your site is built to be found easily, not just to look good.</value>
   </data>
   <data name="Service_Item4Title" xml:space="preserve">
     <value>Web programming</value>
   </data>
   <data name="Service_Item4" xml:space="preserve">
-    <value>Web programming.</value>
+    <value>In 2026, your website's code is no longer hand-written by a programmer — it's generated with the help of AI, resulting in far fewer errors and faster, more affordable development for you. I build with ASP.NET for the language's security and robustness.</value>
   </data>
   <data name="Service_Item5Title" xml:space="preserve">
     <value>Compatibility testing</value>
   </data>
   <data name="Service_Item5" xml:space="preserve">
-    <value>Compatibility tests.</value>
+    <value>Your site is tested across major browsers (Chrome, Firefox, Safari, Edge) and on mobile, tablet, and desktop, so it displays and works correctly no matter what device your visitors use.</value>
   </data>
   <data name="Service_Item6Title" xml:space="preserve">
     <value>Icon design</value>
   </data>
   <data name="Service_Item6" xml:space="preserve">
-    <value>Creation of your icons.</value>
-  </data>
-  <data name="Service_Item7Title" xml:space="preserve">
-    <value>Product photography</value>
-  </data>
-  <data name="Service_Item7" xml:space="preserve">
-    <value>Taking pictures for your online store.</value>
+    <value>I design custom icons that match your brand's colors and style, instead of generic icons found online — a small detail that gives your site a polished, cohesive look.</value>
   </data>
   <data name="Service_PrepLabel" xml:space="preserve">
     <value>Before we start</value>
@@ -523,7 +517,7 @@
     <value>Your copy</value>
   </data>
   <data name="Service_Client3" xml:space="preserve">
-    <value>Write texts about your company, your products, your services, what sets your company apart from competitors, customer testimonials, etc.</value>
+    <value>Write about your company, your products and services, and what sets you apart from the competition.</value>
   </data>
   <data name="Service_Client4Title" xml:space="preserve">
     <value>Your inspiration</value>
@@ -535,7 +529,7 @@
     <value>A clear message</value>
   </data>
   <data name="Service_Client5" xml:space="preserve">
-    <value>Write only relevant information and express yourself clearly, because visitors avoid websites filled with vague titles and text. Put yourself in your potential customer's shoes and create content that they would want to see on a website.</value>
+    <value>Stay relevant and clear — visitors avoid sites filled with vague text. Put yourself in your potential customer's shoes.</value>
   </data>
   <data name="Service_Client6Title" xml:space="preserve">
     <value>A clear goal</value>
@@ -615,20 +609,41 @@
   <data name="Contact_DescriptionLabel" xml:space="preserve">
     <value>Project description</value>
   </data>
+  <data name="Contact_CoordinatesLabel" xml:space="preserve">
+    <value>Your information</value>
+  </data>
+  <data name="Contact_ProjectLabel" xml:space="preserve">
+    <value>Your project</value>
+  </data>
+  <data name="Contact_VerifyLabel" xml:space="preserve">
+    <value>Verification question</value>
+  </data>
   <data name="Contact_SendButton" xml:space="preserve">
     <value>Send</value>
   </data>
-  <data name="Contact_SuccessMessage" xml:space="preserve">
-    <value>Your message has been sent successfully! We will get in touch with you shortly.</value>
-  </data>
   <data name="Contact_ErrorMessage" xml:space="preserve">
     <value>You must first answer the question correctly!</value>
+  </data>
+  <data name="Contact_EmailError" xml:space="preserve">
+    <value>Please enter a valid email address.</value>
   </data>
   <data name="Contact_MailSubject" xml:space="preserve">
     <value>New message</value>
   </data>
   <data name="Contact_MailBody" xml:space="preserve">
     <value>A new message from the 'Contact' page has been sent.</value>
+  </data>
+  <data name="Confirmation_Title" xml:space="preserve">
+    <value>Message sent</value>
+  </data>
+  <data name="Confirmation_Heading" xml:space="preserve">
+    <value>Message sent!</value>
+  </data>
+  <data name="Confirmation_Text" xml:space="preserve">
+    <value>Thank you for your message. I'll get back to you as soon as possible.</value>
+  </data>
+  <data name="Confirmation_BackButton" xml:space="preserve">
+    <value>Back to home</value>
   </data>
   <data name="Unsubscribe_Title" xml:space="preserve">
     <value>Unsubscribe to our newsletter</value>
@@ -732,6 +747,12 @@
   <data name="Login_Title" xml:space="preserve">
     <value>User login</value>
   </data>
+  <data name="Login_HeroEyebrow" xml:space="preserve">
+    <value>Administration</value>
+  </data>
+  <data name="Login_HeroText" xml:space="preserve">
+    <value>Access restricted to site administration.</value>
+  </data>
   <data name="Login_Welcome" xml:space="preserve">
     <value>Welcome</value>
   </data>
@@ -747,11 +768,11 @@
   <data name="Login_ErrorMessage" xml:space="preserve">
     <value>The username or the password is incorrect!</value>
   </data>
-  <data name="Login_Greeting" xml:space="preserve">
-    <value>Hello</value>
-  </data>
   <data name="Admin_Title" xml:space="preserve">
     <value>Management</value>
+  </data>
+  <data name="Admin_HeroEyebrow" xml:space="preserve">
+    <value>Dashboard</value>
   </data>
   <data name="Admin_ContactButton" xml:space="preserve">
     <value>Contact</value>
@@ -785,21 +806,6 @@
   </data>
   <data name="Admin_LoginDeletedSuccess" xml:space="preserve">
     <value>Connection number {0} has been deleted successfully!</value>
-  </data>
-  <data name="Admin_NavigationButton" xml:space="preserve">
-    <value>Navigation</value>
-  </data>
-  <data name="Admin_NavigationMenu" xml:space="preserve">
-    <value>Management - Navigation</value>
-  </data>
-  <data name="Admin_NavigationDeleteLabel" xml:space="preserve">
-    <value>Enter the date of the day to be deleted:</value>
-  </data>
-  <data name="Admin_NavigationExistsError" xml:space="preserve">
-    <value>Day number {0} does not exist!</value>
-  </data>
-  <data name="Admin_NavigationDeletedSuccess" xml:space="preserve">
-    <value>Day number {0} has been deleted successfully!</value>
   </data>
   <data name="Admin_NewsletterButton" xml:space="preserve">
     <value>Newsletter</value>
@@ -938,21 +944,6 @@
   </data>
   <data name="Admin_UserDeletedSuccess" xml:space="preserve">
     <value>The user {0} has been deleted successfully!</value>
-  </data>
-  <data name="Admin_VisitorButton" xml:space="preserve">
-    <value>Visited pages</value>
-  </data>
-  <data name="Admin_VisitorMenu" xml:space="preserve">
-    <value>Management - Visited pages</value>
-  </data>
-  <data name="Admin_VisitorDeleteLabel" xml:space="preserve">
-    <value>Enter the date to be deleted:</value>
-  </data>
-  <data name="Admin_VisitorExistsError" xml:space="preserve">
-    <value>The date {0} does not exist!</value>
-  </data>
-  <data name="Admin_VisitorDeletedSuccess" xml:space="preserve">
-    <value>The date {0} has been deleted successfully!</value>
   </data>
   <data name="Admin_SqlButton" xml:space="preserve">
     <value>SQL</value>

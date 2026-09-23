@@ -73,77 +73,68 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="admin.aspx" />
+    <Content Include="Admin\admin.aspx" />
     <Content Include="boutique.aspx" />
     <Content Include="dutyfreeops.aspx" />
-    <Content Include="css\admin.css" />
-    <Content Include="Imgs_Portfolio\mbh_large.png" />
-    <Content Include="Imgs_Portfolio\mbh_medium.png" />
-    <Content Include="Imgs_Portfolio\mbh_small.png" />
-    <Content Include="Imgs_Portfolio\te_large.png" />
-    <Content Include="Imgs_Portfolio\te_medium.png" />
-    <Content Include="Imgs_Portfolio\te_small.png" />
-    <Content Include="Imgs_Site\lock.png" />
-    <Content Include="Imgs_Site\login.png" />
-    <Content Include="Imgs_Site\mail-closed.png" />
-    <Content Include="Imgs_Site\mail-open.png" />
-    <Content Include="Imgs_Site\question_en.png" />
-    <Content Include="Imgs_Site\question_fr.png" />
-    <Content Include="Imgs_Site\signature.png" />
-    <Content Include="js\cookie.js" />
-    <Content Include="js\phone-mask.js" />
-    <Content Include="css\animation.css" />
-    <Content Include="css\common.css" />
-    <Content Include="Imgs_Site\facebook-logo.png" />
-    <Content Include="Imgs_Site\favicon.ico" />
-    <Content Include="js\carousel.js" />
-    <Content Include="Imgs_Carousel\carousel1.jpg" />
-    <Content Include="Imgs_Carousel\carousel2.jpg" />
-    <Content Include="Imgs_Carousel\carousel3.jpg" />
-    <Content Include="Imgs_Carousel\carousel4.jpg" />
-    <Content Include="Imgs_Carousel\carousel5.jpg" />
-    <Content Include="Imgs_Carousel\carousel6.jpg" />
-    <Content Include="Imgs_Portfolio\bht_large.png" />
-    <Content Include="Imgs_Portfolio\bht_medium.png" />
-    <Content Include="Imgs_Portfolio\bht_small.png" />
-    <Content Include="Imgs_Site\increase-profit.png" />
-    <Content Include="Imgs_Site\problem-solving.png" />
-    <Content Include="Imgs_Site\trust.png" />
-    <Content Include="js\animation.js" />
-    <Content Include="Imgs_Site\avatar.png" />
-    <Content Include="Imgs_Site\contact.png" />
-    <Content Include="Imgs_Site\logout-anime.png" />
-    <Content Include="Imgs_Site\login-smile.png" />
-    <Content Include="Imgs_Site\default.jpg" />
-    <Content Include="Imgs_Site\hero-dutyfreeops.jpg" />
-    <Content Include="Imgs_Site\hero-service.jpg" />
-    <Content Include="Imgs_Site\hero-boutique.jpg" />
-    <Content Include="Imgs_Site\hero-accueil.jpg" />
-    <Content Include="Imgs_Site\hero-contact.jpg" />
-    <Content Include="Imgs_Site\logout.png" />
-    <Content Include="Imgs_Site\mobile.png" />
+    <Content Include="Content\css\admin.css" />
+    <Content Include="Content\images\site\lock.png" />
+    <Content Include="Content\images\site\login.png" />
+    <Content Include="Content\images\site\mail-closed.png" />
+    <Content Include="Content\images\site\mail-open.png" />
+    <Content Include="Content\images\site\question_en.png" />
+    <Content Include="Content\images\site\question_fr.png" />
+    <Content Include="Content\images\site\signature.png" />
+    <Content Include="Content\js\cookie.js" />
+    <Content Include="Content\js\toast.js" />
+    <Content Include="Content\js\phone-mask.js" />
+    <Content Include="Content\css\animation.css" />
+    <Content Include="Content\css\common.css" />
+    <Content Include="Content\images\site\facebook-logo.png" />
+    <Content Include="Content\images\site\favicon.ico" />
+    <Content Include="Content\js\carousel.js" />
+    <Content Include="Content\images\carousel\carousel1.jpg" />
+    <Content Include="Content\images\carousel\carousel2.jpg" />
+    <Content Include="Content\images\carousel\carousel3.jpg" />
+    <Content Include="Content\images\carousel\carousel4.jpg" />
+    <Content Include="Content\images\carousel\carousel5.jpg" />
+    <Content Include="Content\images\carousel\carousel6.jpg" />
+    <Content Include="Content\images\site\increase-profit.png" />
+    <Content Include="Content\images\site\problem-solving.png" />
+    <Content Include="Content\images\site\trust.png" />
+    <Content Include="Content\js\animation.js" />
+    <Content Include="Content\images\site\logout-anime.png" />
+    <Content Include="Content\images\site\login-smile.png" />
+    <Content Include="Content\images\site\hero-dutyfreeops.jpg" />
+    <Content Include="Content\images\site\hero-service.jpg" />
+    <Content Include="Content\images\site\hero-boutique.jpg" />
+    <Content Include="Content\images\site\hero-accueil.jpg" />
+    <Content Include="Content\images\site\hero-contact.jpg" />
+    <Content Include="Content\images\site\hero-login.jpg" />
+    <Content Include="Content\images\site\logout.png" />
+    <Content Include="Content\images\site\mobile.png" />
     <Content Include="contact.aspx" />
+    <Content Include="confirmation.aspx" />
     <Content Include="default.aspx" />
-    <Content Include="Imgs_Site\logo.png" />
-    <Content Include="login.aspx" />
-    <Content Include="js\observer.js" />
-    <Content Include="js\onscroll.js" />
-    <Content Include="css\public.css" />
+    <Content Include="Content\images\site\logo.png" />
+    <Content Include="Admin\login.aspx" />
+    <Content Include="Content\js\observer.js" />
+    <Content Include="Content\js\onscroll.js" />
+    <Content Include="Content\css\public.css" />
     <Content Include="privacy.aspx" />
     <Content Include="service.aspx" />
-    <Content Include="js\slideshow.js" />
-    <Content Include="css\Site.css" />
+    <Content Include="Content\js\slideshow.js" />
+    <Content Include="Content\css\Site.css" />
     <Content Include="unsubscribe.aspx" />
     <Content Include="Web.config" />
     <Content Include="App_Data\connectionStrings.config" />
     <Content Include="App_Data\appSettings.secrets.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="admin.aspx.cs">
+    <Compile Include="Admin\admin.aspx.cs">
       <DependentUpon>admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin.aspx.designer.cs">
+    <Compile Include="Admin\admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="contact.aspx.cs">
@@ -152,6 +143,13 @@
     </Compile>
     <Compile Include="contact.aspx.designer.cs">
       <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="confirmation.aspx.cs">
+      <DependentUpon>confirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="confirmation.aspx.designer.cs">
+      <DependentUpon>confirmation.aspx</DependentUpon>
     </Compile>
     <Compile Include="class\Contact.cs" />
     <Compile Include="boutique.aspx.cs">
@@ -177,14 +175,13 @@
     </Compile>
     <Compile Include="class\PasswordHasher.cs" />
     <Compile Include="Resources\Global.cs" />
-    <Compile Include="login.aspx.cs">
+    <Compile Include="Admin\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="login.aspx.designer.cs">
+    <Compile Include="Admin\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="class\Navigation.cs" />
     <Compile Include="class\Login.cs" />
     <Compile Include="privacy.aspx.cs">
       <DependentUpon>privacy.aspx</DependentUpon>
@@ -210,7 +207,6 @@
     </Compile>
     <Compile Include="class\Subscribe.cs" />
     <Compile Include="class\User_IP.cs" />
-    <Compile Include="class\Visitor.cs" />
     <Compile Include="unsubscribe.aspx.cs">
       <DependentUpon>unsubscribe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
