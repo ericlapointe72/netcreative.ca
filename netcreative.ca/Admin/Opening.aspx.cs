@@ -28,52 +28,79 @@ namespace netcreative.ca
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string sqlCommand = "SELECT * FROM OPENING";
+                    string sqlCommand = "SELECT * FROM OPENING WHERE OPEN_CLOSE=@OPEN_CLOSE";
+
+                    connection.Open();
 
                     using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
                     {
-                        connection.Open();
+                        cmd.Parameters.AddWithValue("@OPEN_CLOSE", "OPEN_HOUR");
 
-                        SqlDataReader dr = cmd.ExecuteReader();
-
-                        dr.Read();
-                        mon_oh.Text = dr["MON"].ToString();
-                        tue_oh.Text = dr["TUE"].ToString();
-                        wed_oh.Text = dr["WED"].ToString();
-                        thu_oh.Text = dr["THU"].ToString();
-                        fri_oh.Text = dr["FRI"].ToString();
-                        sat_oh.Text = dr["SAT"].ToString();
-                        sun_oh.Text = dr["SUN"].ToString();
-
-                        dr.Read();
-                        mon_om.Text = dr["MON"].ToString();
-                        tue_om.Text = dr["TUE"].ToString();
-                        wed_om.Text = dr["WED"].ToString();
-                        thu_om.Text = dr["THU"].ToString();
-                        fri_om.Text = dr["FRI"].ToString();
-                        sat_om.Text = dr["SAT"].ToString();
-                        sun_om.Text = dr["SUN"].ToString();
-
-                        dr.Read();
-                        mon_ch.Text = dr["MON"].ToString();
-                        tue_ch.Text = dr["TUE"].ToString();
-                        wed_ch.Text = dr["WED"].ToString();
-                        thu_ch.Text = dr["THU"].ToString();
-                        fri_ch.Text = dr["FRI"].ToString();
-                        sat_ch.Text = dr["SAT"].ToString();
-                        sun_ch.Text = dr["SUN"].ToString();
-
-                        dr.Read();
-                        mon_cm.Text = dr["MON"].ToString();
-                        tue_cm.Text = dr["TUE"].ToString();
-                        wed_cm.Text = dr["WED"].ToString();
-                        thu_cm.Text = dr["THU"].ToString();
-                        fri_cm.Text = dr["FRI"].ToString();
-                        sat_cm.Text = dr["SAT"].ToString();
-                        sun_cm.Text = dr["SUN"].ToString();
-
-                        connection.Close();
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            dr.Read();
+                            mon_oh.Text = dr["MON"].ToString();
+                            tue_oh.Text = dr["TUE"].ToString();
+                            wed_oh.Text = dr["WED"].ToString();
+                            thu_oh.Text = dr["THU"].ToString();
+                            fri_oh.Text = dr["FRI"].ToString();
+                            sat_oh.Text = dr["SAT"].ToString();
+                            sun_oh.Text = dr["SUN"].ToString();
+                        }
                     }
+
+                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@OPEN_CLOSE", "OPEN_MIN");
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            dr.Read();
+                            mon_om.Text = dr["MON"].ToString();
+                            tue_om.Text = dr["TUE"].ToString();
+                            wed_om.Text = dr["WED"].ToString();
+                            thu_om.Text = dr["THU"].ToString();
+                            fri_om.Text = dr["FRI"].ToString();
+                            sat_om.Text = dr["SAT"].ToString();
+                            sun_om.Text = dr["SUN"].ToString();
+                        }
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@OPEN_CLOSE", "CLOSE_HOUR");
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            dr.Read();
+                            mon_ch.Text = dr["MON"].ToString();
+                            tue_ch.Text = dr["TUE"].ToString();
+                            wed_ch.Text = dr["WED"].ToString();
+                            thu_ch.Text = dr["THU"].ToString();
+                            fri_ch.Text = dr["FRI"].ToString();
+                            sat_ch.Text = dr["SAT"].ToString();
+                            sun_ch.Text = dr["SUN"].ToString();
+                        }
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@OPEN_CLOSE", "CLOSE_MIN");
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            dr.Read();
+                            mon_cm.Text = dr["MON"].ToString();
+                            tue_cm.Text = dr["TUE"].ToString();
+                            wed_cm.Text = dr["WED"].ToString();
+                            thu_cm.Text = dr["THU"].ToString();
+                            fri_cm.Text = dr["FRI"].ToString();
+                            sat_cm.Text = dr["SAT"].ToString();
+                            sun_cm.Text = dr["SUN"].ToString();
+                        }
+                    }
+
+                    connection.Close();
                 }
             }
             catch (Exception ex)
