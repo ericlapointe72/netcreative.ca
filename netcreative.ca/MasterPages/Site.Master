@@ -140,14 +140,13 @@
                         </div>
                     </div>
 
-                    <div class="foot__subscribe">
+                    <div class="foot__subscribe" data-network-error="<%: Global.Master_SubscribeNetworkError %>">
                         <h3 class="foot__title"><%: Global.Master_Newsletter %></h3>
                         <label class="foot__subscribe-text"><%: Global.Master_SubscribeText %></label>
                         <div class="foot__subscribe-input">
-                            <asp:TextBox ID="TextBox_Subscribe" runat="server"></asp:TextBox>
-                            <asp:Button class="button button__orange" ID="Button_Subscribe" runat="server" OnClick="Button_Subscribe_Click" />
+                            <asp:TextBox CssClass="tb__subscribe" ID="TextBox_Subscribe" runat="server"></asp:TextBox>
+                            <button type="button" class="button button__orange subscribe__submit"><%: Global.Master_SubscribeButton %></button>
                         </div>
-                        <asp:Label ID="Label_ErrorMessage" runat="server"></asp:Label>
                     </div>
 
                     <div class="foot__map">
@@ -172,6 +171,7 @@
             <script src="../Content/js/observer.js"></script>
             <script src="../Content/js/cookie.js"></script>
             <script src="../Content/js/toast.js"></script>
+            <script src="../Content/js/subscribe.js"></script>
         </form>
     </body>
 </html>

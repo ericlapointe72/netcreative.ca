@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Net.Mail;
-using System.Text.RegularExpressions;
-using System.Web;
 using netcreative.ca.Resources;
 
 namespace netcreative.ca.MasterPages
@@ -11,14 +8,7 @@ namespace netcreative.ca.MasterPages
     public partial class Site : System.Web.UI.MasterPage
     {
         private string connectionString = string.Empty;
-        private string mail_subject = string.Empty;
-        private string mail_body = string.Empty;
-        private string message_subscriber_error = string.Empty;
-        private string message_subscriber_exist = string.Empty;
-        private string message_subscriber_done = string.Empty;
-        
-        private bool subscriber = true;
-        
+
         protected void Page_Init(object sender, EventArgs e)
         {
             // Master.Page_Load fires *after* the content page's own Page_Load, but content
@@ -115,33 +105,6 @@ namespace netcreative.ca.MasterPages
             Response.Redirect(ResolveUrl("~/privacy.aspx"));
         }
 
-        protected void Button_Subscribe_Click(object sender, EventArgs e)
-        {
-            Regex regex = new Regex(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", RegexOptions.CultureInvariant | RegexOptions.Singleline);
-            bool isValidEmail = regex.IsMatch(TextBox_Subscribe.Text);
-
-            if (isValidEmail == true)
-            {
-                SubscriberExist();
-
-                if (subscriber == false)
-                {
-                    Subscribe();
-                    Send_Email();
-                    subscriber = true;
-                    Label_ErrorMessage.Text = string.Empty;
-                }
-                else
-                {
-                    Response.Write("<script>showToast('" + message_subscriber_exist + "', 'error');</script>");
-                }
-            }
-            else
-            {
-                Label_ErrorMessage.Text = message_subscriber_error;
-            }
-        }
-
         private void Verify_CookieWarning()
         {
             if (Request.Cookies["netcreative_cookie_accepted"] != null)
@@ -170,13 +133,7 @@ namespace netcreative.ca.MasterPages
                 int timeMod = Session["language"].ToString() == "fr" ? 0 : 12;
 
                 HyperLink_Language.HRef = Request.Url.AbsolutePath + "?lang=" + (Session["language"].ToString() == "fr" ? "en" : "fr");
-                Button_Subscribe.Text = Global.Master_SubscribeButton;
-                message_subscriber_error = Global.Master_SubscribeErrorInvalid;
-                message_subscriber_exist = Global.Master_SubscribeErrorExists;
-                message_subscriber_done = Global.Master_SubscribeDone;
                 TextBox_Subscribe.Attributes.Add("placeholder", Global.Master_SubscribePlaceholder);
-                mail_subject = Global.Master_MailSubjectNewSubscriber;
-                mail_body = Global.Master_MailBodyNewSubscriber;
 
                 string oh_sun, oh_mon, oh_tue, oh_wed, oh_thu, oh_fri, oh_sat;
                 string om_sun, om_mon, om_tue, om_wed, om_thu, om_fri, om_sat;
@@ -473,101 +430,5 @@ namespace netcreative.ca.MasterPages
             }
         }
 
-        private void SubscriberExist()
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    string sqlCommand = "SELECT * FROM SUBSCRIBE WHERE EMAIL=@EMAIL";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@EMAIL", TextBox_Subscribe.Text);
-
-                        connection.Open();
-                        SqlDataReader dr = cmd.ExecuteReader();
-
-                        if (dr.HasRows)
-                        {
-                            subscriber = true;
-                        }
-                        else
-                        {
-                            subscriber = false;
-                        }
-                        
-                        connection.Close();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
-            }
-        }
-
-        private void Subscribe()
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    string sqlCommand = "INSERT INTO SUBSCRIBE (DATE, TIME, IP_ADDRESS, EMAIL) VALUES (@DATE, @TIME, @IP_ADDRESS, @EMAIL)";
-                    string user_ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
-
-                    if (user_ip == null)
-                    {
-                        user_ip = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
-                    }
-                    else
-                    {
-                        user_ip = user_ip.Split(',')[0];
-                    }
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@DATE", DateTime.Now.Date);
-                        cmd.Parameters.AddWithValue("@TIME", DateTime.Now.TimeOfDay);
-                        cmd.Parameters.AddWithValue("@IP_ADDRESS", user_ip);
-                        cmd.Parameters.AddWithValue("@EMAIL", TextBox_Subscribe.Text);
-
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-
-                        Response.Write("<script>showToast('" + message_subscriber_done + "', 'success');</script>");
-                        TextBox_Subscribe.Text = string.Empty;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
-            }
-        }
-
-        private void Send_Email()
-        {
-            SmtpClient smtpClient = new SmtpClient(ConfigurationManager.AppSettings["smtp_host"], Convert.ToInt32(ConfigurationManager.AppSettings["smtp_port"]));
-            smtpClient.Credentials = new System.Net.NetworkCredential(ConfigurationManager.AppSettings["smtp_user"], ConfigurationManager.AppSettings["smtp_password"]);
-            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-
-            MailMessage mail = new MailMessage();
-            mail.From = new MailAddress(ConfigurationManager.AppSettings["smtp_user"], "Net.Créative.ca");
-            mail.To.Add(new MailAddress(ConfigurationManager.AppSettings["smtp_user"]));
-
-            mail.Subject = mail_subject;
-            mail.Body = mail_body;
-
-            try
-            {
-                smtpClient.Send(mail);
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
-            }
-        }
     }
 }

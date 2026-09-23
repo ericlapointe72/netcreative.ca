@@ -213,24 +213,6 @@ namespace netcreative.ca.MasterPages
         protected global::System.Web.UI.WebControls.TextBox TextBox_Subscribe;
 
         /// <summary>
-        /// Contrôle Button_Subscribe.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_Subscribe;
-
-        /// <summary>
-        /// Contrôle Label_ErrorMessage.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ErrorMessage;
-
-        /// <summary>
         /// Contrôle LinkButton_Privacy.
         /// </summary>
         /// <remarks>

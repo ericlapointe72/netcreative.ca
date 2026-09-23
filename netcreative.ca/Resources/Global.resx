@@ -165,6 +165,9 @@
   <data name="Master_SubscribePlaceholder" xml:space="preserve">
     <value>Enter your email</value>
   </data>
+  <data name="Master_SubscribeNetworkError" xml:space="preserve">
+    <value>An error occurred, please try again.</value>
+  </data>
   <data name="Master_FooterText" xml:space="preserve">
     <value>Net.Créative {0} | All rights reserved | </value>
   </data>

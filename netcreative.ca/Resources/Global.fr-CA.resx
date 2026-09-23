@@ -108,6 +108,9 @@
   <data name="Master_SubscribePlaceholder" xml:space="preserve">
     <value>Entrez votre courriel</value>
   </data>
+  <data name="Master_SubscribeNetworkError" xml:space="preserve">
+    <value>Une erreur est survenue, veuillez réessayer.</value>
+  </data>
   <data name="Master_FooterText" xml:space="preserve">
     <value>Net.Créative {0} | Tous droits réservés | </value>
   </data>

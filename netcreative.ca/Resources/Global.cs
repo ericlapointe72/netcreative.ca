@@ -36,6 +36,7 @@ namespace netcreative.ca.Resources
         public static string Master_SubscribeErrorExists => resourceManager.GetString("Master_SubscribeErrorExists", Thread.CurrentThread.CurrentUICulture);
         public static string Master_SubscribeDone => resourceManager.GetString("Master_SubscribeDone", Thread.CurrentThread.CurrentUICulture);
         public static string Master_SubscribePlaceholder => resourceManager.GetString("Master_SubscribePlaceholder", Thread.CurrentThread.CurrentUICulture);
+        public static string Master_SubscribeNetworkError => resourceManager.GetString("Master_SubscribeNetworkError", Thread.CurrentThread.CurrentUICulture);
         public static string Master_FooterText => resourceManager.GetString("Master_FooterText", Thread.CurrentThread.CurrentUICulture);
         public static string Master_PrivacyPolicy => resourceManager.GetString("Master_PrivacyPolicy", Thread.CurrentThread.CurrentUICulture);
         public static string Master_CookieWarningText => resourceManager.GetString("Master_CookieWarningText", Thread.CurrentThread.CurrentUICulture);
