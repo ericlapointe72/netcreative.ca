@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Net.Mail;
+using System.Text.RegularExpressions;
 using System.Web;
 using netcreative.ca.Resources;
 
@@ -12,54 +13,48 @@ namespace netcreative.ca
         private string connectionString = string.Empty;
         private string mail_subject = string.Empty;
         private string mail_body = string.Empty;
-        private string message_succes = string.Empty;
         private string message_error = string.Empty;
+        private string message_email_error = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty((string)Session["language"]))
-            {
-                Session["language"] = ConfigurationManager.AppSettings["app_language"].ToString();
-            }
-
-            Global.SetCulture(Session["language"].ToString());
-
             connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
             Image_QuestionFR.Visible = false;
             Image_QuestionEN.Visible = false;
             Load_Languages();
-
-            if (User_IP.Get_UserIP() != "207.167.217.203" && User_IP.Get_UserIP() != "216.208.120.130")
-            {
-                if (!IsPostBack)
-                {
-                    VerifyIfDayExist();
-                    WriteVisitorInfo();
-                }
-            }
         }
 
         protected void Button_Send_Click(object sender, EventArgs e)
         {
-            if (TextBox_Question.Text.Trim() == "6")
+            if (TextBox_Question.Text.Trim() != "6")
             {
-                Send_Message();
-                Response.Write("<script>alert('" + message_succes + "');</script>");
-                Send_Email();
-
+                Response.Write("<script>showToast('" + message_error + "', 'error');</script>");
+            }
+            else if (!IsValidEmail(TextBox_EMail.Text))
+            {
+                Response.Write("<script>showToast('" + message_email_error + "', 'error');</script>");
             }
             else
             {
-                Response.Write("<script>alert('" + message_error + "');</script>");
+                Send_Message();
+                // fire-and-forget: the SMTP round-trip can take several seconds and the
+                // visitor doesn't need to wait on it — their submission is already safely
+                // stored above, this email is just a best-effort notification to me
+                System.Threading.Tasks.Task.Run(() => Send_Email());
+                Response.Redirect(ResolveUrl("~/confirmation.aspx"));
             }
 
             TextBox_Question.Text = string.Empty;
         }
 
+        private bool IsValidEmail(string email)
+        {
+            Regex regex = new Regex(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", RegexOptions.CultureInvariant | RegexOptions.Singleline);
+            return regex.IsMatch(email);
+        }
+
         private void Load_Languages()
         {
-            Page.Title = Global.Contact_Title;
-            Master.SetPageHero("Imgs_Site/hero-contact.jpg", Global.Contact_HeroEyebrow, Global.Contact_H1Title, Global.Contact_HeroText);
             DropDownList_Type.Items.Add(Global.Contact_ProjectType1);
             DropDownList_Type.Items.Add(Global.Contact_ProjectType2);
             DropDownList_Type.Items.Add(Global.Contact_ProjectType3);
@@ -72,8 +67,8 @@ namespace netcreative.ca
             DropDownList_Deadline.Items.Add(Global.Contact_Deadline2);
             DropDownList_Deadline.Items.Add(Global.Contact_Deadline3);
             Button_Send.Text = Global.Contact_SendButton;
-            message_succes = Global.Contact_SuccessMessage;
             message_error = Global.Contact_ErrorMessage;
+            message_email_error = Global.Contact_EmailError;
             mail_subject = Global.Contact_MailSubject;
             mail_body = Global.Contact_MailBody;
 
@@ -110,8 +105,8 @@ namespace netcreative.ca
 
                     using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
                     {
-                        cmd.Parameters.AddWithValue("@DATE", DateTime.Now.ToString("yyyy/MM/dd"));
-                        cmd.Parameters.AddWithValue("@TIME", DateTime.Now.ToLongTimeString());
+                        cmd.Parameters.AddWithValue("@DATE", DateTime.Now.Date);
+                        cmd.Parameters.AddWithValue("@TIME", DateTime.Now.TimeOfDay);
                         cmd.Parameters.AddWithValue("@IP_ADDRESS", user_ip);
                         cmd.Parameters.AddWithValue("@LAST_NAME", TextBox_LastName.Text.Replace("'", "''"));
                         cmd.Parameters.AddWithValue("@FIRST_NAME", TextBox_FirstName.Text.Replace("'", "''"));
@@ -138,7 +133,7 @@ namespace netcreative.ca
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -159,127 +154,14 @@ namespace netcreative.ca
             {
                 smtpClient.Send(mail);
             }
-            catch (Exception ex)
+            catch
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                // runs on a background thread after the visitor has already been
+                // redirected to the confirmation page — there's no response left to
+                // write a toast into, and the contact submission itself is already
+                // safely stored, so a failed notification email is silently dropped
             }
         }
 
-        private void VerifyIfDayExist()
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    string sqlCommand = "SELECT * FROM NAVIGATION WHERE DATE=@DATE";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@DATE", DateTime.Now.ToString("yyyy/MM/dd"));
-
-                        connection.Open();
-                        SqlDataReader dr = cmd.ExecuteReader();
-                        dr.Read();
-
-                        if (dr.HasRows)
-                        {
-                            UpdateDay();
-                        }
-                        else
-                        {
-                            InsertDay();
-                            UpdateDay();
-                        }
-
-                        connection.Close();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
-            }
-        }
-
-        private void InsertDay()
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    string sqlCommand = "INSERT INTO NAVIGATION (DATE, HOME, SERVICE, PORTFOLIO, CONTACT, TOTAL) " +
-                        "VALUES (@DATE, @HOME, @SERVICE, @PORTFOLIO, @CONTACT, @TOTAL)";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@DATE", DateTime.Now.ToString("yyyy/MM/dd"));
-                        cmd.Parameters.AddWithValue("@HOME", 0);
-                        cmd.Parameters.AddWithValue("@SERVICE", 0);
-                        cmd.Parameters.AddWithValue("@PORTFOLIO", 0);
-                        cmd.Parameters.AddWithValue("@CONTACT", 0);
-                        cmd.Parameters.AddWithValue("@TOTAL", 0);
-
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
-            }
-        }
-
-        private void UpdateDay()
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    string sqlCommand = "UPDATE NAVIGATION SET CONTACT=CONTACT+1, TOTAL=TOTAL+1 WHERE DATE=@DATE";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@DATE", DateTime.Now.ToString("yyyy/MM/dd"));
-
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                        connection.Open();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
-            }
-        }
-
-        private void WriteVisitorInfo()
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    string sqlCommand = "INSERT INTO VISITOR (DATE, TIME, IP_ADDRESS, PAGE) VALUES (@DATE, @TIME, @IP_ADDRESS, @PAGE)";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@DATE", DateTime.Now.ToString("yyyy/MM/dd"));
-                        cmd.Parameters.AddWithValue("@TIME", DateTime.Now.ToLongTimeString());
-                        cmd.Parameters.AddWithValue("@IP_ADDRESS", User_IP.Get_UserIP());
-                        cmd.Parameters.AddWithValue("@PAGE", "CONTACT");
-
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
-            }
-        }
     }
 }
