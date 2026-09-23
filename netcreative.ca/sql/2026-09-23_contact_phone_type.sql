@@ -35,16 +35,20 @@ GO
 
 
 -- ============================================================
--- STEP 2 — once Step 1 returns zero rows: trim the padding SQL
--- Server has been adding on every insert, then narrow the column
--- to varchar(14).
+-- STEP 2 — once Step 1 returns zero rows: narrow the column to
+-- varchar(14) FIRST. Trimming while the column is still nchar(20)
+-- doesn't work — nchar always re-pads whatever you assign back out
+-- to its fixed width, so an RTRIM done before this ALTER gets
+-- silently undone by the column itself (verified on the production
+-- run of this script: the trim had no effect until the column was
+-- already varchar).
 -- ============================================================
+
+ALTER TABLE [dbo].[CONTACT] ALTER COLUMN [PHONE] varchar(14) NOT NULL;
+GO
 
 UPDATE [dbo].[CONTACT]
 SET [PHONE] = RTRIM([PHONE]);
-GO
-
-ALTER TABLE [dbo].[CONTACT] ALTER COLUMN [PHONE] varchar(14) NOT NULL;
 GO
 
 
