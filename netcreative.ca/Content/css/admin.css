@@ -1,33 +1,102 @@
-﻿/*  -----------------------
-    ADMIN SHARED PROPERTIES
-    ----------------------- */
+/*  --------------
+    ADMIN LAYOUT
+    -------------- */
 
-.admin__container {
-    max-width: 1200px;
-    margin: auto;
-}
-
-.admin__container .card {
+.admin-layout {
     display: grid;
-    grid-template-columns: 1fr 5fr;
-    padding: 1rem;
+    grid-template-columns: 220px 1fr;
+    min-height: 100vh;
+    background: #f4f7fb;
 }
 
-.admin__container .card__content {
-    border: 1px solid var(--logoBlue);
-    padding: 1rem;
-    margin: 0 1rem 0.5rem 1rem;
+@media screen and (max-width: 800px) {
+    .admin-layout {
+        grid-template-columns: 1fr;
+    }
 }
 
-.admin__container .card__title {
-    margin: 0;
-    padding-bottom: 1rem;
+/* Sidebar */
+.admin-sidebar {
+    background: #fff;
+    border-right: 1px solid #e0e6f0;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+}
+
+.admin-sidebar__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
     text-align: center;
-    color: var(--logoBlue);
-    font-size: 1.5rem;
 }
 
-.admin__container .card__enterdata {
+.admin-logo {
+    width: 130px;
+}
+
+.admin-user__name {
+    font-size: 0.85rem;
+    color: var(--textBlack);
+}
+
+.admin-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-nav__link {
+    display: block;
+    padding: 0.6rem 0.8rem;
+    margin-bottom: 0.15rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--logoBlue);
+    border-radius: 6px;
+}
+
+    .admin-nav__link:hover {
+        background: rgba(68, 115, 197, 0.1);
+    }
+
+.admin-nav__link--active {
+    color: var(--menuText);
+    background-image: linear-gradient(135deg, var(--logoOrange) 0%, var(--logoBlue) 100%);
+}
+
+    .admin-nav__link--active:hover {
+        background-image: linear-gradient(135deg, var(--logoOrange) 0%, var(--logoBlue) 100%);
+    }
+
+.admin-sidebar__footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #e0e6f0;
+}
+
+/* Main */
+.admin-main {
+    padding: 1.5rem 2rem 3rem;
+}
+
+.admin-main__title {
+    font-size: 1.5rem;
+    margin: 0 0 1.2rem;
+    color: var(--logoBlue);
+}
+
+.admin-card {
+    background: #fff;
+    border: 1px solid var(--logoBlue);
+    border-radius: 4px;
+    padding: 1.5rem;
+    max-width: 1000px;
+}
+
+.admin-card .card__enterdata {
     margin-top: 1rem;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
@@ -37,11 +106,11 @@
     ADMIN_CONTACT
     ------------- */
 
-.admin__container .card__line {
+.admin-card .card__line {
     display: block;
 }
 
-.admin__container .card__line-last {
+.admin-card .card__line-last {
     margin-bottom: 1rem;
 }
 
@@ -49,8 +118,8 @@
     ADMIN_NEWSLETTER
     ---------------- */
 
-.admin__container .card__choice,
-.admin__container .card__email {
+.admin-card .card__choice,
+.admin-card .card__email {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -59,16 +128,16 @@
     margin: 0.5rem 0 0.25rem 0;
 }
 
-.admin__container .radio__choice {
+.admin-card .radio__choice {
     padding: 0.25rem 0;
 }
 
-.admin__container .label__email {
+.admin-card .label__email {
     font-size: 0.9rem;
     color: var(--logoOrange);
 }
 
-.admin__container .textbox__multiline {
+.admin-card .textbox__multiline {
     height: 10rem;
 }
 
@@ -76,19 +145,19 @@
     ADMIN_OPENING
     ------------- */
 
-.admin__container .card__opening {
+.admin-card .card__opening {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.admin__container .label__opening {
+.admin-card .label__opening {
     display: inline-block;
     width: 3rem;
     margin: 0.5rem 0 0 1rem;
 }
 
-.admin__container .textbox__opening {
+.admin-card .textbox__opening {
     display: inline-block;
     width: 3rem;
     margin: 0.5rem 0 0 1rem;
@@ -99,33 +168,31 @@
     ADMIN_USER
     ---------- */
 
-.admin__container .card__dropdown {
+.admin-card .card__dropdown {
     display: grid;
 }
 
-.admin__container .card__enterdata {
-    display: grid;
-    grid-template-rows: 1fr 2fr;
-}
-
-.admin__container .label__data {
+.admin-card .label__data {
     color: var(--logoOrange);
     font-size: 0.9rem;
 }
 
-.admin__container .checkbox {
-    display: block;
-}
-
-.admin__container .card__button {
+.admin-card .card__button {
     display: flex;
     gap: 1rem;
     flex-direction: column;
+    margin-top: 1rem;
 }
 
 @media screen and (min-width: 1200px) {
-    .admin__container .card__button {
+    .admin-card .card__button {
         flex-direction: row;
+    }
+
+    .admin-card .card__button .button {
+        width: auto;
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
 }
 
@@ -133,10 +200,33 @@
     ADMIN_SQL
     -------- */
 
-.admin__container .label__sqlwarning {
+.admin-card .label__sqlwarning {
     display: block;
     color: var(--buttonRed);
     font-weight: 600;
     font-size: 0.95rem;
     margin-bottom: 0.75rem;
+}
+
+/*  ----
+    GRID
+    ---- */
+
+.admin-card .grid {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.85rem;
+}
+
+.admin-card .grid th,
+.admin-card .grid td {
+    border: 1px solid #e0e6f0;
+    padding: 0.4rem 0.6rem;
+    text-align: left;
+}
+
+.admin-card .grid th {
+    background: #f4f7fb;
+    color: var(--logoBlue);
 }

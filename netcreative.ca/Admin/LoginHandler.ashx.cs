@@ -47,7 +47,7 @@ namespace netcreative.ca
 
                             success = true;
                             Write_Login(userName, true);
-                            redirect = VirtualPathUtility.ToAbsolute("~/Admin/admin.aspx");
+                            redirect = VirtualPathUtility.ToAbsolute("~/Admin/Dashboard.aspx");
                         }
                         else
                         {

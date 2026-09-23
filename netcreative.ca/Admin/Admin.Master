@@ -1,0 +1,48 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.Master.cs" Inherits="netcreative.ca.AdminMaster" %>
+<%@ Import Namespace="netcreative.ca.Resources" %>
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head runat="server">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title><asp:ContentPlaceHolder ID="HeadTitle" runat="server" /></title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Calistoga&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="../Content/images/site/favicon.ico" />
+        <link href="../Content/css/common.css" rel="stylesheet" />
+        <link href="../Content/css/admin.css" rel="stylesheet" />
+        <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+    </head>
+    <body>
+        <form id="form1" runat="server">
+            <div class="admin-layout">
+                <aside class="admin-sidebar">
+                    <div class="admin-sidebar__header">
+                        <img class="admin-logo" src="../Content/images/site/logo.png" alt="Net.Créative" />
+                        <span class="admin-user__name"><asp:Label ID="Label_CurrentUser" runat="server" /></span>
+                    </div>
+                    <nav class="admin-nav">
+                        <asp:HyperLink ID="Link_Dashboard" runat="server" NavigateUrl="~/Admin/Dashboard.aspx" CssClass="admin-nav__link"><%: Global.Admin_DashboardMenu %></asp:HyperLink>
+                        <asp:HyperLink ID="Link_Contact" runat="server" NavigateUrl="~/Admin/ContactLog.aspx" CssClass="admin-nav__link"><%: Global.Admin_ContactMenu %></asp:HyperLink>
+                        <asp:HyperLink ID="Link_Login" runat="server" NavigateUrl="~/Admin/LoginLog.aspx" CssClass="admin-nav__link"><%: Global.Admin_LoginMenu %></asp:HyperLink>
+                        <asp:HyperLink ID="Link_Newsletter" runat="server" NavigateUrl="~/Admin/Newsletter.aspx" CssClass="admin-nav__link"><%: Global.Admin_NewsletterMenu %></asp:HyperLink>
+                        <asp:HyperLink ID="Link_Opening" runat="server" NavigateUrl="~/Admin/Opening.aspx" CssClass="admin-nav__link"><%: Global.Admin_OpeningMenu %></asp:HyperLink>
+                        <asp:HyperLink ID="Link_Subscribers" runat="server" NavigateUrl="~/Admin/Subscribers.aspx" CssClass="admin-nav__link"><%: Global.Admin_SubscriberMenu %></asp:HyperLink>
+                        <asp:HyperLink ID="Link_Users" runat="server" NavigateUrl="~/Admin/Users.aspx" CssClass="admin-nav__link"><%: Global.Admin_UserMenu %></asp:HyperLink>
+                        <asp:HyperLink ID="Link_Sql" runat="server" NavigateUrl="~/Admin/Sql.aspx" CssClass="admin-nav__link"><%: Global.Admin_SqlMenu %></asp:HyperLink>
+                    </nav>
+                    <div class="admin-sidebar__footer">
+                        <asp:Button class="button button__red" ID="Button_Logout" runat="server" OnClick="Button_Logout_Click" />
+                    </div>
+                </aside>
+                <main class="admin-main">
+                    <h1 class="admin-main__title"><asp:ContentPlaceHolder ID="PageTitle" runat="server" /></h1>
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+                </main>
+            </div>
+            <script src="../Content/js/toast.js"></script>
+        </form>
+    </body>
+</html>

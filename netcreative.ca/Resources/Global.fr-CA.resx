@@ -737,8 +737,14 @@
   <data name="Admin_Title" xml:space="preserve">
     <value>Administration</value>
   </data>
-  <data name="Admin_HeroEyebrow" xml:space="preserve">
-    <value>Tableau de bord</value>
+  <data name="Admin_DashboardMenu" xml:space="preserve">
+    <value>Administration - Tableau de bord</value>
+  </data>
+  <data name="Admin_DashboardWelcome" xml:space="preserve">
+    <value>Bienvenue dans le panneau d'administration de netcreative.ca. Utilisez le menu à gauche pour gérer le site.</value>
+  </data>
+  <data name="Admin_LogoutButton" xml:space="preserve">
+    <value>Déconnexion</value>
   </data>
   <data name="Admin_ContactButton" xml:space="preserve">
     <value>Contact</value>

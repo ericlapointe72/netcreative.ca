@@ -73,7 +73,15 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin\admin.aspx" />
+    <Content Include="Admin\Admin.Master" />
+    <Content Include="Admin\Dashboard.aspx" />
+    <Content Include="Admin\ContactLog.aspx" />
+    <Content Include="Admin\LoginLog.aspx" />
+    <Content Include="Admin\Newsletter.aspx" />
+    <Content Include="Admin\Opening.aspx" />
+    <Content Include="Admin\Subscribers.aspx" />
+    <Content Include="Admin\Users.aspx" />
+    <Content Include="Admin\Sql.aspx" />
     <Content Include="boutique.aspx" />
     <Content Include="dutyfreeops.aspx" />
     <Content Include="Content\css\admin.css" />
@@ -132,12 +140,68 @@
     <Content Include="App_Data\appSettings.secrets.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\admin.aspx.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
+    <Compile Include="Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\admin.aspx.designer.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
+    <Compile Include="Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ContactLog.aspx.cs">
+      <DependentUpon>ContactLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ContactLog.aspx.designer.cs">
+      <DependentUpon>ContactLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\LoginLog.aspx.cs">
+      <DependentUpon>LoginLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\LoginLog.aspx.designer.cs">
+      <DependentUpon>LoginLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Newsletter.aspx.cs">
+      <DependentUpon>Newsletter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Newsletter.aspx.designer.cs">
+      <DependentUpon>Newsletter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Opening.aspx.cs">
+      <DependentUpon>Opening.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Opening.aspx.designer.cs">
+      <DependentUpon>Opening.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Subscribers.aspx.cs">
+      <DependentUpon>Subscribers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Subscribers.aspx.designer.cs">
+      <DependentUpon>Subscribers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Sql.aspx.cs">
+      <DependentUpon>Sql.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Sql.aspx.designer.cs">
+      <DependentUpon>Sql.aspx</DependentUpon>
     </Compile>
     <Compile Include="contact.aspx.cs">
       <DependentUpon>contact.aspx</DependentUpon>
