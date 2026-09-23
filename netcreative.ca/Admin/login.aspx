@@ -10,7 +10,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="contact__container">
-        <div class="card login__card">
+        <div class="card login__card" data-network-error="<%: Global.Login_NetworkError %>">
             <span class="section-label contact__label"><%: Global.Login_Title %></span>
 
             <div class="card__user">
@@ -25,8 +25,10 @@
                 <span class="lbl__pass"><%: Global.Login_Password %></span>
             </div>
 
-            <asp:Button class="button" ID="Button_Connection" runat="server" OnClick="Button_Connection_Click"/>
+            <button type="button" class="button login__submit"><%: Global.Login_ConnectionButton %></button>
         </div>
     </div>
+
+    <script src="../Content/js/login.js"></script>
 
 </asp:Content>

@@ -87,6 +87,7 @@
     <Content Include="Content\js\cookie.js" />
     <Content Include="Content\js\toast.js" />
     <Content Include="Content\js\phone-mask.js" />
+    <Content Include="Content\js\login.js" />
     <Content Include="Content\css\animation.css" />
     <Content Include="Content\css\common.css" />
     <Content Include="Content\images\site\facebook-logo.png" />
@@ -117,6 +118,7 @@
     <Content Include="default.aspx" />
     <Content Include="Content\images\site\logo.png" />
     <Content Include="Admin\login.aspx" />
+    <Content Include="Admin\LoginHandler.ashx" />
     <Content Include="Content\js\observer.js" />
     <Content Include="Content\js\onscroll.js" />
     <Content Include="Content\css\public.css" />
@@ -181,6 +183,9 @@
     </Compile>
     <Compile Include="Admin\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\LoginHandler.ashx.cs">
+      <DependentUpon>LoginHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="class\Login.cs" />
     <Compile Include="privacy.aspx.cs">

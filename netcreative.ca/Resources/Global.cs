@@ -237,6 +237,7 @@ namespace netcreative.ca.Resources
         public static string Login_Password => resourceManager.GetString("Login_Password", Thread.CurrentThread.CurrentUICulture);
         public static string Login_ConnectionButton => resourceManager.GetString("Login_ConnectionButton", Thread.CurrentThread.CurrentUICulture);
         public static string Login_ErrorMessage => resourceManager.GetString("Login_ErrorMessage", Thread.CurrentThread.CurrentUICulture);
+        public static string Login_NetworkError => resourceManager.GetString("Login_NetworkError", Thread.CurrentThread.CurrentUICulture);
         public static string Admin_Title => resourceManager.GetString("Admin_Title", Thread.CurrentThread.CurrentUICulture);
         public static string Admin_HeroEyebrow => resourceManager.GetString("Admin_HeroEyebrow", Thread.CurrentThread.CurrentUICulture);
         public static string Admin_ContactButton => resourceManager.GetString("Admin_ContactButton", Thread.CurrentThread.CurrentUICulture);
