@@ -45,8 +45,8 @@ namespace netcreative.ca
                         {
                             Subscribe s = new Subscribe();
                             s.Number = dr["AUTO_NUMBER"].ToString();
-                            s.Date = dr["DATE"].ToString();
-                            s.Time = dr["TIME"].ToString();
+                            s.Date = ((DateTime)dr["DATE"]).ToString("yyyy-MM-dd");
+                            s.Time = ((TimeSpan)dr["TIME"]).ToString(@"hh\:mm\:ss");
                             s.IP_Address = dr["IP_ADDRESS"].ToString();
                             s.Email = dr["EMAIL"].ToString();
                             subscribes.Add(s);

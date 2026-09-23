@@ -527,8 +527,8 @@ namespace netcreative.ca.MasterPages
 
                     using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
                     {
-                        cmd.Parameters.AddWithValue("@DATE", DateTime.Now.ToString("yyyy/MM/dd"));
-                        cmd.Parameters.AddWithValue("@TIME", DateTime.Now.ToLongTimeString());
+                        cmd.Parameters.AddWithValue("@DATE", DateTime.Now.Date);
+                        cmd.Parameters.AddWithValue("@TIME", DateTime.Now.TimeOfDay);
                         cmd.Parameters.AddWithValue("@IP_ADDRESS", user_ip);
                         cmd.Parameters.AddWithValue("@EMAIL", TextBox_Subscribe.Text);
 
