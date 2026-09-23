@@ -148,8 +148,10 @@ header {
     justify-content: flex-end;
     gap: 1rem;
     /* leaves room so the icons sit to the left of the hamburger (below) instead of
-       being covered by it — both used to sit fixed at the exact same top-right corner */
-    padding-right: 3.25rem;
+       being covered by it — both used to sit fixed at the exact same top-right corner.
+       The hamburger itself occupies 3.1rem from the edge (right: 1rem + width: 2.1rem),
+       so this needs to clear that by a visible margin, not just barely exceed it. */
+    padding-right: 4rem;
     /* on mobile this row sits alone at the top of its own grid row (unlike desktop,
        where it's vertically centered against the logo in a single flex row), so it
        needs its own top spacing to match the logo's margin instead of hugging the
