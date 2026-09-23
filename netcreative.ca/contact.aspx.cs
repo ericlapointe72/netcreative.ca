@@ -59,6 +59,7 @@ namespace netcreative.ca
             DropDownList_Type.Items.Add(Global.Contact_ProjectType2);
             DropDownList_Type.Items.Add(Global.Contact_ProjectType3);
             DropDownList_Type.Items.Add(Global.Contact_ProjectType4);
+            DropDownList_Type.Items.Add(Global.Contact_ProjectType5);
             DropDownList_Budjet.Items.Add(Global.Contact_Budget1);
             DropDownList_Budjet.Items.Add(Global.Contact_Budget2);
             DropDownList_Budjet.Items.Add(Global.Contact_Budget3);

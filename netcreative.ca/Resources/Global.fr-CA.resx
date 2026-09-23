@@ -535,6 +535,9 @@
   <data name="Contact_ProjectType4" xml:space="preserve">
     <value>Application web</value>
   </data>
+  <data name="Contact_ProjectType5" xml:space="preserve">
+    <value>Application boutique hors taxes</value>
+  </data>
   <data name="Contact_BudgetLabel" xml:space="preserve">
     <value>Vous disposez d'un budjet de ...</value>
   </data>

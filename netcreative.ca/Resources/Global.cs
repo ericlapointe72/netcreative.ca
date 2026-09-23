@@ -175,6 +175,7 @@ namespace netcreative.ca.Resources
         public static string Contact_ProjectType2 => resourceManager.GetString("Contact_ProjectType2", Thread.CurrentThread.CurrentUICulture);
         public static string Contact_ProjectType3 => resourceManager.GetString("Contact_ProjectType3", Thread.CurrentThread.CurrentUICulture);
         public static string Contact_ProjectType4 => resourceManager.GetString("Contact_ProjectType4", Thread.CurrentThread.CurrentUICulture);
+        public static string Contact_ProjectType5 => resourceManager.GetString("Contact_ProjectType5", Thread.CurrentThread.CurrentUICulture);
         public static string Contact_BudgetLabel => resourceManager.GetString("Contact_BudgetLabel", Thread.CurrentThread.CurrentUICulture);
         public static string Contact_Budget1 => resourceManager.GetString("Contact_Budget1", Thread.CurrentThread.CurrentUICulture);
         public static string Contact_Budget2 => resourceManager.GetString("Contact_Budget2", Thread.CurrentThread.CurrentUICulture);
