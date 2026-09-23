@@ -61,7 +61,6 @@ namespace netcreative.ca.MasterPages
                 HyperLink_Login.Visible = true;
                 Image_Logout.Visible = false;
                 LinkButton_Logout.Visible = false;
-                LinkButton_Hello.Visible = false;
             }
             else if (Session["role"].Equals("admin"))
             {
@@ -69,7 +68,6 @@ namespace netcreative.ca.MasterPages
                 HyperLink_Login.Visible = false;
                 Image_Logout.Visible = true;
                 LinkButton_Logout.Visible = true;
-                LinkButton_Hello.Text = Session["name"].ToString();
             }
         }
 
@@ -117,7 +115,7 @@ namespace netcreative.ca.MasterPages
 
         protected void LinkButton_Logo_Click(object sender, EventArgs e)
         {
-            Response.Redirect("default.aspx");
+            Response.Redirect(ResolveUrl("~/default.aspx"));
         }
 
         protected void LinkButton_Logout_Click(object sender, EventArgs e)
@@ -128,14 +126,13 @@ namespace netcreative.ca.MasterPages
             HyperLink_Login.Visible = true;
             Image_Logout.Visible = false;
             LinkButton_Logout.Visible = false;
-            LinkButton_Hello.Visible = false;
 
-            Response.Redirect("default.aspx");
+            Response.Redirect(ResolveUrl("~/default.aspx"));
         }
 
         protected void LinkButton_Privacy_Click(object sender, EventArgs e)
         {
-            Response.Redirect("privacy.aspx");
+            Response.Redirect(ResolveUrl("~/privacy.aspx"));
         }
 
         protected void Button_Subscribe_Click(object sender, EventArgs e)
@@ -156,18 +153,13 @@ namespace netcreative.ca.MasterPages
                 }
                 else
                 {
-                    Response.Write("<script>alert('" + message_subscriber_exist + "');</script>");
+                    Response.Write("<script>showToast('" + message_subscriber_exist + "', 'error');</script>");
                 }
             }
             else
             {
                 Label_ErrorMessage.Text = message_subscriber_error;
             }
-        }
-
-        protected void LinkButton_Hello_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("admin.aspx");
         }
 
         private void Verify_CookieWarning()
@@ -467,7 +459,7 @@ namespace netcreative.ca.MasterPages
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -478,16 +470,15 @@ namespace netcreative.ca.MasterPages
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     string sqlCommand =
-                        "INSERT INTO LOGIN (IP_ADDRESS, DATE, TIME, USER_NAME, PASSWORD, ACTION) VALUES (" +
-                        "@IP_ADDRESS, @DATE, @TIME, @USER_NAME, @PASSWORD, @ACTION)";
-                                        
+                        "INSERT INTO LOGIN (IP_ADDRESS, DATE, TIME, USER_NAME, ACTION) VALUES (" +
+                        "@IP_ADDRESS, @DATE, @TIME, @USER_NAME, @ACTION)";
+
                     using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
                     {
-                        cmd.Parameters.AddWithValue("@DATE", DateTime.Now.ToString("yyyy/MM/dd"));
-                        cmd.Parameters.AddWithValue("@TIME", DateTime.Now.ToLongTimeString());
+                        cmd.Parameters.AddWithValue("@DATE", DateTime.Now.Date);
+                        cmd.Parameters.AddWithValue("@TIME", DateTime.Now.TimeOfDay);
                         cmd.Parameters.AddWithValue("@IP_ADDRESS", User_IP.Get_UserIP());
-                        cmd.Parameters.AddWithValue("@USER_NAME", ConfigurationManager.AppSettings["app_user"]);
-                        cmd.Parameters.AddWithValue("@PASSWORD", string.Empty);
+                        cmd.Parameters.AddWithValue("@USER_NAME", Session["user"].ToString());
                         cmd.Parameters.AddWithValue("@ACTION", "LOGOUT");
 
                         connection.Open();
@@ -495,14 +486,13 @@ namespace netcreative.ca.MasterPages
                         connection.Close();
 
                         Session["user"] = string.Empty;
-                        Session["name"] = string.Empty;
                         Session["role"] = string.Empty;
                     }
                 }
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -536,7 +526,7 @@ namespace netcreative.ca.MasterPages
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -569,14 +559,14 @@ namespace netcreative.ca.MasterPages
                         cmd.ExecuteNonQuery();
                         connection.Close();
 
-                        Response.Write("<script>alert('" + message_subscriber_done + "');</script>");
+                        Response.Write("<script>showToast('" + message_subscriber_done + "', 'success');</script>");
                         TextBox_Subscribe.Text = string.Empty;
                     }
                 }
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -599,7 +589,7 @@ namespace netcreative.ca.MasterPages
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
     }
