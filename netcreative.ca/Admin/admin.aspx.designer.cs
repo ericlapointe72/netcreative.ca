@@ -15,6 +15,17 @@ namespace netcreative.ca
     {
 
         /// <summary>
+        /// Propriété Master fortement typée, générée par la directive MasterType.
+        /// </summary>
+        public new netcreative.ca.MasterPages.Site Master
+        {
+            get
+            {
+                return ((netcreative.ca.MasterPages.Site)(base.Master));
+            }
+        }
+
+        /// <summary>
         /// Button_Contact control.
         /// </summary>
         /// <remarks>
@@ -31,15 +42,6 @@ namespace netcreative.ca
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Login;
-
-        /// <summary>
-        /// Button_Navigation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_Navigation;
 
         /// <summary>
         /// Button_Newsletter control.
@@ -76,15 +78,6 @@ namespace netcreative.ca
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_User;
-
-        /// <summary>
-        /// Button_Visitor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_Visitor;
 
         /// <summary>
         /// Button_Sql control.
@@ -211,51 +204,6 @@ namespace netcreative.ca
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Login_Delete;
-
-        /// <summary>
-        /// View_Navigation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View View_Navigation;
-
-        /// <summary>
-        /// H1_Navigation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl H1_Navigation;
-
-        /// <summary>
-        /// GridView_Navigation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView_Navigation;
-
-        /// <summary>
-        /// TextBox_Navigation_Delete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Navigation_Delete;
-
-        /// <summary>
-        /// Button_Navigation_Delete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_Navigation_Delete;
 
         /// <summary>
         /// View_Newsletter control.
@@ -744,78 +692,6 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.TextBox TextBox_User_LastName;
 
         /// <summary>
-        /// CheckBox_User_Contact control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox_User_Contact;
-
-        /// <summary>
-        /// CheckBox_User_Login control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox_User_Login;
-
-        /// <summary>
-        /// CheckBox_User_Navigation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox_User_Navigation;
-
-        /// <summary>
-        /// CheckBox_User_Newsletter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox_User_Newsletter;
-
-        /// <summary>
-        /// CheckBox_User_Opening control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox_User_Opening;
-
-        /// <summary>
-        /// CheckBox_User_Subscriber control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox_User_Subscriber;
-
-        /// <summary>
-        /// CheckBox_User_User control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox_User_User;
-
-        /// <summary>
-        /// CheckBox_User_Visitor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox_User_Visitor;
-
-        /// <summary>
         /// Button_User_Save control.
         /// </summary>
         /// <remarks>
@@ -850,51 +726,6 @@ namespace netcreative.ca
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_User_Delete;
-
-        /// <summary>
-        /// View_Visitor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View View_Visitor;
-
-        /// <summary>
-        /// H1_Visitor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl H1_Visitor;
-
-        /// <summary>
-        /// GridView_Visitor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView_Visitor;
-
-        /// <summary>
-        /// TextBox_Visitor_Delete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Visitor_Delete;
-
-        /// <summary>
-        /// Button_Visitor_Delete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_Visitor_Delete;
 
         /// <summary>
         /// View_Sql control.

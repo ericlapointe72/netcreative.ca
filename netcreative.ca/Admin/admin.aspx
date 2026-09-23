@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Site.Master" AutoEventWireup="true" CodeBehind="admin.aspx.cs" Inherits="netcreative.ca.admin" %>
+<%@ MasterType VirtualPath="~/MasterPages/Site.Master" %>
 <%@ Import Namespace="netcreative.ca.Resources" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
@@ -22,12 +23,10 @@
             <div class="card__menu">
                 <asp:Button class="button button__blue" ID="Button_Contact" runat="server" OnClick="Button_Contact_Click" />
                 <asp:Button class="button button__blue" ID="Button_Login" runat="server" OnClick="Button_Login_Click" />
-                <asp:Button class="button button__blue" ID="Button_Navigation" runat="server" OnClick="Button_Navigation_Click" />
                 <asp:Button class="button button__blue" ID="Button_Newsletter" runat="server" OnClick="Button_Newsletter_Click" />
                 <asp:Button class="button button__blue" ID="Button_Opening" runat="server" OnClick="Button_Opening_Click" />
                 <asp:Button class="button button__blue" ID="Button_Subscriber" runat="server" OnClick="Button_Subscriber_Click" />
                 <asp:Button class="button button__blue" ID="Button_User" runat="server" OnClick="Button_User_Click" />
-                <asp:Button class="button button__blue" ID="Button_Visitor" runat="server" OnClick="Button_Visitor_Click" />
                 <asp:Button class="button button__red" ID="Button_Sql" runat="server" OnClick="Button_Sql_Click" />
             </div>
 
@@ -61,15 +60,6 @@
                             <span class="label__data"><%: Global.Admin_LoginDeleteLabel %></span>
                             <asp:TextBox CssClass="textbox" ID="TextBox_Login_Delete" placeholder="#" MaxLength="5" runat="server"></asp:TextBox>
                             <asp:Button class="button button__red" ID="Button_Login_Delete" runat="server" OnClick="Button_Login_Delete_Click" />
-                        </div>
-                    </asp:View>
-                    <asp:View ID="View_Navigation" runat="server">
-                        <h1 class="card__title" id="H1_Navigation" runat="server"></h1>
-                        <asp:GridView class="grid display cell-border" ID="GridView_Navigation" runat="server"></asp:GridView>
-                        <div class="card__enterdata">
-                            <span class="label__data"><%: Global.Admin_NavigationDeleteLabel %></span>
-                            <asp:TextBox CssClass="textbox" ID="TextBox_Navigation_Delete" placeholder="Date" MaxLength="10" runat="server"></asp:TextBox>
-                            <asp:Button class="button button__red" ID="Button_Navigation_Delete" runat="server" OnClick="Button_Navigation_Delete_Click" />
                         </div>
                     </asp:View>
                     <asp:View ID="View_Newsletter" runat="server">
@@ -193,31 +183,11 @@
                             <span class="label__data"><%: Global.Admin_UserLastNameLabel %></span>
                             <asp:TextBox class="textbox" ID="TextBox_User_LastName" runat="server" MaxLength="20"></asp:TextBox>
                         </div>
-                        <asp:CheckBox class="checkbox" ID="CheckBox_User_Contact" runat="server" />
-                        <asp:CheckBox class="checkbox" ID="CheckBox_User_Login" runat="server" />
-                        <asp:CheckBox class="checkbox" ID="CheckBox_User_Navigation" runat="server" />
-                        <asp:CheckBox class="checkbox" ID="CheckBox_User_Newsletter" runat="server" />
-                        <asp:CheckBox class="checkbox" ID="CheckBox_User_Opening" runat="server" />
-                        <asp:CheckBox class="checkbox" ID="CheckBox_User_Subscriber" runat="server" />
-                        <asp:CheckBox class="checkbox" ID="CheckBox_User_User" runat="server" />
-                        <asp:CheckBox class="checkbox" ID="CheckBox_User_Visitor" runat="server" />
                         <div class="card__button">
                             <asp:Button class="button button__green" ID="Button_User_Save" runat="server" OnClick="Button_User_Save_Click"/>
                             <asp:Button class="button button__green" ID="Button_User_SaveNew" runat="server" OnClick="Button_User_SaveNew_Click" />
                             <asp:Button class="button button__blue button__last" ID="Button_User_New" runat="server" OnClick="Button_User_New_Click" />
                             <asp:Button class="button button__red" ID="Button_User_Delete" runat="server" OnClick="Button_User_Delete_Click" />
-                        </div>
-                    </asp:View>
-
-                    <asp:View ID="View_Visitor" runat="server">
-                        <h1 class="card__title" id="H1_Visitor" runat="server"></h1>
-                        <div class="card__visitorcontent">
-                            <asp:GridView class="grid display cell-border" ID="GridView_Visitor" runat="server"></asp:GridView>
-                            <div class="card__enterdata">
-                                <span class="label__data"><%: Global.Admin_VisitorDeleteLabel %></span>
-                                <asp:TextBox CssClass="textbox" ID="TextBox_Visitor_Delete" placeholder="Date" MaxLength="10" runat="server"></asp:TextBox>
-                                <asp:Button class="button button__red" ID="Button_Visitor_Delete" runat="server" OnClick="Button_Visitor_Delete_Click"/>
-                            </div>
                         </div>
                     </asp:View>
 

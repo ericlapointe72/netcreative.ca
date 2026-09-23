@@ -22,11 +22,6 @@ namespace netcreative.ca
         private bool login_result = false;
         private string login_message_exist = string.Empty;
         private string login_message_delete = string.Empty;
-        //NAVIGATION
-        private string navigation_menu = string.Empty;
-        private bool navigation_result = false;
-        private string navigation_message_exist = string.Empty;
-        private string navigation_message_delete = string.Empty;
         //NEWSLETTER
         private string newsletter_menu = string.Empty;
         private string newsletter_message_test = string.Empty;
@@ -48,11 +43,6 @@ namespace netcreative.ca
         private string user_message_use = string.Empty;
         private string user_message_save = string.Empty;
         private string user_message_delete = string.Empty;
-        //VISITOR
-        private string visitor_menu = string.Empty;
-        private bool visitor_result = false;
-        private string visitor_message_exist = string.Empty;
-        private string visitor_message_delete = string.Empty;
         //SQL
         private string sql_menu = string.Empty;
 
@@ -60,19 +50,13 @@ namespace netcreative.ca
         {
             if (string.IsNullOrEmpty((string)Session["role"]) || Session["role"].ToString() != "admin")
             {
-                Response.Redirect("default.aspx");
-            }
-
-            if (string.IsNullOrEmpty((string)Session["language"]))
-            {
-                Session["language"] = ConfigurationManager.AppSettings["app_language"].ToString();
+                Response.Redirect(ResolveUrl("~/default.aspx"));
             }
 
             Global.SetCulture(Session["language"].ToString());
 
             connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
             Load_Languages();
-            Load_UserRights();
 
             if (!IsPostBack)
             {
@@ -84,6 +68,7 @@ namespace netcreative.ca
         private void Load_Languages()
         {
             Page.Title = Global.Admin_Title;
+            Master.SetPageHero("../Content/images/site/hero-login.jpg", Global.Admin_HeroEyebrow, Global.Admin_Title);
             //CONTACT
             Button_Contact.Text = Global.Admin_ContactButton;
             contact_menu = Global.Admin_ContactMenu;
@@ -96,12 +81,6 @@ namespace netcreative.ca
             Button_Login_Delete.Text = Global.Admin_Delete;
             login_message_exist = Global.Format(Global.Admin_LoginExistsError, TextBox_Login_Delete.Text);
             login_message_delete = Global.Format(Global.Admin_LoginDeletedSuccess, TextBox_Login_Delete.Text);
-            //NAVIGATION
-            Button_Navigation.Text = Global.Admin_NavigationButton;
-            navigation_menu = Global.Admin_NavigationMenu;
-            Button_Navigation_Delete.Text = Global.Admin_Delete;
-            navigation_message_exist = Global.Format(Global.Admin_NavigationExistsError, TextBox_Navigation_Delete.Text);
-            navigation_message_delete = Global.Format(Global.Admin_NavigationDeletedSuccess, TextBox_Navigation_Delete.Text);
             //NEWSLETTER
             Button_Newsletter.Text = Global.Admin_NewsletterButton;
             newsletter_menu = Global.Admin_NewsletterMenu;
@@ -128,14 +107,6 @@ namespace netcreative.ca
             //USER
             Button_User.Text = Global.Admin_UserButton;
             user_menu = Global.Admin_UserMenu;
-            CheckBox_User_Contact.Text = Global.Admin_ContactButton;
-            CheckBox_User_Login.Text = Global.Admin_LoginButton;
-            CheckBox_User_Navigation.Text = Global.Admin_NavigationButton;
-            CheckBox_User_Newsletter.Text = Global.Admin_NewsletterButton;
-            CheckBox_User_Opening.Text = Global.Admin_OpeningLabel;
-            CheckBox_User_Subscriber.Text = Global.Admin_SubscriberButton;
-            CheckBox_User_User.Text = Global.Admin_UserButton;
-            CheckBox_User_Visitor.Text = Global.Admin_VisitorButton;
             Button_User_Save.Text = Global.Admin_SaveButton;
             Button_User_SaveNew.Text = Global.Admin_SaveButton;
             Button_User_New.Text = Global.Admin_AddButton;
@@ -143,12 +114,6 @@ namespace netcreative.ca
             user_message_use = Global.Format(Global.Admin_UserAlreadyUsedError, TextBox_User_Name.Text);
             user_message_save = Global.Format(Global.Admin_UserSavedSuccess, TextBox_User_Name.Text);
             user_message_delete = Global.Format(Global.Admin_UserDeletedSuccess, TextBox_User_Name.Text);
-            //VISITOR
-            Button_Visitor.Text = Global.Admin_VisitorButton;
-            visitor_menu = Global.Admin_VisitorMenu;
-            Button_Visitor_Delete.Text = Global.Admin_Delete;
-            visitor_message_exist = Global.Format(Global.Admin_VisitorExistsError, TextBox_Visitor_Delete.Text);
-            visitor_message_delete = Global.Format(Global.Admin_VisitorDeletedSuccess, TextBox_Visitor_Delete.Text);
             //SQL
             Button_Sql.Text = Global.Admin_SqlButton;
             sql_menu = Global.Admin_SqlMenu;
@@ -158,105 +123,6 @@ namespace netcreative.ca
         }
 
         //CONTACT
-        private void Load_UserRights()
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    string sqlCommand = "SELECT * FROM USERS WHERE USER_NAME=@USER_NAME";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@USER_NAME", Session["user"].ToString());
-
-                        connection.Open();
-                        SqlDataReader dr = cmd.ExecuteReader();
-
-                        dr.Read();
-
-                        if (Convert.ToBoolean(dr["CONTACT"]))
-                        {
-                            Button_Contact.Visible = true;
-                        }
-                        else
-                        {
-                            Button_Contact.Visible = false;
-                        }
-
-                        if (Convert.ToBoolean(dr["LOGIN"]))
-                        {
-                            Button_Login.Visible = true;
-                        }
-                        else
-                        {
-                            Button_Login.Visible = false;
-                        }
-
-                        if (Convert.ToBoolean(dr["NAVIGATION"]))
-                        {
-                            Button_Navigation.Visible = true;
-                        }
-                        else
-                        {
-                            Button_Navigation.Visible = false;
-                        }
-
-                        if (Convert.ToBoolean(dr["NEWSLETTER"]))
-                        {
-                            Button_Newsletter.Visible = true;
-                        }
-                        else
-                        {
-                            Button_Newsletter.Visible = false;
-                        }
-
-                        if (Convert.ToBoolean(dr["OPENING"]))
-                        {
-                            Button_Opening.Visible = true;
-                        }
-                        else
-                        {
-                            Button_Opening.Visible = false;
-                        }
-
-                        if (Convert.ToBoolean(dr["SUBSCRIBER"]))
-                        {
-                            Button_Subscriber.Visible = true;
-                        }
-                        else
-                        {
-                            Button_Subscriber.Visible = false;
-                        }
-
-                        if (Convert.ToBoolean(dr["USERS"]))
-                        {
-                            Button_User.Visible = true;
-                        }
-                        else
-                        {
-                            Button_User.Visible = false;
-                        }
-
-                        if (Convert.ToBoolean(dr["VISITOR"]))
-                        {
-                            Button_Visitor.Visible = true;
-                        }
-                        else
-                        {
-                            Button_Visitor.Visible = false;
-                        }
-
-                        connection.Close();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
-            }
-        }
-
         private void Contact_Load()
         {
             try
@@ -275,7 +141,7 @@ namespace netcreative.ca
                         while (dr.Read())
                         {
                             Contact c = new Contact();
-                            c.line1 = dr["AUTO_NUMBER"].ToString() + " | " + dr["DATE"].ToString() + " | " + dr["TIME"].ToString();
+                            c.line1 = dr["AUTO_NUMBER"].ToString() + " | " + ((DateTime)dr["DATE"]).ToString("yyyy-MM-dd") + " | " + ((TimeSpan)dr["TIME"]).ToString(@"hh\:mm\:ss");
                             c.line2 = dr["LAST_NAME"].ToString() + ", " + dr["FIRST_NAME"].ToString();
                             c.line3 = dr["EMAIL"].ToString() + " | " + dr["PHONE"].ToString();
                             c.line4 = dr["COMPANY"].ToString();
@@ -292,7 +158,7 @@ namespace netcreative.ca
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -326,7 +192,7 @@ namespace netcreative.ca
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -346,7 +212,7 @@ namespace netcreative.ca
                         cmd.ExecuteNonQuery();
                         connection.Close();
 
-                        Response.Write("<script>alert('" + contact_message_delete + "');</script>");
+                        Response.Write("<script>showToast('" + contact_message_delete + "', 'success');</script>");
                         Contact_Load();
                         TextBox_Contact_Delete.Text = string.Empty;
                     }
@@ -354,7 +220,7 @@ namespace netcreative.ca
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -368,7 +234,7 @@ namespace netcreative.ca
             }
             else
             {
-                Response.Write("<script>alert('" + contact_message_exist + "');</script>");
+                Response.Write("<script>showToast('" + contact_message_exist + "', 'error');</script>");
             }
         }
 
@@ -392,11 +258,10 @@ namespace netcreative.ca
                         {
                             Login l = new Login();
                             l.Number = dr["AUTO_NUMBER"].ToString();
-                            l.Date = dr["DATE"].ToString();
-                            l.Time = dr["TIME"].ToString();
+                            l.Date = ((DateTime)dr["DATE"]).ToString("yyyy-MM-dd");
+                            l.Time = ((TimeSpan)dr["TIME"]).ToString(@"hh\:mm\:ss");
                             l.IP_Address = dr["IP_ADDRESS"].ToString();
                             l.User = dr["USER_NAME"].ToString();
-                            l.Password = dr["PASSWORD"].ToString();
                             l.Action = dr["ACTION"].ToString();
                             login.Add(l);
                         }
@@ -410,7 +275,7 @@ namespace netcreative.ca
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -444,7 +309,7 @@ namespace netcreative.ca
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -464,7 +329,7 @@ namespace netcreative.ca
                         cmd.ExecuteNonQuery();
                         connection.Close();
 
-                        Response.Write("<script>alert('" + login_message_delete + "');</script>");
+                        Response.Write("<script>showToast('" + login_message_delete + "', 'success');</script>");
                         Login_Load();
                         TextBox_Login_Delete.Text = string.Empty;
                     }
@@ -472,7 +337,7 @@ namespace netcreative.ca
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -486,151 +351,7 @@ namespace netcreative.ca
             }
             else
             {
-                Response.Write("<script>alert('" + login_message_exist + "');</script>");
-            }
-        }
-
-        //NAVIGATION
-        private void Navigation_Load()
-        {
-            try
-            {
-                int home = 0;
-                int service = 0;
-                int portfolio = 0;
-                int contact = 0;
-                int total = 0;
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    string sqlCommand = "SELECT * FROM NAVIGATION";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        connection.Open();
-
-                        SqlDataReader dr = cmd.ExecuteReader();
-                        List<Navigation> navigation = new List<Navigation>();
-
-                        while (dr.Read())
-                        {
-                            Navigation n = new Navigation();
-
-                            n.Date = dr["DATE"].ToString();
-
-                            n.Home = dr["HOME"].ToString();
-                            home += Convert.ToInt32(dr["HOME"].ToString());
-
-                            n.Services = dr["SERVICE"].ToString();
-                            service += Convert.ToInt32(dr["SERVICE"].ToString());
-
-                            n.Portfolio = dr["PORTFOLIO"].ToString();
-                            portfolio += Convert.ToInt32(dr["PORTFOLIO"].ToString());
-
-                            n.Contact = dr["CONTACT"].ToString();
-                            contact += Convert.ToInt32(dr["CONTACT"].ToString());
-
-                            n.Total = dr["TOTAL"].ToString();
-                            total += Convert.ToInt32(dr["TOTAL"].ToString());
-
-                            navigation.Add(n);
-                        }
-
-                        Navigation nt = new Navigation();
-                        nt.Date = "Totals:";
-                        nt.Home = home.ToString();
-                        nt.Services = service.ToString();
-                        nt.Portfolio = portfolio.ToString();
-                        nt.Contact = contact.ToString();
-                        nt.Total = total.ToString();
-                        navigation.Add(nt);
-
-                        GridView_Navigation.DataSource = navigation;
-                        GridView_Navigation.DataBind();
-
-                        connection.Close();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
-            }
-        }
-
-        private void Navigation_VerifyIfExist()
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    string sqlCommand = "SELECT * FROM NAVIGATION WHERE DATE=@DATE";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@DATE", TextBox_Navigation_Delete.Text);
-
-                        connection.Open();
-                        SqlDataReader dr = cmd.ExecuteReader();
-
-                        if (dr.HasRows)
-                        {
-                            navigation_result = true;
-                        }
-                        else
-                        {
-                            navigation_result = false;
-                        }
-
-                        connection.Close();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
-            }
-        }
-
-        private void Navigation_Delete()
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    string sqlCommand = "DELETE FROM NAVIGATION WHERE DATE=@DATE";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@DATE", TextBox_Navigation_Delete.Text);
-
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-
-                        Response.Write("<script>alert('" + navigation_message_delete + "');</script>");
-                        Navigation_Load();
-                        TextBox_Navigation_Delete.Text = string.Empty;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
-            }
-        }
-
-        protected void Button_Navigation_Delete_Click(object sender, EventArgs e)
-        {
-            Navigation_VerifyIfExist();
-
-            if (navigation_result == true)
-            {
-                Navigation_Delete();
-            }
-            else
-            {
-                Response.Write("<script>alert('" + navigation_message_exist + "');</script>");
+                Response.Write("<script>showToast('" + login_message_exist + "', 'error');</script>");
             }
         }
 
@@ -638,7 +359,7 @@ namespace netcreative.ca
         private void Newsletter_Send_Test()
         {
             var signature = "Image";
-            var imageSignature = new Attachment(Server.MapPath("./Imgs_Site/signature.png"));
+            var imageSignature = new Attachment(Server.MapPath("~/Content/images/site/signature.png"));
             imageSignature.ContentId = signature;
             imageSignature.ContentDisposition.Inline = true;
             imageSignature.ContentDisposition.DispositionType = DispositionTypeNames.Inline;
@@ -661,7 +382,7 @@ namespace netcreative.ca
             try
             {
                 smtpClient.Send(mail);
-                Response.Write("<script>alert('" + newsletter_message_test + "');</script>");
+                Response.Write("<script>showToast('" + newsletter_message_test + "', 'success');</script>");
                 TextBox_Newsletter_Object.Text = string.Empty;
                 TextBox_Newsletter_Intro.Text = string.Empty;
                 TextBox_Newsletter_Body.Text = string.Empty;
@@ -669,14 +390,14 @@ namespace netcreative.ca
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
         private void Newsletter_Send_Newsletter()
         {
             var signature = "Image";
-            var imageSignature = new Attachment(Server.MapPath("./Imgs_Site/signature.png"));
+            var imageSignature = new Attachment(Server.MapPath("~/Content/images/site/signature.png"));
             imageSignature.ContentId = signature;
             imageSignature.ContentDisposition.Inline = true;
             imageSignature.ContentDisposition.DispositionType = DispositionTypeNames.Inline;
@@ -714,7 +435,7 @@ namespace netcreative.ca
                         }
 
                         connection.Close();
-                        Response.Write("<script>alert('" + newsletter_message_newsletter + "');</script>");
+                        Response.Write("<script>showToast('" + newsletter_message_newsletter + "', 'success');</script>");
                         TextBox_Newsletter_Object.Text = string.Empty;
                         TextBox_Newsletter_Intro.Text = string.Empty;
                         TextBox_Newsletter_Body.Text = string.Empty;
@@ -724,7 +445,7 @@ namespace netcreative.ca
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -819,7 +540,7 @@ namespace netcreative.ca
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -898,11 +619,11 @@ namespace netcreative.ca
                     }
                 }
 
-                Response.Write("<script>alert('" + opening_message_save + "');</script>");
+                Response.Write("<script>showToast('" + opening_message_save + "', 'success');</script>");
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -947,7 +668,7 @@ namespace netcreative.ca
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -981,7 +702,7 @@ namespace netcreative.ca
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -1001,7 +722,7 @@ namespace netcreative.ca
                         cmd.ExecuteNonQuery();
                         connection.Close();
 
-                        Response.Write("<script>alert('" + subscriber_message_delete + "');</script>");
+                        Response.Write("<script>showToast('" + subscriber_message_delete + "', 'success');</script>");
                         Subscriber_Load();
                         TextBox_Subscriber_Delete.Text = string.Empty;
                     }
@@ -1009,7 +730,7 @@ namespace netcreative.ca
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -1023,7 +744,7 @@ namespace netcreative.ca
             }
             else
             {
-                Response.Write("<script>alert('" + subscriber_message_exist + "');</script>");
+                Response.Write("<script>showToast('" + subscriber_message_exist + "', 'error');</script>");
             }
         }
 
@@ -1054,7 +775,7 @@ namespace netcreative.ca
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -1081,85 +802,13 @@ namespace netcreative.ca
                         TextBox_User_LastName.Text = dr["LAST_NAME"].ToString();
                         TextBox_User_FirstName.Text = dr["FIRST_NAME"].ToString();
 
-                        if (Convert.ToBoolean(dr["CONTACT"]))
-                        {
-                            CheckBox_User_Contact.Checked = true;
-                        }
-                        else
-                        {
-                            CheckBox_User_Contact.Checked = false;
-                        }
-
-                        if (Convert.ToBoolean(dr["LOGIN"]))
-                        {
-                            CheckBox_User_Login.Checked = true;
-                        }
-                        else
-                        {
-                            CheckBox_User_Login.Checked = false;
-                        }
-
-                        if (Convert.ToBoolean(dr["NAVIGATION"]))
-                        {
-                            CheckBox_User_Navigation.Checked = true;
-                        }
-                        else
-                        {
-                            CheckBox_User_Navigation.Checked = false;
-                        }
-
-                        if (Convert.ToBoolean(dr["NEWSLETTER"]))
-                        {
-                            CheckBox_User_Newsletter.Checked = true;
-                        }
-                        else
-                        {
-                            CheckBox_User_Newsletter.Checked = false;
-                        }
-
-                        if (Convert.ToBoolean(dr["OPENING"]))
-                        {
-                            CheckBox_User_Opening.Checked = true;
-                        }
-                        else
-                        {
-                            CheckBox_User_Opening.Checked = false;
-                        }
-
-                        if (Convert.ToBoolean(dr["SUBSCRIBER"]))
-                        {
-                            CheckBox_User_Subscriber.Checked = true;
-                        }
-                        else
-                        {
-                            CheckBox_User_Subscriber.Checked = false;
-                        }
-
-                        if (Convert.ToBoolean(dr["USERS"]))
-                        {
-                            CheckBox_User_User.Checked = true;
-                        }
-                        else
-                        {
-                            CheckBox_User_User.Checked = false;
-                        }
-
-                        if (Convert.ToBoolean(dr["VISITOR"]))
-                        {
-                            CheckBox_User_Visitor.Checked = true;
-                        }
-                        else
-                        {
-                            CheckBox_User_Visitor.Checked = false;
-                        }
-
                         connection.Close();
                     }
                 }
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -1172,9 +821,9 @@ namespace netcreative.ca
                     bool changePassword = !string.IsNullOrEmpty(TextBox_User_Password.Text);
 
                     string sqlCommand =
-                        (changePassword ? "UPDATE USERS SET PASSWORD=@PASSWORD, FIRST_NAME=@FIRST_NAME, LAST_NAME=@LAST_NAME, USERS=@USERS, CONTACT=@CONTACT, LOGIN=@LOGIN, " :
-                        "UPDATE USERS SET FIRST_NAME=@FIRST_NAME, LAST_NAME=@LAST_NAME, USERS=@USERS, CONTACT=@CONTACT, LOGIN=@LOGIN, ") +
-                        "NAVIGATION=@NAVIGATION, NEWSLETTER=@NEWSLETTER, OPENING=@OPENING, SUBSCRIBER=@SUBSCRIBER, VISITOR=@VISITOR WHERE USER_NAME=@USER_NAME";
+                        (changePassword ? "UPDATE USERS SET PASSWORD=@PASSWORD, FIRST_NAME=@FIRST_NAME, LAST_NAME=@LAST_NAME " :
+                        "UPDATE USERS SET FIRST_NAME=@FIRST_NAME, LAST_NAME=@LAST_NAME ") +
+                        "WHERE USER_NAME=@USER_NAME";
 
                     using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
                     {
@@ -1188,90 +837,18 @@ namespace netcreative.ca
                         cmd.Parameters.AddWithValue("@LAST_NAME", TextBox_User_LastName.Text.Replace("'", "''"));
                         cmd.Parameters.AddWithValue("@FIRST_NAME", TextBox_User_FirstName.Text.Replace("'", "''"));
 
-                        if (CheckBox_User_Contact.Checked)
-                        {
-                            cmd.Parameters.AddWithValue("@CONTACT", true);
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@CONTACT", false);
-                        }
-
-                        if (CheckBox_User_Login.Checked)
-                        {
-                            cmd.Parameters.AddWithValue("@LOGIN", true);
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@LOGIN", false);
-                        }
-
-                        if (CheckBox_User_Navigation.Checked)
-                        {
-                            cmd.Parameters.AddWithValue("@NAVIGATION", true);
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@NAVIGATION", false);
-                        }
-
-                        if (CheckBox_User_Newsletter.Checked)
-                        {
-                            cmd.Parameters.AddWithValue("@NEWSLETTER", true);
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@NEWSLETTER", false);
-                        }
-
-                        if (CheckBox_User_Opening.Checked)
-                        {
-                            cmd.Parameters.AddWithValue("@OPENING", true);
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@OPENING", false);
-                        }
-
-                        if (CheckBox_User_Subscriber.Checked)
-                        {
-                            cmd.Parameters.AddWithValue("@SUBSCRIBER", true);
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@SUBSCRIBER", false);
-                        }
-
-                        if (CheckBox_User_User.Checked)
-                        {
-                            cmd.Parameters.AddWithValue("@USERS", true);
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@USERS", false);
-                        }
-
-                        if (CheckBox_User_Visitor.Checked)
-                        {
-                            cmd.Parameters.AddWithValue("@VISITOR", true);
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@VISITOR", false);
-                        }
-
                         connection.Open();
                         cmd.ExecuteNonQuery();
                         connection.Close();
                         User_Load();
 
-                        Response.Write("<script>alert('" + user_message_save + "');</script>");
+                        Response.Write("<script>showToast('" + user_message_save + "', 'success');</script>");
                     }
                 }
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -1281,7 +858,7 @@ namespace netcreative.ca
 
             if (user_exist == true)
             {
-                Response.Write("<script>alert('" + user_message_use + "');</script>");
+                Response.Write("<script>showToast('" + user_message_use + "', 'error');</script>");
                 TextBox_User_Name.Focus();
             }
             else
@@ -1291,8 +868,8 @@ namespace netcreative.ca
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
                         string sqlCommand =
-                            "INSERT INTO USERS (USER_NAME, PASSWORD, FIRST_NAME, LAST_NAME, USERS, CONTACT, LOGIN, NAVIGATION, NEWSLETTER, OPENING, SUBSCRIBER, VISITOR) " +
-                            "VALUES (@USER_NAME, @PASSWORD, @FIRST_NAME, @LAST_NAME, @USERS, @CONTACT, @LOGIN, @NAVIGATION, @NEWSLETTER, @OPENING, @SUBSCRIBER, @VISITOR)";
+                            "INSERT INTO USERS (USER_NAME, PASSWORD, FIRST_NAME, LAST_NAME) " +
+                            "VALUES (@USER_NAME, @PASSWORD, @FIRST_NAME, @LAST_NAME)";
 
                         using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
                         {
@@ -1300,79 +877,6 @@ namespace netcreative.ca
                             cmd.Parameters.AddWithValue("@PASSWORD", PasswordHasher.Hash(TextBox_User_Password.Text));
                             cmd.Parameters.AddWithValue("@LAST_NAME", TextBox_User_LastName.Text);
                             cmd.Parameters.AddWithValue("@FIRST_NAME", TextBox_User_FirstName.Text);
-
-                            if (CheckBox_User_Contact.Checked)
-                            {
-                                cmd.Parameters.AddWithValue("@CONTACT", true);
-                            }
-                            else
-                            {
-                                cmd.Parameters.AddWithValue("@CONTACT", false);
-                            }
-
-                            if (CheckBox_User_Login.Checked)
-                            {
-                                cmd.Parameters.AddWithValue("@LOGIN", true);
-                            }
-                            else
-                            {
-                                cmd.Parameters.AddWithValue("@LOGIN", false);
-                            }
-
-                            if (CheckBox_User_Navigation.Checked)
-                            {
-                                cmd.Parameters.AddWithValue("@NAVIGATION", true);
-                            }
-                            else
-                            {
-                                cmd.Parameters.AddWithValue("@NAVIGATION", false);
-                            }
-
-                            if (CheckBox_User_Newsletter.Checked)
-                            {
-                                cmd.Parameters.AddWithValue("@NEWSLETTER", true);
-                            }
-                            else
-                            {
-                                cmd.Parameters.AddWithValue("@NEWSLETTER", false);
-                            }
-
-                            if (CheckBox_User_Opening.Checked)
-                            {
-                                cmd.Parameters.AddWithValue("@OPENING", true);
-                            }
-                            else
-                            {
-                                cmd.Parameters.AddWithValue("@OPENING", false);
-                            }
-
-                            if (CheckBox_User_Subscriber.Checked)
-                            {
-                                cmd.Parameters.AddWithValue("@SUBSCRIBER", true);
-                            }
-                            else
-                            {
-                                cmd.Parameters.AddWithValue("@SUBSCRIBER", false);
-                            }
-
-                            if (CheckBox_User_User.Checked)
-                            {
-                                cmd.Parameters.AddWithValue("@USERS", true);
-                            }
-                            else
-                            {
-                                cmd.Parameters.AddWithValue("@USERS", false);
-                            }
-
-
-                            if (CheckBox_User_Visitor.Checked)
-                            {
-                                cmd.Parameters.AddWithValue("@VISITOR", true);
-                            }
-                            else
-                            {
-                                cmd.Parameters.AddWithValue("@VISITOR", false);
-                            }
 
                             connection.Open();
                             cmd.ExecuteNonQuery();
@@ -1387,7 +891,7 @@ namespace netcreative.ca
                 }
                 catch (Exception ex)
                 {
-                    Response.Write("<script>alert('" + ex.Message + "');</script>");
+                    Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
                 }
             }
         }
@@ -1401,14 +905,6 @@ namespace netcreative.ca
             TextBox_User_Password.Attributes.Add("value", string.Empty);
             TextBox_User_LastName.Text = string.Empty;
             TextBox_User_FirstName.Text = string.Empty;
-            CheckBox_User_Contact.Checked = false;
-            CheckBox_User_Login.Checked = false;
-            CheckBox_User_Navigation.Checked = false;
-            CheckBox_User_Newsletter.Checked = false;
-            CheckBox_User_Opening.Checked = false;
-            CheckBox_User_Subscriber.Checked = false;
-            CheckBox_User_User.Checked = false;
-            CheckBox_User_Visitor.Checked = false;
             TextBox_User_Name.Focus();
         }
 
@@ -1442,7 +938,7 @@ namespace netcreative.ca
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -1464,13 +960,13 @@ namespace netcreative.ca
                         User_LoadList();
                         User_Load();
 
-                        Response.Write("<script>alert('" + user_message_delete + "');</script>");
+                        Response.Write("<script>showToast('" + user_message_delete + "', 'success');</script>");
                     }
                 }
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
             }
         }
 
@@ -1499,121 +995,6 @@ namespace netcreative.ca
             User_Delete();
         }
 
-        //VISITOR
-        private void Visitor_Load()
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    string sqlCommand = "SELECT * FROM VISITOR";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        connection.Open();
-
-                        SqlDataReader dr = cmd.ExecuteReader();
-                        List<Visitor> subscribes = new List<Visitor>();
-
-                        while (dr.Read())
-                        {
-                            Visitor s = new Visitor();
-                            s.Number = dr["AUTO_NUMBER"].ToString();
-                            s.Date = dr["DATE"].ToString();
-                            s.Time = dr["TIME"].ToString();
-                            s.IP_Address = dr["IP_ADDRESS"].ToString();
-                            s.Page = dr["PAGE"].ToString();
-                            subscribes.Add(s);
-                        }
-
-                        GridView_Visitor.DataSource = subscribes;
-                        GridView_Visitor.DataBind();
-
-                        connection.Close();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
-            }
-        }
-
-        private void Visitor_VerifyIfExist()
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    string sqlCommand = "SELECT * FROM VISITOR WHERE DATE=@DATE";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@DATE", TextBox_Visitor_Delete.Text);
-
-                        connection.Open();
-                        SqlDataReader dr = cmd.ExecuteReader();
-
-                        if (dr.HasRows)
-                        {
-                            visitor_result = true;
-                        }
-                        else
-                        {
-                            visitor_result = false;
-                        }
-
-                        connection.Close();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
-            }
-        }
-
-        private void Visitor_Delete()
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    string sqlCommand = "DELETE FROM VISITOR WHERE DATE=@DATE";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@DATE", TextBox_Visitor_Delete.Text);
-
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-
-                        Response.Write("<script>alert('" + visitor_message_delete + "');</script>");
-                        Visitor_Load();
-                        TextBox_Visitor_Delete.Text = string.Empty;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
-            }
-        }
-
-        protected void Button_Visitor_Delete_Click(object sender, EventArgs e)
-        {
-            Visitor_VerifyIfExist();
-
-            if (visitor_result == true)
-            {
-                Visitor_Delete();
-            }
-            else
-            {
-                Response.Write("<script>alert('" + visitor_message_exist + "');</script>");
-            }
-        }
 
         protected void Button_Contact_Click(object sender, EventArgs e)
         {
@@ -1629,52 +1010,38 @@ namespace netcreative.ca
             Login_Load();
         }
 
-        protected void Button_Navigation_Click(object sender, EventArgs e)
-        {
-            MultiView_Admin.ActiveViewIndex = 3;
-            H1_Navigation.InnerText = navigation_menu;
-            Navigation_Load();        
-        }
-
         protected void Button_Newsletter_Click(object sender, EventArgs e)
         {
-            MultiView_Admin.ActiveViewIndex = 4;
+            MultiView_Admin.ActiveViewIndex = 3;
             H1_Newsletter.InnerText = newsletter_menu;
         }
 
         protected void Button_Opening_Click(object sender, EventArgs e)
         {
-            MultiView_Admin.ActiveViewIndex = 5;
+            MultiView_Admin.ActiveViewIndex = 4;
             H1_Opening.InnerText = opening_menu;
             Opening_Load();
         }
 
         protected void Button_Subscriber_Click(object sender, EventArgs e)
         {
-            MultiView_Admin.ActiveViewIndex = 6;
+            MultiView_Admin.ActiveViewIndex = 5;
             H1_Subscriber.InnerText = subscriber_menu;
             Subscriber_Load();
         }
 
         protected void Button_User_Click(object sender, EventArgs e)
         {
-            MultiView_Admin.ActiveViewIndex = 7;
+            MultiView_Admin.ActiveViewIndex = 6;
             H1_User.InnerText = user_menu;
             Button_User_SaveNew.Visible = false;
             User_LoadList();
             User_Load();
         }
 
-        protected void Button_Visitor_Click(object sender, EventArgs e)
-        {
-            MultiView_Admin.ActiveViewIndex = 8;
-            H1_Visitor.InnerText = visitor_menu;
-            Visitor_Load();
-        }
-
         protected void Button_Sql_Click(object sender, EventArgs e)
         {
-            MultiView_Admin.ActiveViewIndex = 9;
+            MultiView_Admin.ActiveViewIndex = 7;
             H1_Sql.InnerText = sql_menu;
             Label_Sql_Status.Text = string.Empty;
             GridView_Sql_Result.DataSource = null;
