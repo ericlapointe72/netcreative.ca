@@ -2,6 +2,10 @@
 <%@ MasterType VirtualPath="~/MasterPages/Site.Master" %>
 <%@ Import Namespace="netcreative.ca.Resources" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<%
+    Page.Title = Global.Service_Title;
+    Master.SetPageHero("Content/images/site/hero-service.jpg", Global.Service_HeroEyebrow, Global.Service_HeroTitle, Global.Service_HeroText, Global.Service_HeroCta, "~/contact.aspx");
+%>
 
     <div id="topPage"></div>
 
@@ -64,38 +68,52 @@
             <span class="feature-card__title"><%: Global.Service_Item6Title %></span>
             <span class="feature-card__text"><%: Global.Service_Item6 %></span>
         </div>
-        <div class="feature-card">
-            <span class="feature-card__title"><%: Global.Service_Item7Title %></span>
-            <span class="feature-card__text"><%: Global.Service_Item7 %></span>
-        </div>
     </div>
 
     <span class="section-label"><%: Global.Service_PrepLabel %></span>
 
-    <div class="feature-grid">
-        <div class="feature-card">
-            <span class="feature-card__title"><%: Global.Service_Client1Title %></span>
-            <span class="feature-card__text"><%: Global.Service_Client1 %></span>
+    <div class="checklist-grid">
+        <div class="checklist-card">
+            <span class="checklist-card__number">01</span>
+            <div>
+                <span class="checklist-card__title"><%: Global.Service_Client1Title %></span>
+                <span class="checklist-card__text"><%: Global.Service_Client1 %></span>
+            </div>
         </div>
-        <div class="feature-card">
-            <span class="feature-card__title"><%: Global.Service_Client2Title %></span>
-            <span class="feature-card__text"><%: Global.Service_Client2 %></span>
+        <div class="checklist-card">
+            <span class="checklist-card__number">02</span>
+            <div>
+                <span class="checklist-card__title"><%: Global.Service_Client2Title %></span>
+                <span class="checklist-card__text"><%: Global.Service_Client2 %></span>
+            </div>
         </div>
-        <div class="feature-card">
-            <span class="feature-card__title"><%: Global.Service_Client3Title %></span>
-            <span class="feature-card__text"><%: Global.Service_Client3 %></span>
+        <div class="checklist-card">
+            <span class="checklist-card__number">03</span>
+            <div>
+                <span class="checklist-card__title"><%: Global.Service_Client3Title %></span>
+                <span class="checklist-card__text"><%: Global.Service_Client3 %></span>
+            </div>
         </div>
-        <div class="feature-card">
-            <span class="feature-card__title"><%: Global.Service_Client4Title %></span>
-            <span class="feature-card__text"><%: Global.Service_Client4 %></span>
+        <div class="checklist-card">
+            <span class="checklist-card__number">04</span>
+            <div>
+                <span class="checklist-card__title"><%: Global.Service_Client4Title %></span>
+                <span class="checklist-card__text"><%: Global.Service_Client4 %></span>
+            </div>
         </div>
-        <div class="feature-card">
-            <span class="feature-card__title"><%: Global.Service_Client5Title %></span>
-            <span class="feature-card__text"><%: Global.Service_Client5 %></span>
+        <div class="checklist-card">
+            <span class="checklist-card__number">05</span>
+            <div>
+                <span class="checklist-card__title"><%: Global.Service_Client5Title %></span>
+                <span class="checklist-card__text"><%: Global.Service_Client5 %></span>
+            </div>
         </div>
-        <div class="feature-card">
-            <span class="feature-card__title"><%: Global.Service_Client6Title %></span>
-            <span class="feature-card__text"><%: Global.Service_Client6 %></span>
+        <div class="checklist-card">
+            <span class="checklist-card__number">06</span>
+            <div>
+                <span class="checklist-card__title"><%: Global.Service_Client6Title %></span>
+                <span class="checklist-card__text"><%: Global.Service_Client6 %></span>
+            </div>
         </div>
     </div>
 
@@ -105,6 +123,6 @@
         </asp:LinkButton>
     </div>
 
-    <script src="js/onscroll.js"></script>
+    <script src="Content/js/onscroll.js"></script>
 
 </asp:Content>

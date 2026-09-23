@@ -2,6 +2,10 @@
 <%@ MasterType VirtualPath="~/MasterPages/Site.Master" %>
 <%@ Import Namespace="netcreative.ca.Resources" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<%
+    Page.Title = Global.Home_Title;
+    Master.SetPageHero("Content/images/site/hero-accueil.jpg", Global.Home_HeroEyebrow, Global.Home_Welcome);
+%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -24,8 +28,8 @@
 
     <div class="default__container">
         <div class="card">
-            <img class="card__icon-large" src="Imgs_Site/problem-solving.png" alt="problem solving" />
-            <img class="card__icon-popup observer" src="Imgs_Site/problem-solving.png" alt="problem solving" />
+            <img class="card__icon-large" src="Content/images/site/problem-solving.png" alt="problem solving" />
+            <img class="card__icon-popup observer" src="Content/images/site/problem-solving.png" alt="problem solving" />
             <h2 class="section-label"><%: Global.Home_SlideshowTitle %></h2>
 
             <div class="slideshow__container" role="region" aria-roledescription="carousel" aria-label="<%= System.Web.HttpUtility.HtmlAttributeEncode(Global.Home_SlideshowTitle) %>">
@@ -61,7 +65,7 @@
                 <button type="button" class="dot"></button>
             </div>
 
-            <h2 class="card__title observer"><%: Global.Home_WhoIamTitle %></h2>
+            <h2 class="section-label"><%: Global.Home_WhoIamTitle %></h2>
 
             <div class="bottom__container">
                 <div class="section5">
@@ -85,27 +89,27 @@
                 <div class="section8">
                     <div class="card__paragraphe-ctn observer">
                         <div class="card__number">04</div>
-                        <span class="card__paragraphe"><%: Global.Home_WhoIamParagraph4 %></span>
+                        <span class="card__paragraphe"><%= Global.Home_WhoIamParagraph4 %></span>
                     </div>
                 </div>
             </div>
 
             <div class="card__facebook">
-                <img class="card__icon-popup_fb observer" src="Imgs_Site/trust.png" alt="hand shake"/>
+                <img class="card__icon-popup_fb observer" src="Content/images/site/trust.png" alt="hand shake"/>
                 <span class="card__facebook-text observer"><%: Global.Home_Facebook %></span>
-                <a href="https://www.facebook.com/NetCr%C3%A9ative-101923751954399" target="_blank"><img class="facebook__logo observer" src="Imgs_Site/facebook-logo.png" /></a>
+                <a href="https://www.facebook.com/NetCr%C3%A9ative-101923751954399" target="_blank"><img class="facebook__logo observer" src="Content/images/site/facebook-logo.png" /></a>
             </div>
 
             <span class="card__Signature observer"><%: Global.Home_WhoIamName %></span>
 
             <div class="carousel__container observer" role="region" aria-roledescription="carousel" aria-label="<%= System.Web.HttpUtility.HtmlAttributeEncode(Global.Home_CarouselRegionLabel) %>">
                 <div class="carousel__slide" tabindex="0">
-                    <img class="carousel__image" src="Imgs_Carousel/carousel1.jpg" alt="carousel image 1" loading="lazy" decoding="async"/>
-                    <img class="carousel__image" src="Imgs_Carousel/carousel2.jpg" alt="carousel image 2" loading="lazy" decoding="async"/>
-                    <img class="carousel__image" src="Imgs_Carousel/carousel3.jpg" alt="carousel image 3" loading="lazy" decoding="async"/>
-                    <img class="carousel__image" src="Imgs_Carousel/carousel4.jpg" alt="carousel image 4" loading="lazy" decoding="async"/>
-                    <img class="carousel__image" src="Imgs_Carousel/carousel5.jpg" alt="carousel image 5" loading="lazy" decoding="async"/>
-                    <img class="carousel__image" src="Imgs_Carousel/carousel6.jpg" alt="carousel image 6" loading="lazy" decoding="async"/>
+                    <img class="carousel__image" src="Content/images/carousel/carousel1.jpg" alt="carousel image 1" loading="lazy" decoding="async"/>
+                    <img class="carousel__image" src="Content/images/carousel/carousel2.jpg" alt="carousel image 2" loading="lazy" decoding="async"/>
+                    <img class="carousel__image" src="Content/images/carousel/carousel3.jpg" alt="carousel image 3" loading="lazy" decoding="async"/>
+                    <img class="carousel__image" src="Content/images/carousel/carousel4.jpg" alt="carousel image 4" loading="lazy" decoding="async"/>
+                    <img class="carousel__image" src="Content/images/carousel/carousel5.jpg" alt="carousel image 5" loading="lazy" decoding="async"/>
+                    <img class="carousel__image" src="Content/images/carousel/carousel6.jpg" alt="carousel image 6" loading="lazy" decoding="async"/>
                 </div>
 
                 <button type="button" id="prev__btn"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
@@ -133,7 +137,7 @@
             carouselDot: "<%= System.Web.HttpUtility.JavaScriptStringEncode(Global.Home_CarouselDotLabel) %>"
         };
     </script>
-    <script src="js/observer.js"></script>
-    <script src="js/carousel.js"></script>
-    <script src="js/slideshow.js"></script>
+    <script src="Content/js/observer.js"></script>
+    <script src="Content/js/carousel.js"></script>
+    <script src="Content/js/slideshow.js"></script>
 </asp:Content>

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using netcreative.ca.Resources;
 
 namespace netcreative.ca
@@ -8,11 +7,6 @@ namespace netcreative.ca
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty((string)Session["language"]))
-            {
-                Session["language"] = ConfigurationManager.AppSettings["app_language"].ToString();
-            }
-
             Global.SetCulture(Session["language"].ToString());
 
             Load_Languages();
