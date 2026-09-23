@@ -97,7 +97,7 @@
     <value>S'abonner</value>
   </data>
   <data name="Master_SubscribeErrorInvalid" xml:space="preserve">
-    <value>Vous devez d\'abord entrer votre adresse de courriel!</value>
+    <value>Vous devez d'abord entrer votre adresse de courriel!</value>
   </data>
   <data name="Master_SubscribeErrorExists" xml:space="preserve">
     <value>Vous êtes déjà abonné à notre infolettre!</value>
@@ -575,7 +575,7 @@
     <value>Envoyer</value>
   </data>
   <data name="Contact_ErrorMessage" xml:space="preserve">
-    <value>Vous devez d\'abord répondre correctement à la question!</value>
+    <value>Vous devez d'abord répondre correctement à la question!</value>
   </data>
   <data name="Contact_EmailError" xml:space="preserve">
     <value>Veuillez entrer une adresse courriel valide.</value>
@@ -615,10 +615,10 @@
     <value>Me désabonner</value>
   </data>
   <data name="Unsubscribe_SuccessMessage" xml:space="preserve">
-    <value>Vous avez été retiré de notre liste d\'envoi.</value>
+    <value>Vous avez été retiré de notre liste d'envoi.</value>
   </data>
   <data name="Unsubscribe_ErrorMessage" xml:space="preserve">
-    <value>L\'adresse de courriel entrée n'existe pas dans notre liste d\'abonnés!</value>
+    <value>L'adresse de courriel entrée n'existe pas dans notre liste d'abonnés!</value>
   </data>
 
   <!-- privacy.aspx -->
@@ -727,7 +727,10 @@
     <value>Connexion</value>
   </data>
   <data name="Login_ErrorMessage" xml:space="preserve">
-    <value>Le nom d\'utilisateur ou le mot de passe est erroné!</value>
+    <value>Le nom d'utilisateur ou le mot de passe est erroné!</value>
+  </data>
+  <data name="Login_NetworkError" xml:space="preserve">
+    <value>Une erreur est survenue, veuillez réessayer.</value>
   </data>
 
   <!-- admin.aspx -->
@@ -750,7 +753,7 @@
     <value>Supprimer</value>
   </data>
   <data name="Admin_ContactExistsError" xml:space="preserve">
-    <value>La demande d\'information numéro {0} n\'existe pas!</value>
+    <value>La demande d'information numéro {0} n'existe pas!</value>
   </data>
   <data name="Admin_ContactDeletedSuccess" xml:space="preserve">
     <value>La demande d'information numéro {0} a été supprimé avec succès!</value>
@@ -765,7 +768,7 @@
     <value>Entrez le numéro de connexion à supprimer:</value>
   </data>
   <data name="Admin_LoginExistsError" xml:space="preserve">
-    <value>La connexion numéro {0} n\'existe pas!</value>
+    <value>La connexion numéro {0} n'existe pas!</value>
   </data>
   <data name="Admin_LoginDeletedSuccess" xml:space="preserve">
     <value>La connexion numéro {0} a été supprimé avec succès!</value>
@@ -804,7 +807,7 @@
     <value>Le courriel test à été envoyé avec succès!</value>
   </data>
   <data name="Admin_NewsletterSentSuccess" xml:space="preserve">
-    <value>L\'infolettre à été envoyé avec succès!</value>
+    <value>L'infolettre à été envoyé avec succès!</value>
   </data>
   <data name="Admin_NewsletterUnsubscribe1" xml:space="preserve">
     <value>Cliquez </value>
@@ -870,7 +873,7 @@
     <value>Entrer le numéro de l'abonné à supprimer:</value>
   </data>
   <data name="Admin_SubscriberExistsError" xml:space="preserve">
-    <value>Le commentaire numéro {0} n\'existe pas!</value>
+    <value>Le commentaire numéro {0} n'existe pas!</value>
   </data>
   <data name="Admin_SubscriberDeletedSuccess" xml:space="preserve">
     <value>Le commentaire numéro {0} a été supprimé avec succès!</value>
@@ -900,13 +903,13 @@
     <value>Ajouter</value>
   </data>
   <data name="Admin_UserAlreadyUsedError" xml:space="preserve">
-    <value>L\'utilisateur {0} est déjà utilisé, veuillez en choisir un autre!</value>
+    <value>L'utilisateur {0} est déjà utilisé, veuillez en choisir un autre!</value>
   </data>
   <data name="Admin_UserSavedSuccess" xml:space="preserve">
-    <value>L\'utilisateur {0} à été sauvegardé avec succès!</value>
+    <value>L'utilisateur {0} à été sauvegardé avec succès!</value>
   </data>
   <data name="Admin_UserDeletedSuccess" xml:space="preserve">
-    <value>L\'utilisateur {0} à été supprimé avec succès!</value>
+    <value>L'utilisateur {0} à été supprimé avec succès!</value>
   </data>
   <data name="Admin_SqlButton" xml:space="preserve">
     <value>SQL</value>
