@@ -111,7 +111,6 @@
     <Content Include="Content\images\site\problem-solving.png" />
     <Content Include="Content\images\site\trust.png" />
     <Content Include="Content\js\animation.js" />
-    <Content Include="Content\images\site\logout-anime.png" />
     <Content Include="Content\images\site\login-smile.png" />
     <Content Include="Content\images\site\hero-dutyfreeops.jpg" />
     <Content Include="Content\images\site\hero-service.jpg" />
@@ -119,7 +118,6 @@
     <Content Include="Content\images\site\hero-accueil.jpg" />
     <Content Include="Content\images\site\hero-contact.jpg" />
     <Content Include="Content\images\site\hero-login.jpg" />
-    <Content Include="Content\images\site\logout.png" />
     <Content Include="Content\images\site\mobile.png" />
     <Content Include="contact.aspx" />
     <Content Include="confirmation.aspx" />

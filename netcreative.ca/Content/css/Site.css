@@ -168,8 +168,7 @@ header {
 .nav__mail-closed,
 .nav__mail-open,
 .admin__button,
-.admin__login,
-.admin__logout {
+.admin__login {
     position: absolute;
     top: 0;
     left: 0;
@@ -207,10 +206,6 @@ header {
 
 .admin__login:hover {
     opacity: 1;
-}
-
-.admin__logout:hover {
-    transform: scale(1.1);
 }
 
 .nav__menu {

@@ -55,20 +55,12 @@ namespace netcreative.ca.MasterPages
 
             HideShow_Animation();
 
-            if (string.IsNullOrEmpty((string)Session["role"]))
-            {
-                Image_Login.Visible = true;
-                HyperLink_Login.Visible = true;
-                Image_Logout.Visible = false;
-                LinkButton_Logout.Visible = false;
-            }
-            else if (Session["role"].Equals("admin"))
-            {
-                Image_Login.Visible = false;
-                HyperLink_Login.Visible = false;
-                Image_Logout.Visible = true;
-                LinkButton_Logout.Visible = true;
-            }
+            // logged-in admins get sent straight to the dashboard instead of the
+            // (now logout-less) login form, since there is no other way back into
+            // the admin section from the public pages
+            HyperLink_Login.HRef = !string.IsNullOrEmpty((string)Session["role"]) && Session["role"].Equals("admin")
+                ? ResolveUrl("~/Admin/Dashboard.aspx")
+                : ResolveUrl("~/Admin/login.aspx");
         }
 
         public void SetPageHero(string imageUrl, string eyebrow, string title, string text = null, string ctaText = null, string ctaUrl = null, string ctaTarget = null)
@@ -115,18 +107,6 @@ namespace netcreative.ca.MasterPages
 
         protected void LinkButton_Logo_Click(object sender, EventArgs e)
         {
-            Response.Redirect(ResolveUrl("~/default.aspx"));
-        }
-
-        protected void LinkButton_Logout_Click(object sender, EventArgs e)
-        {
-            Logout();
-
-            Image_Login.Visible = true;
-            HyperLink_Login.Visible = true;
-            Image_Logout.Visible = false;
-            LinkButton_Logout.Visible = false;
-
             Response.Redirect(ResolveUrl("~/default.aspx"));
         }
 
@@ -454,39 +434,6 @@ namespace netcreative.ca.MasterPages
                         {
                             Label_Sunday.Text = sunday + scheduleSeparator + closed;
                         }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
-            }
-        }
-
-        private void Logout()
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    string sqlCommand =
-                        "INSERT INTO LOGIN (IP_ADDRESS, DATE, TIME, USER_NAME, ACTION) VALUES (" +
-                        "@IP_ADDRESS, @DATE, @TIME, @USER_NAME, @ACTION)";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@DATE", DateTime.Now.Date);
-                        cmd.Parameters.AddWithValue("@TIME", DateTime.Now.TimeOfDay);
-                        cmd.Parameters.AddWithValue("@IP_ADDRESS", User_IP.Get_UserIP());
-                        cmd.Parameters.AddWithValue("@USER_NAME", Session["user"].ToString());
-                        cmd.Parameters.AddWithValue("@ACTION", "LOGOUT");
-
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-
-                        Session["user"] = string.Empty;
-                        Session["role"] = string.Empty;
                     }
                 }
             }

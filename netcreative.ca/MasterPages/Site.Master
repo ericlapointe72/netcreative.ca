@@ -82,10 +82,6 @@
                                 <asp:Image class="admin__button" ID="Image_Login" src="../Content/images/site/login.png" alt="login" runat="server" />
                                 <a id="HyperLink_Login" runat="server" href="~/Admin/login.aspx"><img class="admin__login" src="../Content/images/site/login-smile.png" alt="login smile" /></a>
                             </span>
-                            <span class="icon-stack">
-                                <asp:Image class="admin__button" ID="Image_Logout" src="../Content/images/site/logout.png" alt="logout" runat="server" />
-                                <asp:LinkButton ID="LinkButton_Logout" runat="server" OnClick="LinkButton_Logout_Click"><img class="admin__logout" src="../Content/images/site/logout-anime.png" alt="logout anime" /></asp:LinkButton>
-                            </span>
                         </div>
                         <div class="nav__slogan-ctn">
                             <span class="nav__slogan"><%: Global.Master_Slogan %></span>
