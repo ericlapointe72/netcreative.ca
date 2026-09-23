@@ -11,11 +11,11 @@
         <meta name="description" content="Création et hébergement de site web sur mesure pour votre entreprise" />
         <meta name="author" content="Net.Créative">
         <!-- Style -->
-        <link href="../css/admin.css" rel="stylesheet" />
-        <link href="../css/animation.css" rel="stylesheet" />
-        <link href="../css/common.css" rel="stylesheet" />
-        <link href="../css/public.css" rel="stylesheet" />
-        <link href="../css/Site.css" rel="stylesheet" />
+        <link href="../Content/css/admin.css" rel="stylesheet" />
+        <link href="../Content/css/animation.css" rel="stylesheet" />
+        <link href="../Content/css/common.css" rel="stylesheet" />
+        <link href="../Content/css/public.css" rel="stylesheet" />
+        <link href="../Content/css/Site.css" rel="stylesheet" />
         <!-- fontawesome -->
         <script src="https://kit.fontawesome.com/7fd34f5741.js"></script>
         <!-- google font -->
@@ -23,7 +23,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Calistoga&display=swap" rel="stylesheet">
         <!-- favicon -->
-        <link rel="shortcut icon" href="../Imgs_Site/favicon.ico" />
+        <link rel="shortcut icon" href="../Content/images/site/favicon.ico" />
         
         <asp:ContentPlaceHolder ID="head" runat="server">
         </asp:ContentPlaceHolder>
@@ -70,22 +70,21 @@
                 <div class="nav__bar">
                     <div class="nav__header">
                         <div class="nav__logo-ctn">
-                            <asp:LinkButton ID="LinkButton_Logo" runat="server" OnClick="LinkButton_Logo_Click"><img class="nav__logo" src="../Imgs_Site/logo.png"></asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton_Logo" runat="server" OnClick="LinkButton_Logo_Click"><img class="nav__logo" src="../Content/images/site/logo.png"></asp:LinkButton>
                         </div>
                         <div class="nav__button-ctn">
-                            <asp:LinkButton class="admin__hello" ID="LinkButton_Hello" runat="server" OnClick="LinkButton_Hello_Click"></asp:LinkButton>
                             <span class="icon-stack">
-                                <img class="nav__mail-closed" src="../Imgs_Site/mail-closed.png" alt="mail closed"/>
-                                <a href="mailto:contact@netcreative.ca"><img class="nav__mail-open" src="../Imgs_Site/mail-open.png" alt="mail open"/></a>
+                                <img class="nav__mail-closed" src="../Content/images/site/mail-closed.png" alt="mail closed"/>
+                                <a href="mailto:contact@netcreative.ca"><img class="nav__mail-open" src="../Content/images/site/mail-open.png" alt="mail open"/></a>
                             </span>
-                            <a href="Tel:+14182269087"><img class="nav__mobile" src="../Imgs_Site/mobile.png" alt="mobile phone" /></a>
+                            <a href="Tel:+14182269087"><img class="nav__mobile" src="../Content/images/site/mobile.png" alt="mobile phone" /></a>
                             <span class="icon-stack">
-                                <asp:Image class="admin__button" ID="Image_Login" src="../Imgs_Site/login.png" alt="login" runat="server" />
-                                <a id="HyperLink_Login" runat="server" href="login.aspx"><img class="admin__login" src="../Imgs_Site/login-smile.png" alt="login smile" /></a>
+                                <asp:Image class="admin__button" ID="Image_Login" src="../Content/images/site/login.png" alt="login" runat="server" />
+                                <a id="HyperLink_Login" runat="server" href="~/Admin/login.aspx"><img class="admin__login" src="../Content/images/site/login-smile.png" alt="login smile" /></a>
                             </span>
                             <span class="icon-stack">
-                                <asp:Image class="admin__button" ID="Image_Logout" src="../Imgs_Site/logout.png" alt="logout" runat="server" />
-                                <asp:LinkButton ID="LinkButton_Logout" runat="server" OnClick="LinkButton_Logout_Click"><img class="admin__logout" src="../Imgs_Site/logout-anime.png" alt="logout anime" /></asp:LinkButton>
+                                <asp:Image class="admin__button" ID="Image_Logout" src="../Content/images/site/logout.png" alt="logout" runat="server" />
+                                <asp:LinkButton ID="LinkButton_Logout" runat="server" OnClick="LinkButton_Logout_Click"><img class="admin__logout" src="../Content/images/site/logout-anime.png" alt="logout anime" /></asp:LinkButton>
                             </span>
                         </div>
                         <div class="nav__slogan-ctn">
@@ -97,12 +96,12 @@
                     <label for="nav__toggle" class="nav__toggle"><span class="nav__icon"></span></label>
                 
                     <div class=nav__menu>
-                        <img class="nav__logo" src="../Imgs_Site/logo.png" alt="logo">
-                        <a class="nav__links nav__links1 observer" href="default.aspx"><%: Global.Master_Home %></a>
-                        <a class="nav__links nav__links2 observer" href="boutique.aspx"><%: Global.Master_Boutique %></a>
-                        <a class="nav__links nav__links3 observer" href="dutyfreeops.aspx"><%: Global.Master_DutyFreeOps %></a>
-                        <a class="nav__links nav__links4 observer" href="service.aspx"><%: Global.Master_Service %></a>
-                        <a class="nav__links nav__links6 observer" href="contact.aspx"><%: Global.Master_Contact %></a>
+                        <img class="nav__logo" src="../Content/images/site/logo.png" alt="logo">
+                        <a class="nav__links nav__links1 observer" href="/default.aspx"><%: Global.Master_Home %></a>
+                        <a class="nav__links nav__links2 observer" href="/boutique.aspx"><%: Global.Master_Boutique %></a>
+                        <a class="nav__links nav__links3 observer" href="/dutyfreeops.aspx"><%: Global.Master_DutyFreeOps %></a>
+                        <a class="nav__links nav__links4 observer" href="/service.aspx"><%: Global.Master_Service %></a>
+                        <a class="nav__links nav__links6 observer" href="/contact.aspx"><%: Global.Master_Contact %></a>
                         <a class="nav__links nav__links7 observer" ID="HyperLink_Language" runat="server"><%: Global.Master_LanguageToggle %></a>
                     </div>
                 </div>
@@ -124,11 +123,11 @@
                     <div class="foot__nav">
                         <h3 class="foot__title"><%: Global.Master_Menu %></h3>
                         <div class=foot__menu>
-                            <a class="foot__links" href="default.aspx"><%: Global.Master_Home %></a>
-                            <a class="foot__links" href="boutique.aspx"><%: Global.Master_Boutique %></a>
-                            <a class="foot__links" href="dutyfreeops.aspx"><%: Global.Master_DutyFreeOps %></a>
-                            <a class="foot__links" href="service.aspx"><%: Global.Master_Service %></a>
-                            <a class="foot__links" href="contact.aspx"><%: Global.Master_Contact %></a>
+                            <a class="foot__links" href="/default.aspx"><%: Global.Master_Home %></a>
+                            <a class="foot__links" href="/boutique.aspx"><%: Global.Master_Boutique %></a>
+                            <a class="foot__links" href="/dutyfreeops.aspx"><%: Global.Master_DutyFreeOps %></a>
+                            <a class="foot__links" href="/service.aspx"><%: Global.Master_Service %></a>
+                            <a class="foot__links" href="/contact.aspx"><%: Global.Master_Contact %></a>
                         </div>
                     </div>
 
@@ -169,13 +168,14 @@
 
             <asp:Panel class="cookie__panel" ID="Panel_CookieWarning" runat="server">
                 <span class="cookie__label"><%: Global.Master_CookieWarningText %></span>
-                <a class="cookie__ReadMore" href="privacy.aspx"><%: Global.Master_CookieReadMore %></a>
+                <a class="cookie__ReadMore" href="/privacy.aspx"><%: Global.Master_CookieReadMore %></a>
                 <button type="button" class="cookie__button"><%: Global.Master_CookieAccept %></button>
             </asp:Panel>
 
-            <script src="../js/animation.js"></script>
-            <script src="../js/observer.js"></script>
-            <script src="../js/cookie.js"></script>
+            <script src="../Content/js/animation.js"></script>
+            <script src="../Content/js/observer.js"></script>
+            <script src="../Content/js/cookie.js"></script>
+            <script src="../Content/js/toast.js"></script>
         </form>
     </body>
 </html>
