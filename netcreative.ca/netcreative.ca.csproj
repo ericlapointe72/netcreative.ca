@@ -140,6 +140,7 @@
     <Content Include="Web.config" />
     <Content Include="App_Data\connectionStrings.config" />
     <Content Include="App_Data\appSettings.secrets.config" />
+    <Content Include="App_Data\machineKey.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\Admin.Master.cs">

@@ -19,6 +19,7 @@ packages/
 # Secrets — never commit real connection strings or credentials
 netcreative.ca/App_Data/connectionStrings.config
 netcreative.ca/App_Data/appSettings.secrets.config
+netcreative.ca/App_Data/machineKey.config
 
 # OS / editor junk
 Thumbs.db
