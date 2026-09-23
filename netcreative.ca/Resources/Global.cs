@@ -203,6 +203,8 @@ namespace netcreative.ca.Resources
         public static string Unsubscribe_SuccessMessage => resourceManager.GetString("Unsubscribe_SuccessMessage", Thread.CurrentThread.CurrentUICulture);
         public static string Unsubscribe_ErrorMessage => resourceManager.GetString("Unsubscribe_ErrorMessage", Thread.CurrentThread.CurrentUICulture);
         public static string Privacy_Title => resourceManager.GetString("Privacy_Title", Thread.CurrentThread.CurrentUICulture);
+        public static string Privacy_HeroEyebrow => resourceManager.GetString("Privacy_HeroEyebrow", Thread.CurrentThread.CurrentUICulture);
+        public static string Privacy_HeroText => resourceManager.GetString("Privacy_HeroText", Thread.CurrentThread.CurrentUICulture);
         public static string Privacy_H1Title1 => resourceManager.GetString("Privacy_H1Title1", Thread.CurrentThread.CurrentUICulture);
         public static string Privacy_SubTitle1 => resourceManager.GetString("Privacy_SubTitle1", Thread.CurrentThread.CurrentUICulture);
         public static string Privacy_Paragraph1 => resourceManager.GetString("Privacy_Paragraph1", Thread.CurrentThread.CurrentUICulture);

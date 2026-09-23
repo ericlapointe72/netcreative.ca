@@ -969,21 +969,12 @@
     padding: 2rem;
 }
 
-.privacy__container .card__title {
-    margin: 0;
-    display: block;
-    text-align: center;
-    font-size: calc(20px + 100vw / 70);
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--logoOrange);
-}
-
 .privacy__container .card__subTitle {
     display: block;
     text-align: center;
+    font-family: 'Calistoga', cursive;
     font-size: calc(16px + 100vw / 70);
-    font-weight: 600;
+    font-weight: 400;
     color: var(--logoOrange);
 }
 

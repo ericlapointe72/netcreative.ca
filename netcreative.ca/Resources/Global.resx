@@ -666,6 +666,12 @@
   <data name="Privacy_Title" xml:space="preserve">
     <value>Privacy Policy</value>
   </data>
+  <data name="Privacy_HeroEyebrow" xml:space="preserve">
+    <value>Legal</value>
+  </data>
+  <data name="Privacy_HeroText" xml:space="preserve">
+    <value>How we collect, use and protect your information.</value>
+  </data>
   <data name="Privacy_H1Title1" xml:space="preserve">
     <value>Privacy Policy</value>
   </data>

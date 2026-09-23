@@ -13,5 +13,16 @@ namespace netcreative.ca
 
     public partial class privacy
     {
+
+        /// <summary>
+        /// Propriété Master fortement typée, générée par la directive MasterType.
+        /// </summary>
+        public new netcreative.ca.MasterPages.Site Master
+        {
+            get
+            {
+                return ((netcreative.ca.MasterPages.Site)(base.Master));
+            }
+        }
     }
 }

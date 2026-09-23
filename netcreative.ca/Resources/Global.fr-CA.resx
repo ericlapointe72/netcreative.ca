@@ -625,6 +625,12 @@
   <data name="Privacy_Title" xml:space="preserve">
     <value>Politique de confidentialité</value>
   </data>
+  <data name="Privacy_HeroEyebrow" xml:space="preserve">
+    <value>Mentions légales</value>
+  </data>
+  <data name="Privacy_HeroText" xml:space="preserve">
+    <value>Comment nous recueillons, utilisons et protégeons vos renseignements.</value>
+  </data>
   <data name="Privacy_H1Title1" xml:space="preserve">
     <value>Politique de confidentialité</value>
   </data>
