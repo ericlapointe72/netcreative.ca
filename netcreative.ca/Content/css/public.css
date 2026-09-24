@@ -719,9 +719,21 @@
 
 .default__container .slide__text {
     display: block;
-    font-size: var(--textSize);
+    font-size: 1rem;
     text-align: justify;
     color: var(--menuText);
+}
+
+@media screen and (max-width: 1000px) {
+    .default__container .slide {
+        padding: 1.5rem 2.75rem;
+    }
+
+    .default__container .prev,
+    .default__container .next {
+        font-size: 1.25rem;
+        padding: 0.5rem;
+    }
 }
 
 .default__container .next {
