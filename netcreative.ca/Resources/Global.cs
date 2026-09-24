@@ -129,6 +129,17 @@ namespace netcreative.ca.Resources
         public static string DutyFreeOps_Module5Text => resourceManager.GetString("DutyFreeOps_Module5Text", Thread.CurrentThread.CurrentUICulture);
         public static string DutyFreeOps_Module6Title => resourceManager.GetString("DutyFreeOps_Module6Title", Thread.CurrentThread.CurrentUICulture);
         public static string DutyFreeOps_Module6Text => resourceManager.GetString("DutyFreeOps_Module6Text", Thread.CurrentThread.CurrentUICulture);
+        public static string DutyFreeOps_ScreenshotsLabel => resourceManager.GetString("DutyFreeOps_ScreenshotsLabel", Thread.CurrentThread.CurrentUICulture);
+        public static string DutyFreeOps_CarouselRegionLabel => resourceManager.GetString("DutyFreeOps_CarouselRegionLabel", Thread.CurrentThread.CurrentUICulture);
+        public static string DutyFreeOps_CarouselPrevLabel => resourceManager.GetString("DutyFreeOps_CarouselPrevLabel", Thread.CurrentThread.CurrentUICulture);
+        public static string DutyFreeOps_CarouselNextLabel => resourceManager.GetString("DutyFreeOps_CarouselNextLabel", Thread.CurrentThread.CurrentUICulture);
+        public static string DutyFreeOps_CarouselDotLabel => resourceManager.GetString("DutyFreeOps_CarouselDotLabel", Thread.CurrentThread.CurrentUICulture);
+        public static string DutyFreeOps_Screenshot1Alt => resourceManager.GetString("DutyFreeOps_Screenshot1Alt", Thread.CurrentThread.CurrentUICulture);
+        public static string DutyFreeOps_Screenshot2Alt => resourceManager.GetString("DutyFreeOps_Screenshot2Alt", Thread.CurrentThread.CurrentUICulture);
+        public static string DutyFreeOps_Screenshot3Alt => resourceManager.GetString("DutyFreeOps_Screenshot3Alt", Thread.CurrentThread.CurrentUICulture);
+        public static string DutyFreeOps_Screenshot4Alt => resourceManager.GetString("DutyFreeOps_Screenshot4Alt", Thread.CurrentThread.CurrentUICulture);
+        public static string DutyFreeOps_Screenshot5Alt => resourceManager.GetString("DutyFreeOps_Screenshot5Alt", Thread.CurrentThread.CurrentUICulture);
+        public static string DutyFreeOps_Screenshot6Alt => resourceManager.GetString("DutyFreeOps_Screenshot6Alt", Thread.CurrentThread.CurrentUICulture);
         public static string Service_Title => resourceManager.GetString("Service_Title", Thread.CurrentThread.CurrentUICulture);
         public static string Service_HeroEyebrow => resourceManager.GetString("Service_HeroEyebrow", Thread.CurrentThread.CurrentUICulture);
         public static string Service_HeroTitle => resourceManager.GetString("Service_HeroTitle", Thread.CurrentThread.CurrentUICulture);

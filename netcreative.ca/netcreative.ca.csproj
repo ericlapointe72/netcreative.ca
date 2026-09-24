@@ -109,6 +109,12 @@
     <Content Include="Content\images\carousel\carousel4.jpg" />
     <Content Include="Content\images\carousel\carousel5.jpg" />
     <Content Include="Content\images\carousel\carousel6.jpg" />
+    <Content Include="Content\images\DutyFreeOps\DutyFreeOps1.jpg" />
+    <Content Include="Content\images\DutyFreeOps\DutyFreeOps2.jpg" />
+    <Content Include="Content\images\DutyFreeOps\DutyFreeOps3.jpg" />
+    <Content Include="Content\images\DutyFreeOps\DutyFreeOps4.jpg" />
+    <Content Include="Content\images\DutyFreeOps\DutyFreeOps5.jpg" />
+    <Content Include="Content\images\DutyFreeOps\DutyFreeOps6.jpg" />
     <Content Include="Content\images\site\increase-profit.png" />
     <Content Include="Content\images\site\problem-solving.png" />
     <Content Include="Content\images\site\trust.png" />

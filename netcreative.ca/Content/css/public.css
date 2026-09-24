@@ -772,7 +772,7 @@
     CAROUSEL
     -------- */
 
-.default__container .carousel__container {
+.carousel__container {
     width: 100vw;
     max-width: 1000px;
     overflow: hidden;
@@ -782,11 +782,11 @@
     transition: transform 300ms ease-in;
 }
 
-.default__container .carousel__container.appear {
+.carousel__container.appear {
     transform: translateX(0);
 }
 
-.default__container .carousel__slide {
+.carousel__slide {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -796,24 +796,24 @@
     outline: none;
 }
 
-.default__container .carousel__slide::-webkit-scrollbar {
+.carousel__slide::-webkit-scrollbar {
     display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .default__container .carousel__slide {
+    .carousel__slide {
         scroll-behavior: auto;
     }
 }
 
-.default__container .carousel__image {
+.carousel__image {
     width: 100%;
     flex-shrink: 0;
     scroll-snap-align: start;
 }
 
-.default__container #prev__btn,
-.default__container #next__btn {
+#prev__btn,
+#next__btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -828,26 +828,26 @@
     cursor: pointer;
 }
 
-.default__container #prev__btn:hover,
-.default__container #next__btn:hover {
+#prev__btn:hover,
+#next__btn:hover {
     color: var(--logoOrange);
 }
 
-.default__container #prev__btn {
+#prev__btn {
     left: 0;
 }
 
-.default__container #next__btn {
+#next__btn {
     right: 0;
 }
 
-.default__container .carousel__navigation {
+.carousel__navigation {
     position: relative;
     display: flex;
     justify-content: center;
 }
 
-.default__container .nav__btn {
+.nav__btn {
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
@@ -859,7 +859,7 @@
     cursor: pointer;
 }
 
-.default__container .nav__btn.active {
+.nav__btn.active {
     background-color: var(--logoOrange);
 }
 

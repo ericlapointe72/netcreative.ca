@@ -42,4 +42,38 @@
         </div>
     </div>
 
+    <span class="section-label"><%: Global.DutyFreeOps_ScreenshotsLabel %></span>
+
+    <div class="carousel__container observer" role="region" aria-roledescription="carousel" aria-label="<%= System.Web.HttpUtility.HtmlAttributeEncode(Global.DutyFreeOps_CarouselRegionLabel) %>">
+        <div class="carousel__slide" tabindex="0">
+            <img class="carousel__image" src="Content/images/DutyFreeOps/DutyFreeOps1.jpg" alt="<%: Global.DutyFreeOps_Screenshot1Alt %>" loading="lazy" decoding="async"/>
+            <img class="carousel__image" src="Content/images/DutyFreeOps/DutyFreeOps2.jpg" alt="<%: Global.DutyFreeOps_Screenshot2Alt %>" loading="lazy" decoding="async"/>
+            <img class="carousel__image" src="Content/images/DutyFreeOps/DutyFreeOps3.jpg" alt="<%: Global.DutyFreeOps_Screenshot3Alt %>" loading="lazy" decoding="async"/>
+            <img class="carousel__image" src="Content/images/DutyFreeOps/DutyFreeOps4.jpg" alt="<%: Global.DutyFreeOps_Screenshot4Alt %>" loading="lazy" decoding="async"/>
+            <img class="carousel__image" src="Content/images/DutyFreeOps/DutyFreeOps5.jpg" alt="<%: Global.DutyFreeOps_Screenshot5Alt %>" loading="lazy" decoding="async"/>
+            <img class="carousel__image" src="Content/images/DutyFreeOps/DutyFreeOps6.jpg" alt="<%: Global.DutyFreeOps_Screenshot6Alt %>" loading="lazy" decoding="async"/>
+        </div>
+
+        <button type="button" id="prev__btn"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+        <button type="button" id="next__btn"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+
+        <div class="carousel__navigation">
+            <button type="button" class="nav__btn" id="nav__1"></button>
+            <button type="button" class="nav__btn" id="nav__2"></button>
+            <button type="button" class="nav__btn" id="nav__3"></button>
+            <button type="button" class="nav__btn" id="nav__4"></button>
+            <button type="button" class="nav__btn" id="nav__5"></button>
+            <button type="button" class="nav__btn" id="nav__6"></button>
+        </div>
+    </div>
+
+    <script>
+        window.__i18n = {
+            carouselPrev: "<%= System.Web.HttpUtility.JavaScriptStringEncode(Global.DutyFreeOps_CarouselPrevLabel) %>",
+            carouselNext: "<%= System.Web.HttpUtility.JavaScriptStringEncode(Global.DutyFreeOps_CarouselNextLabel) %>",
+            carouselDot: "<%= System.Web.HttpUtility.JavaScriptStringEncode(Global.DutyFreeOps_CarouselDotLabel) %>"
+        };
+    </script>
+    <script src="Content/js/carousel.js"></script>
+
 </asp:Content>

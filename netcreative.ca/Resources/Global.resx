@@ -444,6 +444,39 @@
   <data name="DutyFreeOps_Module6Text" xml:space="preserve">
     <value>Forms and reports required for border operations.</value>
   </data>
+  <data name="DutyFreeOps_ScreenshotsLabel" xml:space="preserve">
+    <value>Screenshots</value>
+  </data>
+  <data name="DutyFreeOps_CarouselRegionLabel" xml:space="preserve">
+    <value>Screenshot gallery</value>
+  </data>
+  <data name="DutyFreeOps_CarouselPrevLabel" xml:space="preserve">
+    <value>Previous screenshot</value>
+  </data>
+  <data name="DutyFreeOps_CarouselNextLabel" xml:space="preserve">
+    <value>Next screenshot</value>
+  </data>
+  <data name="DutyFreeOps_CarouselDotLabel" xml:space="preserve">
+    <value>Go to screenshot %d</value>
+  </data>
+  <data name="DutyFreeOps_Screenshot1Alt" xml:space="preserve">
+    <value>DutyFreeOps dashboard — sales, inventory and market share at a glance</value>
+  </data>
+  <data name="DutyFreeOps_Screenshot2Alt" xml:space="preserve">
+    <value>Product catalog with pricing, badges and inventory details</value>
+  </data>
+  <data name="DutyFreeOps_Screenshot3Alt" xml:space="preserve">
+    <value>Purchase order management with supplier and cost tracking</value>
+  </data>
+  <data name="DutyFreeOps_Screenshot4Alt" xml:space="preserve">
+    <value>Promotions and discount rules configuration</value>
+  </data>
+  <data name="DutyFreeOps_Screenshot5Alt" xml:space="preserve">
+    <value>Market share reports by category</value>
+  </data>
+  <data name="DutyFreeOps_Screenshot6Alt" xml:space="preserve">
+    <value>Product label generator, ready to print</value>
+  </data>
   <data name="Service_Title" xml:space="preserve">
     <value>Design of responsive websites</value>
   </data>

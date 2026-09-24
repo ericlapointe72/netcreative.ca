@@ -393,6 +393,39 @@
   <data name="DutyFreeOps_Module6Text" xml:space="preserve">
     <value>Formulaires et rapports requis pour les opérations à la frontière.</value>
   </data>
+  <data name="DutyFreeOps_ScreenshotsLabel" xml:space="preserve">
+    <value>Captures d'écran</value>
+  </data>
+  <data name="DutyFreeOps_CarouselRegionLabel" xml:space="preserve">
+    <value>Galerie de captures d'écran</value>
+  </data>
+  <data name="DutyFreeOps_CarouselPrevLabel" xml:space="preserve">
+    <value>Capture précédente</value>
+  </data>
+  <data name="DutyFreeOps_CarouselNextLabel" xml:space="preserve">
+    <value>Capture suivante</value>
+  </data>
+  <data name="DutyFreeOps_CarouselDotLabel" xml:space="preserve">
+    <value>Aller à la capture %d</value>
+  </data>
+  <data name="DutyFreeOps_Screenshot1Alt" xml:space="preserve">
+    <value>Tableau de bord DutyFreeOps — ventes, inventaire et parts de marché en un coup d'œil</value>
+  </data>
+  <data name="DutyFreeOps_Screenshot2Alt" xml:space="preserve">
+    <value>Catalogue de produits avec prix, badges et détails d'inventaire</value>
+  </data>
+  <data name="DutyFreeOps_Screenshot3Alt" xml:space="preserve">
+    <value>Gestion des bons de commande avec suivi des fournisseurs et des coûts</value>
+  </data>
+  <data name="DutyFreeOps_Screenshot4Alt" xml:space="preserve">
+    <value>Configuration des promotions et rabais</value>
+  </data>
+  <data name="DutyFreeOps_Screenshot5Alt" xml:space="preserve">
+    <value>Rapports de parts de marché par catégorie</value>
+  </data>
+  <data name="DutyFreeOps_Screenshot6Alt" xml:space="preserve">
+    <value>Générateur d'étiquettes de produits, prêtes à imprimer</value>
+  </data>
 
   <!-- service.aspx -->
   <data name="Service_Title" xml:space="preserve">
