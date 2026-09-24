@@ -220,7 +220,7 @@
     <Compile Include="confirmation.aspx.designer.cs">
       <DependentUpon>confirmation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="class\Contact.cs" />
+    <Compile Include="Models\Contact.cs" />
     <Compile Include="boutique.aspx.cs">
       <DependentUpon>boutique.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -242,7 +242,7 @@
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="class\PasswordHasher.cs" />
+    <Compile Include="Models\PasswordHasher.cs" />
     <Compile Include="Resources\Global.cs" />
     <Compile Include="Admin\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -257,7 +257,7 @@
     <Compile Include="SubscribeHandler.ashx.cs">
       <DependentUpon>SubscribeHandler.ashx</DependentUpon>
     </Compile>
-    <Compile Include="class\Login.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="privacy.aspx.cs">
       <DependentUpon>privacy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -280,8 +280,8 @@
     <Compile Include="MasterPages\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="class\Subscribe.cs" />
-    <Compile Include="class\User_IP.cs" />
+    <Compile Include="Models\Subscribe.cs" />
+    <Compile Include="Models\User_IP.cs" />
     <Compile Include="unsubscribe.aspx.cs">
       <DependentUpon>unsubscribe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
