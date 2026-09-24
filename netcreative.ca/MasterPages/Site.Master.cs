@@ -107,7 +107,7 @@ namespace netcreative.ca.MasterPages
 
         private void Verify_CookieWarning()
         {
-            if (Request.Cookies["netcreative_cookie_accepted"] != null)
+            if (Request.Cookies["netcreative_cookie_consent"] != null)
             {
                 Panel_CookieWarning.Visible = false;
             }

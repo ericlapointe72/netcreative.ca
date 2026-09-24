@@ -164,7 +164,10 @@
             <asp:Panel class="cookie__panel" ID="Panel_CookieWarning" runat="server">
                 <span class="cookie__label"><%: Global.Master_CookieWarningText %></span>
                 <a class="cookie__ReadMore" href="/privacy.aspx"><%: Global.Master_CookieReadMore %></a>
-                <button type="button" class="cookie__button"><%: Global.Master_CookieAccept %></button>
+                <div class="cookie__buttons">
+                    <button type="button" id="cookie__decline" class="cookie__button cookie__button--secondary"><%: Global.Master_CookieDecline %></button>
+                    <button type="button" id="cookie__accept" class="cookie__button"><%: Global.Master_CookieAccept %></button>
+                </div>
             </asp:Panel>
 
             <script src="../Content/js/animation.js"></script>

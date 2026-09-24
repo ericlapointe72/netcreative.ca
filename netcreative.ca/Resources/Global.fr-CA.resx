@@ -118,13 +118,16 @@
     <value>Politique de confidentialité</value>
   </data>
   <data name="Master_CookieWarningText" xml:space="preserve">
-    <value>Nous utilisons les témoins de navigation (cookies) afin d'opérer et d'améliorer nos services. Le respect de votre vie privée est important pour nous. En continuant votre navigation sur notre site, vous acceptez notre utilisation des témoins de navigation et notre politique de confidentialité.</value>
+    <value>Nous utilisons des témoins de navigation (cookies) essentiels au bon fonctionnement du site. Le respect de votre vie privée est important pour nous.</value>
   </data>
   <data name="Master_CookieReadMore" xml:space="preserve">
     <value>En savoir plus ...</value>
   </data>
   <data name="Master_CookieAccept" xml:space="preserve">
-    <value>Accepter et continuer</value>
+    <value>Accepter</value>
+  </data>
+  <data name="Master_CookieDecline" xml:space="preserve">
+    <value>Refuser</value>
   </data>
   <data name="Master_MailSubjectNewSubscriber" xml:space="preserve">
     <value>Nouvel abonné</value>

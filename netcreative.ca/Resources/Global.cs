@@ -42,6 +42,7 @@ namespace netcreative.ca.Resources
         public static string Master_CookieWarningText => resourceManager.GetString("Master_CookieWarningText", Thread.CurrentThread.CurrentUICulture);
         public static string Master_CookieReadMore => resourceManager.GetString("Master_CookieReadMore", Thread.CurrentThread.CurrentUICulture);
         public static string Master_CookieAccept => resourceManager.GetString("Master_CookieAccept", Thread.CurrentThread.CurrentUICulture);
+        public static string Master_CookieDecline => resourceManager.GetString("Master_CookieDecline", Thread.CurrentThread.CurrentUICulture);
         public static string Master_MailSubjectNewSubscriber => resourceManager.GetString("Master_MailSubjectNewSubscriber", Thread.CurrentThread.CurrentUICulture);
         public static string Master_MailBodyNewSubscriber => resourceManager.GetString("Master_MailBodyNewSubscriber", Thread.CurrentThread.CurrentUICulture);
         public static string Master_Monday => resourceManager.GetString("Master_Monday", Thread.CurrentThread.CurrentUICulture);

@@ -175,13 +175,16 @@
     <value>Privacy Policy</value>
   </data>
   <data name="Master_CookieWarningText" xml:space="preserve">
-    <value>We use cookies to operate and improve our services. Your privacy is important to us. By continuing to browse our site, you agree to our use of cookies and our privacy policy.</value>
+    <value>We use cookies that are essential to the proper functioning of the site. Your privacy is important to us.</value>
   </data>
   <data name="Master_CookieReadMore" xml:space="preserve">
     <value>Read more ...</value>
   </data>
   <data name="Master_CookieAccept" xml:space="preserve">
-    <value>Accept and continue</value>
+    <value>Accept</value>
+  </data>
+  <data name="Master_CookieDecline" xml:space="preserve">
+    <value>Decline</value>
   </data>
   <data name="Master_MailSubjectNewSubscriber" xml:space="preserve">
     <value>New subscriber</value>
