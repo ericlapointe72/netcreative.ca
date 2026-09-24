@@ -102,7 +102,7 @@
 
             <span class="card__Signature observer"><%: Global.Home_WhoIamName %></span>
 
-            <div class="carousel__container observer" role="region" aria-roledescription="carousel" aria-label="<%= System.Web.HttpUtility.HtmlAttributeEncode(Global.Home_CarouselRegionLabel) %>">
+            <div class="carousel__container" role="region" aria-roledescription="carousel" aria-label="<%= System.Web.HttpUtility.HtmlAttributeEncode(Global.Home_CarouselRegionLabel) %>">
                 <div class="carousel__slide" tabindex="0">
                     <img class="carousel__image" src="Content/images/carousel/carousel1.jpg" alt="carousel image 1" loading="lazy" decoding="async"/>
                     <img class="carousel__image" src="Content/images/carousel/carousel2.jpg" alt="carousel image 2" loading="lazy" decoding="async"/>

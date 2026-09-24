@@ -44,7 +44,7 @@
 
     <span class="section-label"><%: Global.DutyFreeOps_ScreenshotsLabel %></span>
 
-    <div class="carousel__container observer" role="region" aria-roledescription="carousel" aria-label="<%= System.Web.HttpUtility.HtmlAttributeEncode(Global.DutyFreeOps_CarouselRegionLabel) %>">
+    <div class="carousel__container" role="region" aria-roledescription="carousel" aria-label="<%= System.Web.HttpUtility.HtmlAttributeEncode(Global.DutyFreeOps_CarouselRegionLabel) %>">
         <div class="carousel__slide" tabindex="0">
             <img class="carousel__image" src="Content/images/DutyFreeOps/DutyFreeOps1.jpg" alt="<%: Global.DutyFreeOps_Screenshot1Alt %>" loading="lazy" decoding="async"/>
             <img class="carousel__image" src="Content/images/DutyFreeOps/DutyFreeOps2.jpg" alt="<%: Global.DutyFreeOps_Screenshot2Alt %>" loading="lazy" decoding="async"/>

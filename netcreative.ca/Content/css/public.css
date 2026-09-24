@@ -790,12 +790,6 @@
     overflow: hidden;
     position: relative;
     margin: 2rem auto;
-    transform: translateX(-100%);
-    transition: transform 300ms ease-in;
-}
-
-.carousel__container.appear {
-    transform: translateX(0);
 }
 
 .carousel__slide {
