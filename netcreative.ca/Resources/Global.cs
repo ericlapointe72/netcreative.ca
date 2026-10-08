@@ -201,6 +201,7 @@ namespace netcreative.ca.Resources
         public static string Contact_CoordinatesLabel => resourceManager.GetString("Contact_CoordinatesLabel", Thread.CurrentThread.CurrentUICulture);
         public static string Contact_ProjectLabel => resourceManager.GetString("Contact_ProjectLabel", Thread.CurrentThread.CurrentUICulture);
         public static string Contact_VerifyLabel => resourceManager.GetString("Contact_VerifyLabel", Thread.CurrentThread.CurrentUICulture);
+        public static string Contact_QuestionImage => resourceManager.GetString("Contact_QuestionImage", Thread.CurrentThread.CurrentUICulture);
         public static string Contact_SendButton => resourceManager.GetString("Contact_SendButton", Thread.CurrentThread.CurrentUICulture);
         public static string Contact_ErrorMessage => resourceManager.GetString("Contact_ErrorMessage", Thread.CurrentThread.CurrentUICulture);
         public static string Contact_EmailError => resourceManager.GetString("Contact_EmailError", Thread.CurrentThread.CurrentUICulture);

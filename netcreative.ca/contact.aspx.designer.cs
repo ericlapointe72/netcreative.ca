@@ -107,24 +107,6 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.TextBox TextBox_Description;
 
         /// <summary>
-        /// Image_QuestionFR control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage Image_QuestionFR;
-
-        /// <summary>
-        /// Image_QuestionEN control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage Image_QuestionEN;
-
-        /// <summary>
         /// TextBox_Question control.
         /// </summary>
         /// <remarks>

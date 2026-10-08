@@ -660,6 +660,9 @@
   <data name="Contact_VerifyLabel" xml:space="preserve">
     <value>Verification question</value>
   </data>
+  <data name="Contact_QuestionImage" xml:space="preserve">
+    <value>Content/images/site/question_en.png</value>
+  </data>
   <data name="Contact_SendButton" xml:space="preserve">
     <value>Send</value>
   </data>

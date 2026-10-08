@@ -19,8 +19,6 @@ namespace netcreative.ca
         protected void Page_Load(object sender, EventArgs e)
         {
             connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
-            Image_QuestionFR.Visible = false;
-            Image_QuestionEN.Visible = false;
             Load_Languages();
         }
 
@@ -72,15 +70,6 @@ namespace netcreative.ca
             message_email_error = Global.Contact_EmailError;
             mail_subject = Global.Contact_MailSubject;
             mail_body = Global.Contact_MailBody;
-
-            if (Session["language"].ToString() == "fr")
-            {
-                Image_QuestionFR.Visible = true;
-            }
-            else
-            {
-                Image_QuestionEN.Visible = true;
-            }
         }
 
         private void Send_Message()

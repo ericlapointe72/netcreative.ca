@@ -67,8 +67,7 @@
             <div class="card__verify">
                 <span class="card__verify-label"><%: Global.Contact_VerifyLabel %></span>
                 <div class="card__question">
-                    <img class="image__question" src="Content/images/site/question_fr.png" id="Image_QuestionFR" runat="server"/>
-                    <img class="image__question" src="Content/images/site/question_en.png" id="Image_QuestionEN" runat="server"/>
+                    <img class="image__question" src="<%: Global.Contact_QuestionImage %>" alt="<%: Global.Contact_VerifyLabel %>"/>
                     <asp:TextBox class="textbox__question" ID="TextBox_Question" runat="server"></asp:TextBox>
                 </div>
             </div>
