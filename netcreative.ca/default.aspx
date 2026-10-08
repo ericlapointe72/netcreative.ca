@@ -12,13 +12,13 @@
     <span class="section-label"><%: Global.Home_PillarsLabel %></span>
 
     <div class="pillar-grid">
-        <a class="pillar-card pillar-card--orange" href="boutique.aspx">
-            <span class="pillar-card__title"><%: Global.Home_Pillar1Title %></span>
-            <span class="pillar-card__text"><%: Global.Home_Pillar1Text %></span>
-        </a>
         <a class="pillar-card pillar-card--blue" href="dutyfreeops.aspx">
             <span class="pillar-card__title"><%: Global.Home_Pillar2Title %></span>
             <span class="pillar-card__text"><%: Global.Home_Pillar2Text %></span>
+        </a>
+        <a class="pillar-card pillar-card--orange" href="boutique.aspx">
+            <span class="pillar-card__title"><%: Global.Home_Pillar1Title %></span>
+            <span class="pillar-card__text"><%: Global.Home_Pillar1Text %></span>
         </a>
         <a class="pillar-card" href="service.aspx">
             <span class="pillar-card__title"><%: Global.Home_Pillar3Title %></span>
