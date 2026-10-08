@@ -412,22 +412,22 @@
     <value>Aller à la capture %d</value>
   </data>
   <data name="DutyFreeOps_Screenshot1Alt" xml:space="preserve">
-    <value>Tableau de bord DutyFreeOps — ventes, inventaire et parts de marché en un coup d'œil</value>
+    <value>Tableau de bord DutyFreeOps — ventes du jour, cumul du mois et de l'année, stock bas et clientèle en un coup d'œil</value>
   </data>
   <data name="DutyFreeOps_Screenshot2Alt" xml:space="preserve">
-    <value>Catalogue de produits avec prix, badges et détails d'inventaire</value>
+    <value>Fiche produit avec prix, classification, inventaire et codes-barres</value>
   </data>
   <data name="DutyFreeOps_Screenshot3Alt" xml:space="preserve">
     <value>Gestion des bons de commande avec suivi des fournisseurs et des coûts</value>
   </data>
   <data name="DutyFreeOps_Screenshot4Alt" xml:space="preserve">
-    <value>Configuration des promotions et rabais</value>
+    <value>Un gestionnaire tient un téléphone affichant le courriel de résumé quotidien DutyFreeOps : ventes, cumul du mois et de l'année, stock bas et clientèle selon l'origine</value>
   </data>
   <data name="DutyFreeOps_Screenshot5Alt" xml:space="preserve">
     <value>Rapports de parts de marché par catégorie</value>
   </data>
   <data name="DutyFreeOps_Screenshot6Alt" xml:space="preserve">
-    <value>Générateur d'étiquettes de produits, prêtes à imprimer</value>
+    <value>Générateur d'étiquettes de produits avec aperçu, prêtes à imprimer</value>
   </data>
 
   <!-- service.aspx -->
