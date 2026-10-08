@@ -102,8 +102,16 @@
 
     window.addEventListener('resize', function () { goTo(index, false); });
 
-    track.addEventListener('mouseenter', stopAutoplay);
-    track.addEventListener('mouseleave', startAutoplay);
+    // a finger on the strip pauses autoplay for the whole gesture (swipes included) and it
+    // restarts when the finger lifts. A tap also makes the browser fire emulated mouse events
+    // afterwards, which would pause autoplay again with no mouseleave to undo it, so mouse
+    // events arriving right after a touch are ignored
+    var lastTouch = 0;
+    track.addEventListener('touchstart', function () { lastTouch = Date.now(); stopAutoplay(); }, { passive: true });
+    track.addEventListener('touchend', function () { lastTouch = Date.now(); startAutoplay(); }, { passive: true });
+    track.addEventListener('touchcancel', function () { lastTouch = Date.now(); startAutoplay(); }, { passive: true });
+    track.addEventListener('mouseenter', function () { if (Date.now() - lastTouch > 1000) stopAutoplay(); });
+    track.addEventListener('mouseleave', function () { if (Date.now() - lastTouch > 1000) startAutoplay(); });
     track.addEventListener('focusin', stopAutoplay);
     track.addEventListener('focusout', startAutoplay);
     document.addEventListener('visibilitychange', function () {
