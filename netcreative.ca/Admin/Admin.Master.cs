@@ -22,11 +22,10 @@ namespace netcreative.ca
                 return;
             }
 
-            if (string.IsNullOrEmpty((string)Session["language"]))
-            {
-                Session["language"] = ConfigurationManager.AppSettings["app_language"].ToString();
-            }
-
+            // Session["language"] is always already set by the time we get here: either
+            // we just returned above (role empty), or role == "admin", which is only
+            // reachable via login.aspx - which uses Site.Master, whose Page_Init already
+            // set it before the login form was even shown
             Global.SetCulture(Session["language"].ToString());
         }
 
