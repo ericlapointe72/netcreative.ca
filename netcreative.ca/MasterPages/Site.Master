@@ -94,8 +94,8 @@
                     <div class=nav__menu>
                         <img class="nav__logo" src="../Content/images/site/logo.png" alt="logo">
                         <a class="nav__links nav__links1 observer" href="/default.aspx"><%: Global.Master_Home %></a>
-                        <a class="nav__links nav__links2 observer" href="/boutique.aspx"><%: Global.Master_Boutique %></a>
-                        <a class="nav__links nav__links3 observer" href="/dutyfreeops.aspx"><%: Global.Master_DutyFreeOps %></a>
+                        <a class="nav__links nav__links2 observer" href="/dutyfreeops.aspx"><%: Global.Master_DutyFreeOps %></a>
+                        <a class="nav__links nav__links3 observer" href="/boutique.aspx"><%: Global.Master_Boutique %></a>
                         <a class="nav__links nav__links4 observer" href="/service.aspx"><%: Global.Master_Service %></a>
                         <a class="nav__links nav__links6 observer" href="/contact.aspx"><%: Global.Master_Contact %></a>
                         <a class="nav__links nav__links7 observer" ID="HyperLink_Language" runat="server"><%: Global.Master_LanguageToggle %></a>
@@ -120,8 +120,8 @@
                         <h3 class="foot__title"><%: Global.Master_Menu %></h3>
                         <div class=foot__menu>
                             <a class="foot__links" href="/default.aspx"><%: Global.Master_Home %></a>
-                            <a class="foot__links" href="/boutique.aspx"><%: Global.Master_Boutique %></a>
                             <a class="foot__links" href="/dutyfreeops.aspx"><%: Global.Master_DutyFreeOps %></a>
+                            <a class="foot__links" href="/boutique.aspx"><%: Global.Master_Boutique %></a>
                             <a class="foot__links" href="/service.aspx"><%: Global.Master_Service %></a>
                             <a class="foot__links" href="/contact.aspx"><%: Global.Master_Contact %></a>
                         </div>
