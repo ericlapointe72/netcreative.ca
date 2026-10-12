@@ -3,7 +3,6 @@
 <%@ Import Namespace="netcreative.ca.Resources" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <%
-    Page.Title = Global.Unsubscribe_Title;
     Master.SetPageHero("Content/images/site/hero-contact.jpg", Global.Unsubscribe_HeroEyebrow, Global.Unsubscribe_H1Title, Global.Unsubscribe_HeroText);
 %>
 </asp:Content>

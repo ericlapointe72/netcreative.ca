@@ -8,6 +8,7 @@ namespace netcreative.ca
         protected void Page_Load(object sender, EventArgs e)
         {
             Global.SetCulture(Session["language"].ToString());
+            Master.SetPageMeta(Global.Login_Title, null, true);
 
             // reset on every visit to the page (there is no postback anymore to rely
             // on IsPostBack for) so a fresh set of 3 attempts is granted each time the

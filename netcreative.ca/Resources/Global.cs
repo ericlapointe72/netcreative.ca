@@ -43,6 +43,13 @@ namespace netcreative.ca.Resources
         public static string Master_CookieReadMore => resourceManager.GetString("Master_CookieReadMore", Thread.CurrentThread.CurrentUICulture);
         public static string Master_CookieAccept => resourceManager.GetString("Master_CookieAccept", Thread.CurrentThread.CurrentUICulture);
         public static string Master_CookieDecline => resourceManager.GetString("Master_CookieDecline", Thread.CurrentThread.CurrentUICulture);
+        public static string Master_DefaultDescription => resourceManager.GetString("Master_DefaultDescription", Thread.CurrentThread.CurrentUICulture);
+        public static string Home_Description => resourceManager.GetString("Home_Description", Thread.CurrentThread.CurrentUICulture);
+        public static string Boutique_Description => resourceManager.GetString("Boutique_Description", Thread.CurrentThread.CurrentUICulture);
+        public static string DutyFreeOps_Description => resourceManager.GetString("DutyFreeOps_Description", Thread.CurrentThread.CurrentUICulture);
+        public static string Service_Description => resourceManager.GetString("Service_Description", Thread.CurrentThread.CurrentUICulture);
+        public static string Contact_Description => resourceManager.GetString("Contact_Description", Thread.CurrentThread.CurrentUICulture);
+        public static string Privacy_Description => resourceManager.GetString("Privacy_Description", Thread.CurrentThread.CurrentUICulture);
         public static string Master_MailSubjectNewSubscriber => resourceManager.GetString("Master_MailSubjectNewSubscriber", Thread.CurrentThread.CurrentUICulture);
         public static string Master_MailBodyNewSubscriber => resourceManager.GetString("Master_MailBodyNewSubscriber", Thread.CurrentThread.CurrentUICulture);
         public static string Master_Monday => resourceManager.GetString("Master_Monday", Thread.CurrentThread.CurrentUICulture);

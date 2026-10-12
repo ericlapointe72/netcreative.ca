@@ -3,7 +3,6 @@
 <%@ Import Namespace="netcreative.ca.Resources" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <%
-    Page.Title = Global.Privacy_Title;
     Master.SetPageHero("Content/images/site/hero-contact.jpg", Global.Privacy_HeroEyebrow, Global.Privacy_H1Title1, Global.Privacy_HeroText);
 %>
 </asp:Content>

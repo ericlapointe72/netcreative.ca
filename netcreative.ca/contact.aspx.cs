@@ -18,6 +18,7 @@ namespace netcreative.ca
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Master.SetPageMeta(Global.Contact_Title, Global.Contact_Description);
             connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
             Load_Languages();
         }

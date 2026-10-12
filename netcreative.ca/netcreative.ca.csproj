@@ -143,6 +143,8 @@
     <Content Include="Content\css\Site.css" />
     <Content Include="unsubscribe.aspx" />
     <Content Include="UnsubscribeHandler.ashx" />
+    <Content Include="robots.txt" />
+    <Content Include="sitemap.xml" />
     <Content Include="Web.config" />
     <Content Include="App_Data\connectionStrings.config" />
     <Content Include="App_Data\appSettings.secrets.config" />

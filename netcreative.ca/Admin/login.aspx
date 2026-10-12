@@ -3,7 +3,6 @@
 <%@ Import Namespace="netcreative.ca.Resources" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <%
-    Page.Title = Global.Login_Title;
     Master.SetPageHero("../Content/images/site/hero-login.jpg", Global.Login_HeroEyebrow, Global.Login_Welcome, Global.Login_HeroText);
 %>
 </asp:Content>

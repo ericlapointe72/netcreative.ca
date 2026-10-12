@@ -129,6 +129,27 @@
   <data name="Master_CookieDecline" xml:space="preserve">
     <value>Refuser</value>
   </data>
+  <data name="Master_DefaultDescription" xml:space="preserve">
+    <value>Création et hébergement de site web sur mesure pour votre entreprise</value>
+  </data>
+  <data name="Home_Description" xml:space="preserve">
+    <value>Net.Créative : DutyFreeOps, le système de gestion pour boutique hors taxes, la Boutique Hors Taxes de la Beauce et la conception de sites web sur mesure.</value>
+  </data>
+  <data name="Boutique_Description" xml:space="preserve">
+    <value>Boutique Hors Taxes de la Beauce : un commerce hors taxes à la frontière canado-américaine, en Beauce, avec vins, spiritueux, parfums, cosmétiques et essentiels de voyage.</value>
+  </data>
+  <data name="DutyFreeOps_Description" xml:space="preserve">
+    <value>DutyFreeOps : le système de gestion conçu pour une boutique hors taxes. Produits, inventaire, achats, rapports, étiquettes et conformité douanière.</value>
+  </data>
+  <data name="Service_Description" xml:space="preserve">
+    <value>Conception de sites Internet responsive sur mesure, hébergement au Canada et référencement : un site pensé pour convertir vos visiteurs en clients.</value>
+  </data>
+  <data name="Contact_Description" xml:space="preserve">
+    <value>Décrivez votre projet de site web ou d'application et nous vous répondons rapidement.</value>
+  </data>
+  <data name="Privacy_Description" xml:space="preserve">
+    <value>Politique de confidentialité de Net.Créative : comment nous recueillons, utilisons et protégeons vos renseignements personnels.</value>
+  </data>
   <data name="Master_MailSubjectNewSubscriber" xml:space="preserve">
     <value>Nouvel abonné</value>
   </data>
@@ -174,7 +195,7 @@
 
   <!-- default.aspx (Home) -->
   <data name="Home_Title" xml:space="preserve">
-    <value>Éric Lapointe – Boutique Hors Taxes, DutyFreeOps et sites web</value>
+    <value>Net.Créative – DutyFreeOps, boutique hors taxes et sites web</value>
   </data>
   <data name="Home_Welcome" xml:space="preserve">
     <value>Trois expertises, une même rigueur.</value>

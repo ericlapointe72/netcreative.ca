@@ -1,16 +1,37 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Text;
+using System.Web;
+using System.Web.UI;
 using netcreative.ca.Resources;
 
 namespace netcreative.ca.MasterPages
 {
     public partial class Site : System.Web.UI.MasterPage
     {
+        private const string SiteBase = "https://www.netcreative.ca";
+        private const string BrandName = "Net.Créative";
+
         private string connectionString = string.Empty;
+        private string pageDescription = string.Empty;
+        private bool pageNoIndex = false;
+
+        protected string HtmlLang
+        {
+            get { return (string)Session["language"] == "en" ? "en" : "fr-CA"; }
+        }
 
         protected void Page_Init(object sender, EventArgs e)
         {
+            // netcreative.ca and www.netcreative.ca both answer 200, which search engines
+            // read as two identical sites. Send the bare domain to the www version for good.
+            if (Request.Url.Host.Equals("netcreative.ca", StringComparison.OrdinalIgnoreCase))
+            {
+                Response.RedirectPermanent(SiteBase + Request.Url.PathAndQuery);
+                return;
+            }
+
             // Master.Page_Load fires *after* the content page's own Page_Load, but content
             // pages call Master.SetPageHero(...) from their Page_Load, which bakes Global.X
             // resource strings into control properties immediately (unlike the <%: %> markup
@@ -51,6 +72,65 @@ namespace netcreative.ca.MasterPages
             HyperLink_Login.HRef = !string.IsNullOrEmpty((string)Session["role"]) && Session["role"].Equals("admin")
                 ? ResolveUrl("~/Admin/Dashboard.aspx")
                 : ResolveUrl("~/Admin/login.aspx");
+        }
+
+        // Pages call this from their Page_Load. The <title> and meta tags are written at the
+        // very start of the page's render, so setting Page.Title from the markup (inside
+        // <% %>) happens too late and the master's default title always won.
+        public void SetPageMeta(string title, string description = null, bool noIndex = false)
+        {
+            Page.Title = title.Contains(BrandName) ? title : title + " | " + BrandName;
+            pageDescription = description;
+            pageNoIndex = noIndex;
+        }
+
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            Add_SeoTags();
+        }
+
+        private void Add_SeoTags()
+        {
+            bool english = (string)Session["language"] == "en";
+            string description = string.IsNullOrEmpty(pageDescription) ? Global.Master_DefaultDescription : pageDescription;
+            Page.MetaDescription = description;
+
+            if (pageNoIndex)
+            {
+                Page.Header.Controls.Add(new LiteralControl("\n        <meta name=\"robots\" content=\"noindex, nofollow\" />"));
+                return;
+            }
+
+            // French lives at the clean URL, English at ?lang=en. Search engines never keep
+            // the session cookie, so each of those URLs always renders in its own language.
+            string path = Request.Url.AbsolutePath;
+            if (path.Equals("/default.aspx", StringComparison.OrdinalIgnoreCase))
+            {
+                path = "/";
+            }
+
+            string frUrl = SiteBase + path;
+            string enUrl = frUrl + "?lang=en";
+            string pageUrl = english ? enUrl : frUrl;
+            string imageUrl = SiteBase + "/Content/images/site/hero-accueil.jpg";
+            string title = Page.Title;
+
+            StringBuilder tags = new StringBuilder();
+            tags.Append("\n        <link rel=\"canonical\" href=\"" + HttpUtility.HtmlAttributeEncode(pageUrl) + "\" />");
+            tags.Append("\n        <link rel=\"alternate\" hreflang=\"fr-CA\" href=\"" + HttpUtility.HtmlAttributeEncode(frUrl) + "\" />");
+            tags.Append("\n        <link rel=\"alternate\" hreflang=\"en\" href=\"" + HttpUtility.HtmlAttributeEncode(enUrl) + "\" />");
+            tags.Append("\n        <link rel=\"alternate\" hreflang=\"x-default\" href=\"" + HttpUtility.HtmlAttributeEncode(frUrl) + "\" />");
+            tags.Append("\n        <meta property=\"og:type\" content=\"website\" />");
+            tags.Append("\n        <meta property=\"og:site_name\" content=\"" + BrandName + "\" />");
+            tags.Append("\n        <meta property=\"og:locale\" content=\"" + (english ? "en_CA" : "fr_CA") + "\" />");
+            tags.Append("\n        <meta property=\"og:title\" content=\"" + HttpUtility.HtmlAttributeEncode(title) + "\" />");
+            tags.Append("\n        <meta property=\"og:description\" content=\"" + HttpUtility.HtmlAttributeEncode(description) + "\" />");
+            tags.Append("\n        <meta property=\"og:url\" content=\"" + HttpUtility.HtmlAttributeEncode(pageUrl) + "\" />");
+            tags.Append("\n        <meta property=\"og:image\" content=\"" + imageUrl + "\" />");
+            tags.Append("\n        <meta name=\"twitter:card\" content=\"summary_large_image\" />");
+            tags.Append("\n        <script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"" + BrandName + "\",\"url\":\"" + SiteBase + "/\",\"logo\":\"" + SiteBase + "/Content/images/site/logo.png\",\"founder\":{\"@type\":\"Person\",\"name\":\"Éric Lapointe\"},\"sameAs\":[\"https://www.facebook.com/NetCr%C3%A9ative-101923751954399\"]}</script>");
+
+            Page.Header.Controls.Add(new LiteralControl(tags.ToString()));
         }
 
         public void SetPageHero(string imageUrl, string eyebrow, string title, string text = null, string ctaText = null, string ctaUrl = null, string ctaTarget = null)

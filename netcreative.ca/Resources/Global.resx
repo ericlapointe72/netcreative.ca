@@ -186,6 +186,27 @@
   <data name="Master_CookieDecline" xml:space="preserve">
     <value>Decline</value>
   </data>
+  <data name="Master_DefaultDescription" xml:space="preserve">
+    <value>Custom website design and hosting for your business</value>
+  </data>
+  <data name="Home_Description" xml:space="preserve">
+    <value>Net.Créative: DutyFreeOps duty-free shop management software, Boutique Hors Taxes de la Beauce and custom website design.</value>
+  </data>
+  <data name="Boutique_Description" xml:space="preserve">
+    <value>Boutique Hors Taxes de la Beauce: a duty-free shop at the Canada–US border in the Beauce region, with wines, spirits, perfumes, cosmetics and travel essentials.</value>
+  </data>
+  <data name="DutyFreeOps_Description" xml:space="preserve">
+    <value>DutyFreeOps: the management system built for a duty-free shop. Products, inventory, purchasing, reports, labels and customs compliance.</value>
+  </data>
+  <data name="Service_Description" xml:space="preserve">
+    <value>Custom responsive website design, hosting in Canada and SEO: a website built to turn your visitors into customers.</value>
+  </data>
+  <data name="Contact_Description" xml:space="preserve">
+    <value>Describe your website or application project and we'll get back to you quickly.</value>
+  </data>
+  <data name="Privacy_Description" xml:space="preserve">
+    <value>Net.Créative privacy policy: how we collect, use and protect your personal information.</value>
+  </data>
   <data name="Master_MailSubjectNewSubscriber" xml:space="preserve">
     <value>New subscriber</value>
   </data>
@@ -229,7 +250,7 @@
     <value>pm</value>
   </data>
   <data name="Home_Title" xml:space="preserve">
-    <value>Eric Lapointe – Duty Free Shop, DutyFreeOps and Web Design</value>
+    <value>Net.Créative – DutyFreeOps, duty-free shop and web design</value>
   </data>
   <data name="Home_Welcome" xml:space="preserve">
     <value>Three areas of expertise, one philosophy.</value>

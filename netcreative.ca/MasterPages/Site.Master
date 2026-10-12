@@ -3,12 +3,11 @@
 
 <!DOCTYPE html>
 
-<html lang="fr-CA">
+<html lang="<%= HtmlLang %>">
     <head runat="server">
         <title>Net.Créative</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Création et hébergement de site web sur mesure pour votre entreprise" />
         <meta name="author" content="Net.Créative">
         <!-- Style -->
         <link href="../Content/css/admin.css" rel="stylesheet" />
@@ -17,7 +16,7 @@
         <link href="../Content/css/public.css" rel="stylesheet" />
         <link href="../Content/css/Site.css" rel="stylesheet" />
         <!-- fontawesome -->
-        <script src="https://kit.fontawesome.com/7fd34f5741.js"></script>
+        <script src="https://kit.fontawesome.com/7fd34f5741.js" crossorigin="anonymous" defer></script>
         <!-- google font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
