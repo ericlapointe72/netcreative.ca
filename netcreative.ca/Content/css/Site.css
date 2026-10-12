@@ -149,9 +149,9 @@ header {
     gap: 1rem;
     /* leaves room so the icons sit to the left of the hamburger (below) instead of
        being covered by it — both used to sit fixed at the exact same top-right corner.
-       The hamburger itself occupies 3.1rem from the edge (right: 1rem + width: 2.1rem),
-       so this needs to clear that by a visible margin, not just barely exceed it. */
-    padding-right: 4rem;
+       The hamburger itself occupies 3.1rem from the edge (right: 1rem + width: 2.1rem);
+       4.1rem leaves the same 1rem as the gap between the icons (see .nav__mobile). */
+    padding-right: 4.1rem;
     /* on mobile this row sits alone at the top of its own grid row (unlike desktop,
        where it's vertically centered against the logo in a single flex row), so it
        needs its own top spacing to match the logo's margin instead of hugging the
@@ -180,6 +180,10 @@ header {
 
 .nav__mobile {
     width: 2.1rem;
+    /* mobile.png is a square image with ~23% of transparent margin on each side, so its
+       visible phone is much narrower than the 2.1rem box. Pull the box in to the phone's
+       real edges (0.2334 * 2.1rem) so the gap between the icons is the visible gap. */
+    margin: 0 -0.49rem;
     transition: all 300ms ease-in-out;
     flex-shrink: 0;
 }
