@@ -48,6 +48,7 @@
             <div class="card__ctn"><i class="ic ic-square" aria-hidden="true"></i><span class="card__bullet"><%: Global.Text("Priv_B11") %></span></div>
             <div class="card__ctn"><i class="ic ic-square" aria-hidden="true"></i><span class="card__bullet"><%: Global.Text("Priv_B12") %></span></div>
             <div class="card__ctn"><i class="ic ic-square" aria-hidden="true"></i><span class="card__bullet"><%: Global.Text("Priv_B13") %></span></div>
+            <div class="card__ctn"><i class="ic ic-square" aria-hidden="true"></i><span class="card__bullet"><%: Global.Text("Priv_B14") %></span></div>
             <span class="card__paragraphe"><%: Global.Text("Priv_P9") %></span>
         </div>
     </div>

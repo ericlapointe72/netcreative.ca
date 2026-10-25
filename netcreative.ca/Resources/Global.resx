@@ -831,6 +831,9 @@
   <data name="Priv_B13" xml:space="preserve">
     <value>A firewall</value>
   </data>
+  <data name="Priv_B14" xml:space="preserve">
+    <value>A site built with ASP.NET (a Microsoft technology), without PHP or WordPress: vulnerabilities specific to those tools do not affect it.</value>
+  </data>
   <data name="Priv_P9" xml:space="preserve">
     <value>No system is completely secure: there is always some risk when information is sent over the Internet. In the event of a privacy incident that presents a serious risk, we will notify the people concerned and the Commission d’accès à l’information.</value>
   </data>

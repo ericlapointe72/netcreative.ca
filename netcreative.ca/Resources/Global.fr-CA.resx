@@ -784,6 +784,9 @@
   <data name="Priv_B13" xml:space="preserve">
     <value>Un pare-feu</value>
   </data>
+  <data name="Priv_B14" xml:space="preserve">
+    <value>Un site conçu avec ASP.NET (technologie Microsoft), sans PHP ni WordPress : les failles propres à ces outils ne le concernent pas.</value>
+  </data>
   <data name="Priv_P9" xml:space="preserve">
     <value>Aucun système n’offre une sécurité absolue : il reste toujours une part de risque lorsque l’on transmet des renseignements sur Internet. En cas d’incident de confidentialité présentant un risque sérieux, nous en aviserons les personnes concernées et la Commission d’accès à l’information.</value>
   </data>
