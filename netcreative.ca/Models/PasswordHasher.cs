@@ -40,16 +40,30 @@ namespace netcreative.ca
 
             int iterations;
 
-            if (!int.TryParse(parts[1], out iterations))
+            // a stored value that does not make sense (or asks for an absurd amount of work) is a wrong password, never an error
+            if (!int.TryParse(parts[1], out iterations) || iterations < 1000 || iterations > 2000000)
             {
                 return false;
             }
 
-            byte[] salt = Convert.FromBase64String(parts[2]);
-            byte[] expectedHash = Convert.FromBase64String(parts[3]);
-            byte[] actualHash = DeriveHash(password, salt, iterations);
+            try
+            {
+                byte[] salt = Convert.FromBase64String(parts[2]);
+                byte[] expectedHash = Convert.FromBase64String(parts[3]);
+                byte[] actualHash = DeriveHash(password ?? string.Empty, salt, iterations);
 
-            return FixedTimeEquals(expectedHash, actualHash);
+                return FixedTimeEquals(expectedHash, actualHash);
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+        }
+
+        // The same work as Verify, for a user name that does not exist: the time a sign-in takes must not tell which names exist.
+        public static void VerifyDummy(string password)
+        {
+            DeriveHash(password ?? string.Empty, new byte[SaltSize], Iterations);
         }
 
         private static byte[] DeriveHash(string password, byte[] salt, int iterations)

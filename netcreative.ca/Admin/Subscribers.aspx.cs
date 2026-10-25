@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
+using System.Web.UI.WebControls;
 using netcreative.ca.Resources;
 
 namespace netcreative.ca
@@ -9,16 +11,11 @@ namespace netcreative.ca
     public partial class Subscribers : System.Web.UI.Page
     {
         private string connectionString = string.Empty;
-        private bool subscriber_result = false;
-        private string subscriber_message_exist = string.Empty;
-        private string subscriber_message_delete = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
-            Button_Subscriber_Delete.Text = Global.Admin_Delete;
-            subscriber_message_exist = Global.Format(Global.Admin_SubscriberExistsError, TextBox_Subscriber_Delete.Text);
-            subscriber_message_delete = Global.Format(Global.Admin_SubscriberDeletedSuccess, TextBox_Subscriber_Delete.Text);
+            ((CommandField)GridView_Subscribe.Columns[0]).DeleteText = Global.Admin_Delete;
 
             if (!IsPostBack)
             {
@@ -26,117 +23,119 @@ namespace netcreative.ca
             }
         }
 
+        // Only one page of the table is read (the newest rows first), not the whole table: it grows with every subscription.
         private void Subscriber_Load()
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                int total;
+
+                using (var connection = new SqlConnection(connectionString))
                 {
-                    string sqlCommand = "SELECT * FROM SUBSCRIBE";
+                    connection.Open();
 
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
+                    int confirmed;
+
+                    using (var cmd = new SqlCommand("SELECT COUNT(*), COUNT(CONFIRMED) FROM SUBSCRIBE", connection))
+                    using (SqlDataReader counts = cmd.ExecuteReader())
                     {
-                        connection.Open();
-
-                        SqlDataReader dr = cmd.ExecuteReader();
-                        List<Subscribe> subscribes = new List<Subscribe>();
-
-                        while (dr.Read())
-                        {
-                            Subscribe s = new Subscribe();
-                            s.Number = dr["AUTO_NUMBER"].ToString();
-                            s.Date = ((DateTime)dr["DATE"]).ToString("yyyy-MM-dd");
-                            s.Time = ((TimeSpan)dr["TIME"]).ToString(@"hh\:mm\:ss");
-                            s.IP_Address = dr["IP_ADDRESS"].ToString();
-                            s.Email = dr["EMAIL"].ToString();
-                            subscribes.Add(s);
-                        }
-
-                        GridView_Subscribe.DataSource = subscribes;
-                        GridView_Subscribe.DataBind();
-                        connection.Close();
+                        counts.Read();
+                        total = counts.GetInt32(0);
+                        confirmed = counts.GetInt32(1);
                     }
+
+                    int size = GridView_Subscribe.PageSize;
+                    int page = Math.Max(0, Math.Min(GridView_Subscribe.PageIndex, (Math.Max(total, 1) - 1) / size));
+                    GridView_Subscribe.PageIndex = page;
+                    GridView_Subscribe.VirtualItemCount = total;
+
+                    var subscribes = new List<Subscribe>();
+
+                    using (var cmd = new SqlCommand(
+                        "SELECT AUTO_NUMBER, DATE, TIME, IP_ADDRESS, EMAIL, CONFIRMED FROM SUBSCRIBE ORDER BY AUTO_NUMBER DESC OFFSET @OFFSET ROWS FETCH NEXT @SIZE ROWS ONLY", connection))
+                    {
+                        cmd.Parameters.Add("@OFFSET", SqlDbType.Int).Value = page * size;
+                        cmd.Parameters.Add("@SIZE", SqlDbType.Int).Value = size;
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                var s = new Subscribe();
+                                s.Number = dr["AUTO_NUMBER"].ToString();
+                                s.Date = ((DateTime)dr["DATE"]).ToString("yyyy-MM-dd");
+                                s.Time = ((TimeSpan)dr["TIME"]).ToString(@"hh\:mm\:ss");
+                                s.IP_Address = dr["IP_ADDRESS"].ToString();
+                                s.Email = dr["EMAIL"].ToString();
+                                s.Status = dr["CONFIRMED"] == DBNull.Value ? Global.Text("Admin_SubStatusWait") : Global.Text("Admin_SubStatusOk");
+                                subscribes.Add(s);
+                            }
+                        }
+                    }
+
+                    GridView_Subscribe.DataSource = subscribes;
+                    GridView_Subscribe.DataBind();
+
+                    Label_Subscribe_Info.Text = total == 0
+                        ? string.Empty
+                        : Global.Format(Global.Text("Admin_PageInfo"), page * size + 1, Math.Min(total, page * size + size), total)
+                            + " - " + Global.Format(Global.Text("Admin_SubSummary"), confirmed, total - confirmed);
                 }
             }
             catch (Exception ex)
             {
-                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
+                ErrorLogger.Log(ex, "subscribers page");
+                AdminUi.Toast(this, Global.Text("Admin_Error"), false);
             }
         }
 
-        private void Subscriber_VerifyIfExist()
+        // each row has its own Delete link, with a question first (the row to delete used to be typed as a number in a box)
+        protected void GridView_Subscribe_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                var link = e.Row.Cells[0].Controls[0] as LinkButton;
+                if (link != null)
+                {
+                    link.OnClientClick = AdminUi.ConfirmScript(Global.Format(Global.Text("Admin_RowDeleteConfirm"), GridView_Subscribe.DataKeys[e.Row.RowIndex].Value));
+                }
+            }
+        }
+
+        protected void GridView_Subscribe_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView_Subscribe.PageIndex = e.NewPageIndex;
+            Subscriber_Load();
+        }
+
+        protected void GridView_Subscribe_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            string number = Convert.ToString(GridView_Subscribe.DataKeys[e.RowIndex].Value);
+            int id;
+
+            if (!int.TryParse(number, out id))
+            {
+                return;
+            }
+
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (var connection = new SqlConnection(connectionString))
+                using (var cmd = new SqlCommand("DELETE FROM SUBSCRIBE WHERE AUTO_NUMBER = @AUTO_NUMBER", connection))
                 {
-                    string sqlCommand = "SELECT * FROM SUBSCRIBE WHERE AUTO_NUMBER=@AUTO_NUMBER";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@AUTO_NUMBER", TextBox_Subscriber_Delete.Text);
-
-                        connection.Open();
-                        SqlDataReader dr = cmd.ExecuteReader();
-
-                        if (dr.HasRows)
-                        {
-                            subscriber_result = true;
-                        }
-                        else
-                        {
-                            subscriber_result = false;
-                        }
-
-                        connection.Close();
-                    }
+                    cmd.Parameters.Add("@AUTO_NUMBER", SqlDbType.Int).Value = id;
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
                 }
+
+                AdminAudit.Write("Subscriber deleted", "number " + number);
+                Subscriber_Load();
+                AdminUi.Toast(this, Global.Format(Global.Admin_SubscriberDeletedSuccess, number), true);
             }
             catch (Exception ex)
             {
-                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
-            }
-        }
-
-        private void Subscriber_Delete()
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    string sqlCommand = "DELETE FROM SUBSCRIBE WHERE AUTO_NUMBER=@AUTO_NUMBER";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@AUTO_NUMBER", TextBox_Subscriber_Delete.Text);
-
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-
-                        Response.Write("<script>showToast('" + subscriber_message_delete + "', 'success');</script>");
-                        Subscriber_Load();
-                        TextBox_Subscriber_Delete.Text = string.Empty;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
-            }
-        }
-
-        protected void Button_Subscriber_Delete_Click(object sender, EventArgs e)
-        {
-            Subscriber_VerifyIfExist();
-
-            if (subscriber_result == true)
-            {
-                Subscriber_Delete();
-            }
-            else
-            {
-                Response.Write("<script>showToast('" + subscriber_message_exist + "', 'error');</script>");
+                ErrorLogger.Log(ex, "subscribers page");
+                AdminUi.Toast(this, Global.Text("Admin_Error"), false);
             }
         }
     }

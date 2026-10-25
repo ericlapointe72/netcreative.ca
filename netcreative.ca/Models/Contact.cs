@@ -1,91 +1,41 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace netcreative.ca
 {
+    // One message of the CONTACT table, as the admin page "Contact" shows it. Everything here is text typed by a visitor: the page
+    // encodes it when it writes it.
     public class Contact
     {
-        private string Line1;
+        // AUTO_NUMBER of the row in the CONTACT table (what the Delete button of the row names)
+        public int Number { get; set; }
 
-        public string line1
+        // "2026-10-23 · 11:11"
+        public string When { get; set; }
+
+        public string Name { get; set; }
+        public string Company { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public string ProjectType { get; set; }
+        public string Budget { get; set; }
+        public string Deadline { get; set; }
+        public string Message { get; set; }
+
+        // the number as a tel: link (digits and a leading +, nothing else)
+        public string PhoneLink
         {
-            get
-            {
-                return Line1;
-            }
-            set
-            {
-                Line1 = value;
-            }
+            get { return Regex.Replace(Phone ?? string.Empty, @"[^\d+]", string.Empty); }
         }
 
-        private string Line2;
-
-        public string line2
+        public bool HasCompany
         {
-            get
-            {
-                return Line2;
-            }
-            set
-            {
-                Line2 = value;
-            }
+            get { return !string.IsNullOrWhiteSpace(Company); }
         }
 
-        private string Line3;
-
-        public string line3
+        public bool HasPhone
         {
-            get
-            {
-                return Line3;
-            }
-            set
-            {
-                Line3 = value;
-            }
-        }
-
-        private string Line4;
-
-        public string line4
-        {
-            get
-            {
-                return Line4;
-            }
-            set
-            {
-                Line4 = value;
-            }
-        }
-
-        private string Line5;
-
-        public string line5
-        {
-            get
-            {
-                return Line5;
-            }
-            set
-            {
-                Line5 = value;
-            }
-        }
-
-        private string Line6;
-
-        public string line6
-        {
-            get
-            {
-                return Line6;
-            }
-            set
-            {
-                Line6 = value;
-            }
+            get { return PhoneLink.Length > 0; }
         }
     }
 }

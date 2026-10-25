@@ -14,37 +14,15 @@ namespace netcreative.ca
     public partial class Opening
     {
 
-        protected global::System.Web.UI.WebControls.TextBox mon_oh;
-        protected global::System.Web.UI.WebControls.TextBox tue_oh;
-        protected global::System.Web.UI.WebControls.TextBox wed_oh;
-        protected global::System.Web.UI.WebControls.TextBox thu_oh;
-        protected global::System.Web.UI.WebControls.TextBox fri_oh;
-        protected global::System.Web.UI.WebControls.TextBox sat_oh;
-        protected global::System.Web.UI.WebControls.TextBox sun_oh;
+        /// <summary>
+        /// Repeater_Days control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Repeater Repeater_Days;
 
-        protected global::System.Web.UI.WebControls.TextBox mon_om;
-        protected global::System.Web.UI.WebControls.TextBox tue_om;
-        protected global::System.Web.UI.WebControls.TextBox wed_om;
-        protected global::System.Web.UI.WebControls.TextBox thu_om;
-        protected global::System.Web.UI.WebControls.TextBox fri_om;
-        protected global::System.Web.UI.WebControls.TextBox sat_om;
-        protected global::System.Web.UI.WebControls.TextBox sun_om;
-
-        protected global::System.Web.UI.WebControls.TextBox mon_ch;
-        protected global::System.Web.UI.WebControls.TextBox tue_ch;
-        protected global::System.Web.UI.WebControls.TextBox wed_ch;
-        protected global::System.Web.UI.WebControls.TextBox thu_ch;
-        protected global::System.Web.UI.WebControls.TextBox fri_ch;
-        protected global::System.Web.UI.WebControls.TextBox sat_ch;
-        protected global::System.Web.UI.WebControls.TextBox sun_ch;
-
-        protected global::System.Web.UI.WebControls.TextBox mon_cm;
-        protected global::System.Web.UI.WebControls.TextBox tue_cm;
-        protected global::System.Web.UI.WebControls.TextBox wed_cm;
-        protected global::System.Web.UI.WebControls.TextBox thu_cm;
-        protected global::System.Web.UI.WebControls.TextBox fri_cm;
-        protected global::System.Web.UI.WebControls.TextBox sat_cm;
-        protected global::System.Web.UI.WebControls.TextBox sun_cm;
+        /// <summary>
+        /// Literal_Preview control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal Literal_Preview;
 
         /// <summary>
         /// Button_Opening_Save control.

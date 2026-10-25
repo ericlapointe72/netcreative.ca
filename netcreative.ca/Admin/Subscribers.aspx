@@ -5,12 +5,15 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <div class="admin-card">
         <div class="card__subscribercontent">
-            <asp:GridView class="grid" ID="GridView_Subscribe" runat="server"></asp:GridView>
-            <div class="card__enterdata">
-                <span class="label__data"><%: Global.Admin_SubscriberDeleteLabel %></span>
-                <asp:TextBox class="textbox" ID="TextBox_Subscriber_Delete" placeholder="#" runat="server" MaxLength="5"></asp:TextBox>
-                <asp:Button class="button button__red" ID="Button_Subscriber_Delete" runat="server" OnClick="Button_Subscriber_Delete_Click" />
-            </div>
+            <asp:Label class="label__data" ID="Label_Subscribe_Info" runat="server"></asp:Label>
+            <asp:GridView class="grid" ID="GridView_Subscribe" runat="server" AutoGenerateColumns="true" AllowPaging="true" AllowCustomPaging="true" PageSize="50"
+                DataKeyNames="Number" OnPageIndexChanging="GridView_Subscribe_PageIndexChanging" OnRowDeleting="GridView_Subscribe_RowDeleting"
+                OnRowDataBound="GridView_Subscribe_RowDataBound">
+                <Columns>
+                    <asp:CommandField ShowDeleteButton="true" />
+                </Columns>
+                <PagerStyle CssClass="grid__pager" />
+            </asp:GridView>
         </div>
     </div>
 </asp:Content>

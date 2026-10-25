@@ -12,7 +12,7 @@
         <span class="content-section__text"><%: Global.Boutique_Intro %></span>
     </div>
 
-    <span class="section-label"><%: Global.Boutique_InfoLabel %></span>
+    <h2 class="section-label"><%: Global.Boutique_InfoLabel %></h2>
 
     <div class="feature-grid">
         <div class="feature-card">

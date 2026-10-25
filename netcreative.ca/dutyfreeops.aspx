@@ -12,7 +12,7 @@
         <span class="content-section__text"><%: Global.DutyFreeOps_Intro %></span>
     </div>
     
-    <span class="section-label"><%: Global.DutyFreeOps_ModulesLabel %></span>
+    <h2 class="section-label"><%: Global.DutyFreeOps_ModulesLabel %></h2>
 
     <div class="feature-grid">
         <div class="feature-card feature-card--blue">
@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <span class="section-label"><%: Global.DutyFreeOps_ScreenshotsLabel %></span>
+    <h2 class="section-label"><%: Global.DutyFreeOps_ScreenshotsLabel %></h2>
 
     <div class="carousel__container" role="region" aria-roledescription="carousel" aria-label="<%= System.Web.HttpUtility.HtmlAttributeEncode(Global.DutyFreeOps_CarouselRegionLabel) %>">
         <div class="carousel__slide" tabindex="0">
@@ -53,8 +53,8 @@
             <img class="carousel__image" src="Content/images/DutyFreeOps/DutyFreeOps6.jpg" alt="<%: Global.DutyFreeOps_Screenshot6Alt %>" loading="lazy" decoding="async"/>
         </div>
 
-        <button type="button" id="prev__btn"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
-        <button type="button" id="next__btn"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+        <button type="button" id="prev__btn"><i class="ic ic-chevron-left" aria-hidden="true"></i></button>
+        <button type="button" id="next__btn"><i class="ic ic-chevron-right" aria-hidden="true"></i></button>
 
         <div class="carousel__navigation">
             <button type="button" class="nav__btn" id="nav__1"></button>

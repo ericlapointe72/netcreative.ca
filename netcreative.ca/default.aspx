@@ -27,8 +27,8 @@
 
     <div class="default__container">
         <div class="card">
-            <img class="card__icon-large" src="Content/images/site/problem-solving.png" alt="problem solving" />
-            <img class="card__icon-popup observer" src="Content/images/site/problem-solving.png" alt="problem solving" />
+            <img class="card__icon-large" src="Content/images/site/problem-solving.png" alt="" aria-hidden="true" />
+            <img class="card__icon-popup observer" src="Content/images/site/problem-solving.png" alt="" aria-hidden="true" />
             <h2 class="section-label"><%: Global.Home_SlideshowTitle %></h2>
 
             <div class="slideshow__container" role="region" aria-roledescription="carousel" aria-label="<%= System.Web.HttpUtility.HtmlAttributeEncode(Global.Home_SlideshowTitle) %>">
@@ -52,8 +52,8 @@
                     <span class="slide__title"><%: Global.Home_Slide5Title %></span>
                     <span class="slide__text"><%: Global.Home_Slide5Text %></span>
                 </div>
-                <button type="button" class="prev"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
-                <button type="button" class="next"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                <button type="button" class="prev"><i class="ic ic-chevron-left" aria-hidden="true"></i></button>
+                <button type="button" class="next"><i class="ic ic-chevron-right" aria-hidden="true"></i></button>
             </div>
 
             <div class="dot__container">
@@ -94,25 +94,25 @@
             </div>
 
             <div class="card__facebook">
-                <img class="card__icon-popup_fb observer" src="Content/images/site/trust.png" alt="hand shake"/>
+                <img class="card__icon-popup_fb observer" src="Content/images/site/trust.png" alt="" aria-hidden="true" />
                 <span class="card__facebook-text observer"><%: Global.Home_Facebook %></span>
-                <a href="https://www.facebook.com/NetCr%C3%A9ative-101923751954399" target="_blank"><img class="facebook__logo observer" src="Content/images/site/facebook-logo.png" /></a>
+                <a href="https://www.facebook.com/NetCr%C3%A9ative-101923751954399" target="_blank" rel="noopener" aria-label="<%: Global.Text("Home_FacebookAlt") %>"><img class="facebook__logo observer" src="Content/images/site/facebook-logo.png" alt="" /></a>
             </div>
 
             <span class="card__Signature observer"><%: Global.Home_WhoIamName %></span>
 
             <div class="carousel__container" role="region" aria-roledescription="carousel" aria-label="<%= System.Web.HttpUtility.HtmlAttributeEncode(Global.Home_CarouselRegionLabel) %>">
                 <div class="carousel__slide" tabindex="0">
-                    <img class="carousel__image" src="Content/images/carousel/carousel1.jpg" alt="carousel image 1" loading="lazy" decoding="async"/>
-                    <img class="carousel__image" src="Content/images/carousel/carousel2.jpg" alt="carousel image 2" loading="lazy" decoding="async"/>
-                    <img class="carousel__image" src="Content/images/carousel/carousel3.jpg" alt="carousel image 3" loading="lazy" decoding="async"/>
-                    <img class="carousel__image" src="Content/images/carousel/carousel4.jpg" alt="carousel image 4" loading="lazy" decoding="async"/>
-                    <img class="carousel__image" src="Content/images/carousel/carousel5.jpg" alt="carousel image 5" loading="lazy" decoding="async"/>
-                    <img class="carousel__image" src="Content/images/carousel/carousel6.jpg" alt="carousel image 6" loading="lazy" decoding="async"/>
+                    <img class="carousel__image" src="Content/images/carousel/carousel1.jpg" alt="<%: Global.Text("Home_CarouselAlt1") %>" loading="lazy" decoding="async"/>
+                    <img class="carousel__image" src="Content/images/carousel/carousel2.jpg" alt="<%: Global.Text("Home_CarouselAlt2") %>" loading="lazy" decoding="async"/>
+                    <img class="carousel__image" src="Content/images/carousel/carousel3.jpg" alt="<%: Global.Text("Home_CarouselAlt3") %>" loading="lazy" decoding="async"/>
+                    <img class="carousel__image" src="Content/images/carousel/carousel4.jpg" alt="<%: Global.Text("Home_CarouselAlt4") %>" loading="lazy" decoding="async"/>
+                    <img class="carousel__image" src="Content/images/carousel/carousel5.jpg" alt="<%: Global.Text("Home_CarouselAlt5") %>" loading="lazy" decoding="async"/>
+                    <img class="carousel__image" src="Content/images/carousel/carousel6.jpg" alt="<%: Global.Text("Home_CarouselAlt6") %>" loading="lazy" decoding="async"/>
                 </div>
 
-                <button type="button" id="prev__btn"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
-                <button type="button" id="next__btn"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                <button type="button" id="prev__btn"><i class="ic ic-chevron-left" aria-hidden="true"></i></button>
+                <button type="button" id="next__btn"><i class="ic ic-chevron-right" aria-hidden="true"></i></button>
 
                 <div class="carousel__navigation">
                     <button type="button" class="nav__btn" id="nav__1"></button>
@@ -136,7 +136,6 @@
             carouselDot: "<%= System.Web.HttpUtility.JavaScriptStringEncode(Global.Home_CarouselDotLabel) %>"
         };
     </script>
-    <script src="Content/js/observer.js"></script>
     <script src="Content/js/carousel.js"></script>
     <script src="Content/js/slideshow.js"></script>
 </asp:Content>

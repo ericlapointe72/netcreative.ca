@@ -15,23 +15,33 @@ namespace netcreative.ca
     {
 
         /// <summary>
-        /// TextBox_Sql_Query control.
+        /// TextBoxSql control.
         /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Sql_Query;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxSql;
 
         /// <summary>
-        /// Button_Sql_Execute control.
+        /// ButtonRun control.
         /// </summary>
-        protected global::System.Web.UI.WebControls.Button Button_Sql_Execute;
+        protected global::System.Web.UI.WebControls.Button ButtonRun;
 
         /// <summary>
-        /// Label_Sql_Status control.
+        /// CheckSimulation control.
         /// </summary>
-        protected global::System.Web.UI.WebControls.Label Label_Sql_Status;
+        protected global::System.Web.UI.WebControls.CheckBox CheckSimulation;
 
         /// <summary>
-        /// GridView_Sql_Result control.
+        /// TextBoxPassword control.
         /// </summary>
-        protected global::System.Web.UI.WebControls.GridView GridView_Sql_Result;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPassword;
+
+        /// <summary>
+        /// LabelStatus control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label LabelStatus;
+
+        /// <summary>
+        /// LiteralResult control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal LiteralResult;
     }
 }

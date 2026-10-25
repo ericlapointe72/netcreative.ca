@@ -15,9 +15,19 @@ namespace netcreative.ca
     {
 
         /// <summary>
-        /// DropDown_User control.
+        /// Panel_Management control.
         /// </summary>
-        protected global::System.Web.UI.WebControls.DropDownList DropDown_User;
+        protected global::System.Web.UI.WebControls.Panel Panel_Management;
+
+        /// <summary>
+        /// GridView_Users control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.GridView GridView_Users;
+
+        /// <summary>
+        /// Literal_FormTitle control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal Literal_FormTitle;
 
         /// <summary>
         /// TextBox_User_Name control.
@@ -25,19 +35,29 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.TextBox TextBox_User_Name;
 
         /// <summary>
-        /// TextBox_User_Password control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_User_Password;
-
-        /// <summary>
         /// TextBox_User_FirstName control.
         /// </summary>
         protected global::System.Web.UI.WebControls.TextBox TextBox_User_FirstName;
 
         /// <summary>
+        /// TextBox_User_Password control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_User_Password;
+
+        /// <summary>
         /// TextBox_User_LastName control.
         /// </summary>
         protected global::System.Web.UI.WebControls.TextBox TextBox_User_LastName;
+
+        /// <summary>
+        /// TextBox_User_Password2 control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_User_Password2;
+
+        /// <summary>
+        /// Literal_User_Tfa control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal Literal_User_Tfa;
 
         /// <summary>
         /// Button_User_Save control.
@@ -55,8 +75,93 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.Button Button_User_New;
 
         /// <summary>
+        /// Button_User_Reset2fa control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Button Button_User_Reset2fa;
+
+        /// <summary>
         /// Button_User_Delete control.
         /// </summary>
         protected global::System.Web.UI.WebControls.Button Button_User_Delete;
+
+        /// <summary>
+        /// LiteralNotice control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal LiteralNotice;
+
+        /// <summary>
+        /// LabelMessage control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label LabelMessage;
+
+        /// <summary>
+        /// Panel_Unavailable control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Panel Panel_Unavailable;
+
+        /// <summary>
+        /// Panel_Start control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Panel Panel_Start;
+
+        /// <summary>
+        /// Button_Start control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Button Button_Start;
+
+        /// <summary>
+        /// Panel_Confirm control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Panel Panel_Confirm;
+
+        /// <summary>
+        /// Literal_Account control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal Literal_Account;
+
+        /// <summary>
+        /// Literal_Secret control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal Literal_Secret;
+
+        /// <summary>
+        /// Literal_Link control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal Literal_Link;
+
+        /// <summary>
+        /// TextBox_Confirm control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_Confirm;
+
+        /// <summary>
+        /// Button_Confirm control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Button Button_Confirm;
+
+        /// <summary>
+        /// Button_Cancel control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Button Button_Cancel;
+
+        /// <summary>
+        /// Panel_Manage control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Panel Panel_Manage;
+
+        /// <summary>
+        /// TextBox_Current control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_Current;
+
+        /// <summary>
+        /// Button_Regenerate control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Button Button_Regenerate;
+
+        /// <summary>
+        /// Button_Disable control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Button Button_Disable;
     }
 }

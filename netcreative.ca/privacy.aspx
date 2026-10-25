@@ -8,72 +8,47 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+
     <div class="privacy__container">
         <div class="card">
-            <h2 class="card__subTitle"><%: Global.Privacy_SubTitle1 %></h2>
-            <span class="card__paragraphe"><%: Global.Privacy_Paragraph1 %></span>
-            <h2 class="card__subTitle"><%: Global.Privacy_SubTitle2 %></h2>
-            <span class="card__paragraphe"><%: Global.Privacy_Paragraph2 %></span>
-            <div class="card__ctn">
-                <i class="fas fa-square"></i>
-                <span class="card__bullet"><%: Global.Privacy_Bullet1 %></span>
-            </div>
-            <div class="card__ctn">
-                <i class="fas fa-square"></i>
-                <span class="card__bullet"><%: Global.Privacy_Bullet2 %></span>
-            </div>
-            <div class="card__ctn">
-                <i class="fas fa-square"></i>
-                <span class="card__bullet"><%: Global.Privacy_Bullet3 %></span>
-            </div>
-            <div class="card__ctn">
-                <i class="fas fa-square"></i>
-                <span class="card__bullet"><%: Global.Privacy_Bullet4 %></span>
-            </div>
-            <div class="card__ctn">
-                <i class="fas fa-square"></i>
-                <span class="card__bullet"><%: Global.Privacy_Bullet5 %></span>
-            </div>
-            <div class="card__ctn">
-                <i class="fas fa-square"></i>
-                <span class="card__bullet"><%: Global.Privacy_Bullet6 %></span>
-            </div>
-            <div class="card__ctn">
-                <i class="fas fa-square"></i>
-                <span class="card__bullet"><%: Global.Privacy_Bullet7 %></span>
-            </div>
-            <span class="card__paragraphe"><%: Global.Privacy_Paragraph3 %></span>
-            <h2 class="card__subTitle"><%: Global.Privacy_SubTitle3 %></h2>
-            <span class="card__paragraphe"><%: Global.Privacy_Paragraph4 %></span>
-            <div class="card__ctn">
-                <i class="fas fa-square"></i>
-                <span class="card__bullet"><%= Global.Privacy_Bullet8 %></span>
-            </div>
-            <div class="card__ctn">
-                <i class="fas fa-square"></i>
-                <span class="card__bullet"><%= Global.Privacy_Bullet9 %></span>
-            </div>
-            <h2 class="card__subTitle"><%: Global.Privacy_SubTitle4 %></h2>
-            <span class="card__paragraphe"><%: Global.Privacy_Paragraph5 %></span>
-            <div class="card__ctn">
-                <i class="fas fa-square"></i>
-                <span class="card__bullet"><%: Global.Privacy_Bullet10 %></span>
-            </div>
-            <div class="card__ctn">
-                <i class="fas fa-square"></i>
-                <span class="card__bullet"><%: Global.Privacy_Bullet11 %></span>
-            </div>
-            <div class="card__ctn">
-                <i class="fas fa-square"></i>
-                <span class="card__bullet"><%: Global.Privacy_Bullet12 %></span>
-            </div>
-            <div class="card__ctn">
-                <i class="fas fa-square"></i>
-                <span class="card__bullet"><%: Global.Privacy_Bullet13 %></span>
-            </div>
-            <span class="card__paragraphe"><%: Global.Privacy_Paragraph6 %></span>
-            <h2 class="card__subTitle"><%: Global.Privacy_SubTitle5 %></h2>
-            <span class="card__paragraphe"><%= Global.Privacy_Paragraph7 %></span>
+            <span class="card__paragraphe privacy__updated"><%: Global.Text("Priv_Updated") %></span>
+
+            <h2 class="card__subTitle"><%: Global.Text("Priv_T1") %></h2>
+            <%-- the paragraphs that hold a link are written as HTML in the resources (<%= %>); the others are plain text (<%: %>) --%>
+            <span class="card__paragraphe"><%= Global.Text("Priv_P1") %></span>
+
+            <h2 class="card__subTitle"><%: Global.Text("Priv_T2") %></h2>
+            <span class="card__paragraphe"><%: Global.Text("Priv_P2") %></span>
+            <div class="card__ctn"><i class="ic ic-square" aria-hidden="true"></i><span class="card__bullet"><%: Global.Text("Priv_B1") %></span></div>
+            <div class="card__ctn"><i class="ic ic-square" aria-hidden="true"></i><span class="card__bullet"><%: Global.Text("Priv_B2") %></span></div>
+            <div class="card__ctn"><i class="ic ic-square" aria-hidden="true"></i><span class="card__bullet"><%: Global.Text("Priv_B3") %></span></div>
+            <span class="card__paragraphe"><%: Global.Text("Priv_P3") %></span>
+
+            <h2 class="card__subTitle"><%: Global.Text("Priv_T3") %></h2>
+            <span class="card__paragraphe"><%: Global.Text("Priv_P4") %></span>
+            <div class="card__ctn"><i class="ic ic-square" aria-hidden="true"></i><span class="card__bullet"><%: Global.Text("Priv_B4") %></span></div>
+            <div class="card__ctn"><i class="ic ic-square" aria-hidden="true"></i><span class="card__bullet"><%: Global.Text("Priv_B5") %></span></div>
+
+            <h2 class="card__subTitle"><%: Global.Text("Priv_T4") %></h2>
+            <span class="card__paragraphe"><%: Global.Text("Priv_P5") %></span>
+            <div class="card__ctn"><i class="ic ic-square" aria-hidden="true"></i><span class="card__bullet"><%: Global.Text("Priv_B6") %></span></div>
+            <div class="card__ctn"><i class="ic ic-square" aria-hidden="true"></i><span class="card__bullet"><%: Global.Text("Priv_B7") %></span></div>
+
+            <h2 class="card__subTitle"><%: Global.Text("Priv_T5") %></h2>
+            <div class="card__ctn"><i class="ic ic-square" aria-hidden="true"></i><span class="card__bullet"><%: Global.Text("Priv_B8") %></span></div>
+            <div class="card__ctn"><i class="ic ic-square" aria-hidden="true"></i><span class="card__bullet"><%: Global.Text("Priv_B9") %></span></div>
+
+            <h2 class="card__subTitle"><%: Global.Text("Priv_T6") %></h2>
+            <span class="card__paragraphe"><%: Global.Text("Priv_P6") %></span>
+            <span class="card__paragraphe"><%= Global.Text("Priv_P7") %></span>
+
+            <h2 class="card__subTitle"><%: Global.Text("Priv_T7") %></h2>
+            <span class="card__paragraphe"><%: Global.Text("Priv_P8") %></span>
+            <div class="card__ctn"><i class="ic ic-square" aria-hidden="true"></i><span class="card__bullet"><%: Global.Text("Priv_B10") %></span></div>
+            <div class="card__ctn"><i class="ic ic-square" aria-hidden="true"></i><span class="card__bullet"><%: Global.Text("Priv_B11") %></span></div>
+            <div class="card__ctn"><i class="ic ic-square" aria-hidden="true"></i><span class="card__bullet"><%: Global.Text("Priv_B12") %></span></div>
+            <div class="card__ctn"><i class="ic ic-square" aria-hidden="true"></i><span class="card__bullet"><%: Global.Text("Priv_B13") %></span></div>
+            <span class="card__paragraphe"><%: Global.Text("Priv_P9") %></span>
         </div>
     </div>
 

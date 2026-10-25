@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
+using System.Web.UI.WebControls;
 using netcreative.ca.Resources;
 
 namespace netcreative.ca
@@ -9,16 +11,13 @@ namespace netcreative.ca
     public partial class LoginLog : System.Web.UI.Page
     {
         private string connectionString = string.Empty;
-        private bool login_result = false;
-        private string login_message_exist = string.Empty;
-        private string login_message_delete = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
-            Button_Login_Delete.Text = Global.Admin_Delete;
-            login_message_exist = Global.Format(Global.Admin_LoginExistsError, TextBox_Login_Delete.Text);
-            login_message_delete = Global.Format(Global.Admin_LoginDeletedSuccess, TextBox_Login_Delete.Text);
+            ((CommandField)GridView_Login.Columns[0]).DeleteText = Global.Admin_Delete;
+            Button_Login_Purge.Text = Global.Text("Admin_LoginPurgeButton");
+            Button_Login_Purge.OnClientClick = AdminUi.ConfirmScript(Global.Text("Admin_LoginPurgeConfirm"));
 
             if (!IsPostBack)
             {
@@ -26,119 +25,137 @@ namespace netcreative.ca
             }
         }
 
+        // Only one page of the table is read (the newest rows first): the sign-in log grows with every visit to the sign-in page.
         private void Login_Load()
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                int total;
+
+                using (var connection = new SqlConnection(connectionString))
                 {
-                    string sqlCommand = "SELECT * FROM LOGIN";
+                    connection.Open();
 
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
+                    using (var cmd = new SqlCommand("SELECT COUNT(*) FROM LOGIN", connection))
                     {
-                        connection.Open();
-
-                        SqlDataReader dr = cmd.ExecuteReader();
-                        List<Login> login = new List<Login>();
-
-                        while (dr.Read())
-                        {
-                            Login l = new Login();
-                            l.Number = dr["AUTO_NUMBER"].ToString();
-                            l.Date = ((DateTime)dr["DATE"]).ToString("yyyy-MM-dd");
-                            l.Time = ((TimeSpan)dr["TIME"]).ToString(@"hh\:mm\:ss");
-                            l.IP_Address = dr["IP_ADDRESS"].ToString();
-                            l.User = dr["USER_NAME"].ToString();
-                            l.Action = dr["ACTION"].ToString();
-                            login.Add(l);
-                        }
-
-                        GridView_Login.DataSource = login;
-                        GridView_Login.DataBind();
-
-                        connection.Close();
+                        total = Convert.ToInt32(cmd.ExecuteScalar());
                     }
+
+                    int size = GridView_Login.PageSize;
+                    int page = Math.Max(0, Math.Min(GridView_Login.PageIndex, (Math.Max(total, 1) - 1) / size));
+                    GridView_Login.PageIndex = page;
+                    GridView_Login.VirtualItemCount = total;
+
+                    var login = new List<Login>();
+
+                    using (var cmd = new SqlCommand(
+                        "SELECT AUTO_NUMBER, DATE, TIME, IP_ADDRESS, USER_NAME, ACTION FROM LOGIN ORDER BY AUTO_NUMBER DESC OFFSET @OFFSET ROWS FETCH NEXT @SIZE ROWS ONLY", connection))
+                    {
+                        cmd.Parameters.Add("@OFFSET", SqlDbType.Int).Value = page * size;
+                        cmd.Parameters.Add("@SIZE", SqlDbType.Int).Value = size;
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                var l = new Login();
+                                l.Number = dr["AUTO_NUMBER"].ToString();
+                                l.Date = ((DateTime)dr["DATE"]).ToString("yyyy-MM-dd");
+                                l.Time = ((TimeSpan)dr["TIME"]).ToString(@"hh\:mm\:ss");
+                                l.IP_Address = dr["IP_ADDRESS"].ToString();
+                                l.User = dr["USER_NAME"].ToString();
+                                l.Action = dr["ACTION"].ToString();
+                                login.Add(l);
+                            }
+                        }
+                    }
+
+                    GridView_Login.DataSource = login;
+                    GridView_Login.DataBind();
+
+                    Label_Login_Info.Text = total == 0
+                        ? string.Empty
+                        : Global.Format(Global.Text("Admin_PageInfo"), page * size + 1, Math.Min(total, page * size + size), total);
                 }
             }
             catch (Exception ex)
             {
-                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
+                ErrorLogger.Log(ex, "sign-in log page");
+                AdminUi.Toast(this, Global.Text("Admin_Error"), false);
             }
         }
 
-        private void Login_VerifyIfExist()
+        protected void GridView_Login_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                var link = e.Row.Cells[0].Controls[0] as LinkButton;
+                if (link != null)
+                {
+                    link.OnClientClick = AdminUi.ConfirmScript(Global.Format(Global.Text("Admin_RowDeleteConfirm"), GridView_Login.DataKeys[e.Row.RowIndex].Value));
+                }
+            }
+        }
+
+        protected void GridView_Login_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView_Login.PageIndex = e.NewPageIndex;
+            Login_Load();
+        }
+
+        protected void GridView_Login_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            string number = Convert.ToString(GridView_Login.DataKeys[e.RowIndex].Value);
+            int id;
+
+            if (!int.TryParse(number, out id))
+            {
+                return;
+            }
+
+            try
+            {
+                using (var connection = new SqlConnection(connectionString))
+                using (var cmd = new SqlCommand("DELETE FROM LOGIN WHERE AUTO_NUMBER = @NUMBER", connection))
+                {
+                    cmd.Parameters.Add("@NUMBER", SqlDbType.Int).Value = id;
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                }
+
+                AdminAudit.Write("Sign-in log row deleted", "number " + number);
+                Login_Load();
+                AdminUi.Toast(this, Global.Format(Global.Admin_LoginDeletedSuccess, number), true);
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.Log(ex, "sign-in log page");
+                AdminUi.Toast(this, Global.Text("Admin_Error"), false);
+            }
+        }
+
+        // The addresses kept in this log are personal information: nothing needs them for more than a year.
+        protected void Button_Login_Purge_Click(object sender, EventArgs e)
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                int erased;
+
+                using (var connection = new SqlConnection(connectionString))
+                using (var cmd = new SqlCommand("DELETE FROM LOGIN WHERE DATE < DATEADD(month, -12, CAST(GETDATE() AS date))", connection))
                 {
-                    string sqlCommand = "SELECT * FROM LOGIN WHERE AUTO_NUMBER=@NUMBER";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@NUMBER", TextBox_Login_Delete.Text);
-
-                        connection.Open();
-                        SqlDataReader dr = cmd.ExecuteReader();
-
-                        if (dr.HasRows)
-                        {
-                            login_result = true;
-                        }
-                        else
-                        {
-                            login_result = false;
-                        }
-
-                        connection.Close();
-                    }
+                    connection.Open();
+                    erased = cmd.ExecuteNonQuery();
                 }
+
+                AdminAudit.Write("Sign-in log purged (older than 12 months)", erased + " rows");
+                Login_Load();
+                AdminUi.Toast(this, Global.Format(Global.Text("Admin_LoginPurged"), erased), true);
             }
             catch (Exception ex)
             {
-                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
-            }
-        }
-
-        private void Login_Delete()
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    string sqlCommand = "DELETE FROM LOGIN WHERE AUTO_NUMBER=@NUMBER";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@NUMBER", TextBox_Login_Delete.Text);
-
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-
-                        Response.Write("<script>showToast('" + login_message_delete + "', 'success');</script>");
-                        Login_Load();
-                        TextBox_Login_Delete.Text = string.Empty;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
-            }
-        }
-
-        protected void Button_Login_Delete_Click(object sender, EventArgs e)
-        {
-            Login_VerifyIfExist();
-
-            if (login_result == true)
-            {
-                Login_Delete();
-            }
-            else
-            {
-                Response.Write("<script>showToast('" + login_message_exist + "', 'error');</script>");
+                ErrorLogger.Log(ex, "sign-in log page");
+                AdminUi.Toast(this, Global.Text("Admin_Error"), false);
             }
         }
     }

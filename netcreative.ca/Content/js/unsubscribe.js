@@ -1,5 +1,6 @@
 (function () {
-    var card = document.querySelector('.unsubscribe__container .card');
+    // the card of the form (the page can also show the card of a link, or a message, without the form)
+    var card = document.querySelector('.unsubscribe__container [data-network-error]');
     if (!card) {
         return;
     }
@@ -12,9 +13,9 @@
 
         var body = 'email=' + encodeURIComponent(emailField.value);
 
-        fetch('UnsubscribeHandler.ashx', {
+        fetch('/UnsubscribeHandler.ashx', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-Requested-With': 'fetch' },
             credentials: 'same-origin',
             body: body
         })

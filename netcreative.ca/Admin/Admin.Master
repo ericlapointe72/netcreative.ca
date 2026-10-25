@@ -8,12 +8,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="noindex, nofollow" />
         <title><asp:ContentPlaceHolder ID="HeadTitle" runat="server" /></title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Calistoga&display=swap" rel="stylesheet">
         <link rel="shortcut icon" href="../Content/images/site/favicon.ico" />
-        <link href="../Content/css/common.css" rel="stylesheet" />
-        <link href="../Content/css/admin.css" rel="stylesheet" />
+        <link rel="preload" href="../Content/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+        <link href="../Content/css/common.css?v=20261032" rel="stylesheet" />
+        <link href="../Content/css/admin.css?v=20261029" rel="stylesheet" />
         <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
     </head>
     <body>
@@ -39,11 +37,17 @@
                     </div>
                 </aside>
                 <main class="admin-main">
+                    <% if (ShowTwoFactorReminder) { %>
+                    <div class="admin-mfa-reminder">
+                        <%: Global.Text("Tfa_Reminder") %>
+                        <a href="<%= ResolveUrl("~/Admin/Users.aspx") %>"><%: Global.Text("Tfa_ReminderLink") %></a>
+                    </div>
+                    <% } %>
                     <h1 class="admin-main__title"><asp:ContentPlaceHolder ID="PageTitle" runat="server" /></h1>
                     <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
                 </main>
             </div>
-            <script src="../Content/js/toast.js"></script>
+            <script src="../Content/js/toast.js?v=2"></script>
         </form>
     </body>
 </html>

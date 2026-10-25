@@ -6,12 +6,48 @@
 
     var userField = card.querySelector('.tb__user');
     var passwordField = card.querySelector('.tb__pass');
+    var codeField = card.querySelector('.tb__code');
     var submitButton = card.querySelector('.login__submit');
+    var userBlock = card.querySelector('.card__user');
+    var passwordBlock = card.querySelector('.card__password');
+    var codeBlock = card.querySelector('.card__code');
+    var codeHint = card.querySelector('.login__hint');
+
+    var passwordLabel = submitButton.textContent;
+    var codeLabel = submitButton.getAttribute('data-label-code') || passwordLabel;
+
+    // when the server has accepted the password but wants a code too, this holds the token of the half-finished sign-in
+    var pending = null;
+
+    function showCodeStep(token) {
+        pending = token;
+        userBlock.hidden = true;
+        passwordBlock.hidden = true;
+        codeBlock.hidden = false;
+        codeHint.hidden = false;
+        submitButton.textContent = codeLabel;
+        codeField.value = '';
+        codeField.focus();
+    }
+
+    function showPasswordStep() {
+        pending = null;
+        userBlock.hidden = false;
+        passwordBlock.hidden = false;
+        codeBlock.hidden = true;
+        codeHint.hidden = true;
+        submitButton.textContent = passwordLabel;
+        passwordField.value = '';
+        codeField.value = '';
+        passwordField.focus();
+    }
 
     function submit() {
         submitButton.disabled = true;
 
-        var body = 'user=' + encodeURIComponent(userField.value) + '&password=' + encodeURIComponent(passwordField.value);
+        var body = pending
+            ? 'pending=' + encodeURIComponent(pending) + '&code=' + encodeURIComponent(codeField.value)
+            : 'user=' + encodeURIComponent(userField.value) + '&password=' + encodeURIComponent(passwordField.value);
 
         fetch('LoginHandler.ashx', {
             method: 'POST',
@@ -28,7 +64,22 @@
 
                 submitButton.disabled = false;
 
-                if (!result.success) {
+                if (result.needCode && result.pending) {
+                    var wrongCode = !!pending;
+                    showCodeStep(result.pending);
+
+                    if (wrongCode && result.message) {
+                        showToast(result.message, 'error');
+                    }
+
+                    return;
+                }
+
+                if (result.restart) {
+                    showPasswordStep();
+                }
+
+                if (!result.success && result.message) {
                     showToast(result.message, 'error');
                 }
             })
@@ -40,7 +91,7 @@
 
     submitButton.addEventListener('click', submit);
 
-    [userField, passwordField].forEach(function (field) {
+    [userField, passwordField, codeField].forEach(function (field) {
         field.addEventListener('keydown', function (e) {
             if (e.key === 'Enter') {
                 e.preventDefault();

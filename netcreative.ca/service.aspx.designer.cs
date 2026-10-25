@@ -24,14 +24,5 @@ namespace netcreative.ca
                 return ((netcreative.ca.MasterPages.Site)(base.Master));
             }
         }
-
-        /// <summary>
-        /// LinkButton_Top control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton_Top;
     }
 }

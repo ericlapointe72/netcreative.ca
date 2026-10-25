@@ -40,7 +40,7 @@
         <span class="content-section__text"><%: Global.Service_Intro %></span>
     </div>
 
-    <span class="section-label"><%: Global.Service_ServicesLabel %></span>
+    <h2 class="section-label"><%: Global.Service_ServicesLabel %></h2>
 
     <div class="feature-grid">
         <div class="feature-card">
@@ -69,7 +69,7 @@
         </div>
     </div>
 
-    <span class="section-label"><%: Global.Service_PrepLabel %></span>
+    <h2 class="section-label"><%: Global.Service_PrepLabel %></h2>
 
     <div class="checklist-grid">
         <div class="checklist-card">
@@ -117,9 +117,7 @@
     </div>
 
     <div class="button__top">
-        <asp:LinkButton ID="LinkButton_Top" runat="server"><a href="#topPage">
-            <i class="fas fa-chevron-up chevron__up"></i></a>
-        </asp:LinkButton>
+        <a class="chevron__up" href="#topPage" aria-label="<%: Global.Text("BackToTop") %>"><i class="ic ic-chevron-up" aria-hidden="true"></i></a>
     </div>
 
     <script src="Content/js/onscroll.js"></script>

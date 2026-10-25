@@ -15,18 +15,18 @@ namespace netcreative.ca
     {
 
         /// <summary>
+        /// Label_Login_Info control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label Label_Login_Info;
+
+        /// <summary>
         /// GridView_Login control.
         /// </summary>
         protected global::System.Web.UI.WebControls.GridView GridView_Login;
 
         /// <summary>
-        /// TextBox_Login_Delete control.
+        /// Button_Login_Purge control.
         /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Login_Delete;
-
-        /// <summary>
-        /// Button_Login_Delete control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.Button Button_Login_Delete;
+        protected global::System.Web.UI.WebControls.Button Button_Login_Purge;
     }
 }

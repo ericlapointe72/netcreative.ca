@@ -10,11 +10,17 @@
     function submit() {
         submitButton.disabled = true;
 
-        var body = 'email=' + encodeURIComponent(emailField.value);
+        // the hidden field (a person never fills it) and the stamp of the time the page was shown travel with the address
+        var website = box.querySelector('[name="subscribe_website"]');
+        var stamp = box.querySelector('[name="subscribe_ts"]');
 
-        fetch('SubscribeHandler.ashx', {
+        var body = 'email=' + encodeURIComponent(emailField.value)
+            + '&subscribe_website=' + encodeURIComponent(website ? website.value : '')
+            + '&ts=' + encodeURIComponent(stamp ? stamp.value : '');
+
+        fetch('/SubscribeHandler.ashx', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-Requested-With': 'fetch' },
             credentials: 'same-origin',
             body: body
         })

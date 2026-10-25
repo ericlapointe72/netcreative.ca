@@ -69,6 +69,7 @@ namespace netcreative.ca
         /// </summary>
         protected global::System.Web.UI.WebControls.HyperLink Link_Sql;
 
+
         /// <summary>
         /// Button_Logout control.
         /// </summary>

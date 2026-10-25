@@ -82,6 +82,7 @@
     <Content Include="Admin\Subscribers.aspx" />
     <Content Include="Admin\Users.aspx" />
     <Content Include="Admin\Sql.aspx" />
+    <Content Include="Admin\TwoFactor.aspx" />
     <Content Include="boutique.aspx" />
     <Content Include="dutyfreeops.aspx" />
     <Content Include="Content\css\admin.css" />
@@ -89,19 +90,25 @@
     <Content Include="Content\images\site\login.png" />
     <Content Include="Content\images\site\mail-closed.png" />
     <Content Include="Content\images\site\mail-open.png" />
-    <Content Include="Content\images\site\question_en.png" />
-    <Content Include="Content\images\site\question_fr.png" />
     <Content Include="Content\images\site\signature.png" />
     <Content Include="Content\js\cookie.js" />
     <Content Include="Content\js\toast.js" />
     <Content Include="Content\js\phone-mask.js" />
     <Content Include="Content\js\login.js" />
+    <Content Include="Content\js\newsletter.js" />
+    <Content Include="Content\js\opening.js" />
+    <Content Include="Content\js\map.js" />
+    <Content Include="Content\fonts\inter-latin.woff2" />
+    <Content Include="Content\fonts\calistoga-latin.woff2" />
+    <Content Include="Content\fonts\README.txt" />
     <Content Include="Content\js\subscribe.js" />
     <Content Include="Content\js\unsubscribe.js" />
     <Content Include="Content\css\animation.css" />
     <Content Include="Content\css\common.css" />
     <Content Include="Content\images\site\facebook-logo.png" />
     <Content Include="Content\images\site\favicon.ico" />
+    <Content Include="Content\images\site\apple-touch-icon.png" />
+    <Content Include="favicon.ico" />
     <Content Include="Content\js\carousel.js" />
     <Content Include="Content\images\carousel\carousel1.jpg" />
     <Content Include="Content\images\carousel\carousel2.jpg" />
@@ -129,10 +136,13 @@
     <Content Include="Content\images\site\mobile.png" />
     <Content Include="contact.aspx" />
     <Content Include="confirmation.aspx" />
+    <Content Include="confirm.aspx" />
     <Content Include="default.aspx" />
     <Content Include="Content\images\site\logo.png" />
     <Content Include="Admin\login.aspx" />
     <Content Include="Admin\LoginHandler.ashx" />
+    <Content Include="Admin\LoginComplete.ashx" />
+    <Content Include="Global.asax" />
     <Content Include="SubscribeHandler.ashx" />
     <Content Include="Content\js\observer.js" />
     <Content Include="Content\js\onscroll.js" />
@@ -143,6 +153,7 @@
     <Content Include="Content\css\Site.css" />
     <Content Include="unsubscribe.aspx" />
     <Content Include="UnsubscribeHandler.ashx" />
+    <Content Include="ContactCaptcha.ashx" />
     <Content Include="robots.txt" />
     <Content Include="sitemap.xml" />
     <Content Include="Web.config" />
@@ -207,6 +218,11 @@
     <Compile Include="Admin\Users.aspx.designer.cs">
       <DependentUpon>Users.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\TwoFactor.aspx.cs">
+      <DependentUpon>TwoFactor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Models\Totp.cs" />
     <Compile Include="Admin\Sql.aspx.cs">
       <DependentUpon>Sql.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -220,6 +236,13 @@
     </Compile>
     <Compile Include="contact.aspx.designer.cs">
       <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="confirm.aspx.cs">
+      <DependentUpon>confirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="confirm.aspx.designer.cs">
+      <DependentUpon>confirm.aspx</DependentUpon>
     </Compile>
     <Compile Include="confirmation.aspx.cs">
       <DependentUpon>confirmation.aspx</DependentUpon>
@@ -262,6 +285,23 @@
     <Compile Include="Admin\LoginHandler.ashx.cs">
       <DependentUpon>LoginHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\LoginComplete.ashx.cs">
+      <DependentUpon>LoginComplete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AdminLogin.cs" />
+    <Compile Include="Models\AdminUi.cs" />
+    <Compile Include="Models\AdminAudit.cs" />
+    <Compile Include="Models\OpeningHours.cs" />
+    <Compile Include="Models\SignedToken.cs" />
+    <Compile Include="Models\FormTimer.cs" />
+    <Compile Include="Models\EmailAddressCheck.cs" />
+    <Compile Include="Models\Mailer.cs" />
+    <Compile Include="Models\SubscribeService.cs" />
+    <Compile Include="Models\UnsubscribeLink.cs" />
+    <Compile Include="Models\ErrorLogger.cs" />
     <Compile Include="SubscribeHandler.ashx.cs">
       <DependentUpon>SubscribeHandler.ashx</DependentUpon>
     </Compile>
@@ -299,6 +339,9 @@
     </Compile>
     <Compile Include="UnsubscribeHandler.ashx.cs">
       <DependentUpon>UnsubscribeHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ContactCaptcha.ashx.cs">
+      <DependentUpon>ContactCaptcha.ashx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

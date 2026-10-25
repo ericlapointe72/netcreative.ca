@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
-using System.Data.SqlClient;
 using System.Text;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using netcreative.ca.Resources;
 
 namespace netcreative.ca.MasterPages
@@ -17,6 +18,9 @@ namespace netcreative.ca.MasterPages
         private string pageDescription = string.Empty;
         private bool pageNoIndex = false;
 
+        // the hours of the footer (loaded once per request), also given to search engines in the structured data of the home and contact pages
+        private OpeningDay[] openingDays;
+
         protected string HtmlLang
         {
             get { return (string)Session["language"] == "en" ? "en" : "fr-CA"; }
@@ -26,9 +30,15 @@ namespace netcreative.ca.MasterPages
         {
             // netcreative.ca and www.netcreative.ca both answer 200, which search engines
             // read as two identical sites. Send the bare domain to the www version for good.
-            if (Request.Url.Host.Equals("netcreative.ca", StringComparison.OrdinalIgnoreCase))
+            // The home page is one address too: "/" (what the visitor typed is in RawUrl; Url shows the page the server picked for "/").
+            string rawPath = Request.RawUrl.Split('?')[0];
+            bool askedForDefaultPage = rawPath.Equals("/default.aspx", StringComparison.OrdinalIgnoreCase);
+            bool bareDomain = Request.Url.Host.Equals("netcreative.ca", StringComparison.OrdinalIgnoreCase);
+
+            if (bareDomain || askedForDefaultPage)
             {
-                Response.RedirectPermanent(SiteBase + Request.Url.PathAndQuery);
+                string target = askedForDefaultPage || rawPath == "/" ? "/" : Request.Url.AbsolutePath;
+                Response.RedirectPermanent(SiteBase + target + Request.Url.Query);
                 return;
             }
 
@@ -72,6 +82,7 @@ namespace netcreative.ca.MasterPages
             HyperLink_Login.HRef = !string.IsNullOrEmpty((string)Session["role"]) && Session["role"].Equals("admin")
                 ? ResolveUrl("~/Admin/Dashboard.aspx")
                 : ResolveUrl("~/Admin/login.aspx");
+            HyperLink_Login.Attributes["aria-label"] = Global.Text("Master_AltLogin");
         }
 
         // Pages call this from their Page_Load. The <title> and meta tags are written at the
@@ -128,9 +139,71 @@ namespace netcreative.ca.MasterPages
             tags.Append("\n        <meta property=\"og:url\" content=\"" + HttpUtility.HtmlAttributeEncode(pageUrl) + "\" />");
             tags.Append("\n        <meta property=\"og:image\" content=\"" + imageUrl + "\" />");
             tags.Append("\n        <meta name=\"twitter:card\" content=\"summary_large_image\" />");
-            tags.Append("\n        <script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"" + BrandName + "\",\"url\":\"" + SiteBase + "/\",\"logo\":\"" + SiteBase + "/Content/images/site/logo.png\",\"founder\":{\"@type\":\"Person\",\"name\":\"Éric Lapointe\"},\"sameAs\":[\"https://www.facebook.com/NetCr%C3%A9ative-101923751954399\"]}</script>");
+            tags.Append("\n        <script type=\"application/ld+json\">" + StructuredData(path == "/" || path.Equals("/contact.aspx", StringComparison.OrdinalIgnoreCase)) + "</script>");
 
             Page.Header.Controls.Add(new LiteralControl(tags.ToString()));
+        }
+
+        // The business as a search engine reads it (schema.org): name, logo, founder, and, on the home and contact pages, the address, the
+        // telephone number and the opening hours of the footer (so that the hours a search result shows are the ones of the admin page).
+        private string StructuredData(bool withDetails)
+        {
+            var data = new Dictionary<string, object>
+            {
+                { "@context", "https://schema.org" },
+                { "@type", withDetails ? "ProfessionalService" : "Organization" },
+                { "@id", SiteBase + "/#business" },
+                { "name", BrandName },
+                { "url", SiteBase + "/" },
+                { "logo", SiteBase + "/Content/images/site/logo.png" },
+                { "founder", new Dictionary<string, object> { { "@type", "Person" }, { "name", "Éric Lapointe" } } },
+                { "sameAs", new[] { "https://www.facebook.com/NetCr%C3%A9ative-101923751954399" } }
+            };
+
+            if (withDetails)
+            {
+                data["description"] = Global.Master_DefaultDescription;
+                data["image"] = SiteBase + "/Content/images/site/hero-accueil.jpg";
+                data["telephone"] = "+1-418-226-9087";
+                data["email"] = "contact@netcreative.ca";
+                data["address"] = new Dictionary<string, object>
+                {
+                    { "@type", "PostalAddress" },
+                    { "streetAddress", "2845, 208e Rue" },
+                    { "addressLocality", "Saint-Georges" },
+                    { "addressRegion", "QC" },
+                    { "postalCode", "G5Y 5B8" },
+                    { "addressCountry", "CA" }
+                };
+                data["knowsLanguage"] = new[] { "fr-CA", "en" };
+
+                string[] dayNames = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+                var hours = new List<object>();
+
+                for (int d = 0; openingDays != null && d < openingDays.Length; d++)
+                {
+                    if (!openingDays[d].Open)
+                    {
+                        continue;
+                    }
+
+                    hours.Add(new Dictionary<string, object>
+                    {
+                        { "@type", "OpeningHoursSpecification" },
+                        { "dayOfWeek", dayNames[d] },
+                        { "opens", string.Format("{0:00}:{1:00}", openingDays[d].OpensAt / 60, openingDays[d].OpensAt % 60) },
+                        { "closes", string.Format("{0:00}:{1:00}", openingDays[d].ClosesAt / 60, openingDays[d].ClosesAt % 60) }
+                    });
+                }
+
+                if (hours.Count > 0)
+                {
+                    data["openingHoursSpecification"] = hours;
+                }
+            }
+
+            // "<" is written as \u003c: nothing in the data can end the script block it is in
+            return new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(data).Replace("<", "\u003c");
         }
 
         public void SetPageHero(string imageUrl, string eyebrow, string title, string text = null, string ctaText = null, string ctaUrl = null, string ctaTarget = null)
@@ -175,15 +248,6 @@ namespace netcreative.ca.MasterPages
             }
         }
 
-        protected void LinkButton_Logo_Click(object sender, EventArgs e)
-        {
-            Response.Redirect(ResolveUrl("~/default.aspx"));
-        }
-
-        protected void LinkButton_Privacy_Click(object sender, EventArgs e)
-        {
-            Response.Redirect(ResolveUrl("~/privacy.aspx"));
-        }
 
         private void Verify_CookieWarning()
         {
@@ -197,316 +261,26 @@ namespace netcreative.ca.MasterPages
         {
             try
             {
-                string scheduleSeparator = ": ";
-                string timeSeparetor = Global.Master_TimeSeparator;
-                string hourSeparator = Global.Master_HourSeparator;
-                string timeAm = Global.Master_TimeAm;
-                string timePm = Global.Master_TimePm;
-                string monday = Global.Master_Monday;
-                string tuesday = Global.Master_Tuesday;
-                string wednesday = Global.Master_Wednesday;
-                string thursday = Global.Master_Thursday;
-                string friday = Global.Master_Friday;
-                string saturday = Global.Master_Saturday;
-                string sunday = Global.Master_Sunday;
-                string closed = Global.Master_Closed;
-                int timeMod = Session["language"].ToString() == "fr" ? 0 : 12;
+                bool english = Session["language"].ToString() != "fr";
 
-                HyperLink_Language.HRef = Request.Url.AbsolutePath + "?lang=" + (Session["language"].ToString() == "fr" ? "en" : "fr");
+                HyperLink_Language.HRef = Request.Url.AbsolutePath + "?lang=" + (english ? "fr" : "en");
                 TextBox_Subscribe.Attributes.Add("placeholder", Global.Master_SubscribePlaceholder);
+                TextBox_Subscribe.Attributes.Add("aria-label", Global.Master_SubscribePlaceholder);
 
-                string oh_sun, oh_mon, oh_tue, oh_wed, oh_thu, oh_fri, oh_sat;
-                string om_sun, om_mon, om_tue, om_wed, om_thu, om_fri, om_sat;
-                string ch_sun, ch_mon, ch_tue, ch_wed, ch_thu, ch_fri, ch_sat;
-                string cm_sun, cm_mon, cm_tue, cm_wed, cm_thu, cm_fri, cm_sat;
+                // the lines of the footer come from OpeningHours, like the preview of the admin page "Opening hours"
+                OpeningDay[] days = OpeningHours.Load(connectionString);
+                openingDays = days;
+                Label[] labels = { Label_Monday, Label_Tuesday, Label_Wednesday, Label_Thursday, Label_Friday, Label_Saturday, Label_Sunday };
 
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                for (int d = 0; d < labels.Length; d++)
                 {
-                    string sqlCommand = "SELECT * FROM OPENING WHERE OPEN_CLOSE=@OPEN_CLOSE";
-
-                    connection.Open();
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@OPEN_CLOSE", "OPEN_HOUR");
-
-                        using (SqlDataReader dr = cmd.ExecuteReader())
-                        {
-                            dr.Read();
-                            oh_sun = dr["SUN"].ToString();
-                            oh_mon = dr["MON"].ToString();
-                            oh_tue = dr["TUE"].ToString();
-                            oh_wed = dr["WED"].ToString();
-                            oh_thu = dr["THU"].ToString();
-                            oh_fri = dr["FRI"].ToString();
-                            oh_sat = dr["SAT"].ToString();
-                        }
-                    }
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@OPEN_CLOSE", "OPEN_MIN");
-
-                        using (SqlDataReader dr = cmd.ExecuteReader())
-                        {
-                            dr.Read();
-                            om_sun = dr["SUN"].ToString();
-                            om_mon = dr["MON"].ToString();
-                            om_tue = dr["TUE"].ToString();
-                            om_wed = dr["WED"].ToString();
-                            om_thu = dr["THU"].ToString();
-                            om_fri = dr["FRI"].ToString();
-                            om_sat = dr["SAT"].ToString();
-                        }
-                    }
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@OPEN_CLOSE", "CLOSE_HOUR");
-
-                        using (SqlDataReader dr = cmd.ExecuteReader())
-                        {
-                            dr.Read();
-                            ch_sun = dr["SUN"].ToString();
-                            ch_mon = dr["MON"].ToString();
-                            ch_tue = dr["TUE"].ToString();
-                            ch_wed = dr["WED"].ToString();
-                            ch_thu = dr["THU"].ToString();
-                            ch_fri = dr["FRI"].ToString();
-                            ch_sat = dr["SAT"].ToString();
-                        }
-                    }
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@OPEN_CLOSE", "CLOSE_MIN");
-
-                        using (SqlDataReader dr = cmd.ExecuteReader())
-                        {
-                            dr.Read();
-                            cm_sun = dr["SUN"].ToString();
-                            cm_mon = dr["MON"].ToString();
-                            cm_tue = dr["TUE"].ToString();
-                            cm_wed = dr["WED"].ToString();
-                            cm_thu = dr["THU"].ToString();
-                            cm_fri = dr["FRI"].ToString();
-                            cm_sat = dr["SAT"].ToString();
-                        }
-                    }
-
-                    connection.Close();
-
-                    {
-                        string hourSign1, hourSign2;
-
-                        if (Convert.ToInt32(oh_mon) != 0)
-                        {
-                            if (Convert.ToInt32(oh_mon) < 12)
-                            {
-                                hourSign1 = timeAm;
-                            }
-                            else
-                            {
-                                hourSign1 = timePm;
-                                oh_mon = (Convert.ToInt32(oh_mon) - timeMod).ToString();
-                            }
-
-                            if (Convert.ToInt32(ch_mon) < 12)
-                            {
-                                hourSign2 = timeAm;
-                            }
-                            else
-                            {
-                                hourSign2 = timePm;
-                                ch_mon = (Convert.ToInt32(ch_mon) - timeMod).ToString();
-                            }
-
-                            Label_Monday.Text = monday + scheduleSeparator + oh_mon + timeSeparetor + om_mon + hourSign1 + hourSeparator + ch_mon + timeSeparetor + cm_mon + hourSign2;
-                        }
-                        else
-                        {
-                            Label_Monday.Text = monday + scheduleSeparator + closed;
-                        }
-
-                        if (Convert.ToInt32(oh_tue) != 0)
-                        {
-                            if (Convert.ToInt32(oh_tue) < 12)
-                            {
-                                hourSign1 = timeAm;
-                            }
-                            else
-                            {
-                                hourSign1 = timePm;
-                                oh_tue = (Convert.ToInt32(oh_tue) - timeMod).ToString();
-                            }
-
-                            if (Convert.ToInt32(ch_tue) < 12)
-                            {
-                                hourSign2 = timeAm;
-                            }
-                            else
-                            {
-                                hourSign2 = timePm;
-                                ch_tue = (Convert.ToInt32(ch_tue) - timeMod).ToString();
-                            }
-
-                            Label_Tuesday.Text = tuesday + scheduleSeparator + oh_tue + timeSeparetor + om_tue + hourSign1 + hourSeparator + ch_tue + timeSeparetor + cm_tue + hourSign2;
-                        }
-                        else
-                        {
-                            Label_Tuesday.Text = tuesday + scheduleSeparator + closed;
-                        }
-
-                        if (Convert.ToInt32(oh_wed) != 0)
-                        {
-                            if (Convert.ToInt32(oh_wed) < 12)
-                            {
-                                hourSign1 = timeAm;
-                            }
-                            else
-                            {
-                                hourSign1 = timePm;
-                                oh_wed = (Convert.ToInt32(oh_wed) - timeMod).ToString();
-                            }
-
-                            if (Convert.ToInt32(ch_wed) < 12)
-                            {
-                                hourSign2 = timeAm;
-                            }
-                            else
-                            {
-                                hourSign2 = timePm;
-                                ch_wed = (Convert.ToInt32(ch_wed) - timeMod).ToString();
-                            }
-
-                            Label_Wednesday.Text = wednesday + scheduleSeparator + oh_wed + timeSeparetor + om_wed + hourSign1 + hourSeparator + ch_wed + timeSeparetor + cm_wed + hourSign2;
-                        }
-                        else
-                        {
-                            Label_Wednesday.Text = wednesday + scheduleSeparator + closed;
-                        }
-
-                        if (Convert.ToInt32(oh_thu) != 0)
-                        {
-                            if (Convert.ToInt32(oh_thu) < 12)
-                            {
-                                hourSign1 = timeAm;
-                            }
-                            else
-                            {
-                                hourSign1 = timePm;
-                                oh_thu = (Convert.ToInt32(oh_thu) - timeMod).ToString();
-                            }
-
-                            if (Convert.ToInt32(ch_thu) < 12)
-                            {
-                                hourSign2 = timeAm;
-                            }
-                            else
-                            {
-                                hourSign2 = timePm;
-                                ch_thu = (Convert.ToInt32(ch_thu) - timeMod).ToString();
-                            }
-
-                            Label_Thursday.Text = thursday + scheduleSeparator + oh_thu + timeSeparetor + om_thu + hourSign1 + hourSeparator + ch_thu + timeSeparetor + cm_thu + hourSign2;
-                        }
-                        else
-                        {
-                            Label_Thursday.Text = thursday + scheduleSeparator + closed;
-                        }
-
-                        if (Convert.ToInt32(oh_fri) != 0)
-                        {
-                            if (Convert.ToInt32(oh_fri) < 12)
-                            {
-                                hourSign1 = timeAm;
-                            }
-                            else
-                            {
-                                hourSign1 = timePm;
-                                oh_fri = (Convert.ToInt32(oh_fri) - timeMod).ToString();
-                            }
-
-                            if (Convert.ToInt32(ch_fri) < 12)
-                            {
-                                hourSign2 = timeAm;
-                            }
-                            else
-                            {
-                                hourSign2 = timePm;
-                                ch_fri = (Convert.ToInt32(ch_fri) - timeMod).ToString();
-                            }
-
-                            Label_Friday.Text = friday + scheduleSeparator + oh_fri + timeSeparetor + om_fri + hourSign1 + hourSeparator + ch_fri + timeSeparetor + cm_fri + hourSign2;
-                        }
-                        else
-                        {
-                            Label_Friday.Text = friday + scheduleSeparator + closed;
-                        }
-
-                        if (Convert.ToInt32(oh_sat) != 0)
-                        {
-                            if (Convert.ToInt32(oh_sat) < 12)
-                            {
-                                hourSign1 = timeAm;
-                            }
-                            else
-                            {
-                                hourSign1 = timePm;
-                                oh_sat = (Convert.ToInt32(oh_sat) - timeMod).ToString();
-                            }
-
-                            if (Convert.ToInt32(ch_sat) < 12)
-                            {
-                                hourSign2 = timeAm;
-                            }
-                            else
-                            {
-                                hourSign2 = timePm;
-                                ch_sat = (Convert.ToInt32(ch_sat) - timeMod).ToString();
-                            }
-
-                            Label_Saturday.Text = saturday + scheduleSeparator + oh_sat + timeSeparetor + om_sat + hourSign1 + hourSeparator + ch_sat + timeSeparetor + cm_sat + hourSign2;
-                        }
-                        else
-                        {
-                            Label_Saturday.Text = saturday + scheduleSeparator + closed;
-                        }
-
-                        if (Convert.ToInt32(oh_sun) != 0)
-                        {
-                            if (Convert.ToInt32(oh_sun) < 12)
-                            {
-                                hourSign1 = timeAm;
-                            }
-                            else
-                            {
-                                hourSign1 = timePm;
-                                oh_sun = (Convert.ToInt32(oh_sun) - timeMod).ToString();
-                            }
-
-                            if (Convert.ToInt32(ch_sun) < 12)
-                            {
-                                hourSign2 = timeAm;
-                            }
-                            else
-                            {
-                                hourSign2 = timePm;
-                                ch_sun = (Convert.ToInt32(ch_sun) - timeMod).ToString();
-                            }
-
-                            Label_Sunday.Text = sunday + scheduleSeparator + oh_sun + timeSeparetor + om_sun + hourSign1 + hourSeparator + ch_sun + timeSeparetor + cm_sun + hourSign2;
-                        }
-                        else
-                        {
-                            Label_Sunday.Text = sunday + scheduleSeparator + closed;
-                        }
-                    }
+                    labels[d].Text = OpeningHours.Line(d, days[d], english);
                 }
             }
             catch (Exception ex)
             {
-                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
+                // the details go to the error log (App_Data\logs), never to the visitor
+                ErrorLogger.Log(ex, "footer opening hours");
             }
         }
 

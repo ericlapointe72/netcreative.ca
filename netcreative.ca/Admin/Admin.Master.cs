@@ -1,13 +1,21 @@
 using System;
 using System.Configuration;
-using System.Data.SqlClient;
+using System.Web;
 using netcreative.ca.Resources;
 
 namespace netcreative.ca
 {
     public partial class AdminMaster : System.Web.UI.MasterPage
     {
-        private string connectionString = string.Empty;
+        // the user could use two-factor sign-in and has not turned it on (set at sign-in by LoginComplete.ashx): a reminder on every page but the users page, where it is set up
+        protected bool ShowTwoFactorReminder
+        {
+            get
+            {
+                return Session["mfa_offer"] is bool && (bool)Session["mfa_offer"]
+                    && !string.Equals(Request.AppRelativeCurrentExecutionFilePath, "~/Admin/Users.aspx", StringComparison.OrdinalIgnoreCase);
+            }
+        }
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -15,25 +23,22 @@ namespace netcreative.ca
             // (see the same note in Site.Master.cs), so the access check has to happen
             // here in Init - which always completes before any Load runs - otherwise a
             // content page's Page_Load would already have queried the database before
-            // this redirect had a chance to run
+            // this redirect had a chance to run. (Global.asax checks the same thing even
+            // earlier, before any page runs; this is the second lock on the same door.)
             if (string.IsNullOrEmpty((string)Session["role"]) || Session["role"].ToString() != "admin")
             {
                 Response.Redirect(ResolveUrl("~/Admin/login.aspx"));
                 return;
             }
 
-            // Session["language"] is always already set by the time we get here: either
-            // we just returned above (role empty), or role == "admin", which is only
-            // reachable via login.aspx - which uses Site.Master, whose Page_Init already
-            // set it before the login form was even shown
-            Global.SetCulture(Session["language"].ToString());
+            string language = Session["language"] as string;
+            Global.SetCulture(string.IsNullOrEmpty(language) ? (ConfigurationManager.AppSettings["app_language"] ?? "fr") : language);
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
             Button_Logout.Text = Global.Admin_LogoutButton;
-            Label_CurrentUser.Text = Session["user"].ToString();
+            Label_CurrentUser.Text = Convert.ToString(Session["user"]);
 
             if (!IsPostBack)
             {
@@ -62,39 +67,17 @@ namespace netcreative.ca
         protected void Button_Logout_Click(object sender, EventArgs e)
         {
             Logout();
-            Response.Redirect(ResolveUrl("~/default.aspx"));
+            Response.Redirect(ResolveUrl("~/"));
         }
 
+        // The session ends whatever happens to the log line: a sign-out that failed to write its trace used to leave the session open.
         private void Logout()
         {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    string sqlCommand =
-                        "INSERT INTO LOGIN (DATE, TIME, IP_ADDRESS, USER_NAME, ACTION) VALUES (" +
-                        "@DATE, @TIME, @IP_ADDRESS, @USER_NAME, @ACTION)";
+            AdminLogin.LogEvent(Convert.ToString(Session["user"]), "LOGOUT");
 
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@DATE", DateTime.Now.Date);
-                        cmd.Parameters.AddWithValue("@TIME", DateTime.Now.TimeOfDay);
-                        cmd.Parameters.AddWithValue("@IP_ADDRESS", User_IP.Get_UserIP());
-                        cmd.Parameters.AddWithValue("@USER_NAME", Session["user"].ToString());
-                        cmd.Parameters.AddWithValue("@ACTION", "LOGOUT");
-
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-
-                        Session["user"] = string.Empty;
-                        Session["role"] = string.Empty;
-                    }
-                }
-            }
-            catch
-            {
-            }
+            Session.Clear();
+            Session.Abandon();
+            Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", string.Empty) { Expires = DateTime.UtcNow.AddYears(-1), HttpOnly = true, Path = "/" });
         }
     }
 }

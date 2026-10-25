@@ -10,25 +10,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Net.Créative">
         <!-- Style -->
-        <link href="../Content/css/admin.css" rel="stylesheet" />
         <link href="../Content/css/animation.css" rel="stylesheet" />
-        <link href="../Content/css/common.css" rel="stylesheet" />
-        <link href="../Content/css/public.css" rel="stylesheet" />
-        <link href="../Content/css/Site.css" rel="stylesheet" />
-        <!-- fontawesome -->
-        <script src="https://kit.fontawesome.com/7fd34f5741.js" crossorigin="anonymous" defer></script>
-        <!-- google font -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Calistoga&display=swap" rel="stylesheet">
-        <!-- favicon -->
-        <link rel="shortcut icon" href="../Content/images/site/favicon.ico" />
+        <link href="../Content/css/common.css?v=20261032" rel="stylesheet" />
+        <link href="../Content/css/public.css?v=20261032" rel="stylesheet" />
+        <link href="../Content/css/Site.css?v=20261033" rel="stylesheet" />
+        <!-- the fonts (Inter, Calistoga) are served by this site, see common.css: nothing is loaded from Google or from an icon service -->
+        <link rel="preload" href="../Content/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+        <!-- icons: the favicon is also at the root of the site (/favicon.ico), where browsers and search engines look for it -->
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/Content/images/site/apple-touch-icon.png" />
+        <meta name="theme-color" content="#1c1c1e" />
         
         <asp:ContentPlaceHolder ID="head" runat="server">
         </asp:ContentPlaceHolder>
     </head>
 
     <body>
+        <a class="skip-link" href="#main"><%: Global.Text("Master_SkipToContent") %></a>
         <form id="form1" runat="server">
             <asp:Label ID="Label_Animation" runat="server">
                 <div class="animation__container">
@@ -69,17 +67,17 @@
                 <div class="nav__bar">
                     <div class="nav__header">
                         <div class="nav__logo-ctn">
-                            <asp:LinkButton ID="LinkButton_Logo" runat="server" OnClick="LinkButton_Logo_Click"><img class="nav__logo" src="../Content/images/site/logo.png"></asp:LinkButton>
+                            <a href="/"><img class="nav__logo" src="../Content/images/site/logo.png" alt="Net.Créative" /></a>
                         </div>
                         <div class="nav__button-ctn">
                             <span class="icon-stack">
-                                <img class="nav__mail-closed" src="../Content/images/site/mail-closed.png" alt="mail closed"/>
-                                <a href="mailto:contact@netcreative.ca"><img class="nav__mail-open" src="../Content/images/site/mail-open.png" alt="mail open"/></a>
+                                <img class="nav__mail-closed" src="../Content/images/site/mail-closed.png" alt="" aria-hidden="true" />
+                                <a href="mailto:contact@netcreative.ca" aria-label="<%: Global.Text("Master_AltMail") %>"><img class="nav__mail-open" src="../Content/images/site/mail-open.png" alt="" /></a>
                             </span>
-                            <a href="Tel:+14182269087"><img class="nav__mobile" src="../Content/images/site/mobile.png" alt="mobile phone" /></a>
+                            <a href="tel:+14182269087" aria-label="<%: Global.Text("Master_AltPhone") %>"><img class="nav__mobile" src="../Content/images/site/mobile.png" alt="" /></a>
                             <span class="icon-stack">
-                                <asp:Image class="admin__button" ID="Image_Login" src="../Content/images/site/login.png" alt="login" runat="server" />
-                                <a id="HyperLink_Login" runat="server" href="~/Admin/login.aspx"><img class="admin__login" src="../Content/images/site/login-smile.png" alt="login smile" /></a>
+                                <asp:Image class="admin__button" ID="Image_Login" src="../Content/images/site/login.png" alt="" aria-hidden="true" runat="server" />
+                                <a id="HyperLink_Login" runat="server" href="~/Admin/login.aspx"><img class="admin__login" src="../Content/images/site/login-smile.png" alt="" /></a>
                             </span>
                         </div>
                         <div class="nav__slogan-ctn">
@@ -88,17 +86,17 @@
                     </div>
                                                                         
                     <input type="checkbox" id="nav__toggle" class="nav__toggle">
-                    <label for="nav__toggle" class="nav__toggle"><span class="nav__icon"></span></label>
-                
-                    <div class=nav__menu>
-                        <img class="nav__logo" src="../Content/images/site/logo.png" alt="logo">
-                        <a class="nav__links nav__links1 observer" href="/default.aspx"><%: Global.Master_Home %></a>
+                    <label for="nav__toggle" class="nav__toggle" aria-label="<%: Global.Master_Menu %>"><span class="nav__icon"></span></label>
+
+                    <nav class="nav__menu" aria-label="<%: Global.Master_Menu %>">
+                        <img class="nav__logo" src="../Content/images/site/logo.png" alt="" />
+                        <a class="nav__links nav__links1 observer" href="/"><%: Global.Master_Home %></a>
                         <a class="nav__links nav__links2 observer" href="/dutyfreeops.aspx"><%: Global.Master_DutyFreeOps %></a>
                         <a class="nav__links nav__links3 observer" href="/boutique.aspx"><%: Global.Master_Boutique %></a>
                         <a class="nav__links nav__links4 observer" href="/service.aspx"><%: Global.Master_Service %></a>
                         <a class="nav__links nav__links6 observer" href="/contact.aspx"><%: Global.Master_Contact %></a>
                         <a class="nav__links nav__links7 observer" ID="HyperLink_Language" runat="server"><%: Global.Master_LanguageToggle %></a>
-                    </div>
+                    </nav>
                 </div>
             </header>
 
@@ -110,15 +108,17 @@
                 </div>
             </div>
 
+            <main id="main">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
+            </main>
 
             <footer>
                 <div class="foot__container">
                     <div class="foot__nav">
                         <h3 class="foot__title"><%: Global.Master_Menu %></h3>
                         <div class=foot__menu>
-                            <a class="foot__links" href="/default.aspx"><%: Global.Master_Home %></a>
+                            <a class="foot__links" href="/"><%: Global.Master_Home %></a>
                             <a class="foot__links" href="/dutyfreeops.aspx"><%: Global.Master_DutyFreeOps %></a>
                             <a class="foot__links" href="/boutique.aspx"><%: Global.Master_Boutique %></a>
                             <a class="foot__links" href="/service.aspx"><%: Global.Master_Service %></a>
@@ -146,18 +146,28 @@
                             <asp:TextBox CssClass="tb__subscribe" ID="TextBox_Subscribe" runat="server"></asp:TextBox>
                             <button type="button" class="button button__orange subscribe__submit"><%: Global.Master_SubscribeButton %></button>
                         </div>
+                        <span class="foot__subscribe-consent"><%: Global.Text("Master_SubscribeConsent") %></span>
+                        <%-- the field only a robot fills, and the stamp of the time the page was shown (see SubscribeHandler) --%>
+                        <input type="text" name="subscribe_website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+                        <input type="hidden" name="subscribe_ts" value="<%= netcreative.ca.FormTimer.Issue() %>" />
                     </div>
 
                     <div class="foot__map">
                         <h3 class="foot__title"><%: Global.Master_Contact %></h3>
-                        <iframe class="foot__map-img" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2766.9242957962583!2d-70.60156668423464!3d46.09248639932049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb9eb33245c96cd%3A0x8601cb36dba73455!2s2845%20208e%20Rue%2C%20Saint-Georges%2C%20QC%20G5Y%205B8!5e0!3m2!1sfr!2sca!4v1627955655628!5m2!1sfr!2sca" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <%-- Google's map is only loaded when the visitor asks for it (or accepted the cookies notice): showing it sends the visitor's address to Google --%>
+                        <div class="foot__map-box" id="foot-map" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2766.9242957962583!2d-70.60156668423464!3d46.09248639932049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb9eb33245c96cd%3A0x8601cb36dba73455!2s2845%20208e%20Rue%2C%20Saint-Georges%2C%20QC%20G5Y%205B8!5e0!3m2!1sfr!2sca!4v1627955655628!5m2!1sfr!2sca" data-title="<%: Global.Text("Map_Title") %>">
+                            <address class="foot__map-address">2845, 208<sup>e</sup> Rue<br />Saint-Georges (Qu&eacute;bec) G5Y 5B8</address>
+                            <button type="button" class="button button__orange foot__map-button" id="foot-map-show"><%: Global.Text("Map_Show") %></button>
+                            <span class="foot__map-note"><%: Global.Text("Map_Note") %></span>
+                            <a class="foot__map-link" href="https://www.google.com/maps/search/?api=1&amp;query=2845+208e+Rue+Saint-Georges+QC+G5Y+5B8" target="_blank" rel="noopener"><%: Global.Text("Map_Open") %></a>
+                        </div>
                     </div>
                 </div>
             </footer>
 
             <div class="foot__bottom">
                 <%: Global.Format(Global.Master_FooterText, DateTime.Now.Year) %>
-                <asp:LinkButton class="foot__links" ID="LinkButton_Privacy" runat="server" OnClick="LinkButton_Privacy_Click"><%: Global.Master_PrivacyPolicy %></asp:LinkButton>
+                <a class="foot__links" href="/privacy.aspx"><%: Global.Master_PrivacyPolicy %></a>
             </div>
 
             <asp:Panel class="cookie__panel" ID="Panel_CookieWarning" runat="server">
@@ -171,9 +181,10 @@
 
             <script src="../Content/js/animation.js"></script>
             <script src="../Content/js/observer.js"></script>
-            <script src="../Content/js/cookie.js"></script>
-            <script src="../Content/js/toast.js"></script>
-            <script src="../Content/js/subscribe.js"></script>
+            <script src="../Content/js/cookie.js?v=2"></script>
+            <script src="../Content/js/map.js?v=1"></script>
+            <script src="../Content/js/toast.js?v=2"></script>
+            <script src="../Content/js/subscribe.js?v=2"></script>
         </form>
     </body>
 </html>

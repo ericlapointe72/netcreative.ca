@@ -15,18 +15,23 @@ namespace netcreative.ca
     {
 
         /// <summary>
+        /// Label_Contact_Info control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label Label_Contact_Info;
+
+        /// <summary>
         /// Repeater control.
         /// </summary>
         protected global::System.Web.UI.WebControls.Repeater Repeater;
 
         /// <summary>
-        /// TextBox_Contact_Delete control.
+        /// Button_Newer control.
         /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Contact_Delete;
+        protected global::System.Web.UI.WebControls.Button Button_Newer;
 
         /// <summary>
-        /// Button_Contact_Delete control.
+        /// Button_Older control.
         /// </summary>
-        protected global::System.Web.UI.WebControls.Button Button_Contact_Delete;
+        protected global::System.Web.UI.WebControls.Button Button_Older;
     }
 }

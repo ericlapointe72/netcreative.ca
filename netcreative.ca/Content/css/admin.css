@@ -1,4 +1,4 @@
-/*  --------------
+﻿/*  --------------
     ADMIN LAYOUT
     -------------- */
 
@@ -118,23 +118,221 @@
     ADMIN_NEWSLETTER
     ---------------- */
 
-.admin-card .card__choice,
-.admin-card .card__email {
+.admin-card.news-card {
+    max-width: 1180px;
+}
+
+.admin-card .news-intro {
+    margin: 0 0 1rem;
+    line-height: 1.5;
+}
+
+.admin-card .news-modes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+@media screen and (max-width: 700px) {
+    .admin-card .news-modes {
+        grid-template-columns: 1fr;
+    }
+}
+
+.admin-card .news-mode {
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    border: 1px solid var(--logoBlue);
-    padding: 1rem;
-    margin: 0.5rem 0 0.25rem 0;
+    gap: 0.2rem;
+    padding: 0.9rem 1rem 0.9rem 2.6rem;
+    cursor: pointer;
 }
 
-.admin-card .radio__choice {
-    padding: 0.25rem 0;
+.admin-card .news-mode input {
+    position: absolute;
+    top: 1.05rem;
+    left: 1rem;
+    z-index: 1;
+    margin: 0;
+    cursor: pointer;
 }
 
-.admin-card .label__email {
+.admin-card .news-mode__box {
+    position: absolute;
+    inset: 0;
+    border: 2px solid #d5deee;
+    border-radius: 6px;
+    transition: border-color 200ms, background 200ms;
+}
+
+.admin-card .news-mode input:checked ~ .news-mode__box {
+    border-color: var(--logoBlue);
+    background: #eef3fb;
+}
+
+.admin-card .news-mode--all input:checked ~ .news-mode__box {
+    border-color: var(--logoOrange);
+    background: #fff4ec;
+}
+
+.admin-card .news-mode input:focus-visible ~ .news-mode__box {
+    outline: 2px solid var(--logoBlue);
+    outline-offset: 2px;
+}
+
+.admin-card .news-mode__title,
+.admin-card .news-mode__text {
+    position: relative;
+}
+
+.admin-card .news-mode__title {
+    font-weight: 700;
+}
+
+.admin-card .news-mode__text {
     font-size: 0.9rem;
-    color: var(--logoOrange);
+    line-height: 1.4;
+    color: #5b6b86;
+}
+
+.admin-card .news-warning {
+    margin-top: 0.9rem;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.95rem;
+    background: #fff4ec;
+    border-left: 4px solid var(--logoOrange);
+    border-radius: 4px;
+}
+
+.admin-card .news-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0 2rem;
+    margin-top: 0.4rem;
+}
+
+@media screen and (min-width: 1300px) {
+    .admin-card .news-layout {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+}
+
+.admin-card .news-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 0.9rem;
+}
+
+.admin-card .news-field label {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.admin-card .news-input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.5rem 0.6rem;
+    font: inherit;
+    border: 1px solid #b8c4d9;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.admin-card .news-input:focus {
+    outline: none;
+    border-color: var(--logoOrange);
+    box-shadow: 0 0 0 2px rgba(237, 125, 49, 0.25);
+}
+
+.admin-card .news-body {
+    min-height: 13rem;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+.admin-card .news-count {
+    font-size: 0.85rem;
+    color: #5b6b86;
+}
+
+.admin-card .news-count--over {
+    color: #b45309;
+}
+
+.admin-card .news-preview__title {
+    margin: 1.4rem 0 0.5rem;
+    font-size: 1.25rem;
+    color: var(--logoBlue);
+}
+
+.admin-card .news-preview {
+    background: #f4f7fb;
+    border: 1px solid #d5deee;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.admin-card .news-preview__subject {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid #d5deee;
+    word-break: break-word;
+}
+
+.admin-card .news-preview__subject span {
+    color: #5b6b86;
+}
+
+.admin-card .news-mail {
+    margin: 1rem;
+    padding: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #222;
+    background: #fff;
+    border-radius: 4px;
+}
+
+.admin-card .news-mail p {
+    margin: 0 0 16px;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.admin-card .news-mail img {
+    max-width: 100%;
+}
+
+.admin-card .news-mail__unsub {
+    margin: 24px 0 0;
+    font-size: 12px;
+    color: #777;
+    white-space: normal;
+}
+
+.admin-card .news-mail__unsub u {
+    color: var(--logoBlue);
+}
+
+.admin-card .news-empty {
+    color: #9aa5b8;
+    font-style: italic;
+}
+
+.admin-card .news-report {
+    margin-top: 1rem;
+    padding: 0.8rem 1rem;
+    line-height: 1.5;
+    background: #edf8f1;
+    border-left: 4px solid var(--logoGreen);
+    border-radius: 4px;
+    word-break: break-word;
+}
+
+.admin-card .news-report--warn {
+    background: #fff4ec;
+    border-left-color: var(--logoOrange);
 }
 
 .admin-card .textbox__multiline {
@@ -145,23 +343,224 @@
     ADMIN_OPENING
     ------------- */
 
-.admin-card .card__opening {
+.admin-card .opening-intro {
+    margin: 0 0 1rem;
+    line-height: 1.5;
+}
+
+.admin-card .opening-head,
+.admin-card .opening-day {
+    display: grid;
+    grid-template-columns: 7rem 9rem minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 0.5rem 1rem;
+}
+
+.admin-card .opening-head {
+    padding: 0 0.5rem 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #5b6b86;
+}
+
+.admin-card .opening-day {
+    padding: 0.55rem 0.5rem;
+    border-top: 1px solid #e3e9f4;
+}
+
+.admin-card .opening-day__name {
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.admin-card .opening-day--closed .opening-day__name {
+    color: #7b879c;
+}
+
+.admin-card .opening-switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+}
+
+.admin-card .opening-switch input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.admin-card .opening-switch__track {
+    position: relative;
+    flex: none;
+    width: 2.6rem;
+    height: 1.45rem;
+    border-radius: 999px;
+    background: var(--logoSilver);
+    transition: background 200ms;
+}
+
+.admin-card .opening-switch__track::after {
+    content: "";
+    position: absolute;
+    top: 0.17rem;
+    left: 0.17rem;
+    width: 1.11rem;
+    height: 1.11rem;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: transform 200ms;
+}
+
+.admin-card .opening-switch input:checked ~ .opening-switch__track {
+    background: var(--logoGreen);
+}
+
+.admin-card .opening-switch input:checked ~ .opening-switch__track::after {
+    transform: translateX(1.15rem);
+}
+
+.admin-card .opening-switch input:focus-visible ~ .opening-switch__track {
+    outline: 2px solid var(--logoBlue);
+    outline-offset: 2px;
+}
+
+.admin-card .opening-switch__on,
+.admin-card .opening-switch__off {
+    min-width: 3.6rem;
+    font-weight: 600;
+}
+
+.admin-card .opening-switch input:not(:checked) ~ .opening-switch__on,
+.admin-card .opening-switch input:checked ~ .opening-switch__off {
+    display: none;
+}
+
+.admin-card .opening-switch input:not(:checked) ~ .opening-switch__off {
+    color: #7b879c;
+}
+
+.admin-card .opening-time {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 0.2rem;
 }
 
-.admin-card .label__opening {
-    display: inline-block;
-    width: 3rem;
-    margin: 0.5rem 0 0 1rem;
+/* the column titles of the head row already name the boxes: the label only shows on a narrow screen */
+.admin-card .opening-time__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
 }
 
-.admin-card .textbox__opening {
-    display: inline-block;
-    width: 3rem;
-    margin: 0.5rem 0 0 1rem;
-    text-align: center;
+.admin-card .opening-time input {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 9rem;
+    padding: 0.4rem 0.5rem;
+    font: inherit;
+    border: 1px solid #b8c4d9;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.admin-card .opening-time input:focus {
+    outline: none;
+    border-color: var(--logoOrange);
+    box-shadow: 0 0 0 2px rgba(237, 125, 49, 0.25);
+}
+
+.admin-card .opening-time input:disabled {
+    background: #f1f3f7;
+    color: #9aa5b8;
+}
+
+.admin-card .opening-day--invalid .opening-time input {
+    border-color: var(--buttonRed);
+}
+
+@media screen and (max-width: 700px) {
+    .admin-card .opening-head {
+        display: none;
+    }
+
+    .admin-card .opening-day {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .admin-card .opening-day__name {
+        grid-column: 1;
+    }
+
+    .admin-card .opening-switch {
+        grid-column: 2;
+        justify-self: end;
+    }
+
+    .admin-card .opening-time__label {
+        position: static;
+        width: auto;
+        height: auto;
+        clip: auto;
+        font-size: 0.85rem;
+        color: #5b6b86;
+    }
+
+    .admin-card .opening-time input {
+        max-width: none;
+    }
+}
+
+.admin-card .opening-copy {
+    margin: 0.9rem 0 0;
+    padding: 0.5rem 0.9rem;
+    font: inherit;
+    font-size: 0.9rem;
+    color: var(--logoBlue);
+    background: none;
+    border: 1px solid var(--logoBlue);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.admin-card .opening-copy:hover {
+    background: #eef3fb;
+}
+
+.admin-card .opening-preview__title {
+    margin: 1.8rem 0 0.5rem;
+    font-size: 1.25rem;
+    color: var(--logoBlue);
+}
+
+.admin-card .opening-preview {
+    padding: 0.75rem 1rem;
+    line-height: 1.7;
+    background: #f4f7fb;
+    border: 1px solid #d5deee;
+    border-left: 4px solid var(--logoBlue);
+    border-radius: 4px;
+}
+
+.admin-card .opening-preview__line--invalid {
+    color: var(--buttonRed);
+}
+
+.admin-card .opening-note {
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+    color: #5b6b86;
 }
 
 /*  ----------
@@ -228,5 +627,407 @@
 
 .admin-card .grid th {
     background: #f4f7fb;
+    color: var(--logoBlue);
+}
+
+/*  ----------------
+    ADMIN_TWO_FACTOR
+    ---------------- */
+
+.tfa-help {
+    max-width: 1000px;
+    margin: 0 0 1rem;
+    line-height: 1.5;
+}
+
+.tfa-card {
+    margin-bottom: 1rem;
+}
+
+.tfa-title {
+    margin: 0 0 0.6rem;
+    font-size: 1.15rem;
+    color: var(--logoBlue);
+}
+
+.tfa-hint {
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.tfa-steps {
+    padding-left: 1.2rem;
+    line-height: 1.7;
+}
+
+.tfa-key {
+    font-family: Consolas, 'Courier New', monospace;
+    letter-spacing: 0.08em;
+    word-break: break-all;
+}
+
+.tfa-field {
+    display: grid;
+    gap: 0.25rem;
+    max-width: 16rem;
+    margin-top: 0.75rem;
+}
+
+.tfa-error {
+    display: block;
+    max-width: 1000px;
+    margin: 0 0 1rem;
+    color: var(--buttonRed);
+    font-weight: 600;
+}
+
+.tfa-error:empty {
+    display: none;
+}
+
+.tfa-ok,
+.tfa-warn {
+    max-width: 1000px;
+    margin: 0 0 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 4px;
+}
+
+.tfa-ok {
+    background: #e8f5ec;
+    border: 1px solid #2e9e52;
+}
+
+.tfa-warn {
+    background: #fff4e5;
+    border: 1px solid var(--logoOrange);
+}
+
+.tfa-codes {
+    display: inline-block;
+    margin: 0.5rem 0;
+    padding: 0.75rem 1.25rem;
+    font-family: Consolas, 'Courier New', monospace;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    background: #fff;
+    border: 1px solid #e0e6f0;
+}
+
+.tfa-ok .button {
+    width: auto;
+    padding: 0.4rem 1.4rem;
+}
+
+.tfa-pill {
+    display: inline-block;
+    padding: 0.1rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.tfa-pill--ok {
+    background: #e8f5ec;
+    color: #14592a;
+}
+
+.tfa-pill--warn {
+    background: #fff4e5;
+    color: #8a4b00;
+}
+
+/* the reminder at the top of every admin page while the user has not turned two-factor sign-in on */
+.admin-mfa-reminder {
+    max-width: 1000px;
+    margin: 0 0 1rem;
+    padding: 0.75rem 1rem;
+    background: #fff4e5;
+    border: 1px solid var(--logoOrange);
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.admin-mfa-reminder a {
+    font-weight: 600;
+    color: var(--logoBlue);
+}
+
+/*  ----------------------
+    ADMIN_LISTS (paging, delete buttons)
+    ---------------------- */
+
+.admin-card .msg {
+    margin: 0.9rem 0 0;
+    padding: 1rem 1.2rem;
+    background: #fff;
+    border: 1px solid #d5deee;
+    border-left: 4px solid var(--logoBlue);
+    border-radius: 6px;
+}
+
+.admin-card .msg__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: #5b6b86;
+}
+
+.admin-card .msg__number {
+    font-weight: 700;
+    color: var(--logoOrange);
+}
+
+.admin-card .msg__name {
+    margin: 0.3rem 0 0;
+    font-size: 1.3rem;
+    line-height: 1.25;
+    color: #1f2b44;
+    word-break: break-word;
+}
+
+.admin-card .msg__company {
+    font-size: 0.95rem;
+    color: #5b6b86;
+}
+
+.admin-card .msg__contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1.4rem;
+    margin-top: 0.5rem;
+}
+
+.admin-card .msg__link {
+    color: var(--logoBlue);
+    font-weight: 600;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+.admin-card .msg__link:hover {
+    text-decoration: underline;
+}
+
+.admin-card .msg__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.8rem;
+}
+
+.admin-card .msg__tag {
+    padding: 0.2rem 0.65rem;
+    font-size: 0.85rem;
+    background: #eef3fb;
+    border-radius: 999px;
+}
+
+.admin-card .msg__tag b {
+    margin-right: 0.25rem;
+    font-weight: 600;
+    color: #5b6b86;
+}
+
+.admin-card .msg__text {
+    margin-top: 0.9rem;
+    padding: 0.8rem 1rem;
+    line-height: 1.55;
+    white-space: pre-wrap;
+    word-break: break-word;
+    background: #f7f9fc;
+    border-radius: 4px;
+}
+
+.admin-card .msg__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.2rem;
+    margin-top: 0.9rem;
+}
+
+.admin-card .msg__reply {
+    font-weight: 600;
+    color: var(--logoBlue);
+    text-decoration: none;
+}
+
+.admin-card .msg__reply:hover {
+    text-decoration: underline;
+}
+
+.admin-card .msg__delete {
+    width: auto;
+    padding: 0.55rem 1.2rem;
+    font-size: 0.8rem;
+}
+
+@media screen and (max-width: 700px) {
+    .admin-card .msg {
+        padding: 0.9rem;
+    }
+
+    .admin-card .msg__actions {
+        justify-content: space-between;
+    }
+}
+
+
+.admin-card .grid__pager td {
+    border: 0;
+    text-align: center;
+    padding-top: 0.75rem;
+}
+
+.admin-card .grid__pager table {
+    margin: 0 auto;
+}
+
+.admin-card .grid__pager td td {
+    padding: 0 0.4rem;
+}
+
+.admin-card .grid__pager a {
+    color: var(--logoBlue);
+    font-weight: 600;
+}
+
+.admin-card .grid__pager span {
+    color: var(--logoOrange);
+    font-weight: 700;
+}
+
+/*  -------------
+    ADMIN_SQL (simulation, templates, results)
+    ------------- */
+
+.admin-card .sql-warning {
+    margin: 0 0 1rem;
+    padding: 0.75rem 1rem;
+    background: #fff4e5;
+    border: 1px solid var(--logoOrange);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.admin-card .sql-shortcuts {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+}
+
+.admin-card .sql-shortcuts .button {
+    width: auto;
+}
+
+.admin-card .sql-box {
+    font-family: Consolas, 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+.admin-card .sql-actions {
+    align-items: center;
+}
+
+.admin-card .sql-simulation {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.admin-card .sql-password {
+    max-width: 22rem;
+    margin-top: 1rem;
+}
+
+.admin-card .sql-status {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+.admin-card .sql-ok {
+    color: #14592a;
+}
+
+.admin-card .sql-error {
+    color: var(--buttonRed);
+}
+
+.admin-card .sql-note {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--logoOrange);
+}
+
+.admin-card .sql-scroll {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.admin-card .sql-null {
+    color: #999;
+}
+
+/*  ----------------------------------
+    ADMIN_USERS (table, form, own two-factor part)
+    ---------------------------------- */
+
+.admin-card.user-card {
+    margin-bottom: 1rem;
+}
+
+.admin-card .user-grid {
+    margin: 0 0 0.75rem;
+}
+
+.admin-card .user-grid th,
+.admin-card .user-grid td {
+    vertical-align: middle;
+}
+
+.admin-card .user-grid a {
+    color: var(--logoBlue);
+    font-weight: 600;
+}
+
+.admin-card .user-grid__selected td {
+    background: #eef3fb;
+}
+
+.admin-card .user-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem 2rem;
+}
+
+@media screen and (max-width: 700px) {
+    .admin-card .user-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+.admin-card .user-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.admin-card .user-tfa {
+    min-height: 2.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.user-section {
+    margin: 1.8rem 0 0.4rem;
+    font-size: 1.25rem;
     color: var(--logoBlue);
 }

@@ -20,7 +20,7 @@
         toast.className = 'toast toast--' + type;
 
         var icon = document.createElement('i');
-        icon.className = 'toast__icon fas ' + (type === 'success' ? 'fa-circle-check' : 'fa-circle-exclamation');
+        icon.className = 'toast__icon ic ' + (type === 'success' ? 'ic-circle-check' : 'ic-circle-exclamation');
         icon.setAttribute('aria-hidden', 'true');
 
         var text = document.createElement('span');

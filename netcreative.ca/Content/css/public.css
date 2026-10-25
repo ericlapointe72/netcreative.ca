@@ -1,4 +1,4 @@
-﻿/*  -----------------
+/*  -----------------
     COMMON PROPERTIES
     ----------------- */
 
@@ -462,6 +462,14 @@
     text-align: center;
 }
 
+.contact__container .card__verify-help {
+    display: block;
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: #5b6b86;
+}
+
 .contact__container .button {
     margin-top: 2rem;
 }
@@ -918,7 +926,8 @@
 }
 
 .contact__container .card.login__card .card__user,
-.contact__container .card.login__card .card__password {
+.contact__container .card.login__card .card__password,
+.contact__container .card.login__card .card__code {
     display: flex;
     align-items: center;
     gap: 0.6rem;
@@ -934,12 +943,14 @@
 }
 
 .contact__container .card.login__card .tb__user,
-.contact__container .card.login__card .tb__pass {
+.contact__container .card.login__card .tb__pass,
+.contact__container .card.login__card .tb__code {
     flex: 1;
 }
 
 .contact__container .card.login__card .lbl__user,
-.contact__container .card.login__card .lbl__pass {
+.contact__container .card.login__card .lbl__pass,
+.contact__container .card.login__card .lbl__code {
     position: absolute;
     pointer-events: none;
     font-size: 1.1rem;
@@ -953,13 +964,29 @@
 .contact__container .card.login__card .tb__user:focus ~ .lbl__user,
 .contact__container .card.login__card .tb__user:valid ~ .lbl__user,
 .contact__container .card.login__card .tb__pass:focus ~ .lbl__pass,
-.contact__container .card.login__card .tb__pass:valid ~ .lbl__pass {
+.contact__container .card.login__card .tb__pass:valid ~ .lbl__pass,
+.contact__container .card.login__card .tb__code:focus ~ .lbl__code,
+.contact__container .card.login__card .tb__code:valid ~ .lbl__code {
     font-size: 0.8rem;
     font-weight: 500;
     letter-spacing: 0.02em;
     color: var(--logoOrange);
     top: -0.7rem;
     left: 1.6rem;
+}
+
+.contact__container .card.login__card .card__user[hidden],
+.contact__container .card.login__card .card__password[hidden],
+.contact__container .card.login__card .card__code[hidden],
+.contact__container .card.login__card .login__hint[hidden] {
+    display: none;
+}
+
+.contact__container .card.login__card .login__hint {
+    margin: 0.75rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    opacity: 0.85;
 }
 
 .contact__container .card.login__card .button {
@@ -1013,7 +1040,7 @@
     text-decoration: underline;
 }
 
-.privacy__container .fa-square {
+.privacy__container .ic-square {
     text-align:center;
     margin-top: 0.25rem;
     color: var(--logoBlue);
@@ -1031,6 +1058,34 @@
 .unsubscribe__container .label__unsubscribe {
     color: var(--logoOrange);
     font-size: 0.9rem;
+}
+
+.unsubscribe__container .card + .card {
+    margin-top: 1rem;
+}
+
+.unsubscribe__container .unsubscribe__text {
+    display: block;
+    margin-bottom: 1.2rem;
+    font-size: var(--textSize);
+    color: var(--textBlack);
+}
+
+.unsubscribe__container .unsubscribe__back {
+    display: inline-block;
+    width: auto;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* the field only a robot fills (newsletter box, contact form): out of the page, still in the form */
+.hp-field {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
 }
 
 /*  ------------------

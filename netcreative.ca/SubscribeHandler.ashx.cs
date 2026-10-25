@@ -1,8 +1,5 @@
 using System;
 using System.Configuration;
-using System.Data.SqlClient;
-using System.Net.Mail;
-using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.SessionState;
@@ -10,112 +7,87 @@ using netcreative.ca.Resources;
 
 namespace netcreative.ca
 {
-    public class SubscribeHandler : IHttpHandler, IRequiresSessionState
+    // The newsletter box of the footer, called in the background by subscribe.js. It answers { success, message } in the language of the
+    // visitor. Like beaucedutyfree.com: a double confirmation (the address only receives the newsletter after its owner clicked the link
+    // of the e-mail the site sends to it), a hidden field and a stamp that only a robot gets wrong, and limits per hour.
+    public class SubscribeHandler : IHttpHandler, IReadOnlySessionState
     {
-        private string connectionString = string.Empty;
-
         public bool IsReusable => false;
 
         public void ProcessRequest(HttpContext context)
         {
-            Global.SetCulture(context.Session["language"].ToString());
-            connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            context.Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            context.Response.Cache.SetNoStore();
+            context.Response.ContentType = "application/json; charset=utf-8";
 
-            string email = context.Request.Form["email"] ?? string.Empty;
-
-            bool success = false;
-            string message = string.Empty;
-
-            Regex regex = new Regex(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", RegexOptions.CultureInvariant | RegexOptions.Singleline);
-
-            if (!regex.IsMatch(email))
+            // only the site's own script calls this (a custom header cannot be added by another site)
+            bool fromSite = string.Equals(context.Request.HttpMethod, "POST", StringComparison.OrdinalIgnoreCase)
+                            && context.Request.Headers["X-Requested-With"] == "fetch";
+            if (!fromSite)
             {
-                message = Global.Master_SubscribeErrorInvalid;
-            }
-            else
-            {
-                try
-                {
-                    using (SqlConnection connection = new SqlConnection(connectionString))
-                    {
-                        connection.Open();
-
-                        string existsCommand = "SELECT * FROM SUBSCRIBE WHERE EMAIL=@EMAIL";
-
-                        using (SqlCommand cmd = new SqlCommand(existsCommand, connection))
-                        {
-                            cmd.Parameters.AddWithValue("@EMAIL", email);
-
-                            using (SqlDataReader dr = cmd.ExecuteReader())
-                            {
-                                if (dr.HasRows)
-                                {
-                                    message = Global.Master_SubscribeErrorExists;
-                                }
-                            }
-                        }
-
-                        if (string.IsNullOrEmpty(message))
-                        {
-                            string insertCommand = "INSERT INTO SUBSCRIBE (DATE, TIME, IP_ADDRESS, EMAIL) VALUES (@DATE, @TIME, @IP_ADDRESS, @EMAIL)";
-
-                            using (SqlCommand cmd = new SqlCommand(insertCommand, connection))
-                            {
-                                cmd.Parameters.AddWithValue("@DATE", DateTime.Now.Date);
-                                cmd.Parameters.AddWithValue("@TIME", DateTime.Now.TimeOfDay);
-                                cmd.Parameters.AddWithValue("@IP_ADDRESS", User_IP.Get_UserIP());
-                                cmd.Parameters.AddWithValue("@EMAIL", email);
-
-                                cmd.ExecuteNonQuery();
-                            }
-
-                            success = true;
-                            message = Global.Master_SubscribeDone;
-
-                            // resolved on this thread, where Global.SetCulture() above has
-                            // already set the right culture - the background thread below
-                            // has no culture context of its own, so this can't be looked up
-                            // lazily inside SendNotificationEmail() or it silently falls back
-                            // to the server's default culture instead of the visitor's
-                            string mailSubject = Global.Master_MailSubjectNewSubscriber;
-                            string mailBody = Global.Master_MailBodyNewSubscriber;
-
-                            // fire-and-forget: this is just an FYI notification to the site
-                            // owner, the subscription itself is already safely stored above
-                            System.Threading.Tasks.Task.Run(() => SendNotificationEmail(mailSubject, mailBody));
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    message = ex.Message;
-                }
+                context.Response.StatusCode = 400;
+                return;
             }
 
-            context.Response.ContentType = "application/json";
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            context.Response.Write(serializer.Serialize(new { success, message }));
-        }
+            string language = context.Session == null ? null : context.Session["language"] as string;
+            Global.SetCulture(string.IsNullOrEmpty(language) ? (ConfigurationManager.AppSettings["app_language"] ?? "fr") : language);
 
-        private void SendNotificationEmail(string mailSubject, string mailBody)
-        {
+            // the hidden field a person never fills: a robot does. It gets the same answer as a success.
+            if (!string.IsNullOrWhiteSpace(context.Request.Form["subscribe_website"]))
+            {
+                Answer(context, true, Global.Text("Sub_Pending"));
+                return;
+            }
+
+            string email = (context.Request.Form["email"] ?? string.Empty).Trim().ToLowerInvariant();
+
+            if (email.Length == 0 || email.Length > 254 || !EmailAddressCheck.IsValid(email))
+            {
+                Answer(context, false, Global.Master_SubscribeErrorInvalid);
+                return;
+            }
+
+            // the stamp the form carries (see FormTimer): a robot that posts at once, or that never loaded the page, fails here
+            FormTimer.Verdict timing = FormTimer.Check(context.Request.Form["ts"], 3);
+            if (timing == FormTimer.Verdict.Invalid)
+            {
+                Answer(context, false, Global.Text("Sub_Reload"));
+                return;
+            }
+
+            // a robot's address or a robot's speed: the same answer as a success, and nothing is kept or sent
+            if (timing == FormTimer.Verdict.TooFast || EmailAddressCheck.LooksGenerated(email))
+            {
+                Answer(context, true, Global.Text("Sub_Pending"));
+                return;
+            }
+
             try
             {
-                SmtpClient smtpClient = new SmtpClient(ConfigurationManager.AppSettings["smtp_host"], Convert.ToInt32(ConfigurationManager.AppSettings["smtp_port"]));
-                smtpClient.Credentials = new System.Net.NetworkCredential(ConfigurationManager.AppSettings["smtp_user"], ConfigurationManager.AppSettings["smtp_password"]);
-                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-
-                MailMessage mail = new MailMessage();
-                mail.From = new MailAddress(ConfigurationManager.AppSettings["smtp_user"], "Net.Créative.ca");
-                mail.To.Add(new MailAddress(ConfigurationManager.AppSettings["smtp_user"]));
-                mail.Subject = mailSubject;
-                mail.Body = mailBody;
-
-                smtpClient.Send(mail);
+                switch (SubscribeService.Subscribe(email, User_IP.Get_UserIP()))
+                {
+                    case SubscribeResult.Already:
+                        Answer(context, false, Global.Master_SubscribeErrorExists);
+                        break;
+                    case SubscribeResult.TooMany:
+                        Answer(context, false, Global.Text("Sub_TooMany"));
+                        break;
+                    default:
+                        Answer(context, true, Global.Text("Sub_Pending"));
+                        break;
+                }
             }
-            catch
+            catch (Exception ex)
             {
+                // the details go to the error log (App_Data\logs), never to the visitor
+                ErrorLogger.Log(ex, "newsletter sign-up");
+                Answer(context, false, Global.Text("Sub_Error"));
             }
+        }
+
+        private static void Answer(HttpContext context, bool success, string message)
+        {
+            context.Response.Write(new JavaScriptSerializer().Serialize(new { success, message }));
         }
     }
 }

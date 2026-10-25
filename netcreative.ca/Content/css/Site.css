@@ -642,6 +642,47 @@ footer {
     filter: none;
 }
 
+/* the place of the map until the visitor asks for it (see map.js) */
+.foot__map-box {
+    width: 100%;
+    min-height: 220px;
+    padding: 0 2rem 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    text-align: center;
+    color: var(--menuText);
+}
+
+.foot__map-address {
+    font-style: normal;
+    line-height: 1.4;
+}
+
+.foot__map-button {
+    width: auto;
+    padding: 0.6rem 1.2rem;
+}
+
+.foot__map-note,
+.foot__map-link,
+.foot__subscribe-consent {
+    font-size: 0.75rem;
+    line-height: 1.35;
+    color: var(--logoSilver);
+}
+
+.foot__map-link {
+    text-decoration: underline;
+}
+
+.foot__subscribe-consent {
+    display: block;
+    padding-top: 0.25rem;
+}
+
 .foot__title {
     margin: 0 0 1rem 0;
     font-size: 0.8rem;
@@ -805,4 +846,21 @@ footer {
 .cookie__button--secondary:hover {
     background-color: rgba(255, 255, 255, 0.15);
     box-shadow: none;
+}
+
+/* "Skip to content": the first thing a keyboard or screen reader user reaches, only visible when it has the focus */
+.skip-link {
+    position: absolute;
+    left: -10000px;
+    top: 0;
+    z-index: 10000;
+    padding: 0.75rem 1.25rem;
+    font-weight: 600;
+    color: #1c1c1e;
+    background: #fff;
+    border-radius: 0 0 0.5rem 0;
+}
+
+.skip-link:focus {
+    left: 0;
 }

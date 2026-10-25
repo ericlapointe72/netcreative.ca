@@ -1,20 +1,40 @@
 using System;
+using System.Collections.Generic;
 using System.Configuration;
-using System.Data.SqlClient;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Web;
+using System.Web.UI.WebControls;
 using netcreative.ca.Resources;
 
 namespace netcreative.ca
 {
     public partial class Opening : System.Web.UI.Page
     {
+        // what the page gives the Repeater for one day (public properties, so that Eval can read them)
+        private class DayRow
+        {
+            public string Name { get; set; }
+            public bool Open { get; set; }
+            public string From { get; set; }
+            public string To { get; set; }
+        }
+
+        // 8, 8:30, 08:30, 8h30, 8 h 30, 08:30:00 (what the time box of a browser sends, or what is typed in one that has no time picker)
+        private static readonly Regex TimePattern = new Regex(@"^(\d{1,2})\s*(?:[:hH]\s*(\d{1,2})?)?(?::\d{1,2})?$", RegexOptions.Compiled);
+
         private string connectionString = string.Empty;
-        private string opening_message_save = string.Empty;
+
+        // the preview follows the language of the admin, like the footer of the site follows the visitor's
+        protected bool PreviewEnglish
+        {
+            get { return (Session["language"] as string) == "en"; }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
             Button_Opening_Save.Text = Global.Admin_SaveButton;
-            opening_message_save = Global.Admin_OpeningSavedSuccess;
 
             if (!IsPostBack)
             {
@@ -26,176 +46,160 @@ namespace netcreative.ca
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                OpeningDay[] days = OpeningHours.Load(connectionString);
+
+                // a closed day suggests the hours of the first open day (9:00 to 17:00 when none is open), so that ticking "Open"
+                // does not start with empty boxes
+                int suggestedFrom = 9 * 60;
+                int suggestedTo = 17 * 60;
+
+                foreach (OpeningDay day in days)
                 {
-                    string sqlCommand = "SELECT * FROM OPENING WHERE OPEN_CLOSE=@OPEN_CLOSE";
-
-                    connection.Open();
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
+                    if (day.Open)
                     {
-                        cmd.Parameters.AddWithValue("@OPEN_CLOSE", "OPEN_HOUR");
-
-                        using (SqlDataReader dr = cmd.ExecuteReader())
-                        {
-                            dr.Read();
-                            mon_oh.Text = dr["MON"].ToString();
-                            tue_oh.Text = dr["TUE"].ToString();
-                            wed_oh.Text = dr["WED"].ToString();
-                            thu_oh.Text = dr["THU"].ToString();
-                            fri_oh.Text = dr["FRI"].ToString();
-                            sat_oh.Text = dr["SAT"].ToString();
-                            sun_oh.Text = dr["SUN"].ToString();
-                        }
+                        suggestedFrom = day.OpensAt;
+                        suggestedTo = day.ClosesAt;
+                        break;
                     }
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@OPEN_CLOSE", "OPEN_MIN");
-
-                        using (SqlDataReader dr = cmd.ExecuteReader())
-                        {
-                            dr.Read();
-                            mon_om.Text = dr["MON"].ToString();
-                            tue_om.Text = dr["TUE"].ToString();
-                            wed_om.Text = dr["WED"].ToString();
-                            thu_om.Text = dr["THU"].ToString();
-                            fri_om.Text = dr["FRI"].ToString();
-                            sat_om.Text = dr["SAT"].ToString();
-                            sun_om.Text = dr["SUN"].ToString();
-                        }
-                    }
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@OPEN_CLOSE", "CLOSE_HOUR");
-
-                        using (SqlDataReader dr = cmd.ExecuteReader())
-                        {
-                            dr.Read();
-                            mon_ch.Text = dr["MON"].ToString();
-                            tue_ch.Text = dr["TUE"].ToString();
-                            wed_ch.Text = dr["WED"].ToString();
-                            thu_ch.Text = dr["THU"].ToString();
-                            fri_ch.Text = dr["FRI"].ToString();
-                            sat_ch.Text = dr["SAT"].ToString();
-                            sun_ch.Text = dr["SUN"].ToString();
-                        }
-                    }
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@OPEN_CLOSE", "CLOSE_MIN");
-
-                        using (SqlDataReader dr = cmd.ExecuteReader())
-                        {
-                            dr.Read();
-                            mon_cm.Text = dr["MON"].ToString();
-                            tue_cm.Text = dr["TUE"].ToString();
-                            wed_cm.Text = dr["WED"].ToString();
-                            thu_cm.Text = dr["THU"].ToString();
-                            fri_cm.Text = dr["FRI"].ToString();
-                            sat_cm.Text = dr["SAT"].ToString();
-                            sun_cm.Text = dr["SUN"].ToString();
-                        }
-                    }
-
-                    connection.Close();
                 }
+
+                var rows = new List<DayRow>();
+
+                for (int d = 0; d < days.Length; d++)
+                {
+                    rows.Add(new DayRow
+                    {
+                        Name = OpeningHours.DayName(d),
+                        Open = days[d].Open,
+                        From = TimeBox(days[d].Open ? days[d].OpensAt : suggestedFrom),
+                        To = TimeBox(days[d].Open ? days[d].ClosesAt : suggestedTo)
+                    });
+                }
+
+                Repeater_Days.DataSource = rows;
+                Repeater_Days.DataBind();
+
+                ShowPreview(days);
             }
             catch (Exception ex)
             {
-                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
+                Fail(ex);
             }
         }
 
+        // the lines of the footer as the visitors read them now (the page's script keeps them up to date while the boxes change)
+        private void ShowPreview(OpeningDay[] days)
+        {
+            var html = new StringBuilder();
+
+            for (int d = 0; d < days.Length; d++)
+            {
+                html.Append("<div class=\"opening-preview__line\">")
+                    .Append(HttpUtility.HtmlEncode(OpeningHours.Line(d, days[d], PreviewEnglish)))
+                    .Append("</div>");
+            }
+
+            Literal_Preview.Text = html.ToString();
+        }
+
+        // 510 -> "08:30", the value of a time box
+        private static string TimeBox(int minutes)
+        {
+            return (minutes / 60).ToString("00") + ":" + (minutes % 60).ToString("00");
+        }
+
+        // the text of a time box -> minutes after midnight, or -1 when it is not a time
+        private static int ParseTime(string text)
+        {
+            Match match = TimePattern.Match((text ?? string.Empty).Trim());
+            if (!match.Success)
+            {
+                return -1;
+            }
+
+            int hour = int.Parse(match.Groups[1].Value);
+            int minute = match.Groups[2].Success ? int.Parse(match.Groups[2].Value) : 0;
+
+            return hour > 23 || minute > 59 ? -1 : hour * 60 + minute;
+        }
+
+        // Every open day is checked first, then all seven are saved together. A closed day keeps no hour of its own.
+        // The shop cannot open at 0:xx: in the table an opening hour of 0 is what says "closed".
         private void Opening_Save()
         {
-            try
+            if (Repeater_Days.Items.Count != OpeningHours.DayCount)
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                AdminUi.Toast(this, Global.Text("Admin_Error"), false);
+                return;
+            }
+
+            var days = new OpeningDay[OpeningHours.DayCount];
+
+            foreach (RepeaterItem item in Repeater_Days.Items)
+            {
+                int d = item.ItemIndex;
+                string name = OpeningHours.DayName(d);
+
+                days[d] = new OpeningDay { Open = ((CheckBox)item.FindControl("CheckBox_Open")).Checked };
+
+                if (!days[d].Open)
                 {
-                    string sqlCommand1 = "UPDATE OPENING SET MON=@MON, TUE=@TUE, WED=@WED, THU=@THU, FRI=@FRI, SAT=@SAT, SUN=@SUN WHERE OPEN_CLOSE='OPEN_HOUR'";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand1, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@MON", mon_oh.Text);
-                        cmd.Parameters.AddWithValue("@TUE", tue_oh.Text);
-                        cmd.Parameters.AddWithValue("@WED", wed_oh.Text);
-                        cmd.Parameters.AddWithValue("@THU", thu_oh.Text);
-                        cmd.Parameters.AddWithValue("@FRI", fri_oh.Text);
-                        cmd.Parameters.AddWithValue("@SAT", sat_oh.Text);
-                        cmd.Parameters.AddWithValue("@SUN", sun_oh.Text);
-
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-                    }
-
-                    string sqlCommand2 = "UPDATE OPENING SET MON=@MON, TUE=@TUE, WED=@WED, THU=@THU, FRI=@FRI, SAT=@SAT, SUN=@SUN WHERE OPEN_CLOSE='OPEN_MIN'";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand2, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@MON", string.Format("{0:00}", Convert.ToInt32(mon_om.Text)));
-                        cmd.Parameters.AddWithValue("@TUE", string.Format("{0:00}", Convert.ToInt32(tue_om.Text)));
-                        cmd.Parameters.AddWithValue("@WED", string.Format("{0:00}", Convert.ToInt32(wed_om.Text)));
-                        cmd.Parameters.AddWithValue("@THU", string.Format("{0:00}", Convert.ToInt32(thu_om.Text)));
-                        cmd.Parameters.AddWithValue("@FRI", string.Format("{0:00}", Convert.ToInt32(fri_om.Text)));
-                        cmd.Parameters.AddWithValue("@SAT", string.Format("{0:00}", Convert.ToInt32(sat_om.Text)));
-                        cmd.Parameters.AddWithValue("@SUN", string.Format("{0:00}", Convert.ToInt32(sun_om.Text)));
-
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-                    }
-
-                    string sqlCommand3 = "UPDATE OPENING SET MON=@MON, TUE=@TUE, WED=@WED, THU=@THU, FRI=@FRI, SAT=@SAT, SUN=@SUN WHERE OPEN_CLOSE='CLOSE_HOUR'";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand3, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@MON", mon_ch.Text);
-                        cmd.Parameters.AddWithValue("@TUE", tue_ch.Text);
-                        cmd.Parameters.AddWithValue("@WED", wed_ch.Text);
-                        cmd.Parameters.AddWithValue("@THU", thu_ch.Text);
-                        cmd.Parameters.AddWithValue("@FRI", fri_ch.Text);
-                        cmd.Parameters.AddWithValue("@SAT", sat_ch.Text);
-                        cmd.Parameters.AddWithValue("@SUN", sun_ch.Text);
-
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-                    }
-
-                    string sqlCommand4 = "UPDATE OPENING SET MON=@MON, TUE=@TUE, WED=@WED, THU=@THU, FRI=@FRI, SAT=@SAT, SUN=@SUN WHERE OPEN_CLOSE='CLOSE_MIN'";
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCommand4, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@MON", string.Format("{0:00}", Convert.ToInt32(mon_cm.Text)));
-                        cmd.Parameters.AddWithValue("@TUE", string.Format("{0:00}", Convert.ToInt32(tue_cm.Text)));
-                        cmd.Parameters.AddWithValue("@WED", string.Format("{0:00}", Convert.ToInt32(wed_cm.Text)));
-                        cmd.Parameters.AddWithValue("@THU", string.Format("{0:00}", Convert.ToInt32(thu_cm.Text)));
-                        cmd.Parameters.AddWithValue("@FRI", string.Format("{0:00}", Convert.ToInt32(fri_cm.Text)));
-                        cmd.Parameters.AddWithValue("@SAT", string.Format("{0:00}", Convert.ToInt32(sat_cm.Text)));
-                        cmd.Parameters.AddWithValue("@SUN", string.Format("{0:00}", Convert.ToInt32(sun_cm.Text)));
-
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-                    }
+                    continue;
                 }
 
-                Response.Write("<script>showToast('" + opening_message_save + "', 'success');</script>");
+                days[d].OpensAt = ParseTime(((TextBox)item.FindControl("TextBox_From")).Text);
+                days[d].ClosesAt = ParseTime(((TextBox)item.FindControl("TextBox_To")).Text);
+
+                if (days[d].OpensAt < 0 || days[d].ClosesAt < 0)
+                {
+                    AdminUi.Toast(this, Global.Format(Global.Text("Admin_OpeningInvalid"), name), false);
+                    return;
+                }
+
+                if (days[d].OpensAt < 60)
+                {
+                    AdminUi.Toast(this, Global.Format(Global.Text("Opening_EarlyOpen"), name), false);
+                    return;
+                }
+
+                if (days[d].ClosesAt <= days[d].OpensAt)
+                {
+                    AdminUi.Toast(this, Global.Format(Global.Text("Admin_OpeningOrder"), name), false);
+                    return;
+                }
+            }
+
+            try
+            {
+                OpeningHours.Save(connectionString, days);
+
+                var detail = new StringBuilder();
+                for (int d = 0; d < days.Length; d++)
+                {
+                    detail.Append(d == 0 ? string.Empty : ", ").Append(d + 1).Append("=")
+                        .Append(days[d].Open ? TimeBox(days[d].OpensAt) + "-" + TimeBox(days[d].ClosesAt) : "closed");
+                }
+
+                AdminAudit.Write("Opening hours changed", "days 1 (Monday) to 7: " + detail);
+                Opening_Load();
+                AdminUi.Toast(this, Global.Admin_OpeningSavedSuccess, true);
             }
             catch (Exception ex)
             {
-                Response.Write("<script>showToast('" + ex.Message + "', 'error');</script>");
+                Fail(ex);
             }
+        }
+
+        // the details go to the error log (App_Data\logs), never to the browser
+        private void Fail(Exception ex)
+        {
+            ErrorLogger.Log(ex, "opening hours page");
+            AdminUi.Toast(this, Global.Text("Admin_Error"), false);
         }
 
         protected void Button_Opening_Save_Click(object sender, EventArgs e)
         {
             Opening_Save();
-            Opening_Load();
         }
     }
 }

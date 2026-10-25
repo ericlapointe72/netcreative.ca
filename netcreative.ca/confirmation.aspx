@@ -10,10 +10,10 @@
 
     <div class="contact__container">
         <div class="card confirmation__card">
-            <i class="fas fa-circle-check confirmation__icon"></i>
-            <h1 class="confirmation__title"><%: Global.Confirmation_Heading %></h1>
+            <i class="ic ic-circle-check confirmation__icon" aria-hidden="true"></i>
+            <h2 class="confirmation__title"><%: Global.Confirmation_Heading %></h2>
             <span class="confirmation__text"><%: Global.Confirmation_Text %></span>
-            <a class="button" href="/default.aspx"><%: Global.Confirmation_BackButton %></a>
+            <a class="button" href="/"><%: Global.Confirmation_BackButton %></a>
         </div>
     </div>
 

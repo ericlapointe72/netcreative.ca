@@ -15,18 +15,13 @@ namespace netcreative.ca
     {
 
         /// <summary>
+        /// Label_Subscribe_Info control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label Label_Subscribe_Info;
+
+        /// <summary>
         /// GridView_Subscribe control.
         /// </summary>
         protected global::System.Web.UI.WebControls.GridView GridView_Subscribe;
-
-        /// <summary>
-        /// TextBox_Subscriber_Delete control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Subscriber_Delete;
-
-        /// <summary>
-        /// Button_Subscriber_Delete control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.Button Button_Subscriber_Delete;
     }
 }

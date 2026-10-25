@@ -51,15 +51,6 @@ namespace netcreative.ca.MasterPages
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl PageHero;
 
         /// <summary>
-        /// Contrôle LinkButton_Logo.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton_Logo;
-
-        /// <summary>
         /// Contrôle Image_Login.
         /// </summary>
         /// <remarks>
@@ -211,15 +202,6 @@ namespace netcreative.ca.MasterPages
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox_Subscribe;
-
-        /// <summary>
-        /// Contrôle LinkButton_Privacy.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton_Privacy;
 
         /// <summary>
         /// Contrôle Panel_CookieWarning.

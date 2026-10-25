@@ -25,6 +25,20 @@ namespace netcreative.ca
             }
         }
 
+        protected global::System.Web.UI.WebControls.Panel Panel_Confirm;
+
+        protected global::System.Web.UI.WebControls.Literal Literal_ConfirmText;
+
+        protected global::System.Web.UI.WebControls.Button Button_Confirm;
+
+        protected global::System.Web.UI.WebControls.HiddenField HiddenField_Token;
+
+        protected global::System.Web.UI.WebControls.Panel Panel_Message;
+
+        protected global::System.Web.UI.WebControls.Literal Literal_Message;
+
+        protected global::System.Web.UI.WebControls.Panel Panel_Form;
+
         /// <summary>
         /// TextBox_Unsubscribe control.
         /// </summary>

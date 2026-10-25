@@ -202,7 +202,7 @@
     <value>Custom responsive website design, hosting in Canada and SEO: a website built to turn your visitors into customers.</value>
   </data>
   <data name="Contact_Description" xml:space="preserve">
-    <value>Describe your website or application project and we'll get back to you quickly.</value>
+    <value>Tell us about your website, web application or DutyFreeOps project: describe it in a few lines and we will get back to you quickly.</value>
   </data>
   <data name="Privacy_Description" xml:space="preserve">
     <value>Net.Créative privacy policy: how we collect, use and protect your personal information.</value>
@@ -355,7 +355,7 @@
     <value>Go to photo %d</value>
   </data>
   <data name="Boutique_Title" xml:space="preserve">
-    <value>Boutique Hors Taxes de la Beauce</value>
+    <value>Boutique Hors Taxes de la Beauce – Duty-Free Shop</value>
   </data>
   <data name="Boutique_HeroEyebrow" xml:space="preserve">
     <value>Retail</value>
@@ -598,7 +598,7 @@
     <value>The more clearly you define your objective, the better the result will be and the lower the price will be.</value>
   </data>
   <data name="Contact_Title" xml:space="preserve">
-    <value>Join us</value>
+    <value>Contact us</value>
   </data>
   <data name="Contact_HeroEyebrow" xml:space="preserve">
     <value>Contact</value>
@@ -681,9 +681,6 @@
   <data name="Contact_VerifyLabel" xml:space="preserve">
     <value>Verification question</value>
   </data>
-  <data name="Contact_QuestionImage" xml:space="preserve">
-    <value>Content/images/site/question_en.png</value>
-  </data>
   <data name="Contact_SendButton" xml:space="preserve">
     <value>Send</value>
   </data>
@@ -692,6 +689,258 @@
   </data>
   <data name="Contact_EmailError" xml:space="preserve">
     <value>Please enter a valid email address.</value>
+  </data>
+  <data name="Contact_SendFailed" xml:space="preserve">
+    <value>Your message could not be sent. Please try again in a moment.</value>
+  </data>
+  <data name="Master_SkipToContent" xml:space="preserve">
+    <value>Skip to content</value>
+  </data>
+  <data name="Master_AltMail" xml:space="preserve">
+    <value>E-mail Net.Créative</value>
+  </data>
+  <data name="Master_AltPhone" xml:space="preserve">
+    <value>Call Net.Créative</value>
+  </data>
+  <data name="Master_AltLogin" xml:space="preserve">
+    <value>Administration sign-in</value>
+  </data>
+  <data name="Home_FacebookAlt" xml:space="preserve">
+    <value>Net.Créative on Facebook (new tab)</value>
+  </data>
+  <data name="Home_CarouselAlt1" xml:space="preserve">
+    <value>Paper sketches of web page layouts with sticky notes</value>
+  </data>
+  <data name="Home_CarouselAlt2" xml:space="preserve">
+    <value>Source code on the screen of a laptop</value>
+  </data>
+  <data name="Home_CarouselAlt3" xml:space="preserve">
+    <value>Someone sketching the plan of a site on a whiteboard</value>
+  </data>
+  <data name="Home_CarouselAlt4" xml:space="preserve">
+    <value>Hand-drawn wireframe of a web page</value>
+  </data>
+  <data name="Home_CarouselAlt5" xml:space="preserve">
+    <value>Blurred, glowing lines of code on a screen</value>
+  </data>
+  <data name="Home_CarouselAlt6" xml:space="preserve">
+    <value>Open notebook with sketches of an application</value>
+  </data>
+  <data name="Map_Show" xml:space="preserve">
+    <value>Show the map</value>
+  </data>
+  <data name="Map_Note" xml:space="preserve">
+    <value>The map is provided by Google: showing it sends your IP address to Google.</value>
+  </data>
+  <data name="Map_Open" xml:space="preserve">
+    <value>Open in Google Maps</value>
+  </data>
+  <data name="Map_Title" xml:space="preserve">
+    <value>Map: Net.Créative, Saint-Georges</value>
+  </data>
+  <data name="BackToTop" xml:space="preserve">
+    <value>Top of the page</value>
+  </data>
+  <data name="Master_SubscribeConsent" xml:space="preserve">
+    <value>By subscribing, you agree to receive the Net.Créative newsletter. You can unsubscribe at any time.</value>
+  </data>
+  <data name="Priv_Updated" xml:space="preserve">
+    <value>Last updated: October 23, 2026</value>
+  </data>
+  <data name="Priv_T1" xml:space="preserve">
+    <value>Who we are</value>
+  </data>
+  <data name="Priv_P1" xml:space="preserve">
+    <value>The netcreative.ca site is run by Net.Créative (Éric Lapointe), 2845, 208e Rue, Saint-Georges (Québec) G5Y 5B8. Éric Lapointe is the person in charge of the protection of personal information: &lt;a class=&quot;card__bullet-hov&quot; href=&quot;mailto:contact@netcreative.ca&quot;&gt;contact@netcreative.ca&lt;/a&gt; or &lt;a class=&quot;card__bullet-hov&quot; href=&quot;tel:4182269087&quot;&gt;418 226-9087&lt;/a&gt;.</value>
+  </data>
+  <data name="Priv_T2" xml:space="preserve">
+    <value>What we collect, and why</value>
+  </data>
+  <data name="Priv_P2" xml:space="preserve">
+    <value>We only collect what you give us in a form, and what the site needs to work safely.</value>
+  </data>
+  <data name="Priv_B1" xml:space="preserve">
+    <value>Contact form: name, first name, e-mail, phone, company and description of your project, to answer your request.</value>
+  </data>
+  <data name="Priv_B2" xml:space="preserve">
+    <value>Newsletter: your e-mail, to send you the newsletter once your subscription is confirmed by e-mail. Every newsletter has a link to unsubscribe.</value>
+  </data>
+  <data name="Priv_B3" xml:space="preserve">
+    <value>For both forms: your IP address and the date and time of the submission, to protect the site against abuse and spam.</value>
+  </data>
+  <data name="Priv_P3" xml:space="preserve">
+    <value>We use no analytics or advertising tool, and we do not sell or rent your information.</value>
+  </data>
+  <data name="Priv_T3" xml:space="preserve">
+    <value>Cookies</value>
+  </data>
+  <data name="Priv_P4" xml:space="preserve">
+    <value>The site only uses two cookies, both needed for it to work:</value>
+  </data>
+  <data name="Priv_B4" xml:space="preserve">
+    <value>A session cookie (ASP.NET_SessionId) remembers your language and makes the forms and the anti-spam check work. It disappears when you close the browser.</value>
+  </data>
+  <data name="Priv_B5" xml:space="preserve">
+    <value>The netcreative_cookie_consent cookie remembers your answer to the cookie notice, for six months.</value>
+  </data>
+  <data name="Priv_T4" xml:space="preserve">
+    <value>Third-party services</value>
+  </data>
+  <data name="Priv_P5" xml:space="preserve">
+    <value>The fonts and the icons of the site are hosted on the site itself: none is loaded from another site.</value>
+  </data>
+  <data name="Priv_B6" xml:space="preserve">
+    <value>Map: the map in the footer is provided by Google Maps. It only loads if you click &quot;Show the map&quot; or have accepted cookies; Google then receives your IP address and handles it under its own policy.</value>
+  </data>
+  <data name="Priv_B7" xml:space="preserve">
+    <value>Hosting and e-mail: the site, its database and the sending of e-mails (confirmation, newsletter, replies) rely on our host, which only has access to your information to run the service.</value>
+  </data>
+  <data name="Priv_T5" xml:space="preserve">
+    <value>How long we keep it</value>
+  </data>
+  <data name="Priv_B8" xml:space="preserve">
+    <value>Contact messages: as long as needed to answer and follow up on your request, at most 24 months after the last exchange.</value>
+  </data>
+  <data name="Priv_B9" xml:space="preserve">
+    <value>Newsletter: until you unsubscribe. An address that was never confirmed is erased after 30 days.</value>
+  </data>
+  <data name="Priv_T6" xml:space="preserve">
+    <value>Your rights</value>
+  </data>
+  <data name="Priv_P6" xml:space="preserve">
+    <value>You can ask at any time to see your information, to have it corrected or deleted, and withdraw your consent to receive the newsletter (with the link in each newsletter or by writing to us). We answer within 30 days.</value>
+  </data>
+  <data name="Priv_P7" xml:space="preserve">
+    <value>Write to us at &lt;a class=&quot;card__bullet-hov&quot; href=&quot;mailto:contact@netcreative.ca&quot;&gt;contact@netcreative.ca&lt;/a&gt; or call &lt;a class=&quot;card__bullet-hov&quot; href=&quot;tel:4182269087&quot;&gt;418 226-9087&lt;/a&gt;. If our answer does not satisfy you, you can contact the Commission d’accès à l’information du Québec (&lt;a class=&quot;card__bullet-hov&quot; href=&quot;https://www.cai.gouv.qc.ca&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;cai.gouv.qc.ca&lt;/a&gt;).</value>
+  </data>
+  <data name="Priv_T7" xml:space="preserve">
+    <value>Security</value>
+  </data>
+  <data name="Priv_P8" xml:space="preserve">
+    <value>Your information is kept in a secure environment. We use, among other things:</value>
+  </data>
+  <data name="Priv_B10" xml:space="preserve">
+    <value>Encrypted connections (HTTPS)</value>
+  </data>
+  <data name="Priv_B11" xml:space="preserve">
+    <value>Restricted access with a user name, a password and two-factor sign-in</value>
+  </data>
+  <data name="Priv_B12" xml:space="preserve">
+    <value>Backup copies</value>
+  </data>
+  <data name="Priv_B13" xml:space="preserve">
+    <value>A firewall</value>
+  </data>
+  <data name="Priv_P9" xml:space="preserve">
+    <value>No system is completely secure: there is always some risk when information is sent over the Internet. In the event of a privacy incident that presents a serious risk, we will notify the people concerned and the Commission d’accès à l’information.</value>
+  </data>
+  <data name="Sub_Pending" xml:space="preserve">
+    <value>Thank you! A confirmation e-mail has just been sent to you: click the link in it to complete your subscription.</value>
+  </data>
+  <data name="Sub_TooMany" xml:space="preserve">
+    <value>Too many sign-ups in a short time. Please try again later.</value>
+  </data>
+  <data name="Sub_Reload" xml:space="preserve">
+    <value>Please reload the page, then try again.</value>
+  </data>
+  <data name="Sub_Error" xml:space="preserve">
+    <value>An error occurred. Please try again later.</value>
+  </data>
+  <data name="Sub_BackToSite" xml:space="preserve">
+    <value>Back to the site</value>
+  </data>
+  <data name="Sub_Mail_Subject" xml:space="preserve">
+    <value>Confirm your subscription to the Net.Créative newsletter</value>
+  </data>
+  <data name="Sub_Mail_Intro" xml:space="preserve">
+    <value>Somebody (you, we hope) asked to receive the Net.Créative newsletter with this address. To confirm, click the button below.</value>
+  </data>
+  <data name="Sub_Mail_Button" xml:space="preserve">
+    <value>Confirm my subscription</value>
+  </data>
+  <data name="Sub_Mail_Ignore" xml:space="preserve">
+    <value>If you did not ask for this, just ignore this message: nothing will be done.</value>
+  </data>
+  <data name="Confirm_HeroEyebrow" xml:space="preserve">
+    <value>Newsletter</value>
+  </data>
+  <data name="Confirm_H1Title" xml:space="preserve">
+    <value>Confirm your subscription</value>
+  </data>
+  <data name="Confirm_HeroText" xml:space="preserve">
+    <value>One last step before you receive our news.</value>
+  </data>
+  <data name="Confirm_Intro" xml:space="preserve">
+    <value>One last click to receive the Net.Créative newsletter:</value>
+  </data>
+  <data name="Confirm_Button" xml:space="preserve">
+    <value>Confirm my subscription</value>
+  </data>
+  <data name="Confirm_Done" xml:space="preserve">
+    <value>Thank you! Your newsletter subscription is confirmed.</value>
+  </data>
+  <data name="Confirm_Invalid" xml:space="preserve">
+    <value>This link is no longer valid (already used or expired). If you are not subscribed yet, please fill in the form at the bottom of the page again.</value>
+  </data>
+  <data name="Unsub_Confirm" xml:space="preserve">
+    <value>Do you want to unsubscribe {0} from the newsletter?</value>
+  </data>
+  <data name="Unsub_Done" xml:space="preserve">
+    <value>Your unsubscription is confirmed. You will not receive the newsletter any more.</value>
+  </data>
+  <data name="Unsub_Invalid" xml:space="preserve">
+    <value>This unsubscribe link is not valid. Use the form below to get a new link.</value>
+  </data>
+  <data name="Unsub_FormButton" xml:space="preserve">
+    <value>Send me the link</value>
+  </data>
+  <data name="Unsub_Sent" xml:space="preserve">
+    <value>If this address is subscribed, an e-mail with the unsubscribe link has just been sent to it.</value>
+  </data>
+  <data name="Unsub_Mail_Subject" xml:space="preserve">
+    <value>Unsubscribe from the Net.Créative newsletter</value>
+  </data>
+  <data name="Unsub_Mail_Intro" xml:space="preserve">
+    <value>To unsubscribe from the Net.Créative newsletter, click the button below.</value>
+  </data>
+  <data name="Unsub_Mail_Button" xml:space="preserve">
+    <value>Unsubscribe</value>
+  </data>
+  <data name="Unsub_Mail_Ignore" xml:space="preserve">
+    <value>If you did not ask for this, just ignore this message: you stay subscribed.</value>
+  </data>
+  <data name="Contact_Reload" xml:space="preserve">
+    <value>The form has expired. Reload the page, then try again.</value>
+  </data>
+  <data name="Contact_TooFast" xml:space="preserve">
+    <value>Please wait a few seconds before sending the form, then try again.</value>
+  </data>
+  <data name="Contact_TooMany" xml:space="preserve">
+    <value>Too many messages sent in a short time. Please try again later.</value>
+  </data>
+  <data name="Admin_SubStatusOk" xml:space="preserve">
+    <value>Confirmed</value>
+  </data>
+  <data name="Admin_SubStatusWait" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="Admin_SubSummary" xml:space="preserve">
+    <value>{0} confirmed, {1} pending</value>
+  </data>
+  <data name="Contact_QuestionHelp" xml:space="preserve">
+    <value>Enter the result of the sum. If the picture is hard to read, write to us at contact@netcreative.ca.</value>
+  </data>
+  <data name="Msg_Project" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="Msg_Budget" xml:space="preserve">
+    <value>Budget</value>
+  </data>
+  <data name="Msg_Deadline" xml:space="preserve">
+    <value>Deadline</value>
+  </data>
+  <data name="Msg_Reply" xml:space="preserve">
+    <value>Reply by email</value>
   </data>
   <data name="Contact_MailSubject" xml:space="preserve">
     <value>New message</value>
@@ -721,10 +970,10 @@
     <value>Unsubscribe to our newsletter</value>
   </data>
   <data name="Unsubscribe_HeroText" xml:space="preserve">
-    <value>Sorry to see you go. Enter your email below and we'll remove you right away.</value>
+    <value>Sorry to see you go. Use the link at the bottom of your newsletter, or enter your e-mail below to get a new link.</value>
   </data>
   <data name="Unsubscribe_Label" xml:space="preserve">
-    <value>Enter your email address to unsubscribe to our newsletter</value>
+    <value>Enter your e-mail address: if it is subscribed, we will send you a link to unsubscribe</value>
   </data>
   <data name="Unsubscribe_Button" xml:space="preserve">
     <value>Unsubscribe</value>
@@ -749,81 +998,6 @@
   </data>
   <data name="Privacy_H1Title1" xml:space="preserve">
     <value>Privacy Policy</value>
-  </data>
-  <data name="Privacy_SubTitle1" xml:space="preserve">
-    <value>Introduction</value>
-  </data>
-  <data name="Privacy_Paragraph1" xml:space="preserve">
-    <value>With the development of new communication systems, it is essential to pay special attention to the protection of the privacy of our site's users. That is why we are committed to respecting the confidentiality of the personal information we collect.</value>
-  </data>
-  <data name="Privacy_SubTitle2" xml:space="preserve">
-    <value>Personal Information</value>
-  </data>
-  <data name="Privacy_Paragraph2" xml:space="preserve">
-    <value>We collect the following information:</value>
-  </data>
-  <data name="Privacy_Bullet1" xml:space="preserve">
-    <value>Last name</value>
-  </data>
-  <data name="Privacy_Bullet2" xml:space="preserve">
-    <value>First name</value>
-  </data>
-  <data name="Privacy_Bullet3" xml:space="preserve">
-    <value>Email address</value>
-  </data>
-  <data name="Privacy_Bullet4" xml:space="preserve">
-    <value>Phone</value>
-  </data>
-  <data name="Privacy_Bullet5" xml:space="preserve">
-    <value>Company</value>
-  </data>
-  <data name="Privacy_Bullet6" xml:space="preserve">
-    <value>IP address</value>
-  </data>
-  <data name="Privacy_Bullet7" xml:space="preserve">
-    <value>Content that the user views on our site</value>
-  </data>
-  <data name="Privacy_Paragraph3" xml:space="preserve">
-    <value>The personal information we collect is done through a form and as a result of the visitor's interactivity when requesting a project or subscribing to our newsletter. The data we collect automatically is used for statistical purposes only.</value>
-  </data>
-  <data name="Privacy_SubTitle3" xml:space="preserve">
-    <value>Delete or dispute the data collected</value>
-  </data>
-  <data name="Privacy_Paragraph4" xml:space="preserve">
-    <value>If you wish to have your information deleted or changed, please contact us:</value>
-  </data>
-  <data name="Privacy_Bullet8" xml:space="preserve">
-    <value>Email: &lt;a class='card__bullet-hov' href='mailto:contact@netcreative.ca'&gt;contact@netcreative.ca&lt;/a&gt;</value>
-  </data>
-  <data name="Privacy_Bullet9" xml:space="preserve">
-    <value>Phone: &lt;a class='card__bullet-hov' href='tel:4182269087'&gt;418 226-9087&lt;/a&gt;</value>
-  </data>
-  <data name="Privacy_SubTitle4" xml:space="preserve">
-    <value>Security</value>
-  </data>
-  <data name="Privacy_Paragraph5" xml:space="preserve">
-    <value>The information we collect is kept in a secure environment. To ensure the security of your personal information, we use the following measures:</value>
-  </data>
-  <data name="Privacy_Bullet10" xml:space="preserve">
-    <value>SSL Protocol (Secure Sockets Layer)</value>
-  </data>
-  <data name="Privacy_Bullet11" xml:space="preserve">
-    <value>Login and password</value>
-  </data>
-  <data name="Privacy_Bullet12" xml:space="preserve">
-    <value>Backup (security copy)</value>
-  </data>
-  <data name="Privacy_Bullet13" xml:space="preserve">
-    <value>Firewall</value>
-  </data>
-  <data name="Privacy_Paragraph6" xml:space="preserve">
-    <value>We are committed to maintaining the highest level of privacy possible by incorporating the latest technological innovations to ensure the confidentiality of your transactions. However, since no mechanism offers maximum security, there is always a degree of risk when using the Internet to transmit personal information.</value>
-  </data>
-  <data name="Privacy_SubTitle5" xml:space="preserve">
-    <value>Contact</value>
-  </data>
-  <data name="Privacy_Paragraph7" xml:space="preserve">
-    <value>Should you have any questions, please feel free to contact us by email: &lt;a class='card__bullet-hov' href='mailto:contact@netcreative.ca'&gt;contact@netcreative.ca&lt;/a&gt;</value>
   </data>
   <data name="Login_Title" xml:space="preserve">
     <value>User login</value>
@@ -852,11 +1026,393 @@
   <data name="Login_NetworkError" xml:space="preserve">
     <value>An error occurred, please try again.</value>
   </data>
+  <data name="Login_BlockedMessage" xml:space="preserve">
+    <value>Too many sign-in attempts. Please try again in a few minutes.</value>
+  </data>
+  <data name="Login_CodeLabel" xml:space="preserve">
+    <value>6-digit code or recovery code</value>
+  </data>
+  <data name="Login_CodeHint" xml:space="preserve">
+    <value>Open your authenticator app and type the 6-digit code. If you lost your phone, type a recovery code.</value>
+  </data>
+  <data name="Login_CodeButton" xml:space="preserve">
+    <value>Verify</value>
+  </data>
+  <data name="Login_CodeError" xml:space="preserve">
+    <value>That code is not right.</value>
+  </data>
+  <data name="Login_CodeExpired" xml:space="preserve">
+    <value>The sign-in expired. Start again with your password.</value>
+  </data>
+  <data name="Admin_TwoFactorMenu" xml:space="preserve">
+    <value>Two-factor sign-in</value>
+  </data>
+  <data name="Tfa_Intro" xml:space="preserve">
+    <value>With two-factor sign-in, the password is no longer enough to enter the administration: you also need the 6-digit code of an app on your phone (Google Authenticator, Microsoft Authenticator, Authy, a password manager…). The code changes every 30 seconds and goes through no outside service. Even if someone found out your password, they could not sign in without your phone.</value>
+  </data>
+  <data name="Tfa_Unavailable_Title" xml:space="preserve">
+    <value>To prepare first</value>
+  </data>
+  <data name="Tfa_Unavailable_Text" xml:space="preserve">
+    <value>The columns that hold two-factor sign-in do not exist in the database yet. Run the script sql\2026-10-22_users_two_factor.sql in SSMS (one step at a time), then come back here. Until then, signing in works as before.</value>
+  </data>
+  <data name="Tfa_Start_Title" xml:space="preserve">
+    <value>Your account is not protected by a code</value>
+  </data>
+  <data name="Tfa_Start_Text" xml:space="preserve">
+    <value>You need a phone with an authenticator app. Turning it on takes two minutes.</value>
+  </data>
+  <data name="Tfa_Start_Button" xml:space="preserve">
+    <value>Turn on two-factor sign-in</value>
+  </data>
+  <data name="Tfa_Confirm_Title" xml:space="preserve">
+    <value>Turn on two-factor sign-in</value>
+  </data>
+  <data name="Tfa_Step1" xml:space="preserve">
+    <value>Open your authenticator app and add an account (&quot;Enter a setup key&quot; or &quot;Manual entry&quot;).</value>
+  </data>
+  <data name="Tfa_Step2_Account" xml:space="preserve">
+    <value>Account name:</value>
+  </data>
+  <data name="Tfa_Step2_Key" xml:space="preserve">
+    <value>Key:</value>
+  </data>
+  <data name="Tfa_Step2_KeyType" xml:space="preserve">
+    <value>(type &quot;time based&quot;)</value>
+  </data>
+  <data name="Tfa_LinkHint" xml:space="preserve">
+    <value>On a phone, this link fills everything in at once:</value>
+  </data>
+  <data name="Tfa_LinkText" xml:space="preserve">
+    <value>Add to my app</value>
+  </data>
+  <data name="Tfa_Step3" xml:space="preserve">
+    <value>Type below the 6-digit code the app shows now.</value>
+  </data>
+  <data name="Tfa_CodeLabel" xml:space="preserve">
+    <value>6-digit code</value>
+  </data>
+  <data name="Tfa_ConfirmButton" xml:space="preserve">
+    <value>Confirm and turn on</value>
+  </data>
+  <data name="Tfa_CancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Tfa_Manage_Title" xml:space="preserve">
+    <value>Two-factor sign-in is on</value>
+  </data>
+  <data name="Tfa_Manage_Text" xml:space="preserve">
+    <value>To change anything here, type the current code of your app. If you lose your phone, one of the recovery codes replaces the app code, once each.</value>
+  </data>
+  <data name="Tfa_CurrentLabel" xml:space="preserve">
+    <value>Current code (6 digits)</value>
+  </data>
+  <data name="Tfa_RegenButton" xml:space="preserve">
+    <value>Create new recovery codes</value>
+  </data>
+  <data name="Tfa_DisableButton" xml:space="preserve">
+    <value>Turn off two-factor sign-in</value>
+  </data>
+  <data name="Tfa_DisableConfirm" xml:space="preserve">
+    <value>Turn off two-factor sign-in for your account?</value>
+  </data>
+  <data name="Tfa_BadCode" xml:space="preserve">
+    <value>That code is not right. Check the time on your phone and type the code shown now.</value>
+  </data>
+  <data name="Tfa_BadCurrent" xml:space="preserve">
+    <value>That code is not right, or it was already used: wait for the next code of the app (30 seconds) and try again.</value>
+  </data>
+  <data name="Tfa_Required" xml:space="preserve">
+    <value>Two-factor sign-in is compulsory on this site: it cannot be turned off.</value>
+  </data>
+  <data name="Tfa_Enabled" xml:space="preserve">
+    <value>Two-factor sign-in is on.</value>
+  </data>
+  <data name="Tfa_NewCodes" xml:space="preserve">
+    <value>Here are your new recovery codes. The old ones no longer work.</value>
+  </data>
+  <data name="Tfa_Disabled" xml:space="preserve">
+    <value>Two-factor sign-in is turned off for your account.</value>
+  </data>
+  <data name="Tfa_CodesIntro" xml:space="preserve">
+    <value>Write down these recovery codes and keep them somewhere safe (not in the same phone). Each one replaces the app code once if you lose your phone. They will not be shown again.</value>
+  </data>
+  <data name="Tfa_CodesFormat" xml:space="preserve">
+    <value>Each code is 4 characters, a dash and 4 characters.</value>
+  </data>
+  <data name="Tfa_CopyButton" xml:space="preserve">
+    <value>Copy the codes</value>
+  </data>
+  <data name="Tfa_Copied" xml:space="preserve">
+    <value>Codes copied</value>
+  </data>
+  <data name="Tfa_Users_Title" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="Tfa_ColUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="Tfa_ColTfa" xml:space="preserve">
+    <value>Two-factor sign-in</value>
+  </data>
+  <data name="Tfa_On" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="Tfa_Off" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Tfa_UsersHint" xml:space="preserve">
+    <value>Someone lost their phone and their recovery codes? Click their name in the table, then &apos;Reset two-factor sign-in&apos;: their account goes back to how it was, and they turn it on again after signing in with their password.</value>
+  </data>
+  <data name="Tfa_Error" xml:space="preserve">
+    <value>An error occurred (details are in the server&apos;s error log).</value>
+  </data>
+  <data name="Tfa_Reminder" xml:space="preserve">
+    <value>Your account is not protected by two-factor sign-in: the password alone opens the administration.</value>
+  </data>
+  <data name="Tfa_ReminderLink" xml:space="preserve">
+    <value>Turn on now</value>
+  </data>
+  <data name="Admin_UserEditTitle" xml:space="preserve">
+    <value>Edit: {0}</value>
+  </data>
+  <data name="Admin_UserNewTitle" xml:space="preserve">
+    <value>New user</value>
+  </data>
+  <data name="Admin_UserFullNameCol" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Tfa_Mine_Title" xml:space="preserve">
+    <value>My two-factor sign-in</value>
+  </data>
+  <data name="Admin_Error" xml:space="preserve">
+    <value>An error occurred (details are in the server&apos;s error log).</value>
+  </data>
+  <data name="Admin_UserPasswordConfirmLabel" xml:space="preserve">
+    <value>Confirm the password</value>
+  </data>
+  <data name="Admin_UserPasswordTooShort" xml:space="preserve">
+    <value>The password must be at least {0} characters long.</value>
+  </data>
+  <data name="Admin_UserPasswordMismatch" xml:space="preserve">
+    <value>The two passwords are not the same.</value>
+  </data>
+  <data name="Admin_UserNameInvalid" xml:space="preserve">
+    <value>The user name must be 3 to 20 letters, digits, dots, dashes or underscores.</value>
+  </data>
+  <data name="Admin_UserCannotDeleteSelf" xml:space="preserve">
+    <value>You cannot delete your own account.</value>
+  </data>
+  <data name="Admin_UserCannotDeleteLast" xml:space="preserve">
+    <value>The last user cannot be deleted.</value>
+  </data>
+  <data name="Admin_UserDeleteConfirm" xml:space="preserve">
+    <value>Delete the user {0}?</value>
+  </data>
+  <data name="Admin_UserTfaLabel" xml:space="preserve">
+    <value>Two-factor sign-in:</value>
+  </data>
+  <data name="Admin_UserReset2fa" xml:space="preserve">
+    <value>Reset two-factor sign-in</value>
+  </data>
+  <data name="Admin_UserReset2faConfirm" xml:space="preserve">
+    <value>Reset the two-factor sign-in of {0}? This person will have to turn it on again after the next sign-in.</value>
+  </data>
+  <data name="Admin_UserReset2faDone" xml:space="preserve">
+    <value>The two-factor sign-in of {0} has been reset.</value>
+  </data>
+  <data name="Admin_OpeningInvalid" xml:space="preserve">
+    <value>{0}: enter a valid opening time and closing time (for example 8:30 and 16:45).</value>
+  </data>
+  <data name="Admin_OpeningOrder" xml:space="preserve">
+    <value>{0}: closing must be after opening.</value>
+  </data>
+  <data name="Admin_NewsletterConfirm" xml:space="preserve">
+    <value>Send the newsletter to {0} subscriber(s)? This cannot be undone.</value>
+  </data>
+  <data name="Admin_NewsletterFieldsRequired" xml:space="preserve">
+    <value>The subject and the message are required.</value>
+  </data>
+  <data name="Admin_NewsletterNoSubscribers" xml:space="preserve">
+    <value>There are no subscribers.</value>
+  </data>
+  <data name="Admin_NewsletterResult" xml:space="preserve">
+    <value>Newsletter sent to {0} subscriber(s), {1} failure(s).</value>
+  </data>
+  <data name="Admin_NewsletterFailedList" xml:space="preserve">
+    <value>Addresses not sent: {0}</value>
+  </data>
+  <data name="Admin_NewsletterTestEmailInvalid" xml:space="preserve">
+    <value>The address of the test e-mail is not valid.</value>
+  </data>
+  <data name="Admin_NewerButton" xml:space="preserve">
+    <value>← Newer</value>
+  </data>
+  <data name="Admin_OlderButton" xml:space="preserve">
+    <value>Older →</value>
+  </data>
+  <data name="Admin_PageInfo" xml:space="preserve">
+    <value>Rows {0} to {1} of {2}</value>
+  </data>
+  <data name="Admin_RowDeleteConfirm" xml:space="preserve">
+    <value>Delete row {0}?</value>
+  </data>
+  <data name="Admin_RowDeleted" xml:space="preserve">
+    <value>Row {0} deleted.</value>
+  </data>
+  <data name="Admin_LoginPurgeButton" xml:space="preserve">
+    <value>Erase sign-ins older than 12 months</value>
+  </data>
+  <data name="Admin_LoginPurgeConfirm" xml:space="preserve">
+    <value>Erase the log rows older than 12 months? This cannot be undone.</value>
+  </data>
+  <data name="Admin_LoginPurged" xml:space="preserve">
+    <value>{0} row(s) erased.</value>
+  </data>
+  <data name="Sql_Warning" xml:space="preserve">
+    <value>This page runs &lt;strong&gt;any query&lt;/strong&gt; on the site&apos;s database. In simulation mode (the default) the query is run and then &lt;strong&gt;entirely rolled back&lt;/strong&gt;: you see the result and nothing changes. To really change data, untick the simulation and type your password. Every run is written to the audit log.</value>
+  </data>
+  <data name="Sql_Templates" xml:space="preserve">
+    <value>Templates:</value>
+  </data>
+  <data name="Sql_Run" xml:space="preserve">
+    <value>Run</value>
+  </data>
+  <data name="Sql_Simulation" xml:space="preserve">
+    <value>Simulation (roll back every change at the end)</value>
+  </data>
+  <data name="Sql_PasswordLabel" xml:space="preserve">
+    <value>Password (asked only to run for real)</value>
+  </data>
+  <data name="Sql_ConfirmReal" xml:space="preserve">
+    <value>The simulation is off: the changes will be kept. Run the query?</value>
+  </data>
+  <data name="Sql_Empty" xml:space="preserve">
+    <value>Write a query.</value>
+  </data>
+  <data name="Sql_NoGo" xml:space="preserve">
+    <value>The GO command is not accepted here: run each block separately.</value>
+  </data>
+  <data name="Sql_BadPassword" xml:space="preserve">
+    <value>Wrong password: the query was not run. To test without a password, leave the simulation ticked.</value>
+  </data>
+  <data name="Sql_SummaryRows" xml:space="preserve">
+    <value>{0} row(s) changed.</value>
+  </data>
+  <data name="Sql_SummarySets" xml:space="preserve">
+    <value>{0} result(s) shown.</value>
+  </data>
+  <data name="Sql_SummaryDone" xml:space="preserve">
+    <value>Command run.</value>
+  </data>
+  <data name="Sql_SummaryTime" xml:space="preserve">
+    <value>Time: {0} ms.</value>
+  </data>
+  <data name="Sql_SimNote" xml:space="preserve">
+    <value>SIMULATION: everything was rolled back.</value>
+  </data>
+  <data name="Sql_RealNote" xml:space="preserve">
+    <value>Changes kept.</value>
+  </data>
+  <data name="Sql_Error" xml:space="preserve">
+    <value>Error: {0} (nothing was kept)</value>
+  </data>
+  <data name="Sql_ResultN" xml:space="preserve">
+    <value>Result {0}</value>
+  </data>
+  <data name="Sql_RowsCount" xml:space="preserve">
+    <value>{0} row(s)</value>
+  </data>
+  <data name="Sql_RowsMore" xml:space="preserve">
+    <value> shown: there are more, add TOP or WHERE to the query</value>
+  </data>
+  <data name="Sql_NoName" xml:space="preserve">
+    <value>(no name)</value>
+  </data>
+  <data name="Sql_T1_L" xml:space="preserve">
+    <value>List of tables</value>
+  </data>
+  <data name="Sql_T1_Q" xml:space="preserve">
+    <value>SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES ORDER BY TABLE_NAME;</value>
+  </data>
+  <data name="Sql_T2_L" xml:space="preserve">
+    <value>Columns of a table</value>
+  </data>
+  <data name="Sql_T2_Q" xml:space="preserve">
+    <value>-- Replace USERS with the name of the table.
+SELECT COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = &apos;USERS&apos;
+ORDER BY ORDINAL_POSITION;</value>
+  </data>
+  <data name="Sql_T3_L" xml:space="preserve">
+    <value>Rows per table</value>
+  </data>
+  <data name="Sql_T3_Q" xml:space="preserve">
+    <value>SELECT t.name AS table_name, SUM(p.rows) AS row_count
+FROM sys.tables t
+JOIN sys.partitions p ON p.object_id = t.object_id AND p.index_id IN (0, 1)
+GROUP BY t.name
+ORDER BY t.name;</value>
+  </data>
+  <data name="Sql_T4_L" xml:space="preserve">
+    <value>Latest contact messages</value>
+  </data>
+  <data name="Sql_T4_Q" xml:space="preserve">
+    <value>SELECT TOP 20 AUTO_NUMBER, DATE, TIME, LAST_NAME, FIRST_NAME, EMAIL, COMPANY
+FROM CONTACT
+ORDER BY AUTO_NUMBER DESC;</value>
+  </data>
+  <data name="Sql_T5_L" xml:space="preserve">
+    <value>Latest subscribers</value>
+  </data>
+  <data name="Sql_T5_Q" xml:space="preserve">
+    <value>SELECT TOP 20 AUTO_NUMBER, DATE, EMAIL
+FROM SUBSCRIBE
+ORDER BY AUTO_NUMBER DESC;</value>
+  </data>
+  <data name="Sql_T6_L" xml:space="preserve">
+    <value>Latest sign-ins</value>
+  </data>
+  <data name="Sql_T6_Q" xml:space="preserve">
+    <value>SELECT TOP 50 AUTO_NUMBER, DATE, TIME, IP_ADDRESS, USER_NAME, ACTION
+FROM LOGIN
+ORDER BY AUTO_NUMBER DESC;</value>
+  </data>
+  <data name="Sql_T7_L" xml:space="preserve">
+    <value>Users and two-factor sign-in</value>
+  </data>
+  <data name="Sql_T7_Q" xml:space="preserve">
+    <value>SELECT USER_NAME, FIRST_NAME, LAST_NAME, TotpEnabled
+FROM USERS
+ORDER BY USER_NAME;</value>
+  </data>
+  <data name="Sql_T8_L" xml:space="preserve">
+    <value>Opening hours</value>
+  </data>
+  <data name="Sql_T8_Q" xml:space="preserve">
+    <value>SELECT * FROM OPENING;</value>
+  </data>
+  <data name="Sql_T9_L" xml:space="preserve">
+    <value>Erase sign-ins older than 12 months</value>
+  </data>
+  <data name="Sql_T9_Q" xml:space="preserve">
+    <value>-- The same cleanup as the button on the &quot;Sign-in log&quot; page. Try it in simulation first.
+DELETE FROM LOGIN WHERE DATE &lt; DATEADD(month, -12, CAST(GETDATE() AS date));</value>
+  </data>
+  <data name="Sql_T10_L" xml:space="preserve">
+    <value>Two-factor sign-in: reset a user</value>
+  </data>
+  <data name="Sql_T10_Q" xml:space="preserve">
+    <value>-- A user lost their phone AND their recovery codes: replace name with their user name.
+-- (Another administrator can also do it from the &quot;Users&quot; page.)
+UPDATE USERS SET TotpSecret = NULL, TotpEnabled = 0, TotpLastStep = NULL, TotpRecovery = NULL WHERE USER_NAME = &apos;name&apos;;</value>
+  </data>
   <data name="Admin_Title" xml:space="preserve">
     <value>Management</value>
   </data>
   <data name="Admin_DashboardMenu" xml:space="preserve">
-    <value>Management - Dashboard</value>
+    <value>Dashboard</value>
   </data>
   <data name="Admin_DashboardWelcome" xml:space="preserve">
     <value>Welcome to the netcreative.ca admin panel. Use the menu on the left to manage the site.</value>
@@ -868,7 +1424,7 @@
     <value>Contact</value>
   </data>
   <data name="Admin_ContactMenu" xml:space="preserve">
-    <value>Management - Contact</value>
+    <value>Contact</value>
   </data>
   <data name="Admin_ContactDeleteLabel" xml:space="preserve">
     <value>Enter the information request number to be deleted:</value>
@@ -886,7 +1442,7 @@
     <value>Login</value>
   </data>
   <data name="Admin_LoginMenu" xml:space="preserve">
-    <value>Management - Login</value>
+    <value>Sign-in log</value>
   </data>
   <data name="Admin_LoginDeleteLabel" xml:space="preserve">
     <value>Enter the connection number to be deleted:</value>
@@ -901,25 +1457,25 @@
     <value>Newsletter</value>
   </data>
   <data name="Admin_NewsletterMenu" xml:space="preserve">
-    <value>Management - Newsletter</value>
+    <value>Newsletter</value>
   </data>
   <data name="Admin_NewsletterTestRadio" xml:space="preserve">
     <value>Test</value>
   </data>
   <data name="Admin_NewsletterEmailLabel" xml:space="preserve">
-    <value>Email address:</value>
+    <value>Test email address</value>
   </data>
   <data name="Admin_NewsletterObjectLabel" xml:space="preserve">
-    <value>Object:</value>
+    <value>Subject</value>
   </data>
   <data name="Admin_NewsletterIntroLabel" xml:space="preserve">
-    <value>Introduction:</value>
+    <value>Introduction</value>
   </data>
   <data name="Admin_NewsletterBodyLabel" xml:space="preserve">
-    <value>Message:</value>
+    <value>Message</value>
   </data>
   <data name="Admin_NewsletterGreetingLabel" xml:space="preserve">
-    <value>Greeting:</value>
+    <value>Closing line</value>
   </data>
   <data name="Admin_NewsletterSendTestButton" xml:space="preserve">
     <value>Send test</value>
@@ -940,13 +1496,49 @@
     <value>here</value>
   </data>
   <data name="Admin_NewsletterUnsubscribe3" xml:space="preserve">
-    <value> if you wish to unsubscribe to our newsletter</value>
+    <value> if you wish to unsubscribe from our newsletter</value>
+  </data>
+  <data name="News_Intro" xml:space="preserve">
+    <value>Write the message, check the preview, send yourself a test, then send it to all subscribers.</value>
+  </data>
+  <data name="News_ModeTest" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="News_ModeTestText" xml:space="preserve">
+    <value>Sends the message to one address only, to see the result before the real mailing.</value>
+  </data>
+  <data name="News_ModeAll" xml:space="preserve">
+    <value>All subscribers</value>
+  </data>
+  <data name="News_ModeAllText" xml:space="preserve">
+    <value>Sends the message to the {0} subscriber(s) on the list. Sending cannot be undone.</value>
+  </data>
+  <data name="News_EverybodyWarning" xml:space="preserve">
+    <value>Sending to all subscribers cannot be undone: send a test first and check the preview.</value>
+  </data>
+  <data name="News_SubjectCount" xml:space="preserve">
+    <value>{0} characters · ideal: 60 or fewer</value>
+  </data>
+  <data name="News_PreviewTitle" xml:space="preserve">
+    <value>Email preview</value>
+  </data>
+  <data name="News_PreviewSubject" xml:space="preserve">
+    <value>Subject:</value>
+  </data>
+  <data name="News_PreviewEmpty" xml:space="preserve">
+    <value>(empty)</value>
+  </data>
+  <data name="News_Sending" xml:space="preserve">
+    <value>Sending…</value>
+  </data>
+  <data name="News_ReportTest" xml:space="preserve">
+    <value>Test email sent to {0}.</value>
   </data>
   <data name="Admin_OpeningButton" xml:space="preserve">
     <value>Opening hours</value>
   </data>
   <data name="Admin_OpeningMenu" xml:space="preserve">
-    <value>Management - Opening hours</value>
+    <value>Opening hours</value>
   </data>
   <data name="Admin_MondayAbbrev" xml:space="preserve">
     <value>MON</value>
@@ -987,11 +1579,32 @@
   <data name="Admin_OpeningSavedSuccess" xml:space="preserve">
     <value>The opening hours have been saved successfully!</value>
   </data>
+  <data name="Opening_Intro" xml:space="preserve">
+    <value>For each day, say whether the shop is open and at what times. These hours appear at the bottom of every page of the site.</value>
+  </data>
+  <data name="Opening_Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Opening_CopyMonday" xml:space="preserve">
+    <value>Copy Monday’s hours to Tuesday – Friday</value>
+  </data>
+  <data name="Opening_PreviewTitle" xml:space="preserve">
+    <value>Preview for visitors</value>
+  </data>
+  <data name="Opening_PreviewNote" xml:space="preserve">
+    <value>The preview follows your changes, but nothing is published until you click Save.</value>
+  </data>
+  <data name="Opening_PreviewInvalid" xml:space="preserve">
+    <value>check the times</value>
+  </data>
+  <data name="Opening_EarlyOpen" xml:space="preserve">
+    <value>{0}: opening must be at 1:00 am or later.</value>
+  </data>
   <data name="Admin_SubscriberButton" xml:space="preserve">
     <value>Subscriber</value>
   </data>
   <data name="Admin_SubscriberMenu" xml:space="preserve">
-    <value>Management - Subscriber</value>
+    <value>Subscribers</value>
   </data>
   <data name="Admin_SubscriberDeleteLabel" xml:space="preserve">
     <value>Enter the subscriber's number to delete:</value>
@@ -1000,13 +1613,13 @@
     <value>The comment number {0} does not exist!</value>
   </data>
   <data name="Admin_SubscriberDeletedSuccess" xml:space="preserve">
-    <value>The comment number {0} has been deleted successfully!</value>
+    <value>Subscriber number {0} has been deleted successfully!</value>
   </data>
   <data name="Admin_UserButton" xml:space="preserve">
     <value>User</value>
   </data>
   <data name="Admin_UserMenu" xml:space="preserve">
-    <value>Management - User</value>
+    <value>Users</value>
   </data>
   <data name="Admin_UserListLabel" xml:space="preserve">
     <value>User list</value>
@@ -1039,7 +1652,7 @@
     <value>SQL</value>
   </data>
   <data name="Admin_SqlMenu" xml:space="preserve">
-    <value>Management - SQL Commands</value>
+    <value>SQL commands</value>
   </data>
   <data name="Admin_SqlWarning" xml:space="preserve">
     <value>Warning: these commands run directly against the database. A poorly written command can modify or delete data irreversibly.</value>

@@ -1,4 +1,8 @@
 User-agent: *
 Disallow: /Admin/
+# the site's own background scripts (newsletter box, unsubscribe form, anti-spam picture): not pages, nothing to index
+Disallow: /SubscribeHandler.ashx
+Disallow: /UnsubscribeHandler.ashx
+Disallow: /ContactCaptcha.ashx
 
 Sitemap: https://www.netcreative.ca/sitemap.xml

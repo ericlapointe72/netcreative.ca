@@ -73,5 +73,8 @@ namespace netcreative.ca
                 email = value;
             }
         }
+
+        // confirmed (the address receives the newsletter) or waiting for the click of its owner on the link of the confirmation e-mail
+        public string Status { get; set; }
     }
 }

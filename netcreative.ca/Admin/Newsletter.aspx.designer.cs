@@ -20,9 +20,14 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.RadioButton RadioButton_Newsletter_Test;
 
         /// <summary>
-        /// Label_Newsletter_Email control.
+        /// RadioButton_Newsletter control.
         /// </summary>
-        protected global::System.Web.UI.WebControls.Label Label_Newsletter_Email;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton_Newsletter;
+
+        /// <summary>
+        /// Panel_Test control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Panel Panel_Test;
 
         /// <summary>
         /// TextBox_Newsletter_Email control.
@@ -30,9 +35,9 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.TextBox TextBox_Newsletter_Email;
 
         /// <summary>
-        /// RadioButton_Newsletter control.
+        /// Panel_Warning control.
         /// </summary>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton_Newsletter;
+        protected global::System.Web.UI.WebControls.Panel Panel_Warning;
 
         /// <summary>
         /// TextBox_Newsletter_Object control.
@@ -58,5 +63,15 @@ namespace netcreative.ca
         /// Button_Newsletter_Send control.
         /// </summary>
         protected global::System.Web.UI.WebControls.Button Button_Newsletter_Send;
+
+        /// <summary>
+        /// Panel_Report control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Panel Panel_Report;
+
+        /// <summary>
+        /// Literal_Report control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal Literal_Report;
     }
 }
