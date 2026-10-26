@@ -207,6 +207,7 @@ namespace netcreative.ca
             AdminLogin.ClearFailures(ip, canonicalName);
             AdminLogin.LogEvent(canonicalName, "LOGIN");
             AdminLogin.PurgeOldLogOncePerDay();
+            DataRetention.PurgeOldContactsOncePerDay();
 
             string ticket = AdminLogin.CreateTicket(canonicalName, language == "en" ? "en" : "fr", twoFactorDone, offered);
 

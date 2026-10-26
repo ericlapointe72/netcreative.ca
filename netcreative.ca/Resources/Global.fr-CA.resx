@@ -1641,4 +1641,31 @@ UPDATE USERS SET TotpSecret = NULL, TotpEnabled = 0, TotpLastStep = NULL, TotpRe
   <data name="Admin_SqlRowsAffected" xml:space="preserve">
     <value>{0} ligne(s) affectée(s).</value>
   </data>
+  <data name="Admin_LogsMenu" xml:space="preserve">
+    <value>Journaux du site</value>
+  </data>
+  <data name="Logs_Hint" xml:space="preserve">
+    <value>Les entrées les plus récentes sont en premier. Les journaux d’erreurs sont gardés 30 jours; le journal d’audit (ce que font les administrateurs) est gardé 24 mois.</value>
+  </data>
+  <data name="Logs_File" xml:space="preserve">
+    <value>Fichier</value>
+  </data>
+  <data name="Logs_Download" xml:space="preserve">
+    <value>Télécharger le fichier</value>
+  </data>
+  <data name="Logs_Empty" xml:space="preserve">
+    <value>Aucun journal pour l’instant : aucune erreur ni action à signaler.</value>
+  </data>
+  <data name="Logs_Info" xml:space="preserve">
+    <value>{0} entrée(s) affichée(s) sur {1} - dernière écriture : {2}</value>
+  </data>
+  <data name="Admin_ExportCsv" xml:space="preserve">
+    <value>Exporter en CSV</value>
+  </data>
+  <data name="Admin_ContactRetention" xml:space="preserve">
+    <value>Les messages sont effacés automatiquement 24 mois après leur réception.</value>
+  </data>
+  <data name="Admin_SubRetention" xml:space="preserve">
+    <value>Les adresses jamais confirmées sont effacées après 30 jours.</value>
+  </data>
 </root>

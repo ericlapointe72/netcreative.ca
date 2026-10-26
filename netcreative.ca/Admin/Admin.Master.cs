@@ -52,7 +52,7 @@ namespace netcreative.ca
 
             var links = new[]
             {
-                Link_Dashboard, Link_Contact, Link_Login, Link_Newsletter, Link_Opening, Link_Subscribers, Link_Users, Link_Sql
+                Link_Dashboard, Link_Contact, Link_Login, Link_Newsletter, Link_Opening, Link_Subscribers, Link_Users, Link_Logs, Link_Sql
             };
 
             foreach (var link in links)

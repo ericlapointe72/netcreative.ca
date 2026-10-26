@@ -15,5 +15,9 @@
                 <PagerStyle CssClass="grid__pager" />
             </asp:GridView>
         </div>
+        <p class="logs-hint"><%: Global.Text("Admin_SubRetention") %></p>
+        <div class="card__button">
+            <a class="button" href="<%= ResolveUrl("~/Admin/Export.ashx?what=subscribers") %>"><%: Global.Text("Admin_ExportCsv") %></a>
+        </div>
     </div>
 </asp:Content>

@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Net.Créative">
         <!-- Style -->
-        <link href="../Content/css/animation.css" rel="stylesheet" />
+        <link href="../Content/css/animation.css?v=3" rel="stylesheet" />
         <link href="../Content/css/common.css?v=20261032" rel="stylesheet" />
         <link href="../Content/css/public.css?v=20261034" rel="stylesheet" />
         <link href="../Content/css/Site.css?v=20261033" rel="stylesheet" />
@@ -179,7 +179,6 @@
                 </div>
             </asp:Panel>
 
-            <script src="../Content/js/animation.js"></script>
             <script src="../Content/js/observer.js"></script>
             <script src="../Content/js/cookie.js?v=2"></script>
             <script src="../Content/js/map.js?v=1"></script>

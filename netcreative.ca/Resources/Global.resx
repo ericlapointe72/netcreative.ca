@@ -1678,4 +1678,31 @@ UPDATE USERS SET TotpSecret = NULL, TotpEnabled = 0, TotpLastStep = NULL, TotpRe
   <data name="Admin_SqlRowsAffected" xml:space="preserve">
     <value>{0} row(s) affected.</value>
   </data>
+  <data name="Admin_LogsMenu" xml:space="preserve">
+    <value>Site logs</value>
+  </data>
+  <data name="Logs_Hint" xml:space="preserve">
+    <value>Newest entries first. Error logs are kept 30 days; the audit log (what administrators did) is kept 24 months.</value>
+  </data>
+  <data name="Logs_File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="Logs_Download" xml:space="preserve">
+    <value>Download the file</value>
+  </data>
+  <data name="Logs_Empty" xml:space="preserve">
+    <value>No log yet: no error or action to report.</value>
+  </data>
+  <data name="Logs_Info" xml:space="preserve">
+    <value>{0} entries shown out of {1} - last written: {2}</value>
+  </data>
+  <data name="Admin_ExportCsv" xml:space="preserve">
+    <value>Export to CSV</value>
+  </data>
+  <data name="Admin_ContactRetention" xml:space="preserve">
+    <value>Messages are erased automatically 24 months after they are received.</value>
+  </data>
+  <data name="Admin_SubRetention" xml:space="preserve">
+    <value>Addresses that are never confirmed are erased after 30 days.</value>
+  </data>
 </root>

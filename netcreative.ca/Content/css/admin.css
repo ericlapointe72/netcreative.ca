@@ -1031,3 +1031,32 @@
     font-size: 1.25rem;
     color: var(--logoBlue);
 }
+
+/*  ------------------------
+    EXPORTS, RETENTION, LOGS
+    ------------------------ */
+
+.admin-card a.button {
+    text-align: center;
+    text-decoration: none;
+}
+
+.admin-card .logs-hint {
+    margin: 1rem 0 0;
+    font-size: 0.9rem;
+    color: #5a6670;
+}
+
+.admin-card .logs-view {
+    margin: 0.8rem 0 0;
+    padding: 0.8rem 1rem;
+    max-height: 60vh;
+    overflow: auto;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    white-space: pre-wrap;
+    word-break: break-word;
+    background: #f7f9fc;
+    border-radius: 4px;
+}

@@ -65,6 +65,11 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.HyperLink Link_Users;
 
         /// <summary>
+        /// Link_Logs control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.HyperLink Link_Logs;
+
+        /// <summary>
         /// Link_Sql control.
         /// </summary>
         protected global::System.Web.UI.WebControls.HyperLink Link_Sql;

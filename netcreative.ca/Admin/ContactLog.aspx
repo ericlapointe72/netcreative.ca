@@ -39,5 +39,9 @@
             <asp:Button class="button" ID="Button_Newer" runat="server" OnClick="Button_Newer_Click" CausesValidation="false" />
             <asp:Button class="button" ID="Button_Older" runat="server" OnClick="Button_Older_Click" CausesValidation="false" />
         </div>
+        <p class="logs-hint"><%: Global.Text("Admin_ContactRetention") %></p>
+        <div class="card__button">
+            <a class="button" href="<%= ResolveUrl("~/Admin/Export.ashx?what=contact") %>"><%: Global.Text("Admin_ExportCsv") %></a>
+        </div>
     </div>
 </asp:Content>

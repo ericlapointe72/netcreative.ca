@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../Content/images/site/favicon.ico" />
         <link rel="preload" href="../Content/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
         <link href="../Content/css/common.css?v=20261032" rel="stylesheet" />
-        <link href="../Content/css/admin.css?v=20261029" rel="stylesheet" />
+        <link href="../Content/css/admin.css?v=20261035" rel="stylesheet" />
         <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
     </head>
     <body>
@@ -30,6 +30,7 @@
                         <asp:HyperLink ID="Link_Opening" runat="server" NavigateUrl="~/Admin/Opening.aspx" CssClass="admin-nav__link"><%: Global.Admin_OpeningMenu %></asp:HyperLink>
                         <asp:HyperLink ID="Link_Subscribers" runat="server" NavigateUrl="~/Admin/Subscribers.aspx" CssClass="admin-nav__link"><%: Global.Admin_SubscriberMenu %></asp:HyperLink>
                         <asp:HyperLink ID="Link_Users" runat="server" NavigateUrl="~/Admin/Users.aspx" CssClass="admin-nav__link"><%: Global.Admin_UserMenu %></asp:HyperLink>
+                        <asp:HyperLink ID="Link_Logs" runat="server" NavigateUrl="~/Admin/Logs.aspx" CssClass="admin-nav__link"><%: Global.Text("Admin_LogsMenu") %></asp:HyperLink>
                         <asp:HyperLink ID="Link_Sql" runat="server" NavigateUrl="~/Admin/Sql.aspx" CssClass="admin-nav__link"><%: Global.Admin_SqlMenu %></asp:HyperLink>
                     </nav>
                     <div class="admin-sidebar__footer">
