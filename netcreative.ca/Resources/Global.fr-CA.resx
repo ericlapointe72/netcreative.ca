@@ -470,6 +470,9 @@
   <data name="Service_Intro" xml:space="preserve">
     <value>Chaque projet commence par comprendre votre entreprise, pour livrer un site simple, rapide et facile à mettre à jour.</value>
   </data>
+  <data name="Service_NoWordPress" xml:space="preserve">
+    <value>Pas de WordPress ni de modules à garder à jour : votre site est construit sur mesure avec ASP.NET, ce qui le rend plus simple à sécuriser et à entretenir.</value>
+  </data>
   <data name="Service_ServicesLabel" xml:space="preserve">
     <value>Nos services</value>
   </data>

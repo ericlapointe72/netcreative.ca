@@ -11,33 +11,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <!-- Messenger Plug-in Discussion Code -->
-    <div id="fb-root"></div>
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                xfbml: true,
-                version: 'v10.0'
-            });
-        };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/fr_FR/sdk/xfbml.customerchat.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-
-    <!-- Your Plug-in Discussion code -->
-    <div class="fb-customerchat"
-        attribution="biz_inbox"
-        page_id="101923751954399">
-    </div>
-
     <div class="content-section">
         <span class="content-section__text"><%: Global.Service_Intro %></span>
+        <span class="content-section__text"><%: Global.Text("Service_NoWordPress") %></span>
     </div>
 
     <h2 class="section-label"><%: Global.Service_ServicesLabel %></h2>

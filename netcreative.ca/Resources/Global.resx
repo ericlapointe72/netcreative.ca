@@ -519,6 +519,9 @@
   <data name="Service_Intro" xml:space="preserve">
     <value>Every project starts with understanding your business, to deliver a site that's simple, fast and easy to keep up to date.</value>
   </data>
+  <data name="Service_NoWordPress" xml:space="preserve">
+    <value>No WordPress and no plug-ins to keep up to date: your site is custom-built with ASP.NET, which makes it simpler to secure and to maintain.</value>
+  </data>
   <data name="Service_ServicesLabel" xml:space="preserve">
     <value>Our services</value>
   </data>
