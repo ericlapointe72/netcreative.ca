@@ -310,7 +310,8 @@ body:has(#nav__toggle:checked) {
     /* anchored to .nav__bar (which is position:relative) instead of the viewport, so it
        scrolls away with the rest of the header instead of floating over the page forever */
     position: absolute;
-    top: 1.125rem;
+    /* the same 1rem as the padding-top of the row of icons (.nav__button-ctn): it was 1.125rem, which put the button 2 px lower than them */
+    top: 1rem;
     right: 1rem;
     /* fixed equal width/height (instead of padding sized off the icon) so the button is
        always a true square regardless of the icon's own box — matches .icon-stack's

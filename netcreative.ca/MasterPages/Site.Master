@@ -13,7 +13,7 @@
         <link href="../Content/css/animation.css?v=3" rel="stylesheet" />
         <link href="../Content/css/common.css?v=20261032" rel="stylesheet" />
         <link href="../Content/css/public.css?v=20261036" rel="stylesheet" />
-        <link href="../Content/css/Site.css?v=20261038" rel="stylesheet" />
+        <link href="../Content/css/Site.css?v=20261039" rel="stylesheet" />
         <!-- the fonts (Inter, Calistoga) are served by this site, see common.css: nothing is loaded from Google or from an icon service -->
         <link rel="preload" href="../Content/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
         <!-- icons: the favicon is also at the root of the site (/favicon.ico), where browsers and search engines look for it -->
