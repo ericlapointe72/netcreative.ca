@@ -45,11 +45,6 @@ namespace netcreative.ca
         protected global::System.Web.UI.WebControls.TextBox TextBox_Newsletter_Object;
 
         /// <summary>
-        /// TextBox_Newsletter_Intro control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Newsletter_Intro;
-
-        /// <summary>
         /// TextBox_Newsletter_Body control.
         /// </summary>
         protected global::System.Web.UI.WebControls.TextBox TextBox_Newsletter_Body;

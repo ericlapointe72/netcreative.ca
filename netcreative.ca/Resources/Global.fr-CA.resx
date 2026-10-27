@@ -1668,4 +1668,10 @@ UPDATE USERS SET TotpSecret = NULL, TotpEnabled = 0, TotpLastStep = NULL, TotpRe
   <data name="Admin_SubRetention" xml:space="preserve">
     <value>Les adresses jamais confirmées sont effacées après 30 jours.</value>
   </data>
+  <data name="News_FormatHelp" xml:space="preserve">
+    <value>Une ligne vide sépare les paragraphes. Mise en forme : ## Titre, **gras**, - liste (un tiret au début de chaque ligne), [texte](https://adresse) pour un lien, > [Texte du bouton](https://adresse) pour un bouton seul sur sa ligne. Une adresse https:// écrite telle quelle devient un lien.</value>
+  </data>
+  <data name="News_GreetingDefault" xml:space="preserve">
+    <value>Cordialement,</value>
+  </data>
 </root>

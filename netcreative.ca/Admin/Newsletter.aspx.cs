@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using netcreative.ca.Resources;
 
@@ -12,7 +13,6 @@ namespace netcreative.ca
 {
     public partial class Newsletter : System.Web.UI.Page
     {
-        private const string SignatureId = "Image";
         private string connectionString = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -25,6 +25,9 @@ namespace netcreative.ca
                 // newsletter to every subscriber while its label said "test".
                 RadioButton_Newsletter_Test.Checked = true;
                 RadioButton_Newsletter.Checked = false;
+
+                // the closing line is the same almost every time: it comes filled in (the box can be changed or emptied)
+                TextBox_Newsletter_Greeting.Text = Global.Text("News_GreetingDefault");
             }
 
             ShowMode();
@@ -87,35 +90,41 @@ namespace netcreative.ca
 
         // ---- the message ---------------------------------------------------------------------------------
 
-        // what the administrator typed is TEXT: it is encoded, and the line breaks become <br> (before, a line break was lost in the
-        // HTML and nothing typed could be formatted)
-        private static string Html(string text)
-        {
-            return HttpUtility.HtmlEncode(text ?? string.Empty).Replace("\r\n", "<br>").Replace("\n", "<br>");
-        }
-
-        // One paragraph for each part that was filled in (an empty introduction or closing leaves no blank space), the signature, then
-        // the small unsubscribe line. The preview of the page (newsletter.js) shows the same parts in the same order.
+        // The message (typed text: NewsletterFormat turns a few simple marks into HTML and writes everything else as text), the closing
+        // line, the signature, then the small unsubscribe line. The preview of the page asks NewsletterFormat for the same HTML.
         // where the unsubscribe link of each recipient goes in the message (BuildMessage writes it: the link is made for one address)
         private const string UnsubscribePlaceholder = "{{unsubscribe}}";
 
+        // The signature is TEXT in the HTML of the message (name, address, phone and e-mail that can be clicked), with the logo as a
+        // small picture that the mail program loads from this site. It used to be one picture with all of this drawn in it, sent as an
+        // attachment: a picture holding the text is not readable by everybody and filters of unwanted mail dislike it.
+        // (Also written in the preview of the page, so the preview shows what is sent.)
+        protected static string SignatureHtml
+        {
+            get
+            {
+                const string blue = "#1f78c1";
+
+                return "<table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;margin:0 0 16px\"><tr>"
+                    + "<td style=\"padding:0 16px 0 0;vertical-align:middle\"><img src=\"" + Mailer.SiteBase + "/Content/images/site/logo.png\" width=\"88\" height=\"88\" alt=\"Net.Créative\" style=\"display:block;border:0\"></td>"
+                    + "<td style=\"vertical-align:middle;font-family:Georgia,'Times New Roman',serif;line-height:1.35;color:#222222\">"
+                    + "<div style=\"font-size:21px;color:" + blue + "\">Éric Lapointe, Propriétaire</div>"
+                    + "<div style=\"font-size:13px\">2845 208<sup>e</sup> rue, Saint-Georges (Québec) G5Y 5B8</div>"
+                    + "<div style=\"font-size:19px\"><a href=\"tel:+14182269087\" style=\"color:" + blue + ";text-decoration:none\">418 226-9087</a></div>"
+                    + "<div style=\"font-size:14px\"><a href=\"mailto:contact@netcreative.ca\" style=\"color:" + blue + ";text-decoration:none\">contact@netcreative.ca</a>"
+                    + " | <a href=\"" + Mailer.SiteBase + "/\" style=\"color:" + blue + ";text-decoration:none\">https://netcreative.ca</a></div>"
+                    + "</td></tr></table>";
+            }
+        }
+
         private string BodyHtml()
         {
-            const string paragraph = "<p style=\"margin:0 0 16px\">";
-
             var html = new StringBuilder();
             html.Append("<html><head><meta charset=\"utf-8\"></head><body style=\"margin:0;padding:0\">")
-                .Append("<div style=\"font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#222222;max-width:600px;padding:16px\">");
+                .Append("<div style=\"font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#222222;max-width:600px;padding:16px\">")
+                .Append(NewsletterFormat.Html(TextBox_Newsletter_Body.Text, TextBox_Newsletter_Greeting.Text));
 
-            foreach (string part in new[] { TextBox_Newsletter_Intro.Text, TextBox_Newsletter_Body.Text, TextBox_Newsletter_Greeting.Text })
-            {
-                if (!string.IsNullOrWhiteSpace(part))
-                {
-                    html.Append(paragraph).Append(Html(part.Trim())).Append("</p>");
-                }
-            }
-
-            html.Append(paragraph).Append("<img src=\"cid:").Append(SignatureId).Append("\" alt=\"Net.Créative\" style=\"max-width:100%\"></p>")
+            html.Append(SignatureHtml)
                 .Append("<p style=\"margin:24px 0 0;font-size:12px;color:#777777\">").Append(HttpUtility.HtmlEncode(Global.Admin_NewsletterUnsubscribe1))
                 .Append("<a href=\"" + UnsubscribePlaceholder + "\" style=\"color:#4473c5\">").Append(HttpUtility.HtmlEncode(Global.Admin_NewsletterUnsubscribe2))
                 .Append("</a>").Append(HttpUtility.HtmlEncode(Global.Admin_NewsletterUnsubscribe3)).Append("</p></div></body></html>");
@@ -123,30 +132,47 @@ namespace netcreative.ca
             return html.ToString();
         }
 
-        // One message per recipient, each with its OWN signature attachment: a message that was sent once has read its attachment to the
-        // end, so the same message sent a second time carried an empty one (the signature image was broken from the second subscriber on).
+        // One message per recipient (each one has its own unsubscribe link).
         private MailMessage BuildMessage(string to, string subject, string body)
         {
             var mail = new MailMessage();
             mail.From = new MailAddress(ConfigurationManager.AppSettings["smtp_user"], "Net.Créative.ca");
             mail.To.Add(new MailAddress(to));
-            mail.IsBodyHtml = true;
             mail.Subject = subject;
+            mail.SubjectEncoding = Encoding.UTF8;
 
             // the unsubscribe link of THIS recipient (the address, signed by the site); the "Unsubscribe" button of Gmail, Outlook and
             // Apple Mail uses the same link, posted in the background (RFC 8058), and the page unsubscribes at once
             string unsubscribeUrl = UnsubscribeLink.Url(to);
-            mail.Body = body.Replace(UnsubscribePlaceholder, HttpUtility.HtmlAttributeEncode(unsubscribeUrl));
+            string html = body.Replace(UnsubscribePlaceholder, HttpUtility.HtmlAttributeEncode(unsubscribeUrl));
             mail.Headers.Add("List-Unsubscribe", "<" + unsubscribeUrl + ">");
             mail.Headers.Add("List-Unsubscribe-Post", "List-Unsubscribe=One-Click");
 
-            var signature = new Attachment(Server.MapPath("~/Content/images/site/signature.png"));
-            signature.ContentId = SignatureId;
-            signature.ContentDisposition.Inline = true;
-            signature.ContentDisposition.DispositionType = DispositionTypeNames.Inline;
-            mail.Attachments.Add(signature);
+            // A text version and an HTML version (the last one is the one mail programs show). Nothing is attached: the signature picture
+            // used to be an attachment whose type the server could not guess ("application/octet-stream"), and Gmail, which is stricter
+            // than Outlook, did not deliver those messages.
+            mail.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(PlainText(html), Encoding.UTF8, MediaTypeNames.Text.Plain));
+            mail.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(html, Encoding.UTF8, MediaTypeNames.Text.Html));
 
             return mail;
+        }
+
+        // the text version of the message: the paragraphs of the HTML, then the unsubscribe link in full
+        private static string PlainText(string html)
+        {
+            string text = Regex.Replace(html, @"<(head|style)[^>]*>.*?</\1>", string.Empty, RegexOptions.IgnoreCase | RegexOptions.Singleline);
+            // a link keeps its address in the text version ("Read more (https://...)"), a list keeps its dashes
+            text = Regex.Replace(text, "<a [^>]*href=\"([^\"]+)\"[^>]*>(.*?)</a>", m => m.Groups[2].Value == m.Groups[1].Value || m.Groups[1].Value.StartsWith("tel:") || m.Groups[1].Value.StartsWith("mailto:")
+                ? m.Groups[2].Value : m.Groups[2].Value + " (" + m.Groups[1].Value + ")", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+            text = Regex.Replace(text, @"<li[^>]*>", "- ", RegexOptions.IgnoreCase);
+            text = Regex.Replace(text, @"</(p|h2|ul|table)>", "\n\n", RegexOptions.IgnoreCase);
+            text = Regex.Replace(text, @"<(br\s*/?|/div|/tr|/li)>", "\n", RegexOptions.IgnoreCase);
+            text = Regex.Replace(text, @"<[^>]+>", string.Empty);
+            text = HttpUtility.HtmlDecode(text);
+            text = Regex.Replace(text, @"[ \t]+\n", "\n");
+            text = Regex.Replace(text, @"\n{3,}", "\n\n").Trim();
+
+            return text;
         }
 
         private SmtpClient NewSmtpClient()
@@ -277,9 +303,8 @@ namespace netcreative.ca
         private void ClearFields()
         {
             TextBox_Newsletter_Object.Text = string.Empty;
-            TextBox_Newsletter_Intro.Text = string.Empty;
             TextBox_Newsletter_Body.Text = string.Empty;
-            TextBox_Newsletter_Greeting.Text = string.Empty;
+            TextBox_Newsletter_Greeting.Text = Global.Text("News_GreetingDefault");
         }
 
         // ---- events ---------------------------------------------------------------------------------------

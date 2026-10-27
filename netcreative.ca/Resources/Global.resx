@@ -1705,4 +1705,10 @@ UPDATE USERS SET TotpSecret = NULL, TotpEnabled = 0, TotpLastStep = NULL, TotpRe
   <data name="Admin_SubRetention" xml:space="preserve">
     <value>Addresses that are never confirmed are erased after 30 days.</value>
   </data>
+  <data name="News_FormatHelp" xml:space="preserve">
+    <value>A blank line starts a new paragraph. Formatting: ## Title, **bold**, - list (a dash at the start of each line), [text](https://address) for a link, > [Button text](https://address) for a button alone on its line. An https:// address written as it is becomes a link.</value>
+  </data>
+  <data name="News_GreetingDefault" xml:space="preserve">
+    <value>Best regards,</value>
+  </data>
 </root>

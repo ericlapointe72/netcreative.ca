@@ -1060,3 +1060,10 @@
     background: #f7f9fc;
     border-radius: 4px;
 }
+
+.admin-card .news-help {
+    margin: 0.4rem 0 0;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: #5a6670;
+}

@@ -37,12 +37,9 @@
                     <span class="news-count" id="news-count" data-template="<%: Global.Text("News_SubjectCount") %>" data-ideal="60"></span>
                 </div>
                 <div class="news-field">
-                    <label for="<%= TextBox_Newsletter_Intro.ClientID %>"><%: Global.Admin_NewsletterIntroLabel %></label>
-                    <asp:TextBox ID="TextBox_Newsletter_Intro" runat="server" CssClass="news-input"></asp:TextBox>
-                </div>
-                <div class="news-field">
                     <label for="<%= TextBox_Newsletter_Body.ClientID %>"><%: Global.Admin_NewsletterBodyLabel %></label>
-                    <asp:TextBox ID="TextBox_Newsletter_Body" runat="server" CssClass="news-input news-body" Rows="10" TextMode="MultiLine"></asp:TextBox>
+                    <asp:TextBox ID="TextBox_Newsletter_Body" runat="server" CssClass="news-input news-body" Rows="14" TextMode="MultiLine"></asp:TextBox>
+                    <p class="news-help"><%: Global.Text("News_FormatHelp") %></p>
                 </div>
                 <div class="news-field">
                     <label for="<%= TextBox_Newsletter_Greeting.ClientID %>"><%: Global.Admin_NewsletterGreetingLabel %></label>
@@ -55,10 +52,8 @@
                 <div class="news-preview" id="news-preview" data-empty="<%: Global.Text("News_PreviewEmpty") %>">
                     <div class="news-preview__subject"><span><%: Global.Text("News_PreviewSubject") %></span> <strong id="np-subject"></strong></div>
                     <div class="news-mail">
-                        <p id="np-intro"></p>
-                        <p id="np-body"></p>
-                        <p id="np-greeting"></p>
-                        <p><img src="<%= ResolveUrl("~/Content/images/site/signature.png") %>" alt="Net.Cr&eacute;ative" /></p>
+                        <div id="np-content"></div>
+                        <%= SignatureHtml %>
                         <p class="news-mail__unsub"><%: Global.Admin_NewsletterUnsubscribe1 %><u><%: Global.Admin_NewsletterUnsubscribe2 %></u><%: Global.Admin_NewsletterUnsubscribe3 %></p>
                     </div>
                 </div>
@@ -73,5 +68,5 @@
             <asp:Literal ID="Literal_Report" runat="server" EnableViewState="false"></asp:Literal>
         </asp:Panel>
     </div>
-    <script src="<%= ResolveUrl("~/Content/js/newsletter.js?v=1") %>"></script>
+    <script src="<%= ResolveUrl("~/Content/js/newsletter.js?v=2") %>" data-preview="<%= ResolveUrl("~/Admin/NewsletterPreview.ashx") %>"></script>
 </asp:Content>

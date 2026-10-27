@@ -179,6 +179,9 @@ header {
 }
 
 .nav__mobile {
+    /* a block, not a line of text: as an inline image it sat on the baseline of its link, and the few pixels the line keeps under the
+       baseline made the link taller than the image, so the phone ended 2 px above the other icons (centered on the taller box) */
+    display: block;
     width: 2.1rem;
     /* mobile.png is a square image with ~23% of transparent margin on each side, so its
        visible phone is much narrower than the 2.1rem box. Pull the box in to the phone's

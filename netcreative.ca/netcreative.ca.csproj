@@ -142,6 +142,7 @@
     <Content Include="Admin\LoginHandler.ashx" />
     <Content Include="Admin\LoginComplete.ashx" />
     <Content Include="Admin\Export.ashx" />
+    <Content Include="Admin\NewsletterPreview.ashx" />
     <Content Include="Admin\Logs.aspx" />
     <Content Include="Global.asax" />
     <Content Include="SubscribeHandler.ashx" />
@@ -292,6 +293,9 @@
     <Compile Include="Admin\Export.ashx.cs">
       <DependentUpon>Export.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\NewsletterPreview.ashx.cs">
+      <DependentUpon>NewsletterPreview.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Logs.aspx.cs">
       <DependentUpon>Logs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -306,6 +310,7 @@
     <Compile Include="Models\AdminUi.cs" />
     <Compile Include="Models\AdminAudit.cs" />
     <Compile Include="Models\DataRetention.cs" />
+    <Compile Include="Models\NewsletterFormat.cs" />
     <Compile Include="Models\OpeningHours.cs" />
     <Compile Include="Models\SignedToken.cs" />
     <Compile Include="Models\FormTimer.cs" />

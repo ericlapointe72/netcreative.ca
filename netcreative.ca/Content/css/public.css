@@ -429,6 +429,34 @@
     left: 0.15rem;
 }
 
+/* A field filled in by the browser (saved address, password manager) is not ":valid" until the visitor touches the page, so its label
+   stayed on top of the text. These are two rules on purpose: a browser that does not know one of the two names drops the whole rule. */
+.contact__container .tb__lastName:-webkit-autofill ~ .lbl__lastName,
+.contact__container .tb__firstName:-webkit-autofill ~ .lbl__firstName,
+.contact__container .tb__mail:-webkit-autofill ~ .lbl__mail,
+.contact__container .tb__phone:-webkit-autofill ~ .lbl__phone,
+.contact__container .tb__company:-webkit-autofill ~ .lbl__company {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--logoOrange);
+    top: -0.7rem;
+    left: 0.15rem;
+}
+
+.contact__container .tb__lastName:autofill ~ .lbl__lastName,
+.contact__container .tb__firstName:autofill ~ .lbl__firstName,
+.contact__container .tb__mail:autofill ~ .lbl__mail,
+.contact__container .tb__phone:autofill ~ .lbl__phone,
+.contact__container .tb__company:autofill ~ .lbl__company {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--logoOrange);
+    top: -0.7rem;
+    left: 0.15rem;
+}
+
 .contact__container .card__verify {
     margin-top: 2rem;
     padding-top: 1.5rem;
@@ -967,6 +995,27 @@
 .contact__container .card.login__card .tb__pass:valid ~ .lbl__pass,
 .contact__container .card.login__card .tb__code:focus ~ .lbl__code,
 .contact__container .card.login__card .tb__code:valid ~ .lbl__code {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--logoOrange);
+    top: -0.7rem;
+    left: 1.6rem;
+}
+
+/* filled in by the browser or a password manager: not ":valid" until the visitor touches the page (see the contact form above) */
+.contact__container .card.login__card .tb__user:-webkit-autofill ~ .lbl__user,
+.contact__container .card.login__card .tb__pass:-webkit-autofill ~ .lbl__pass {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--logoOrange);
+    top: -0.7rem;
+    left: 1.6rem;
+}
+
+.contact__container .card.login__card .tb__user:autofill ~ .lbl__user,
+.contact__container .card.login__card .tb__pass:autofill ~ .lbl__pass {
     font-size: 0.8rem;
     font-weight: 500;
     letter-spacing: 0.02em;
