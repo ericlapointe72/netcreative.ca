@@ -85,6 +85,15 @@ namespace netcreative.ca
 
             bool simulate = CheckSimulation.Checked;
 
+            // The whole run is ONE transaction that this page ends (rolled back in simulation, kept otherwise). A query that ends it
+            // itself (COMMIT, ROLLBACK, a new BEGIN TRAN) would keep what it changed even in simulation: those words are refused.
+            if (EndsTransaction(query))
+            {
+                Audit(query, simulate, "REFUSED: transaction control");
+                Show(Global.Text("Sql_NoTransaction"), false);
+                return;
+            }
+
             // changing real data asks for the password again: a stolen session alone is not enough
             if (!simulate && !PasswordConfirmed())
             {
@@ -100,9 +109,19 @@ namespace netcreative.ca
                 string tables;
                 int sets;
                 int affected;
+                bool endedByQuery;
 
-                Run(query, simulate, out tables, out sets, out affected);
+                Run(query, simulate, out tables, out sets, out affected, out endedByQuery);
                 timer.Stop();
+
+                // the query found a way to end the transaction before the page did (dynamic SQL, for example): what it changed may be kept
+                if (endedByQuery)
+                {
+                    LiteralResult.Text = tables;
+                    Show(Global.Text("Sql_EndedByQuery"), false);
+                    Audit(query, simulate, "WARNING the query ended the transaction itself");
+                    return;
+                }
 
                 var summary = new StringBuilder();
 
@@ -183,11 +202,22 @@ namespace netcreative.ca
             return ok;
         }
 
-        private static void Run(string query, bool simulate, out string tables, out int sets, out int affected)
+        // the words of the query that would end the transaction (the comments and the texts between quotes are not looked at)
+        private static bool EndsTransaction(string query)
+        {
+            string code = Regex.Replace(query, @"/\*.*?\*/", " ", RegexOptions.Singleline);
+            code = Regex.Replace(code, @"--[^\r\n]*", " ");
+            code = Regex.Replace(code, @"'(?:[^']|'')*'", "''");
+
+            return Regex.IsMatch(code, @"\b(COMMIT|ROLLBACK|BEGIN\s+TRAN(SACTION)?|SAVE\s+TRAN(SACTION)?|SET\s+IMPLICIT_TRANSACTIONS)\b", RegexOptions.IgnoreCase);
+        }
+
+        private static void Run(string query, bool simulate, out string tables, out int sets, out int affected, out bool endedByQuery)
         {
             var html = new StringBuilder();
             sets = 0;
             affected = -1;
+            endedByQuery = false;
 
             using (var cn = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString))
             {
@@ -224,13 +254,21 @@ namespace netcreative.ca
                             affected = reader.RecordsAffected;
                         }
 
-                        if (simulate)
+                        // "this transaction has already ended": the query ended it itself
+                        try
                         {
-                            tx.Rollback();
+                            if (simulate)
+                            {
+                                tx.Rollback();
+                            }
+                            else
+                            {
+                                tx.Commit();
+                            }
                         }
-                        else
+                        catch (InvalidOperationException)
                         {
-                            tx.Commit();
+                            endedByQuery = true;
                         }
                     }
                     catch

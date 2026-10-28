@@ -1674,4 +1674,10 @@ UPDATE USERS SET TotpSecret = NULL, TotpEnabled = 0, TotpLastStep = NULL, TotpRe
   <data name="News_GreetingDefault" xml:space="preserve">
     <value>Cordialement,</value>
   </data>
+  <data name="Sql_NoTransaction" xml:space="preserve">
+    <value>COMMIT, ROLLBACK, BEGIN TRAN et SAVE TRAN ne sont pas acceptés ici : la page gère elle-même la transaction (simulation = tout est annulé).</value>
+  </data>
+  <data name="Sql_EndedByQuery" xml:space="preserve">
+    <value>ATTENTION : la requête a elle-même terminé la transaction. Ce qu’elle a modifié a pu être conservé, même en simulation : vérifiez les données.</value>
+  </data>
 </root>

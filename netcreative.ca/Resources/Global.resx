@@ -1711,4 +1711,10 @@ UPDATE USERS SET TotpSecret = NULL, TotpEnabled = 0, TotpLastStep = NULL, TotpRe
   <data name="News_GreetingDefault" xml:space="preserve">
     <value>Best regards,</value>
   </data>
+  <data name="Sql_NoTransaction" xml:space="preserve">
+    <value>COMMIT, ROLLBACK, BEGIN TRAN and SAVE TRAN are not accepted here: the page manages the transaction itself (simulation = everything is undone).</value>
+  </data>
+  <data name="Sql_EndedByQuery" xml:space="preserve">
+    <value>WARNING: the query ended the transaction itself. What it changed may have been kept, even in simulation: check the data.</value>
+  </data>
 </root>
