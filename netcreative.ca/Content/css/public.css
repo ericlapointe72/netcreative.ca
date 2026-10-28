@@ -1317,9 +1317,12 @@ footer a:hover {
 }
 
 
+
 /*  ---
     FAQ
-    --- */
+    ---
+    The answers are folded by faq.js (the class "faq--js"): without the script they stay visible. The height of an answer is animated
+    by the script; the CSS only gives it the transition and hides what is folded from the keyboard and the screen readers. */
 
 .faq {
     max-width: 50rem;
@@ -1335,20 +1338,28 @@ footer a:hover {
     border-top: 1px solid var(--logoSilver);
 }
 
+.faq__heading {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
 .faq__question {
     position: relative;
     display: block;
+    width: 100%;
+    margin: 0;
     padding: 1.1rem 2.5rem 1.1rem 0;
+    border: 0;
+    background: none;
+    font-family: inherit;
     font-size: 1.05rem;
     font-weight: 600;
     line-height: 1.4;
+    text-align: left;
     color: #2d3436;
     cursor: pointer;
-    list-style: none;
-}
-
-.faq__question::-webkit-details-marker {
-    display: none;
+    transition: color 200ms ease;
 }
 
 .faq__question::after {
@@ -1361,10 +1372,10 @@ footer a:hover {
     font-weight: 400;
     line-height: 1;
     color: var(--logoOrange);
-    transition: transform 200ms ease;
+    transition: transform 300ms ease;
 }
 
-.faq__item[open] > .faq__question::after {
+.faq__question[aria-expanded="true"]::after {
     transform: translateY(-50%) rotate(45deg);
 }
 
@@ -1372,32 +1383,36 @@ footer a:hover {
     color: var(--logoBlue);
 }
 
+.faq__panel {
+    overflow: hidden;
+}
+
+.faq--js .faq__panel {
+    transition: height 300ms ease, visibility 0s linear 300ms;
+}
+
+.faq--js .faq__panel[data-expanded="true"] {
+    visibility: visible;
+    transition: height 300ms ease, visibility 0s;
+}
+
+.faq--js .faq__panel[data-expanded="false"] {
+    visibility: hidden;
+}
+
 .faq__answer {
-    margin: 0 0 1.25rem 0;
+    margin: 0;
+    padding: 0 0 1.25rem 0;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.7;
     color: #3f4a53;
-    animation: faq-open 220ms ease;
-}
-
-@keyframes faq-open {
-    from {
-        opacity: 0;
-        transform: translateY(-6px);
-    }
-
-    to {
-        opacity: 1;
-        transform: none;
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .faq__answer {
-        animation: none;
-    }
-
+    .faq--js .faq__panel,
+    .faq--js .faq__panel[data-expanded="true"],
+    .faq__question,
     .faq__question::after {
         transition: none;
     }

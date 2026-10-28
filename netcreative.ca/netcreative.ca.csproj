@@ -148,6 +148,7 @@
     <Content Include="SubscribeHandler.ashx" />
     <Content Include="Content\js\observer.js" />
     <Content Include="Content\js\onscroll.js" />
+    <Content Include="Content\js\faq.js" />
     <Content Include="Content\css\public.css" />
     <Content Include="privacy.aspx" />
     <Content Include="service.aspx" />

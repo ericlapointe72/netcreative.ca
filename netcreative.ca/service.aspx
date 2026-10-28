@@ -95,11 +95,16 @@
     <h2 class="section-label"><%: Global.Text("Faq_Label") %></h2>
 
     <div class="faq">
+        <%-- without script every answer is shown; faq.js folds them and opens one at a time, with a height animation --%>
         <% for (int q = 1; q <= 8; q++) { %>
-        <details class="faq__item">
-            <summary class="faq__question"><%: Global.Text("Faq_Q" + q) %></summary>
-            <p class="faq__answer"><%: Global.Text("Faq_A" + q) %></p>
-        </details>
+        <div class="faq__item">
+            <h3 class="faq__heading">
+                <button type="button" class="faq__question" id="faq-q<%= q %>" aria-expanded="false" aria-controls="faq-a<%= q %>"><%: Global.Text("Faq_Q" + q) %></button>
+            </h3>
+            <div class="faq__panel" id="faq-a<%= q %>" role="region" aria-labelledby="faq-q<%= q %>">
+                <p class="faq__answer"><%: Global.Text("Faq_A" + q) %></p>
+            </div>
+        </div>
         <% } %>
     </div>
 
@@ -111,5 +116,6 @@
     </div>
 
     <script src="Content/js/onscroll.js"></script>
+    <script src="Content/js/faq.js?v=1"></script>
 
 </asp:Content>
