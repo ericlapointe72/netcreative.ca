@@ -1680,4 +1680,55 @@ UPDATE USERS SET TotpSecret = NULL, TotpEnabled = 0, TotpLastStep = NULL, TotpRe
   <data name="Sql_EndedByQuery" xml:space="preserve">
     <value>ATTENTION : la requête a elle-même terminé la transaction. Ce qu’elle a modifié a pu être conservé, même en simulation : vérifiez les données.</value>
   </data>
+  <data name="Faq_Label" xml:space="preserve">
+    <value>Questions fréquentes</value>
+  </data>
+  <data name="Faq_Q1" xml:space="preserve">
+    <value>Combien coûte un site web?</value>
+  </data>
+  <data name="Faq_A1" xml:space="preserve">
+    <value>Le prix dépend de la taille du site et de ses fonctions. Plus votre objectif est clairement défini, meilleur sera le prix. Écrivez-moi : après avoir compris votre projet, je vous donne une estimation.</value>
+  </data>
+  <data name="Faq_Q2" xml:space="preserve">
+    <value>Combien de temps faut-il pour réaliser un site?</value>
+  </data>
+  <data name="Faq_A2" xml:space="preserve">
+    <value>Cela dépend de la taille du site et de la rapidité avec laquelle vous fournissez votre logo, vos photos et vos textes. Je vous propose un échéancier réaliste en même temps que l’estimation.</value>
+  </data>
+  <data name="Faq_Q3" xml:space="preserve">
+    <value>Pourquoi ASP.NET plutôt que WordPress?</value>
+  </data>
+  <data name="Faq_A3" xml:space="preserve">
+    <value>Un site WordPress repose sur des modules qu’il faut garder à jour, et ce sont souvent eux qui servent de porte d’entrée aux attaques. Un site construit sur mesure avec ASP.NET n’a pas ces modules : il est plus simple à sécuriser et à entretenir.</value>
+  </data>
+  <data name="Faq_Q4" xml:space="preserve">
+    <value>Où mon site est-il hébergé?</value>
+  </data>
+  <data name="Faq_A4" xml:space="preserve">
+    <value>Chez Canadian Web Hosting, sur des serveurs situés au Canada. Vos données restent soumises aux lois canadiennes, avec un support technique disponible au besoin.</value>
+  </data>
+  <data name="Faq_Q5" xml:space="preserve">
+    <value>Mon site s’affichera-t-il bien sur un téléphone?</value>
+  </data>
+  <data name="Faq_A5" xml:space="preserve">
+    <value>Oui. Chaque site est conçu pour s’adapter à tous les écrans et testé sur Chrome, Firefox, Safari et Edge, ainsi que sur mobile, tablette et ordinateur.</value>
+  </data>
+  <data name="Faq_Q6" xml:space="preserve">
+    <value>Que dois-je préparer avant de commencer?</value>
+  </data>
+  <data name="Faq_A6" xml:space="preserve">
+    <value>Votre logo, des photos de qualité, des textes sur votre entreprise, quelques sites qui vous inspirent, un message clair et un objectif précis. La section « Avant de commencer », plus haut, détaille chacun de ces points.</value>
+  </data>
+  <data name="Faq_Q7" xml:space="preserve">
+    <value>Mon site sera-t-il bien placé sur Google?</value>
+  </data>
+  <data name="Faq_A7" xml:space="preserve">
+    <value>Chaque page est structurée pour bien se positionner : balises, vitesse de chargement et contenu optimisé. Le référencement est toutefois un travail dans la durée : personne ne peut honnêtement vous garantir la première place.</value>
+  </data>
+  <data name="Faq_Q8" xml:space="preserve">
+    <value>Utilisez-vous l’intelligence artificielle pour créer mon site?</value>
+  </data>
+  <data name="Faq_A8" xml:space="preserve">
+    <value>Oui, comme aide au codage : le développement est plus rapide, plus économique et comporte moins d’erreurs. Je reste responsable du résultat, de la conception jusqu’aux tests.</value>
+  </data>
 </root>

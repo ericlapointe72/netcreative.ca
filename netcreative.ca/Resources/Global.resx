@@ -1717,4 +1717,55 @@ UPDATE USERS SET TotpSecret = NULL, TotpEnabled = 0, TotpLastStep = NULL, TotpRe
   <data name="Sql_EndedByQuery" xml:space="preserve">
     <value>WARNING: the query ended the transaction itself. What it changed may have been kept, even in simulation: check the data.</value>
   </data>
+  <data name="Faq_Label" xml:space="preserve">
+    <value>Frequently asked questions</value>
+  </data>
+  <data name="Faq_Q1" xml:space="preserve">
+    <value>How much does a website cost?</value>
+  </data>
+  <data name="Faq_A1" xml:space="preserve">
+    <value>The price depends on the size of the site and its features. The more clearly your goal is defined, the better the price. Write to me: once I understand your project, I give you an estimate.</value>
+  </data>
+  <data name="Faq_Q2" xml:space="preserve">
+    <value>How long does it take to build a site?</value>
+  </data>
+  <data name="Faq_A2" xml:space="preserve">
+    <value>It depends on the size of the site and how quickly you provide your logo, photos and texts. I give you a realistic schedule together with the estimate.</value>
+  </data>
+  <data name="Faq_Q3" xml:space="preserve">
+    <value>Why ASP.NET rather than WordPress?</value>
+  </data>
+  <data name="Faq_A3" xml:space="preserve">
+    <value>A WordPress site relies on plug-ins that have to be kept up to date, and they are often the way in for attacks. A site custom-built with ASP.NET has no such plug-ins: it is simpler to secure and to maintain.</value>
+  </data>
+  <data name="Faq_Q4" xml:space="preserve">
+    <value>Where is my site hosted?</value>
+  </data>
+  <data name="Faq_A4" xml:space="preserve">
+    <value>With Canadian Web Hosting, on servers located in Canada. Your data remains subject to Canadian law, with technical support available when needed.</value>
+  </data>
+  <data name="Faq_Q5" xml:space="preserve">
+    <value>Will my site look good on a phone?</value>
+  </data>
+  <data name="Faq_A5" xml:space="preserve">
+    <value>Yes. Every site is built to fit every screen and tested on Chrome, Firefox, Safari and Edge, as well as on mobile, tablet and computer.</value>
+  </data>
+  <data name="Faq_Q6" xml:space="preserve">
+    <value>What should I prepare before we start?</value>
+  </data>
+  <data name="Faq_A6" xml:space="preserve">
+    <value>Your logo, good photos, texts about your business, a few sites that inspire you, a clear message and a precise goal. The “Before we start” section above covers each of these points.</value>
+  </data>
+  <data name="Faq_Q7" xml:space="preserve">
+    <value>Will my site rank well on Google?</value>
+  </data>
+  <data name="Faq_A7" xml:space="preserve">
+    <value>Every page is structured to rank well: tags, loading speed and optimized content. Search ranking is a long-term job, though: nobody can honestly guarantee you first place.</value>
+  </data>
+  <data name="Faq_Q8" xml:space="preserve">
+    <value>Do you use artificial intelligence to build my site?</value>
+  </data>
+  <data name="Faq_A8" xml:space="preserve">
+    <value>Yes, as a coding aid: development is faster, more economical and has fewer errors. I remain responsible for the result, from design to testing.</value>
+  </data>
 </root>

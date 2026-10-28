@@ -92,6 +92,20 @@
         </div>
     </div>
 
+    <h2 class="section-label"><%: Global.Text("Faq_Label") %></h2>
+
+    <div class="faq">
+        <% for (int q = 1; q <= 8; q++) { %>
+        <details class="faq__item">
+            <summary class="faq__question"><%: Global.Text("Faq_Q" + q) %></summary>
+            <p class="faq__answer"><%: Global.Text("Faq_A" + q) %></p>
+        </details>
+        <% } %>
+    </div>
+
+    <%-- the same questions for Google (FAQPage): the answers it shows under the result are the ones written above --%>
+    <script type="application/ld+json"><%= FaqJsonLd() %></script>
+
     <div class="button__top">
         <a class="chevron__up" href="#topPage" aria-label="<%: Global.Text("BackToTop") %>"><i class="ic ic-chevron-up" aria-hidden="true"></i></a>
     </div>

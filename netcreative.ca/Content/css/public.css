@@ -1218,3 +1218,187 @@
     opacity: 0.65;
     transform: translateX(0);
 }
+
+/*  -------------------------
+    POLISH: DETAILS THAT MOVE
+    -------------------------
+    Small touches, all of them off for people who asked their system for less motion (see the end of this block). */
+
+/* the three cards of the home page lift a little instead of fading (a fade made the text harder to read) */
+.pillar-card {
+    transition: transform 250ms ease, box-shadow 250ms ease, filter 250ms ease;
+}
+
+.pillar-card:hover,
+.pillar-card:focus-visible {
+    opacity: 1;
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
+    filter: brightness(1.06);
+}
+
+/* a short orange bar under the centered titles of the sections (not under the left-aligned titles of the forms) */
+.section-label:not(.contact__label)::after {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 3px;
+    margin: 0.7rem auto 0;
+    background-color: var(--logoOrange);
+    border-radius: 2px;
+}
+
+/* the keyboard can always see where it is */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.button:focus-visible,
+.pillar-card:focus-visible {
+    outline: 3px solid var(--logoOrange);
+    outline-offset: 3px;
+}
+
+/* the links of the footer underline themselves when they are pointed at */
+footer a {
+    text-underline-offset: 0.25em;
+    text-decoration-thickness: 1px;
+    transition: color 200ms ease, text-decoration-color 200ms ease;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* the cards and the blocks of the pages enter one after the other while the page is scrolled (browsers that know scroll-driven
+   animations; the others show everything at once, which is just as good) */
+@supports (animation-timeline: view()) {
+    @keyframes rise-in {
+        from {
+            opacity: 0;
+            transform: translateY(28px);
+        }
+
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    .pillar-card,
+    .content-section {
+        animation: rise-in backwards linear;
+        animation-timeline: view();
+        animation-range: entry 0% entry 45%;
+    }
+
+    .pillar-card:nth-child(2) {
+        animation-range: entry 8% entry 53%;
+    }
+
+    .pillar-card:nth-child(3) {
+        animation-range: entry 16% entry 61%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pillar-card,
+    .content-section {
+        animation: none;
+        transition: none;
+        transform: none;
+    }
+
+    .pillar-card:hover,
+    .pillar-card:focus-visible {
+        transform: none;
+    }
+}
+
+
+/*  ---
+    FAQ
+    --- */
+
+.faq {
+    max-width: 50rem;
+    margin: 0 auto 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.faq__item {
+    border-bottom: 1px solid var(--logoSilver);
+}
+
+.faq__item:first-child {
+    border-top: 1px solid var(--logoSilver);
+}
+
+.faq__question {
+    position: relative;
+    display: block;
+    padding: 1.1rem 2.5rem 1.1rem 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #2d3436;
+    cursor: pointer;
+    list-style: none;
+}
+
+.faq__question::-webkit-details-marker {
+    display: none;
+}
+
+.faq__question::after {
+    content: '+';
+    position: absolute;
+    right: 0.4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--logoOrange);
+    transition: transform 200ms ease;
+}
+
+.faq__item[open] > .faq__question::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.faq__question:hover {
+    color: var(--logoBlue);
+}
+
+.faq__answer {
+    margin: 0 0 1.25rem 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #3f4a53;
+    animation: faq-open 220ms ease;
+}
+
+@keyframes faq-open {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .faq__answer {
+        animation: none;
+    }
+
+    .faq__question::after {
+        transition: none;
+    }
+}
