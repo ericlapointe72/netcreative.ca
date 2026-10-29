@@ -66,6 +66,30 @@
         </div>
     </div>
 
+    <h2 class="section-label"><%: Global.Text("Faq_Label") %></h2>
+
+    <div class="faq">
+        <%-- without script every answer is shown; faq.js folds them and opens one at a time, with a height animation --%>
+        <% for (int q = 1; q <= FaqCount; q++) { %>
+        <div class="faq__item">
+            <h3 class="faq__heading">
+                <button type="button" class="faq__question" id="faq-q<%= q %>" aria-expanded="false" aria-controls="faq-a<%= q %>"><%: Global.Text("DfoFaq_Q" + q) %></button>
+            </h3>
+            <div class="faq__panel" id="faq-a<%= q %>" role="region" aria-labelledby="faq-q<%= q %>">
+                <p class="faq__answer"><%: Global.Text("DfoFaq_A" + q) %></p>
+            </div>
+        </div>
+        <% } %>
+    </div>
+
+    <div class="faq__cta">
+        <p class="faq__cta-text"><%: Global.Text("DfoFaq_Cta") %></p>
+        <a class="button" href="contact.aspx"><%: Global.DutyFreeOps_HeroCta %></a>
+    </div>
+
+    <%-- the same questions for Google (FAQPage): the answers it shows under the result are the ones written above --%>
+    <script type="application/ld+json"><%= FaqJsonLd() %></script>
+
     <script>
         window.__i18n = {
             carouselPrev: "<%= System.Web.HttpUtility.JavaScriptStringEncode(Global.DutyFreeOps_CarouselPrevLabel) %>",
@@ -74,5 +98,6 @@
         };
     </script>
     <script src="Content/js/carousel.js"></script>
+    <script src="Content/js/faq.js?v=1"></script>
 
 </asp:Content>

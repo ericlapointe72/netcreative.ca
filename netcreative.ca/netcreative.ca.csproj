@@ -311,6 +311,7 @@
     <Compile Include="Models\AdminUi.cs" />
     <Compile Include="Models\AdminAudit.cs" />
     <Compile Include="Models\DataRetention.cs" />
+    <Compile Include="Models\FaqSchema.cs" />
     <Compile Include="Models\NewsletterFormat.cs" />
     <Compile Include="Models\OpeningHours.cs" />
     <Compile Include="Models\SignedToken.cs" />

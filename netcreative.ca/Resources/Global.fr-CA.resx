@@ -332,7 +332,7 @@
     <value>Les grandes marques à prix hors taxes, pour vous et pour vos proches.</value>
   </data>
   <data name="Boutique_InfoLabel" xml:space="preserve">
-    <value>Ce qu'il faut savoir</value>
+    <value>La boutique en pratique</value>
   </data>
   <data name="Boutique_Info1Title" xml:space="preserve">
     <value>Exemptions</value>
@@ -341,10 +341,10 @@
     <value>Connaissez vos limites d'exemption personnelle avant de traverser, pour profiter pleinement de votre visite.</value>
   </data>
   <data name="Boutique_Info2Title" xml:space="preserve">
-    <value>FAQ</value>
+    <value>Nous trouver</value>
   </data>
   <data name="Boutique_Info2Text" xml:space="preserve">
-    <value>Les réponses aux questions qu'on nous pose le plus souvent, sur les douanes, le paiement et la cueillette en magasin.</value>
+    <value>1000, route 173 (route du Président-Kennedy), Saint-Théophile (Québec) G0M 2A0, juste avant la frontière canado-américaine.</value>
   </data>
   <data name="Boutique_Info3Title" xml:space="preserve">
     <value>Réservation en ligne</value>
@@ -1730,5 +1730,119 @@ UPDATE USERS SET TotpSecret = NULL, TotpEnabled = 0, TotpLastStep = NULL, TotpRe
   </data>
   <data name="Faq_A8" xml:space="preserve">
     <value>Oui, comme aide au codage : le développement est plus rapide, plus économique et comporte moins d’erreurs. Je reste responsable du résultat, de la conception jusqu’aux tests.</value>
+  </data>
+  <data name="DfoFaq_Q1" xml:space="preserve">
+    <value>À qui s’adresse DutyFreeOps?</value>
+  </data>
+  <data name="DfoFaq_A1" xml:space="preserve">
+    <value>Uniquement aux boutiques hors taxes canadiennes. Je l’ai conçu pour ma propre boutique, à la frontière, et je l’utilise tous les jours. Comme je gère aussi ma boutique, je n’accompagne qu’un petit nombre de commerces à la fois, pour bien le faire.</value>
+  </data>
+  <data name="DfoFaq_Q2" xml:space="preserve">
+    <value>Qu’est-ce qui le distingue d’un logiciel de gestion générique?</value>
+  </data>
+  <data name="DfoFaq_A2" xml:space="preserve">
+    <value>Il a été pensé pour le hors taxes dès le départ, pas adapté après coup : prix de vente comparés aux prix du marché canadien et américain, taux de change, rapports de douane, étiquettes pour chaque catégorie de produits. Rien à contourner, rien de superflu.</value>
+  </data>
+  <data name="DfoFaq_Q3" xml:space="preserve">
+    <value>Prend-il en charge la conformité douanière?</value>
+  </data>
+  <data name="DfoFaq_A3" xml:space="preserve">
+    <value>Oui. Les rapports exigés pour les opérations à la frontière, dont les formulaires B116, E15 et CI1 de l’Agence des services frontaliers du Canada, sont produits à partir de vos ventes, sans ressaisie.</value>
+  </data>
+  <data name="DfoFaq_Q4" xml:space="preserve">
+    <value>Quels rapports puis-je consulter?</value>
+  </data>
+  <data name="DfoFaq_A4" xml:space="preserve">
+    <value>Un tableau de bord avec les ventes du jour, du mois et de l’année, le stock bas et la clientèle selon son origine; des rapports de ventes (par fournisseur, par heure, au calendrier, par origine); l’inventaire en quantité et en valeur, la liste de prix, la prise d’inventaire physique et les parts de marché. Un courriel de résumé quotidien vous les apporte même quand vous n’êtes pas au commerce.</value>
+  </data>
+  <data name="DfoFaq_Q5" xml:space="preserve">
+    <value>Puis-je imprimer mes étiquettes de prix?</value>
+  </data>
+  <data name="DfoFaq_A5" xml:space="preserve">
+    <value>Oui. Il y a un générateur pour chaque famille de produits : vins et spiritueux, parfums, mode, nourriture, mouillettes de parfum, étiquettes de liquidation et étiquettes de prix seul. Vous voyez l’aperçu avant d’imprimer sur vos feuilles d’étiquettes.</value>
+  </data>
+  <data name="DfoFaq_Q6" xml:space="preserve">
+    <value>Où sont mes données, et qui peut y accéder?</value>
+  </data>
+  <data name="DfoFaq_A6" xml:space="preserve">
+    <value>Chez vous : les données sont dans une base SQL Server installée sur votre propre serveur (l’édition Express, gratuite, me suffit pour ma boutique). Les accès se règlent par rôle : caissier, gestionnaire ou administrateur voient seulement ce qui leur est permis.</value>
+  </data>
+  <data name="DfoFaq_Q7" xml:space="preserve">
+    <value>Comment se passent les mises à jour et le soutien?</value>
+  </data>
+  <data name="DfoFaq_A7" xml:space="preserve">
+    <value>Je développe et j’entretiens DutyFreeOps moi-même : en cas de question ou de problème, vous parlez directement à son concepteur. Chaque nouvelle version affiche dans l’application un avis qui explique ce qui a changé.</value>
+  </data>
+  <data name="DfoFaq_Q8" xml:space="preserve">
+    <value>Puis-je reprendre les données de mon système actuel?</value>
+  </data>
+  <data name="DfoFaq_A8" xml:space="preserve">
+    <value>Chaque commerce a son système et ses données : la reprise se discute au cas par cas, une fois que j’ai compris votre situation et visité vos installations. Je ne promets rien d’automatique avant d’avoir vu ce qu’il y a à reprendre.</value>
+  </data>
+  <data name="DfoFaq_Q9" xml:space="preserve">
+    <value>Combien coûte DutyFreeOps?</value>
+  </data>
+  <data name="DfoFaq_A9" xml:space="preserve">
+    <value>Le prix dépend de votre commerce et de ce qu’il faut adapter ou reprendre. Écrivez-moi : après avoir compris votre projet, je vous donne une estimation claire.</value>
+  </data>
+  <data name="DfoFaq_Cta" xml:space="preserve">
+    <value>Une autre question, ou un projet en tête? Parlons-en.</value>
+  </data>
+  <data name="Boutique_OriginLabel" xml:space="preserve">
+    <value>Là où tout a commencé</value>
+  </data>
+  <data name="Boutique_OriginText" xml:space="preserve">
+    <value>Tout part de la boutique. C’est parce qu’une boutique hors taxes devait fonctionner chaque jour, à la frontière, que j’ai conçu DutyFreeOps pour la gérer, que j’ai bâti beaucedutyfree.com pour permettre aux voyageurs de réserver, et que mon savoir-faire en sites web, né de ces projets, est aujourd’hui offert sous la bannière Net.Créative.</value>
+  </data>
+  <data name="Boutique_OriginSiteTitle" xml:space="preserve">
+    <value>beaucedutyfree.com</value>
+  </data>
+  <data name="Boutique_OriginSiteText" xml:space="preserve">
+    <value>Le site de la boutique : réservez en ligne avant de traverser et récupérez vos produits à votre passage.</value>
+  </data>
+  <data name="BtqFaq_Q1" xml:space="preserve">
+    <value>Où se trouve la boutique?</value>
+  </data>
+  <data name="BtqFaq_A1" xml:space="preserve">
+    <value>Au 1000, route 173 (aussi appelée route du Président-Kennedy), à Saint-Théophile (Québec) G0M 2A0, en Beauce, juste avant la frontière canado-américaine : un arrêt facile à intégrer à votre trajet.</value>
+  </data>
+  <data name="BtqFaq_Q2" xml:space="preserve">
+    <value>Quelles sont vos heures d’ouverture?</value>
+  </data>
+  <data name="BtqFaq_A2" xml:space="preserve">
+    <value>Elles sont affichées au bas de chaque page de ce site et sur beaucedutyfree.com. Consultez-les avant de partir : elles varient selon les jours de la semaine.</value>
+  </data>
+  <data name="BtqFaq_Q3" xml:space="preserve">
+    <value>Puis-je réserver mes produits à l’avance?</value>
+  </data>
+  <data name="BtqFaq_A3" xml:space="preserve">
+    <value>Oui. Réservez en ligne sur beaucedutyfree.com avant de traverser et récupérez vos produits à votre passage, sans attente.</value>
+  </data>
+  <data name="BtqFaq_Q4" xml:space="preserve">
+    <value>Vos prix sont-ils vraiment plus bas qu’aux États-Unis?</value>
+  </data>
+  <data name="BtqFaq_A4" xml:space="preserve">
+    <value>C’est notre engagement : nos prix sont toujours inférieurs à ceux des détaillants américains, sans taxes.</value>
+  </data>
+  <data name="BtqFaq_Q5" xml:space="preserve">
+    <value>Quels produits trouve-t-on à la boutique?</value>
+  </data>
+  <data name="BtqFaq_A5" xml:space="preserve">
+    <value>Une vaste sélection de vins, de spiritueux, de parfums, de cosmétiques et d’essentiels de voyage, avec le service personnalisé de notre équipe.</value>
+  </data>
+  <data name="BtqFaq_Q6" xml:space="preserve">
+    <value>Quelles sont mes exemptions personnelles?</value>
+  </data>
+  <data name="BtqFaq_A6" xml:space="preserve">
+    <value>Elles dépendent de la durée de votre séjour hors du Canada. Connaissez vos limites avant de traverser : beaucedutyfree.com les explique dans ses pages d’information.</value>
+  </data>
+  <data name="BtqFaq_Q7" xml:space="preserve">
+    <value>Quel est le lien avec DutyFreeOps et Net.Créative?</value>
+  </data>
+  <data name="BtqFaq_A7" xml:space="preserve">
+    <value>La boutique est le point de départ : j’ai conçu DutyFreeOps pour la gérer, beaucedutyfree.com pour permettre à nos voyageurs de réserver, et mon savoir-faire en sites web, né de ces projets, est offert sous la bannière Net.Créative.</value>
+  </data>
+  <data name="BtqFaq_Cta" xml:space="preserve">
+    <value>Une question sur un produit ou une réservation? Rendez-vous sur le site de la boutique.</value>
   </data>
 </root>
