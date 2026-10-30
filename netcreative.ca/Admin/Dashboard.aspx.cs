@@ -19,6 +19,12 @@ namespace netcreative.ca
             return date.ToString("d MMMM yyyy", CultureInfo.CurrentCulture);
         }
 
+        // "24 oct. 2026": short enough for the big line of a card
+        protected static string ShortDay(DateTime date)
+        {
+            return date.ToString("d MMM yyyy", CultureInfo.CurrentCulture);
+        }
+
         protected static string DayTime(DateTime date)
         {
             return date.ToString("d MMM yyyy HH:mm", CultureInfo.CurrentCulture);

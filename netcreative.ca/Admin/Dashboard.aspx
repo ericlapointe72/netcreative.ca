@@ -22,7 +22,7 @@
         </a>
         <a class="dash-stat dash-stat--ok" href="Newsletter.aspx">
             <span class="dash-stat__label"><%: Global.Text("Dash_Newsletter") %></span>
-            <span class="dash-stat__value dash-stat__value--text"><%: Stats.NewsletterDate.HasValue ? Day(Stats.NewsletterDate.Value) : "-" %></span>
+            <span class="dash-stat__value dash-stat__value--text"><%: Stats.NewsletterDate.HasValue ? ShortDay(Stats.NewsletterDate.Value) : "-" %></span>
             <span class="dash-stat__sub"><%: NewsletterSub %></span>
         </a>
         <a class="dash-stat <%= FailedClass %>" href="LoginLog.aspx">

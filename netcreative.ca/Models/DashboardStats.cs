@@ -219,8 +219,8 @@ namespace netcreative.ca
             return count;
         }
 
-        // the last real mailing in the audit files (a test send has "[Test] " in front of its subject and does not count); only the two
-        // newest months are looked at
+        // the last mailing to the subscribers in the audit files (a single test send is not audited; a subject that starts with "[Test] " is
+        // skipped anyway); only the two newest months are looked at
         private void LoadNewsletter()
         {
             string folder = LogFolder();

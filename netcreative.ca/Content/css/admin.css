@@ -1074,7 +1074,7 @@
 
 .dash-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     gap: 1rem;
     max-width: 1000px;
     margin-bottom: 1rem;
