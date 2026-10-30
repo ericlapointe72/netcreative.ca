@@ -1904,6 +1904,6 @@ UPDATE USERS SET TotpSecret = NULL, TotpEnabled = 0, TotpLastStep = NULL, TotpRe
     <value>tablo-ecolo.ca</value>
   </data>
   <data name="Home_Work3Text" xml:space="preserve">
-    <value>The website of an artist from the Beauce region, built back when I was learning to code. It does not have the polish of my current projects, which is exactly what lets you see how far I have come.</value>
+    <value>The website of an artist from the Beauce region, built back when I was learning to code. My starting point.</value>
   </data>
 </root>

@@ -1867,6 +1867,6 @@ UPDATE USERS SET TotpSecret = NULL, TotpEnabled = 0, TotpLastStep = NULL, TotpRe
     <value>tablo-ecolo.ca</value>
   </data>
   <data name="Home_Work3Text" xml:space="preserve">
-    <value>Le site d’une artiste de la Beauce, bâti à l’époque où j’apprenais à coder. Il n’a pas la finition de mes projets actuels, et c’est justement ce qui permet de mesurer le chemin parcouru.</value>
+    <value>Le site d’une artiste de la Beauce, bâti à l’époque où j’apprenais à coder. Mon point de départ.</value>
   </data>
 </root>
