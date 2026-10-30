@@ -1906,4 +1906,61 @@ UPDATE USERS SET TotpSecret = NULL, TotpEnabled = 0, TotpLastStep = NULL, TotpRe
   <data name="Home_Work3Text" xml:space="preserve">
     <value>The website of an artist from the Beauce region, built back when I was learning to code. My starting point.</value>
   </data>
+  <data name="Dash_Subscribers" xml:space="preserve">
+    <value>Confirmed subscribers</value>
+  </data>
+  <data name="Dash_SubscribersSub" xml:space="preserve">
+    <value>{0} waiting for confirmation · {1} new in 30 days</value>
+  </data>
+  <data name="Dash_Messages" xml:space="preserve">
+    <value>Messages this month</value>
+  </data>
+  <data name="Dash_MessagesSub" xml:space="preserve">
+    <value>{0} in total · last message on {1}</value>
+  </data>
+  <data name="Dash_MessagesNone" xml:space="preserve">
+    <value>No message received yet.</value>
+  </data>
+  <data name="Dash_Newsletter" xml:space="preserve">
+    <value>Last newsletter</value>
+  </data>
+  <data name="Dash_NewsletterSub" xml:space="preserve">
+    <value>“{0}”: {1} sent, {2} failed</value>
+  </data>
+  <data name="Dash_NewsletterNone" xml:space="preserve">
+    <value>Nothing sent yet.</value>
+  </data>
+  <data name="Dash_FailedLogins" xml:space="preserve">
+    <value>Failed sign-ins (24 h)</value>
+  </data>
+  <data name="Dash_FailedLoginsSub" xml:space="preserve">
+    <value>{0} in the last 7 days</value>
+  </data>
+  <data name="Dash_Errors" xml:space="preserve">
+    <value>Site errors today</value>
+  </data>
+  <data name="Dash_ErrorsSub" xml:space="preserve">
+    <value>{0} in the last 7 days</value>
+  </data>
+  <data name="Dash_Recent" xml:space="preserve">
+    <value>Latest messages</value>
+  </data>
+  <data name="Dash_RecentAll" xml:space="preserve">
+    <value>See all messages</value>
+  </data>
+  <data name="Dash_PrevLogin" xml:space="preserve">
+    <value>Your previous sign-in</value>
+  </data>
+  <data name="Dash_PrevLoginText" xml:space="preserve">
+    <value>On {0}, from address {1}.</value>
+  </data>
+  <data name="Dash_PrevLoginHint" xml:space="preserve">
+    <value>If you do not recognise it, change your password on the Users page.</value>
+  </data>
+  <data name="Dash_PrevLoginNone" xml:space="preserve">
+    <value>No earlier sign-in is recorded.</value>
+  </data>
+  <data name="Dash_Incomplete" xml:space="preserve">
+    <value>Some of the figures could not be read. The details are in the site logs.</value>
+  </data>
 </root>

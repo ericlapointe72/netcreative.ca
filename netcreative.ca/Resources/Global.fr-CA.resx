@@ -1869,4 +1869,61 @@ UPDATE USERS SET TotpSecret = NULL, TotpEnabled = 0, TotpLastStep = NULL, TotpRe
   <data name="Home_Work3Text" xml:space="preserve">
     <value>Le site d’une artiste de la Beauce, bâti à l’époque où j’apprenais à coder. Mon point de départ.</value>
   </data>
+  <data name="Dash_Subscribers" xml:space="preserve">
+    <value>Abonnés confirmés</value>
+  </data>
+  <data name="Dash_SubscribersSub" xml:space="preserve">
+    <value>{0} en attente de confirmation · {1} nouveaux en 30 jours</value>
+  </data>
+  <data name="Dash_Messages" xml:space="preserve">
+    <value>Messages ce mois-ci</value>
+  </data>
+  <data name="Dash_MessagesSub" xml:space="preserve">
+    <value>{0} au total · dernier message le {1}</value>
+  </data>
+  <data name="Dash_MessagesNone" xml:space="preserve">
+    <value>Aucun message reçu pour l’instant.</value>
+  </data>
+  <data name="Dash_Newsletter" xml:space="preserve">
+    <value>Dernière infolettre</value>
+  </data>
+  <data name="Dash_NewsletterSub" xml:space="preserve">
+    <value>« {0} » : {1} envoyé(s), {2} échec(s)</value>
+  </data>
+  <data name="Dash_NewsletterNone" xml:space="preserve">
+    <value>Aucun envoi pour l’instant.</value>
+  </data>
+  <data name="Dash_FailedLogins" xml:space="preserve">
+    <value>Connexions échouées (24 h)</value>
+  </data>
+  <data name="Dash_FailedLoginsSub" xml:space="preserve">
+    <value>{0} au cours des 7 derniers jours</value>
+  </data>
+  <data name="Dash_Errors" xml:space="preserve">
+    <value>Erreurs du site aujourd’hui</value>
+  </data>
+  <data name="Dash_ErrorsSub" xml:space="preserve">
+    <value>{0} au cours des 7 derniers jours</value>
+  </data>
+  <data name="Dash_Recent" xml:space="preserve">
+    <value>Derniers messages</value>
+  </data>
+  <data name="Dash_RecentAll" xml:space="preserve">
+    <value>Voir tous les messages</value>
+  </data>
+  <data name="Dash_PrevLogin" xml:space="preserve">
+    <value>Votre connexion précédente</value>
+  </data>
+  <data name="Dash_PrevLoginText" xml:space="preserve">
+    <value>Le {0}, depuis l’adresse {1}.</value>
+  </data>
+  <data name="Dash_PrevLoginHint" xml:space="preserve">
+    <value>Si vous ne la reconnaissez pas, changez votre mot de passe dans la page Utilisateurs.</value>
+  </data>
+  <data name="Dash_PrevLoginNone" xml:space="preserve">
+    <value>Aucune connexion antérieure n’est enregistrée.</value>
+  </data>
+  <data name="Dash_Incomplete" xml:space="preserve">
+    <value>Une partie des chiffres n’a pas pu être lue. Le détail est dans les journaux du site.</value>
+  </data>
 </root>

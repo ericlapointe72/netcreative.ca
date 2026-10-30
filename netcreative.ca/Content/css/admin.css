@@ -1067,3 +1067,150 @@
     line-height: 1.45;
     color: #5a6670;
 }
+
+/*  ---------------
+    ADMIN_DASHBOARD
+    --------------- */
+
+.dash-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    max-width: 1000px;
+    margin-bottom: 1rem;
+}
+
+.dash-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1.1rem 1.2rem;
+    background: #fff;
+    border: 1px solid var(--logoBlue);
+    border-left-width: 4px;
+    border-radius: 4px;
+    color: var(--textBlack);
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+    .dash-stat:hover,
+    .dash-stat:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(68, 115, 197, 0.2);
+    }
+
+    .dash-stat:focus-visible {
+        outline: 2px solid var(--logoBlue);
+        outline-offset: 2px;
+    }
+
+.dash-stat--ok {
+    border-left-color: var(--logoGreen);
+}
+
+.dash-stat--warn {
+    border-left-color: var(--logoOrange);
+}
+
+.dash-stat__label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--logoBlue);
+}
+
+.dash-stat__value {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.dash-stat__value--text {
+    font-size: 1.3rem;
+    line-height: 1.6;
+}
+
+.dash-stat--warn .dash-stat__value {
+    color: var(--logoOrangeHov);
+}
+
+.dash-stat__sub {
+    font-size: 0.9rem;
+    line-height: 1.35;
+}
+
+.dash-panels {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+    max-width: 1000px;
+}
+
+@media (max-width: 800px) {
+    .dash-panels {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dash-panel__title {
+    margin: 0 0 0.6rem;
+    font-size: 1.1rem;
+    color: var(--logoBlue);
+}
+
+.dash-list {
+    list-style: none;
+    margin: 0 0 0.8rem;
+    padding: 0;
+}
+
+    .dash-list li {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 0 1rem;
+        padding: 0.55rem 0;
+        border-top: 1px solid #e6e9ee;
+    }
+
+.dash-list__main {
+    font-weight: 600;
+}
+
+.dash-list__detail {
+    grid-column: 1;
+    font-size: 0.9rem;
+}
+
+.dash-list__date {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.dash-link {
+    color: var(--logoBlue);
+    font-weight: 600;
+}
+
+.dash-empty {
+    margin: 0;
+}
+
+.dash-hint {
+    margin: 0.6rem 0 0;
+    font-size: 0.9rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dash-stat {
+        transition: none;
+    }
+
+    .dash-stat:hover,
+    .dash-stat:focus-visible {
+        transform: none;
+    }
+}
