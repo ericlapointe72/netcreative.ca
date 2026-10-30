@@ -25,6 +25,28 @@
         </a>
     </div>
 
+    <%-- three real projects, shown rather than told; the oldest one is presented honestly as the beginning --%>
+    <h2 class="section-label"><%: Global.Text("Home_WorkLabel") %></h2>
+
+    <div class="content-section">
+        <span class="content-section__text"><%: Global.Text("Home_WorkIntro") %></span>
+    </div>
+
+    <div class="pillar-grid">
+        <a class="pillar-card pillar-card--orange" href="https://www.beaucedutyfree.com" target="_blank" rel="noopener">
+            <span class="pillar-card__title"><%: Global.Text("Home_Work1Title") %></span>
+            <span class="pillar-card__text"><%: Global.Text("Home_Work1Text") %></span>
+        </a>
+        <a class="pillar-card pillar-card--blue" href="service.aspx">
+            <span class="pillar-card__title"><%: Global.Text("Home_Work2Title") %></span>
+            <span class="pillar-card__text"><%: Global.Text("Home_Work2Text") %></span>
+        </a>
+        <a class="pillar-card" href="https://tablo-ecolo.ca" target="_blank" rel="noopener">
+            <span class="pillar-card__title"><%: Global.Text("Home_Work3Title") %></span>
+            <span class="pillar-card__text"><%: Global.Text("Home_Work3Text") %></span>
+        </a>
+    </div>
+
     <div class="default__container">
         <div class="card">
             <img class="card__icon-large" src="Content/images/site/problem-solving.png" alt="" aria-hidden="true" />

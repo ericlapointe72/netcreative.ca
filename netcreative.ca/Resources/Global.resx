@@ -1882,4 +1882,28 @@ UPDATE USERS SET TotpSecret = NULL, TotpEnabled = 0, TotpLastStep = NULL, TotpRe
   <data name="BtqFaq_Cta" xml:space="preserve">
     <value>A question about a product or a reservation? Head to the shop’s website.</value>
   </data>
+  <data name="Home_WorkLabel" xml:space="preserve">
+    <value>My work</value>
+  </data>
+  <data name="Home_WorkIntro" xml:space="preserve">
+    <value>Rather than tell you about my projects, I would rather show them. Here are three websites you can visit right now, from the most important to the very first.</value>
+  </data>
+  <data name="Home_Work1Title" xml:space="preserve">
+    <value>beaucedutyfree.com</value>
+  </data>
+  <data name="Home_Work1Text" xml:space="preserve">
+    <value>My shop’s website: travellers reserve online, in French or English, before crossing the border and pick up their products on their way through. The administration is protected by two-factor authentication.</value>
+  </data>
+  <data name="Home_Work2Title" xml:space="preserve">
+    <value>netcreative.ca</value>
+  </data>
+  <data name="Home_Work2Text" xml:space="preserve">
+    <value>The site you are browsing right now: bilingual, fast, built without a ready-made template, with a double opt-in newsletter and a secured administration. A concrete look at what I deliver.</value>
+  </data>
+  <data name="Home_Work3Title" xml:space="preserve">
+    <value>tablo-ecolo.ca</value>
+  </data>
+  <data name="Home_Work3Text" xml:space="preserve">
+    <value>The website of an artist from the Beauce region, built back when I was learning to code. It does not have the polish of my current projects, which is exactly what lets you see how far I have come.</value>
+  </data>
 </root>

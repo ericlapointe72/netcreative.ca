@@ -1845,4 +1845,28 @@ UPDATE USERS SET TotpSecret = NULL, TotpEnabled = 0, TotpLastStep = NULL, TotpRe
   <data name="BtqFaq_Cta" xml:space="preserve">
     <value>Une question sur un produit ou une réservation? Rendez-vous sur le site de la boutique.</value>
   </data>
+  <data name="Home_WorkLabel" xml:space="preserve">
+    <value>Mes réalisations</value>
+  </data>
+  <data name="Home_WorkIntro" xml:space="preserve">
+    <value>Plutôt que de vous les raconter, je préfère vous montrer mes projets. Voici trois sites que vous pouvez visiter dès maintenant, du plus important au tout premier.</value>
+  </data>
+  <data name="Home_Work1Title" xml:space="preserve">
+    <value>beaucedutyfree.com</value>
+  </data>
+  <data name="Home_Work1Text" xml:space="preserve">
+    <value>Le site de ma boutique : les voyageurs réservent en ligne, en français ou en anglais, avant de traverser la frontière et récupèrent leurs produits à leur passage. L’administration est protégée par une double authentification.</value>
+  </data>
+  <data name="Home_Work2Title" xml:space="preserve">
+    <value>netcreative.ca</value>
+  </data>
+  <data name="Home_Work2Text" xml:space="preserve">
+    <value>Le site que vous parcourez en ce moment : bilingue, rapide, sans gabarit prêt à l’emploi, avec une infolettre à double confirmation et une administration sécurisée. Un aperçu concret de ce que je livre.</value>
+  </data>
+  <data name="Home_Work3Title" xml:space="preserve">
+    <value>tablo-ecolo.ca</value>
+  </data>
+  <data name="Home_Work3Text" xml:space="preserve">
+    <value>Le site d’une artiste de la Beauce, bâti à l’époque où j’apprenais à coder. Il n’a pas la finition de mes projets actuels, et c’est justement ce qui permet de mesurer le chemin parcouru.</value>
+  </data>
 </root>
