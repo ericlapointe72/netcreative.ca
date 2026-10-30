@@ -126,8 +126,9 @@ namespace netcreative.ca
             var http = error as HttpException;
 
             // A request ASP.NET itself refuses (a "<script>" in a form, or an address that holds a character it does not allow, such as the
-            // "javascript:__doPostBack(...)" a search engine makes of an old link) is not a fault of the site: a short 400, nothing logged.
-            if (error is HttpRequestValidationException || (http != null && http.GetHttpCode() == 400))
+            // "javascript:__doPostBack(...)" a search engine makes of an old link), or a form posted with a value the page never offered, is
+            // not a fault of the site: a short 400, nothing logged.
+            if (error is HttpRequestValidationException || (http != null && http.GetHttpCode() == 400) || IsRefusedPostback(error))
             {
                 ShowPlainPage(context, 400);
                 return;
@@ -144,6 +145,22 @@ namespace netcreative.ca
             {
                 ShowPlainPage(context, notFound ? 404 : 500);
             }
+        }
+
+        // Event validation: ASP.NET refuses a form whose drop-down list (or button) comes back with a value the page did not send, which is what
+        // a robot filling every field with anything does. The exception is usually wrapped by ASP.NET, and it is recognised by where it comes
+        // from rather than by its message, which depends on the language of the server.
+        private static bool IsRefusedPostback(Exception error)
+        {
+            for (Exception inner = error; inner != null; inner = inner.InnerException)
+            {
+                if (inner is ArgumentException && (inner.StackTrace ?? string.Empty).Contains("ClientScriptManager.ValidateEvent"))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private static void ShowPlainPage(HttpContext context, int status)
