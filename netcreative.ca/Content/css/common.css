@@ -20,6 +20,8 @@
     --cookieWarning: rgba(25, 42, 86,0.85);
     --heroBackground: #1c1c1e;
     --heroText: #fff;
+    /* the white arrow of the buttons (a picture, so that it also works on an <input type="submit">) */
+    --buttonArrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E");
 
 /*  -----------------
     FONT SIZE SETTING
@@ -152,33 +154,57 @@ body {
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    padding: 0.85rem 1.5rem;
+    --bx: 1.5rem;
+    --by: 0.85rem;
+    padding: var(--by) var(--bx);
     border: none;
     color: var(--menuText);
     cursor: pointer;
     outline: none;
-    /* diagonal sweep through the two dominant logo colors, same 135deg language already
-       used on the pillar cards */
-    background-image: linear-gradient(135deg, var(--logoOrange) 0%, var(--logoBlue) 100%);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
-    transition: transform 150ms ease, box-shadow 250ms ease, filter 250ms ease;
+    /* Two layers, so it also works on an <input type="submit">, which cannot hold a pseudo-element: a white arrow
+       parked outside the left edge of the button, and a sweep through the two dominant logo colors (the same
+       135deg language as the pillar cards) twice as wide as the button. On hover the arrow slides in, the
+       text moves right to make room for it and the colors shift. */
+    background-image: var(--buttonArrow), linear-gradient(135deg, var(--logoOrange) 0%, var(--logoBlue) 50%, var(--logoOrange) 100%);
+    background-repeat: no-repeat, no-repeat;
+    background-size: 1rem 1rem, 200% 100%;
+    background-position: -1.5rem center, 0% 0%;
+    transition: background-position 500ms ease, padding 300ms ease;
 }
 
-.button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
-    filter: brightness(1.08) saturate(1.1);
+/* hover only where there is a mouse: on a phone the button would stay moved after a tap */
+@media (hover: hover) {
+    .button:hover {
+        background-position: 0.85rem center, 100% 0%;
+        padding-left: calc(var(--bx) + 0.7rem);
+        padding-right: calc(var(--bx) - 0.7rem);
+    }
 }
 
 .button:active {
-    transform: translateY(0);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
+    background-position: 0.85rem center, 100% 0%;
+    padding-left: calc(var(--bx) + 0.7rem);
+    padding-right: calc(var(--bx) - 0.7rem);
 }
 
-/* destructive actions keep their own red gradient so delete/execute buttons in admin
-   stay visually distinct from the brand gradient used everywhere else */
+.button:focus-visible {
+    outline: 3px solid var(--logoOrange);
+    outline-offset: 3px;
+}
+
+/* a button that cannot be used (the newsletter one while it sends) neither moves nor invites */
+.button:disabled {
+    background-position: -1.5rem center, 0% 0%;
+    padding-left: var(--bx);
+    padding-right: var(--bx);
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* destructive actions keep their own red so delete/execute buttons in admin stay visually distinct from the
+   brand colors used everywhere else */
 .button__red {
-    background-image: linear-gradient(135deg, var(--buttonRed) 0%, #a83226 100%);
+    background-image: var(--buttonArrow), linear-gradient(135deg, var(--buttonRed) 0%, #a83226 50%, var(--buttonRed) 100%);
 }
 
 .button__sm {
@@ -277,5 +303,11 @@ body {
         min-width: 0;
         max-width: none;
         width: 100%;
+    }
+}
+/* the buttons fill without the sweep for visitors who asked for less motion */
+@media (prefers-reduced-motion: reduce) {
+    .button {
+        transition: none;
     }
 }

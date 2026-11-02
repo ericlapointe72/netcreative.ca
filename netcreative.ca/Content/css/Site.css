@@ -667,7 +667,8 @@ footer {
 
 .foot__map-button {
     width: auto;
-    padding: 0.6rem 1.2rem;
+    --bx: 1.2rem;
+    --by: 0.6rem;
 }
 
 .foot__map-note,

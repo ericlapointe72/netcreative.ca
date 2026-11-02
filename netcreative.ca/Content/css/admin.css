@@ -590,8 +590,7 @@
 
     .admin-card .card__button .button {
         width: auto;
-        padding-left: 2rem;
-        padding-right: 2rem;
+        --bx: 2rem;
     }
 }
 
@@ -716,7 +715,8 @@
 
 .tfa-ok .button {
     width: auto;
-    padding: 0.4rem 1.4rem;
+    --bx: 1.4rem;
+    --by: 0.4rem;
 }
 
 .tfa-pill {
@@ -861,7 +861,8 @@
 
 .admin-card .msg__delete {
     width: auto;
-    padding: 0.55rem 1.2rem;
+    --bx: 1.2rem;
+    --by: 0.55rem;
     font-size: 0.8rem;
 }
 

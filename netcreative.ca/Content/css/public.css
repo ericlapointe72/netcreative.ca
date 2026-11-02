@@ -86,19 +86,30 @@
     letter-spacing: 0.08em;
     font-size: 0.85rem;
     font-weight: 600;
-    padding: 0.9rem 2rem;
+    --bx: 2rem;
+    --by: 0.9rem;
+    padding: var(--by) var(--bx);
     cursor: pointer;
-    /* same gradient treatment as .button (e.g. contact.aspx's ENVOYER) so hero CTAs
-       read as clearly clickable instead of a flat, easy-to-miss pill */
-    background-image: linear-gradient(135deg, var(--logoOrange) 0%, var(--logoBlue) 100%);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
-    transition: transform 150ms ease, box-shadow 250ms ease, filter 250ms ease;
+    /* the same arrow, text slide and color shift as .button (see common.css) */
+    background-image: var(--buttonArrow), linear-gradient(135deg, var(--logoOrange) 0%, var(--logoBlue) 50%, var(--logoOrange) 100%);
+    background-repeat: no-repeat, no-repeat;
+    background-size: 1rem 1rem, 200% 100%;
+    background-position: -1.5rem center, 0% 0%;
+    transition: background-position 500ms ease, padding 300ms ease;
 }
 
-.hero__cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
-    filter: brightness(1.08) saturate(1.1);
+@media (hover: hover) {
+    .hero__cta:hover {
+        background-position: 0.85rem center, 100% 0%;
+        padding-left: calc(var(--bx) + 0.7rem);
+        padding-right: calc(var(--bx) - 0.7rem);
+    }
+}
+
+.hero__cta:active {
+    background-position: 0.85rem center, 100% 0%;
+    padding-left: calc(var(--bx) + 0.7rem);
+    padding-right: calc(var(--bx) - 0.7rem);
 }
 
 /*  -------------
@@ -940,7 +951,7 @@
 .contact__container .card.confirmation__card .button {
     width: auto;
     text-decoration: none;
-    padding: 0.85rem 2.5rem;
+    --bx: 2.5rem;
 }
 
 /*  -----
@@ -1435,8 +1446,13 @@ footer a:hover {
 .faq__cta .button {
     display: inline-block;
     width: auto;
-    padding-left: 2.2rem;
-    padding-right: 2.2rem;
+    --bx: 2.2rem;
     text-align: center;
     text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero__cta {
+        transition: none;
+    }
 }
