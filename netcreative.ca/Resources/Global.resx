@@ -631,19 +631,16 @@
     <value>What is the project type ...</value>
   </data>
   <data name="Contact_ProjectType1" xml:space="preserve">
-    <value>Showcase site</value>
+    <value>Website (showcase, catalogue or informational)</value>
   </data>
   <data name="Contact_ProjectType2" xml:space="preserve">
-    <value>Catalog site</value>
+    <value>Custom web application</value>
   </data>
   <data name="Contact_ProjectType3" xml:space="preserve">
-    <value>Informative site</value>
+    <value>DutyFreeOps (duty-free shop)</value>
   </data>
   <data name="Contact_ProjectType4" xml:space="preserve">
-    <value>Web application</value>
-  </data>
-  <data name="Contact_ProjectType5" xml:space="preserve">
-    <value>Duty-free shop app</value>
+    <value>Other, or I do not know yet</value>
   </data>
   <data name="Contact_BudgetLabel" xml:space="preserve">
     <value>You have a budget of ...</value>

@@ -584,19 +584,16 @@
     <value>Quel est le type de projet ...</value>
   </data>
   <data name="Contact_ProjectType1" xml:space="preserve">
-    <value>Site vitrine</value>
+    <value>Site web (vitrine, catalogue ou informatif)</value>
   </data>
   <data name="Contact_ProjectType2" xml:space="preserve">
-    <value>Site catalogue</value>
+    <value>Application web sur mesure</value>
   </data>
   <data name="Contact_ProjectType3" xml:space="preserve">
-    <value>Site informatif</value>
+    <value>DutyFreeOps (boutique hors taxes)</value>
   </data>
   <data name="Contact_ProjectType4" xml:space="preserve">
-    <value>Application web</value>
-  </data>
-  <data name="Contact_ProjectType5" xml:space="preserve">
-    <value>Application boutique hors taxes</value>
+    <value>Autre, ou je ne sais pas encore</value>
   </data>
   <data name="Contact_BudgetLabel" xml:space="preserve">
     <value>Vous disposez d'un budjet de ...</value>
