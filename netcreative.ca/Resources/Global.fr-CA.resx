@@ -994,7 +994,7 @@
     <value>Trop de tentatives de connexion. Réessayez dans quelques minutes.</value>
   </data>
   <data name="Login_CodeLabel" xml:space="preserve">
-    <value>Code à 6 chiffres ou code de secours</value>
+    <value>Code de vérification</value>
   </data>
   <data name="Login_CodeHint" xml:space="preserve">
     <value>Ouvrez votre application d’authentification et tapez le code à 6 chiffres. Si vous avez perdu votre téléphone, tapez un code de secours.</value>

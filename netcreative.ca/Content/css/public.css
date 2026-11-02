@@ -410,6 +410,7 @@
    that hides the line behind it. The grey of the edge is dark enough to be seen on a white card (WCAG 3:1 for a control). */
 .contact__container .contact__grid .textbox,
 .contact__container .card__description .textbox,
+.contact__container .card.login__card .textbox,
 .contact__container .textbox__question {
     height: 3rem;
     margin-bottom: 0;
@@ -424,12 +425,14 @@
 
 .contact__container .contact__grid .textbox:hover,
 .contact__container .card__description .textbox:hover,
+.contact__container .card.login__card .textbox:hover,
 .contact__container .textbox__question:hover {
     border-color: var(--logoBlue);
 }
 
 .contact__container .contact__grid .textbox:focus,
 .contact__container .card__description .textbox:focus,
+.contact__container .card.login__card .textbox:focus,
 .contact__container .textbox__question:focus {
     outline: none;
     border-color: var(--logoOrange);
@@ -1030,7 +1033,7 @@
     gap: 0.6rem;
     position: relative;
     min-height: 2.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.1rem;
 }
 
 .contact__container .card.login__card .card__icon {
@@ -1052,8 +1055,8 @@
     pointer-events: none;
     font-size: 1.1rem;
     font-weight: 300;
-    top: 0.35rem;
-    left: 1.6rem;
+    top: 0.8rem;
+    left: 2.5rem;
     color: var(--logoBlue);
     transition: 220ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1068,8 +1071,10 @@
     font-weight: 500;
     letter-spacing: 0.02em;
     color: var(--logoOrange);
-    top: -0.7rem;
-    left: 1.6rem;
+    top: -0.6rem;
+    left: 2.3rem;
+    padding: 0 0.3rem;
+    background-color: var(--menuText);
 }
 
 /* filled in by the browser or a password manager: not ":valid" until the visitor touches the page (see the contact form above) */
@@ -1079,8 +1084,10 @@
     font-weight: 500;
     letter-spacing: 0.02em;
     color: var(--logoOrange);
-    top: -0.7rem;
-    left: 1.6rem;
+    top: -0.6rem;
+    left: 2.3rem;
+    padding: 0 0.3rem;
+    background-color: var(--menuText);
 }
 
 .contact__container .card.login__card .tb__user:autofill ~ .lbl__user,
@@ -1089,8 +1096,10 @@
     font-weight: 500;
     letter-spacing: 0.02em;
     color: var(--logoOrange);
-    top: -0.7rem;
-    left: 1.6rem;
+    top: -0.6rem;
+    left: 2.3rem;
+    padding: 0 0.3rem;
+    background-color: var(--menuText);
 }
 
 .contact__container .card.login__card .card__user[hidden],

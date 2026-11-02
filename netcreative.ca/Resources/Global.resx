@@ -1033,7 +1033,7 @@
     <value>Too many sign-in attempts. Please try again in a few minutes.</value>
   </data>
   <data name="Login_CodeLabel" xml:space="preserve">
-    <value>6-digit code or recovery code</value>
+    <value>Verification code</value>
   </data>
   <data name="Login_CodeHint" xml:space="preserve">
     <value>Open your authenticator app and type the 6-digit code. If you lost your phone, type a recovery code.</value>
