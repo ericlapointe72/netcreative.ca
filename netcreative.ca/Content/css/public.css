@@ -355,7 +355,7 @@
 .contact__container .contact__grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0.5rem 1.5rem;
+    gap: 1.1rem 1.5rem;
 }
 
 @media screen and (min-width: 600px) {
@@ -364,7 +364,12 @@
     }
 
     .contact__container .contact__grid--project {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* the first choice (the type of project) has the longest text: it gets a whole line, the two others share the next one */
+    .contact__container .contact__grid--project .card__dropdown:first-child {
+        grid-column: 1 / -1;
     }
 }
 
@@ -397,11 +402,58 @@
 }
 
 .contact__container .card__description {
-    margin-top: 0.5rem;
+    margin-top: 1.25rem;
 }
 
-.contact__container .tb__description {
+/* The fields of the form are boxes with slightly rounded corners (they used to be a line under the text). The label sits inside
+   the box and, when the field has the focus or something typed, moves up onto the top edge of the box, on a white background
+   that hides the line behind it. The grey of the edge is dark enough to be seen on a white card (WCAG 3:1 for a control). */
+.contact__container .contact__grid .textbox,
+.contact__container .card__description .textbox,
+.contact__container .textbox__question {
+    height: 3rem;
+    margin-bottom: 0;
+    padding: 0 0.9rem;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: var(--menuText);
+    border: 1px solid #8a94a6;
+    border-radius: 6px;
+    transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.contact__container .contact__grid .textbox:hover,
+.contact__container .card__description .textbox:hover,
+.contact__container .textbox__question:hover {
+    border-color: var(--logoBlue);
+}
+
+.contact__container .contact__grid .textbox:focus,
+.contact__container .card__description .textbox:focus,
+.contact__container .textbox__question:focus {
+    outline: none;
+    border-color: var(--logoOrange);
+    box-shadow: 0 0 0 3px rgba(237, 125, 49, 0.2);
+}
+
+.contact__container .card__description .tb__description {
     height: 8rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    resize: vertical;
+}
+
+/* the lists drop the arrow of the browser (glued to the edge of the box) for the same arrow, drawn a little inside */
+.contact__container .contact__grid select.textbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 2.6rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23636e72' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9rem center;
+    background-size: 1rem 1rem;
+    cursor: pointer;
 }
 
 .contact__container .lbl__lastName,
@@ -414,8 +466,8 @@
     pointer-events: none;
     font-size: 1.1rem;
     font-weight: 300;
-    top: 0.35rem;
-    left: 0.15rem;
+    top: 0.8rem;
+    left: 0.9rem;
     color: var(--logoBlue);
     transition: 220ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -436,8 +488,10 @@
     font-weight: 500;
     letter-spacing: 0.02em;
     color: var(--logoOrange);
-    top: -0.7rem;
-    left: 0.15rem;
+    top: -0.6rem;
+    left: 0.7rem;
+    padding: 0 0.3rem;
+    background-color: var(--menuText);
 }
 
 /* A field filled in by the browser (saved address, password manager) is not ":valid" until the visitor touches the page, so its label
@@ -451,8 +505,10 @@
     font-weight: 500;
     letter-spacing: 0.02em;
     color: var(--logoOrange);
-    top: -0.7rem;
-    left: 0.15rem;
+    top: -0.6rem;
+    left: 0.7rem;
+    padding: 0 0.3rem;
+    background-color: var(--menuText);
 }
 
 .contact__container .tb__lastName:autofill ~ .lbl__lastName,
@@ -464,8 +520,10 @@
     font-weight: 500;
     letter-spacing: 0.02em;
     color: var(--logoOrange);
-    top: -0.7rem;
-    left: 0.15rem;
+    top: -0.6rem;
+    left: 0.7rem;
+    padding: 0 0.3rem;
+    background-color: var(--menuText);
 }
 
 .contact__container .card__verify {
