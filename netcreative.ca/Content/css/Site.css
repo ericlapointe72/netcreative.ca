@@ -626,6 +626,12 @@ footer {
     border: 1px solid var(--logoOrange);
 }
 
+/* the button is exactly as high as the text box next to it (their height is fixed here, not left to the font) */
+.foot__subscribe-input .subscribe__submit {
+    --by: 0;
+    height: 2.42rem;
+}
+
 .foot__map {
     grid-area: foot_r;
     display: flex;
