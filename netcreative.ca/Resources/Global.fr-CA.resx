@@ -203,6 +203,12 @@
   <data name="Home_HeroEyebrow" xml:space="preserve">
     <value>Éric Lapointe</value>
   </data>
+  <data name="Home_HeroAlt" xml:space="preserve">
+    <value>Melotte 15, l’amas d’étoiles au cœur de la nébuleuse du Cœur (IC 1805)</value>
+  </data>
+  <data name="Home_HeroCredit" xml:space="preserve">
+    <value>Astrophotographie : Éric Lapointe</value>
+  </data>
   <data name="Home_PillarsLabel" xml:space="preserve">
     <value>Ce que je fais</value>
   </data>
@@ -255,7 +261,7 @@
     <value>Raison numéro 5</value>
   </data>
   <data name="Home_Slide5Text" xml:space="preserve">
-    <value>Mon support ne s'arrête pas à la livraison : vous pouvez me joindre par téléphone en tout temps, et vous parlerez directement à la personne qui a bâti votre site.</value>
+    <value>Mon support ne s'arrête pas à la livraison : vous pouvez me joindre par téléphone aux heures d'ouverture, et vous parlerez directement à la personne qui a bâti votre site.</value>
   </data>
   <data name="Home_WhoIamTitle" xml:space="preserve">
     <value>Une passion qui m'accompagne depuis toujours</value>

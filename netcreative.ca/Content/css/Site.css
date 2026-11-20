@@ -22,6 +22,48 @@
     pointer-events: none;
 }
 
+/* a hero whose photo is a real image (see SetHeroPicture in Site.Master.cs) has no CSS background: the picture fills the hero and
+   the dark layer is drawn over the picture instead of over the background */
+.page-hero--photo:has(.page-hero__picture)::before {
+    display: none;
+}
+
+.page-hero__picture {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.page-hero__picture picture,
+.page-hero__picture img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.page-hero__picture img {
+    object-fit: cover;
+    object-position: center;
+}
+
+.page-hero__picture::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 12, 0.55);
+}
+
+.page-hero__credit {
+    position: absolute;
+    right: 1rem;
+    bottom: 0.75rem;
+    z-index: 1;
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+}
+
 /* the cookie banner sits on top of everything (z-index:9999, see .cookie__panel) so it's
    never hidden behind the hero — but on a hero with enough content to reach the bottom of
    the viewport (eyebrow + title + text + CTA, e.g. dutyfreeops.aspx), that put the banner

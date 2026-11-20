@@ -15,6 +15,7 @@ namespace netcreative.ca.MasterPages
         private const string BrandName = "Net.Créative";
 
         private string connectionString = string.Empty;
+        private string pageTitle = string.Empty;
         private string pageDescription = string.Empty;
         private bool pageNoIndex = false;
 
@@ -90,7 +91,8 @@ namespace netcreative.ca.MasterPages
         // <% %>) happens too late and the master's default title always won.
         public void SetPageMeta(string title, string description = null, bool noIndex = false)
         {
-            Page.Title = title.Contains(BrandName) ? title : title + " | " + BrandName;
+            pageTitle = title.Contains(BrandName) ? title : title + " | " + BrandName;
+            Page.Title = pageTitle;
             pageDescription = description;
             pageNoIndex = noIndex;
         }
@@ -124,7 +126,8 @@ namespace netcreative.ca.MasterPages
             string enUrl = frUrl + "?lang=en";
             string pageUrl = english ? enUrl : frUrl;
             string imageUrl = SiteBase + "/Content/images/site/hero-accueil.jpg";
-            string title = Page.Title;
+            // Page.Title reads back empty at this point (the og:title was empty on every page): the title SetPageMeta chose is kept in a field
+            string title = !string.IsNullOrEmpty(pageTitle) ? pageTitle : (!string.IsNullOrEmpty(Page.Title) ? Page.Title : BrandName);
 
             StringBuilder tags = new StringBuilder();
             tags.Append("\n        <link rel=\"canonical\" href=\"" + HttpUtility.HtmlAttributeEncode(pageUrl) + "\" />");
@@ -209,7 +212,12 @@ namespace netcreative.ca.MasterPages
         public void SetPageHero(string imageUrl, string eyebrow, string title, string text = null, string ctaText = null, string ctaUrl = null, string ctaTarget = null)
         {
             PageHero.Attributes["class"] = "page-hero page-hero--photo";
-            PageHero.Attributes["style"] = "background-image:url('" + imageUrl + "')";
+
+            // no background when the page draws its photo as a real image (SetHeroPicture)
+            if (!string.IsNullOrEmpty(imageUrl))
+            {
+                PageHero.Attributes["style"] = "background-image:url('" + imageUrl + "')";
+            }
 
             Span_PageHeroEyebrow.InnerText = eyebrow;
             Span_PageHeroEyebrow.Visible = true;
@@ -233,6 +241,41 @@ namespace netcreative.ca.MasterPages
                 }
                 HyperLink_PageHeroCta.Visible = true;
             }
+        }
+
+        // The photo of a hero as a real image rather than a CSS background: WebP when the browser reads it (the JPEG is the fallback),
+        // the width that fits the screen, an alternative text, and no lazy loading because it is the first thing seen.
+        // The files are <baseUrl>-<width>.webp and <baseUrl>.jpg (width x height are those of the JPEG).
+        // No AVIF: the host answers 404 for .avif (no MIME type for it in IIS), and a browser that picked an AVIF source does not fall
+        // back to the next one. To bring it back, add <mimeMap fileExtension=".avif" mimeType="image/avif" /> to Web.config first.
+        public void SetHeroPicture(string baseUrl, int[] widths, int width, int height, string alt, string credit)
+        {
+            string root = ResolveUrl(baseUrl);
+            // a photo is as wide as the screen or, on a tall narrow screen, as tall as it is cropped to fit
+            const string sizes = "max(100vw, 178vh)";
+
+            Func<string, string> set = extension =>
+            {
+                var items = new List<string>();
+                foreach (int w in widths)
+                {
+                    items.Add(root + "-" + w + "." + extension + " " + w + "w");
+                }
+                return string.Join(", ", items);
+            };
+
+            var html = new StringBuilder();
+            html.Append("<div class=\"page-hero__picture\"><picture>");
+            html.Append("<source type=\"image/webp\" srcset=\"" + set("webp") + "\" sizes=\"" + sizes + "\" />");
+            html.Append("<img src=\"" + root + ".jpg\" width=\"" + width + "\" height=\"" + height + "\" alt=\"" + HttpUtility.HtmlAttributeEncode(alt) + "\" fetchpriority=\"high\" decoding=\"async\" />");
+            html.Append("</picture></div>");
+
+            if (!string.IsNullOrEmpty(credit))
+            {
+                html.Append("<span class=\"page-hero__credit\">" + HttpUtility.HtmlEncode(credit) + "</span>");
+            }
+
+            Literal_HeroPicture.Text = html.ToString();
         }
 
         private void HideShow_Animation()

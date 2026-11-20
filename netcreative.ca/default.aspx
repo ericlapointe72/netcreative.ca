@@ -3,7 +3,9 @@
 <%@ Import Namespace="netcreative.ca.Resources" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <%
-    Master.SetPageHero("Content/images/site/hero-accueil.jpg", Global.Home_HeroEyebrow, Global.Home_Welcome);
+    // the photo is drawn by SetHeroPicture (a real image, first thing seen: not lazy loaded), so the hero gets no background image
+    Master.SetPageHero(null, Global.Home_HeroEyebrow, Global.Home_Welcome);
+    Master.SetHeroPicture("~/Content/images/site/hero-accueil", new[] { 640, 960, 1200 }, 1200, 675, Global.Text("Home_HeroAlt"), Global.Text("Home_HeroCredit"));
 %>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

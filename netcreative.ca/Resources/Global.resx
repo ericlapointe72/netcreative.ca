@@ -258,6 +258,12 @@
   <data name="Home_HeroEyebrow" xml:space="preserve">
     <value>Eric Lapointe</value>
   </data>
+  <data name="Home_HeroAlt" xml:space="preserve">
+    <value>Melotte 15, the star cluster at the heart of the Heart Nebula (IC 1805)</value>
+  </data>
+  <data name="Home_HeroCredit" xml:space="preserve">
+    <value>Astrophotography: Éric Lapointe</value>
+  </data>
   <data name="Home_PillarsLabel" xml:space="preserve">
     <value>What I do</value>
   </data>
@@ -310,7 +316,7 @@
     <value>Reason number 5</value>
   </data>
   <data name="Home_Slide5Text" xml:space="preserve">
-    <value>My support doesn't stop at delivery: you can reach me by phone anytime, and you'll speak directly with the person who built your site.</value>
+    <value>My support doesn't stop at delivery: you can reach me by phone during opening hours, and you'll speak directly with the person who built your site.</value>
   </data>
   <data name="Home_WhoIamTitle" xml:space="preserve">
     <value>A passion that's always been with me</value>
